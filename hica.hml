@@ -2,15 +2,15 @@
     name: "sqlite"
     version: "0.1.0"
     license: "MIT"
-    entry: "main.hc"
+    entry: "src/main.hc"
 }
 
 @dependencies {
 }
 
 @description {
-    summary: "A hica project"
-    author: ""
-    homepage: ""
-    repository: ""
+    summary: "Sqlite library for the hica eco-system"
+    author: "Claes Adamsson"
+    homepage: "https://www.hica.dev"
+    repository: "https://github.com/cladam/sqlite"
 }
