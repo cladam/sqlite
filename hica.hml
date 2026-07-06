@@ -5,6 +5,10 @@
     entry: "src/main.hc"
 }
 
+@koka {
+    flags: "--cclib=sqlite3"
+}
+
 @dependencies {
 }
 
