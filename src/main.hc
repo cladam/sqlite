@@ -1,4 +1,4 @@
-extern import "sqlite"
+import "./sqlite"
 
 fun print_all_rows(db, sql) {
   match sqlite_query(db, sql) {
@@ -17,7 +17,7 @@ fun print_filtered(db) {
 fun print_table_check(db, name) {
   match sqlite_table_exists(db, name) {
     Err(e)     => println("table_exists failed: " + e),
-    Ok(exists) => println(name + " table exists: " + show(exists))
+    Ok(found) => println(name + " table exists: " + show(found))
   }
 }
 

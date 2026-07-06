@@ -1,3 +1,5 @@
+// Koka generated module: sqlite_ffi, koka version: 3.2.3, platform: 64-bit
+#include "sqlite__ffi.h"
 /*
  * hica – SQLite3 trampoline  [SKETCH — not yet wired into the build]
  *
@@ -304,4 +306,99 @@ done:
   kk_string_t result = kk_string_alloc_dup_valid_utf8(sb.data, ctx);
   free(sb.data);
   return result;
+}
+
+
+kk_integer_t kk_sqlite__ffi_sqlite__open__raw(kk_string_t path, kk_context_t* _ctx) { /* (path : string) -> io int */ 
+  return kk_hica_sqlite_open(path,kk_context());
+}
+
+kk_unit_t kk_sqlite__ffi_sqlite__close__raw(kk_integer_t h, kk_context_t* _ctx) { /* (h : int) -> io () */ 
+  kk_hica_sqlite_close(h,kk_context()); return kk_Unit;
+}
+
+kk_string_t kk_sqlite__ffi_sqlite__errmsg__raw(kk_integer_t h, kk_context_t* _ctx) { /* (h : int) -> io string */ 
+  return kk_hica_sqlite_errmsg(h,kk_context());
+}
+
+kk_integer_t kk_sqlite__ffi_sqlite__last__insert__id__raw(kk_integer_t h, kk_context_t* _ctx) { /* (h : int) -> io int */ 
+  return kk_hica_sqlite_last_insert_id(h,kk_context());
+}
+
+kk_integer_t kk_sqlite__ffi_sqlite__changes__raw(kk_integer_t h, kk_context_t* _ctx) { /* (h : int) -> io int */ 
+  return kk_hica_sqlite_changes(h,kk_context());
+}
+
+kk_integer_t kk_sqlite__ffi_sqlite__exec__raw(kk_integer_t h, kk_string_t sql, kk_context_t* _ctx) { /* (h : int, sql : string) -> io int */ 
+  return kk_hica_sqlite_exec(h,sql,kk_context());
+}
+
+kk_integer_t kk_sqlite__ffi_sqlite__exec__p__raw(kk_integer_t h, kk_string_t sql, kk_string_t params, kk_context_t* _ctx) { /* (h : int, sql : string, params : string) -> io int */ 
+  return kk_hica_sqlite_exec_p(h,sql,params,kk_context());
+}
+
+kk_string_t kk_sqlite__ffi_sqlite__query__p__raw(kk_integer_t h, kk_string_t sql, kk_string_t params, kk_context_t* _ctx) { /* (h : int, sql : string, params : string) -> io string */ 
+  return kk_hica_sqlite_query_p(h,sql,params,kk_context());
+}
+
+// initialization
+void kk_sqlite__ffi__init(kk_context_t* _ctx){
+  static bool _kk_initialized = false;
+  if (_kk_initialized) return;
+  _kk_initialized = true;
+  kk_std_core_types__init(_ctx);
+  kk_std_core_hnd__init(_ctx);
+  kk_std_core_exn__init(_ctx);
+  kk_std_core_bool__init(_ctx);
+  kk_std_core_order__init(_ctx);
+  kk_std_core_char__init(_ctx);
+  kk_std_core_int__init(_ctx);
+  kk_std_core_vector__init(_ctx);
+  kk_std_core_string__init(_ctx);
+  kk_std_core_sslice__init(_ctx);
+  kk_std_core_list__init(_ctx);
+  kk_std_core_maybe__init(_ctx);
+  kk_std_core_maybe2__init(_ctx);
+  kk_std_core_either__init(_ctx);
+  kk_std_core_tuple__init(_ctx);
+  kk_std_core_lazy__init(_ctx);
+  kk_std_core_show__init(_ctx);
+  kk_std_core_debug__init(_ctx);
+  kk_std_core_delayed__init(_ctx);
+  kk_std_core_console__init(_ctx);
+  kk_std_core__init(_ctx);
+  #if defined(KK_CUSTOM_INIT)
+    KK_CUSTOM_INIT (_ctx);
+  #endif
+}
+
+// termination
+void kk_sqlite__ffi__done(kk_context_t* _ctx){
+  static bool _kk_done = false;
+  if (_kk_done) return;
+  _kk_done = true;
+  #if defined(KK_CUSTOM_DONE)
+    KK_CUSTOM_DONE (_ctx);
+  #endif
+  kk_std_core__done(_ctx);
+  kk_std_core_console__done(_ctx);
+  kk_std_core_delayed__done(_ctx);
+  kk_std_core_debug__done(_ctx);
+  kk_std_core_show__done(_ctx);
+  kk_std_core_lazy__done(_ctx);
+  kk_std_core_tuple__done(_ctx);
+  kk_std_core_either__done(_ctx);
+  kk_std_core_maybe2__done(_ctx);
+  kk_std_core_maybe__done(_ctx);
+  kk_std_core_list__done(_ctx);
+  kk_std_core_sslice__done(_ctx);
+  kk_std_core_string__done(_ctx);
+  kk_std_core_vector__done(_ctx);
+  kk_std_core_int__done(_ctx);
+  kk_std_core_char__done(_ctx);
+  kk_std_core_order__done(_ctx);
+  kk_std_core_bool__done(_ctx);
+  kk_std_core_exn__done(_ctx);
+  kk_std_core_hnd__done(_ctx);
+  kk_std_core_types__done(_ctx);
 }

@@ -11,7 +11,7 @@
 // Build and run from the library root:
 //   hica run examples/basic.hc
 
-extern import "sqlite"
+import "../src/sqlite"
 
 // ---------------------------------------------------------------------------
 // Helpers — extract multi-step operations into named functions so that
@@ -36,23 +36,23 @@ fun run_kv_demo(db) {
 
 fun print_hit_value(row) {
   match row_str(row, 0) {
-    Nothing => println("value missing"),
-    Just(v) => println("hits = " + v)
+    None => println("value missing"),
+    Some(v) => println("hits = " + v)
   }
 }
 
 fun check_hits(db) {
   match sqlite_query_one(db, "SELECT n FROM counters WHERE name = ?", ["hits"]) {
     Err(e)        => println("query_one failed: " + e),
-    Ok(Nothing)   => println("no row found"),
-    Ok(Just(row)) => print_hit_value(row)
+    Ok(None)      => println("no row found"),
+    Ok(Some(row)) => print_hit_value(row)
   }
 }
 
 fun print_table_exists(db, name) {
   match sqlite_table_exists(db, name) {
     Err(e)     => println("table_exists failed: " + e),
-    Ok(exists) => println(name + " table exists: " + show(exists))
+    Ok(found) => println(name + " table exists: " + show(found))
   }
 }
 
