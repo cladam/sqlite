@@ -25,7 +25,6 @@
 #include "std_core_console.h"
 #include "std_core.h"
 #include "sqlite__ffi.h"
-#include "list.h"
 
 // type declarations
 
@@ -125,46 +124,46 @@ kk_unit_t kk_sqlite_hc_assert(bool b, kk_context_t* _ctx); /* (b : bool) -> exn 
  
 // monadic lift
 
-static inline kk_string_t kk_sqlite__mlift_hc_show_maybe_10173(kk_string_t _y_x10090, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
-  kk_string_t _x_x782;
-  kk_define_string_literal(static, _s_x783, 5, "Some(", _ctx)
-  _x_x782 = kk_string_dup(_s_x783, _ctx); /*string*/
-  kk_string_t _x_x784;
-  kk_string_t _x_x785;
-  kk_define_string_literal(static, _s_x786, 1, ")", _ctx)
-  _x_x785 = kk_string_dup(_s_x786, _ctx); /*string*/
-  _x_x784 = kk_std_core_types__lp__plus__plus__rp_(_y_x10090, _x_x785, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x782, _x_x784, _ctx);
+static inline kk_string_t kk_sqlite__mlift_hc_show_maybe_10174(kk_string_t _y_x10090, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
+  kk_string_t _x_x786;
+  kk_define_string_literal(static, _s_x787, 5, "Some(", _ctx)
+  _x_x786 = kk_string_dup(_s_x787, _ctx); /*string*/
+  kk_string_t _x_x788;
+  kk_string_t _x_x789;
+  kk_define_string_literal(static, _s_x790, 1, ")", _ctx)
+  _x_x789 = kk_string_dup(_s_x790, _ctx); /*string*/
+  _x_x788 = kk_std_core_types__lp__plus__plus__rp_(_y_x10090, _x_x789, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x786, _x_x788, _ctx);
 }
 
 kk_string_t kk_sqlite_hc_show_maybe(kk_std_core_types__maybe m, kk_function_t show_a, kk_context_t* _ctx); /* forall<a,e> (m : maybe<a>, show-a : (a) -> e string) -> e string */ 
  
 // monadic lift
 
-static inline kk_string_t kk_sqlite__mlift_hc_show_result_10174(kk_string_t _y_x10092, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
-  kk_string_t _x_x801;
-  kk_define_string_literal(static, _s_x802, 3, "Ok(", _ctx)
-  _x_x801 = kk_string_dup(_s_x802, _ctx); /*string*/
-  kk_string_t _x_x803;
-  kk_string_t _x_x804;
-  kk_define_string_literal(static, _s_x805, 1, ")", _ctx)
-  _x_x804 = kk_string_dup(_s_x805, _ctx); /*string*/
-  _x_x803 = kk_std_core_types__lp__plus__plus__rp_(_y_x10092, _x_x804, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x801, _x_x803, _ctx);
+static inline kk_string_t kk_sqlite__mlift_hc_show_result_10175(kk_string_t _y_x10092, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
+  kk_string_t _x_x805;
+  kk_define_string_literal(static, _s_x806, 3, "Ok(", _ctx)
+  _x_x805 = kk_string_dup(_s_x806, _ctx); /*string*/
+  kk_string_t _x_x807;
+  kk_string_t _x_x808;
+  kk_define_string_literal(static, _s_x809, 1, ")", _ctx)
+  _x_x808 = kk_string_dup(_s_x809, _ctx); /*string*/
+  _x_x807 = kk_std_core_types__lp__plus__plus__rp_(_y_x10092, _x_x808, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x805, _x_x807, _ctx);
 }
  
 // monadic lift
 
-static inline kk_string_t kk_sqlite__mlift_hc_show_result_10175(kk_string_t _y_x10093, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
-  kk_string_t _x_x806;
-  kk_define_string_literal(static, _s_x807, 4, "Err(", _ctx)
-  _x_x806 = kk_string_dup(_s_x807, _ctx); /*string*/
-  kk_string_t _x_x808;
-  kk_string_t _x_x809;
-  kk_define_string_literal(static, _s_x810, 1, ")", _ctx)
-  _x_x809 = kk_string_dup(_s_x810, _ctx); /*string*/
-  _x_x808 = kk_std_core_types__lp__plus__plus__rp_(_y_x10093, _x_x809, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x806, _x_x808, _ctx);
+static inline kk_string_t kk_sqlite__mlift_hc_show_result_10176(kk_string_t _y_x10093, kk_context_t* _ctx) { /* forall<e> (string) -> e string */ 
+  kk_string_t _x_x810;
+  kk_define_string_literal(static, _s_x811, 4, "Err(", _ctx)
+  _x_x810 = kk_string_dup(_s_x811, _ctx); /*string*/
+  kk_string_t _x_x812;
+  kk_string_t _x_x813;
+  kk_define_string_literal(static, _s_x814, 1, ")", _ctx)
+  _x_x813 = kk_string_dup(_s_x814, _ctx); /*string*/
+  _x_x812 = kk_std_core_types__lp__plus__plus__rp_(_y_x10093, _x_x813, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x810, _x_x812, _ctx);
 }
 
 kk_string_t kk_sqlite_hc_show_result(kk_std_core_types__either r, kk_function_t show_a, kk_function_t show_e, kk_context_t* _ctx); /* forall<a,b,e> (r : either<a,b>, show-a : (b) -> e string, show-e : (a) -> e string) -> e string */ 
@@ -195,8 +194,8 @@ kk_sqlite__row kk_sqlite_row_fs__copy(kk_sqlite__row _this, kk_std_core_types__o
 
 static inline kk_std_core_types__list kk_sqlite_queryresult_fs_columns(kk_sqlite__queryresult queryresult, kk_context_t* _ctx) { /* (queryresult : queryresult) -> list<string> */ 
   {
-    struct kk_sqlite_Queryresult* _con_x839 = kk_sqlite__as_Queryresult(queryresult, _ctx);
-    kk_std_core_types__list _x = _con_x839->columns;
+    struct kk_sqlite_Queryresult* _con_x843 = kk_sqlite__as_Queryresult(queryresult, _ctx);
+    kk_std_core_types__list _x = _con_x843->columns;
     return kk_std_core_types__list_dup(_x, _ctx);
   }
 }
@@ -205,34 +204,34 @@ static inline kk_std_core_types__list kk_sqlite_queryresult_fs_columns(kk_sqlite
 
 static inline kk_std_core_types__list kk_sqlite_queryresult_fs_rows(kk_sqlite__queryresult queryresult, kk_context_t* _ctx) { /* (queryresult : queryresult) -> list<row> */ 
   {
-    struct kk_sqlite_Queryresult* _con_x840 = kk_sqlite__as_Queryresult(queryresult, _ctx);
-    kk_std_core_types__list _x = _con_x840->rows;
+    struct kk_sqlite_Queryresult* _con_x844 = kk_sqlite__as_Queryresult(queryresult, _ctx);
+    kk_std_core_types__list _x = _con_x844->rows;
     return kk_std_core_types__list_dup(_x, _ctx);
   }
 }
 
 static inline kk_string_t kk_sqlite_db_fs_show(kk_sqlite__db p, kk_context_t* _ctx) { /* (p : db) -> string */ 
-  kk_string_t _x_x841;
-  kk_define_string_literal(static, _s_x842, 3, "Db(", _ctx)
-  _x_x841 = kk_string_dup(_s_x842, _ctx); /*string*/
-  kk_string_t _x_x843;
-  kk_string_t _x_x844;
-  kk_define_string_literal(static, _s_x845, 3, "h: ", _ctx)
-  _x_x844 = kk_string_dup(_s_x845, _ctx); /*string*/
-  kk_string_t _x_x846;
+  kk_string_t _x_x845;
+  kk_define_string_literal(static, _s_x846, 3, "Db(", _ctx)
+  _x_x845 = kk_string_dup(_s_x846, _ctx); /*string*/
   kk_string_t _x_x847;
-  kk_integer_t _x_x848;
+  kk_string_t _x_x848;
+  kk_define_string_literal(static, _s_x849, 3, "h: ", _ctx)
+  _x_x848 = kk_string_dup(_s_x849, _ctx); /*string*/
+  kk_string_t _x_x850;
+  kk_string_t _x_x851;
+  kk_integer_t _x_x852;
   {
     kk_integer_t _x = p.h;
-    _x_x848 = _x; /*int*/
+    _x_x852 = _x; /*int*/
   }
-  _x_x847 = kk_std_core_int_show(_x_x848, _ctx); /*string*/
-  kk_string_t _x_x849;
-  kk_define_string_literal(static, _s_x850, 1, ")", _ctx)
-  _x_x849 = kk_string_dup(_s_x850, _ctx); /*string*/
-  _x_x846 = kk_std_core_types__lp__plus__plus__rp_(_x_x847, _x_x849, _ctx); /*string*/
-  _x_x843 = kk_std_core_types__lp__plus__plus__rp_(_x_x844, _x_x846, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x841, _x_x843, _ctx);
+  _x_x851 = kk_std_core_int_show(_x_x852, _ctx); /*string*/
+  kk_string_t _x_x853;
+  kk_define_string_literal(static, _s_x854, 1, ")", _ctx)
+  _x_x853 = kk_string_dup(_s_x854, _ctx); /*string*/
+  _x_x850 = kk_std_core_types__lp__plus__plus__rp_(_x_x851, _x_x853, _ctx); /*string*/
+  _x_x847 = kk_std_core_types__lp__plus__plus__rp_(_x_x848, _x_x850, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x845, _x_x847, _ctx);
 }
 
 kk_string_t kk_sqlite_row_fs_show(kk_sqlite__row p, kk_context_t* _ctx); /* (p : row) -> string */ 
@@ -242,8 +241,8 @@ kk_string_t kk_sqlite_queryresult_fs_show(kk_sqlite__queryresult p, kk_context_t
 kk_sqlite__queryresult kk_sqlite_queryresult_fs__copy(kk_sqlite__queryresult _this, kk_std_core_types__optional columns, kk_std_core_types__optional rows, kk_context_t* _ctx); /* (queryresult, columns : ? (list<string>), rows : ? (list<row>)) -> queryresult */ 
 
 static inline kk_integer_t kk_sqlite_hc__abs(kk_integer_t n, kk_context_t* _ctx) { /* (n : int) -> int */ 
-  bool _match_x751 = kk_integer_lt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x751) {
+  bool _match_x755 = kk_integer_lt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x755) {
     return kk_integer_sub((kk_integer_from_small(0)),n,kk_context());
   }
   {
@@ -252,8 +251,8 @@ static inline kk_integer_t kk_sqlite_hc__abs(kk_integer_t n, kk_context_t* _ctx)
 }
 
 static inline kk_integer_t kk_sqlite_hc__min(kk_integer_t a, kk_integer_t b, kk_context_t* _ctx) { /* (a : int, b : int) -> int */ 
-  bool _match_x750 = kk_integer_lt_borrow(a,b,kk_context()); /*bool*/;
-  if (_match_x750) {
+  bool _match_x754 = kk_integer_lt_borrow(a,b,kk_context()); /*bool*/;
+  if (_match_x754) {
     kk_integer_drop(b, _ctx);
     return a;
   }
@@ -264,8 +263,8 @@ static inline kk_integer_t kk_sqlite_hc__min(kk_integer_t a, kk_integer_t b, kk_
 }
 
 static inline kk_integer_t kk_sqlite_hc__max(kk_integer_t a, kk_integer_t b, kk_context_t* _ctx) { /* (a : int, b : int) -> int */ 
-  bool _match_x749 = kk_integer_gt_borrow(a,b,kk_context()); /*bool*/;
-  if (_match_x749) {
+  bool _match_x753 = kk_integer_gt_borrow(a,b,kk_context()); /*bool*/;
+  if (_match_x753) {
     kk_integer_drop(b, _ctx);
     return a;
   }
@@ -322,9 +321,9 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
 bool kk_sqlite_hc__glob__star(kk_std_core_types__list prest_0, kk_std_core_types__list input_0, kk_context_t* _ctx); /* (prest : list<char>, input : list<char>) -> div bool */ 
 
 static inline bool kk_sqlite_hc__glob__match(kk_string_t pattern, kk_string_t s, kk_context_t* _ctx) { /* (pattern : string, s : string) -> div bool */ 
-  kk_std_core_types__list _x_x950 = kk_std_core_string_list(pattern, _ctx); /*list<char>*/
-  kk_std_core_types__list _x_x951 = kk_std_core_string_list(s, _ctx); /*list<char>*/
-  return kk_sqlite_hc__glob__match__chars(_x_x950, _x_x951, _ctx);
+  kk_std_core_types__list _x_x954 = kk_std_core_string_list(pattern, _ctx); /*list<char>*/
+  kk_std_core_types__list _x_x955 = kk_std_core_string_list(s, _ctx); /*list<char>*/
+  return kk_sqlite_hc__glob__match__chars(_x_x954, _x_x955, _ctx);
 }
 
 bool kk_sqlite_hc__glob__doublestar(kk_std_core_types__list prest, kk_std_core_types__list paths, kk_context_t* _ctx); /* (prest : list<string>, paths : list<string>) -> div bool */ 
@@ -334,20 +333,20 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
 bool kk_sqlite_hc__glob__match__path(kk_string_t pattern, kk_string_t hc__path, kk_context_t* _ctx); /* (pattern : string, hc_path : string) -> div bool */ 
 
 static inline bool kk_sqlite_hc__is__empty(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  kk_integer_t _brw_x673 = kk_std_core_string_chars_fs_count(s, _ctx); /*int*/;
-  bool _brw_x674 = kk_integer_eq_borrow(_brw_x673,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x673, _ctx);
-  return _brw_x674;
+  kk_integer_t _brw_x677 = kk_std_core_string_chars_fs_count(s, _ctx); /*int*/;
+  bool _brw_x678 = kk_integer_eq_borrow(_brw_x677,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x677, _ctx);
+  return _brw_x678;
 }
 
 static inline bool kk_sqlite_hc__is__blank(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
   kk_string_t s_0_10044;
-  kk_string_t _x_x980 = kk_string_trim_left(s,kk_context()); /*string*/
-  s_0_10044 = kk_string_trim_right(_x_x980,kk_context()); /*string*/
-  kk_integer_t _brw_x671 = kk_std_core_string_chars_fs_count(s_0_10044, _ctx); /*int*/;
-  bool _brw_x672 = kk_integer_eq_borrow(_brw_x671,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x671, _ctx);
-  return _brw_x672;
+  kk_string_t _x_x984 = kk_string_trim_left(s,kk_context()); /*string*/
+  s_0_10044 = kk_string_trim_right(_x_x984,kk_context()); /*string*/
+  kk_integer_t _brw_x675 = kk_std_core_string_chars_fs_count(s_0_10044, _ctx); /*int*/;
+  bool _brw_x676 = kk_integer_eq_borrow(_brw_x675,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x675, _ctx);
+  return _brw_x676;
 }
 
 kk_std_core_types__list kk_sqlite_hc__words(kk_string_t s, kk_context_t* _ctx); /* (s : string) -> list<string> */ 
@@ -355,17 +354,17 @@ kk_std_core_types__list kk_sqlite_hc__words(kk_string_t s, kk_context_t* _ctx); 
 kk_std_core_types__list kk_sqlite_hc__lines(kk_string_t s, kk_context_t* _ctx); /* (s : string) -> list<string> */ 
 
 static inline kk_string_t kk_sqlite_hc__unwords(kk_std_core_types__list ws, kk_context_t* _ctx) { /* (ws : list<string>) -> string */ 
-  kk_string_t _x_x1001;
-  kk_define_string_literal(static, _s_x1002, 1, " ", _ctx)
-  _x_x1001 = kk_string_dup(_s_x1002, _ctx); /*string*/
-  return kk_std_core_list_joinsep(ws, _x_x1001, _ctx);
+  kk_string_t _x_x1005;
+  kk_define_string_literal(static, _s_x1006, 1, " ", _ctx)
+  _x_x1005 = kk_string_dup(_s_x1006, _ctx); /*string*/
+  return kk_std_core_list_joinsep(ws, _x_x1005, _ctx);
 }
 
 static inline kk_string_t kk_sqlite_hc__unlines(kk_std_core_types__list ls, kk_context_t* _ctx) { /* (ls : list<string>) -> string */ 
-  kk_string_t _x_x1003;
-  kk_define_string_literal(static, _s_x1004, 1, "\n", _ctx)
-  _x_x1003 = kk_string_dup(_s_x1004, _ctx); /*string*/
-  return kk_std_core_list_joinsep(ls, _x_x1003, _ctx);
+  kk_string_t _x_x1007;
+  kk_define_string_literal(static, _s_x1008, 1, "\n", _ctx)
+  _x_x1007 = kk_string_dup(_s_x1008, _ctx); /*string*/
+  return kk_std_core_list_joinsep(ls, _x_x1007, _ctx);
 }
 
 kk_string_t kk_sqlite_hc__repeat__str(kk_string_t s, kk_integer_t n, kk_context_t* _ctx); /* (s : string, n : int) -> div string */ 
@@ -378,7 +377,7 @@ kk_string_t kk_sqlite_hc__center(kk_string_t s, kk_integer_t width, kk_string_t 
 
 kk_string_t kk_sqlite_hc__removeprefix(kk_string_t s, kk_string_t pre, kk_context_t* _ctx); /* (s : string, pre : string) -> string */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__open_10176(kk_string_t hc__path, kk_integer_t h, kk_context_t* _ctx); /* (hc_path : string, h : int) -> io either<string,db> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__open_10177(kk_string_t hc__path, kk_integer_t h, kk_context_t* _ctx); /* (hc_path : string, h : int) -> io either<string,db> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__open(kk_string_t hc__path, kk_context_t* _ctx); /* (hc_path : string) -> io either<string,db> */ 
 
@@ -386,62 +385,62 @@ kk_unit_t kk_sqlite_hc__sqlite__close(kk_sqlite__db d, kk_context_t* _ctx); /* (
  
 // monadic lift
 
-static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10177(kk_string_t _y_x10099, kk_context_t* _ctx) { /* (string) -> io either<string,bool> */ 
+static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10178(kk_string_t _y_x10099, kk_context_t* _ctx) { /* (string) -> io either<string,bool> */ 
   return kk_std_core_types__new_Left(kk_string_box(_y_x10099), _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10178(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx); /* (d : db, rc : int) -> io either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10179(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx); /* (d : db, rc : int) -> io either<string,bool> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__exec(kk_sqlite__db d, kk_string_t sql, kk_context_t* _ctx); /* (d : db, sql : string) -> io either<string,bool> */ 
  
 // monadic lift
 
-static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10179(kk_string_t _y_x10102, kk_context_t* _ctx) { /* (string) -> io either<string,bool> */ 
+static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10180(kk_string_t _y_x10102, kk_context_t* _ctx) { /* (string) -> io either<string,bool> */ 
   return kk_std_core_types__new_Left(kk_string_box(_y_x10102), _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10180(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx); /* (d : db, rc : int) -> io either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10181(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx); /* (d : db, rc : int) -> io either<string,bool> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__exec__p(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx); /* (d : db, sql : string, params : list<string>) -> io either<string,bool> */ 
  
 // monadic lift
 
-static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10181(kk_string_t _y_x10105, kk_context_t* _ctx) { /* (string) -> io either<string,queryresult> */ 
+static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10182(kk_string_t _y_x10105, kk_context_t* _ctx) { /* (string) -> io either<string,queryresult> */ 
   return kk_std_core_types__new_Left(kk_string_box(_y_x10105), _ctx);
 }
  
 // monadic lift
 
-static inline kk_sqlite__row kk_sqlite__mlift_hc__sqlite__query__p_10182(kk_std_core_types__list _c_x10112, kk_context_t* _ctx) { /* (list<string>) -> row */ 
+static inline kk_sqlite__row kk_sqlite__mlift_hc__sqlite__query__p_10183(kk_std_core_types__list _c_x10112, kk_context_t* _ctx) { /* (list<string>) -> row */ 
   return kk_sqlite__new_Row(_c_x10112, _ctx);
 }
  
 // monadic lift
 
-static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10183(kk_std_core_types__list _c_x10110, kk_std_core_types__list _y_x10113, kk_context_t* _ctx) { /* (list<string>, list<row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
-  kk_box_t _x_x1096;
-  kk_sqlite__queryresult _x_x1097 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, _c_x10110, _y_x10113, _ctx); /*sqlite/queryresult*/
-  _x_x1096 = kk_sqlite__queryresult_box(_x_x1097, _ctx); /*10015*/
-  return kk_std_core_types__new_Right(_x_x1096, _ctx);
+static inline kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184(kk_std_core_types__list _c_x10110, kk_std_core_types__list _y_x10113, kk_context_t* _ctx) { /* (list<string>, list<row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
+  kk_box_t _x_x1100;
+  kk_sqlite__queryresult _x_x1101 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, _c_x10110, _y_x10113, _ctx); /*sqlite/queryresult*/
+  _x_x1100 = kk_sqlite__queryresult_box(_x_x1101, _ctx); /*10015*/
+  return kk_std_core_types__new_Right(_x_x1100, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184(kk_std_core_types__list data__rows, kk_std_core_types__list _c_x10110, kk_context_t* _ctx); /* (data_rows : list<string>, list<string>) -> either<string,queryresult> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_core_types__list data__rows, kk_std_core_types__list _c_x10110, kk_context_t* _ctx); /* (data_rows : list<string>, list<string>) -> either<string,queryresult> */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_core_types__list row__strs, kk_context_t* _ctx); /* (row_strs : list<string>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10186(kk_std_core_types__list row__strs, kk_context_t* _ctx); /* (row_strs : list<string>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10186(kk_std_core_types__list _c_x10107, kk_context_t* _ctx); /* (list<string>) -> either<string,queryresult> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10187(kk_std_core_types__list _c_x10107, kk_context_t* _ctx); /* (list<string>) -> either<string,queryresult> */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10187(kk_sqlite__db d, kk_string_t hc__raw, kk_context_t* _ctx); /* (d : db, hc_raw : string) -> io either<string,queryresult> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10188(kk_sqlite__db d, kk_string_t hc__raw, kk_context_t* _ctx); /* (d : db, hc_raw : string) -> io either<string,queryresult> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx); /* (d : db, sql : string, params : list<string>) -> io either<string,queryresult> */ 
  
-// .hc:84
+// .hc:83
 
 static inline kk_std_core_types__either kk_sqlite_hc__sqlite__query(kk_sqlite__db d, kk_string_t sql, kk_context_t* _ctx) { /* (d : db, sql : string) -> io either<string,queryresult> */ 
   return kk_sqlite_hc__sqlite__query__p(d, sql, kk_std_core_types__new_Nil(_ctx), _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__one_10188(kk_std_core_types__either _y_x10117, kk_context_t* _ctx); /* (either<string,queryresult>) -> io either<string,maybe<row>> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__one_10189(kk_std_core_types__either _y_x10117, kk_context_t* _ctx); /* (either<string,queryresult>) -> io either<string,maybe<row>> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__query__one(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx); /* (d : db, sql : string, params : list<string>) -> io either<string,maybe<row>> */ 
 
@@ -449,7 +448,7 @@ kk_integer_t kk_sqlite_hc__sqlite__last__insert__id(kk_sqlite__db d, kk_context_
 
 kk_integer_t kk_sqlite_hc__sqlite__changes(kk_sqlite__db d, kk_context_t* _ctx); /* (d : db) -> io int */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10189(kk_std_core_types__either _y_x10121, kk_context_t* _ctx); /* (either<string,queryresult>) -> io either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10190(kk_std_core_types__either _y_x10121, kk_context_t* _ctx); /* (either<string,queryresult>) -> io either<string,bool> */ 
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__table__exists(kk_sqlite__db d, kk_string_t name, kk_context_t* _ctx); /* (d : db, name : string) -> io either<string,bool> */ 
 
@@ -459,13 +458,13 @@ kk_std_core_types__maybe kk_sqlite_hc__row__int(kk_sqlite__row r, kk_integer_t i
  
 // monadic lift
 
-static inline kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10190(kk_unit_t wild___0, kk_context_t* _ctx) { /* forall<e> (wild_@0 : ()) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
+static inline kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10191(kk_unit_t wild___0, kk_context_t* _ctx) { /* forall<e> (wild_@0 : ()) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
   return kk_std_core_types__new_Right(kk_bool_box(true), _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10191(kk_sqlite__db d, kk_box_t wild__, kk_context_t* _ctx); /* forall<a,e> (d : db, wild_ : a) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10192(kk_sqlite__db d, kk_box_t wild__, kk_context_t* _ctx); /* forall<a,e> (d : db, wild_ : a) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
 
-kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10192(kk_function_t f, kk_std_core_types__either _y_x10123, kk_context_t* _ctx); /* forall<a,e> (f : (db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> a, either<string,db>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10193(kk_function_t f, kk_std_core_types__either _y_x10123, kk_context_t* _ctx); /* forall<a,e> (f : (db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> a, either<string,db>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
 
 kk_std_core_types__either kk_sqlite_hc__with__sqlite(kk_string_t hc__path, kk_function_t f, kk_context_t* _ctx); /* forall<a,e> (hc_path : string, f : (db) -> <io|e> a) -> <io|e> either<string,bool> */ 
 

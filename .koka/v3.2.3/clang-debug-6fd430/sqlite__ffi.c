@@ -1,7 +1,7 @@
 // Koka generated module: sqlite_ffi, koka version: 3.2.3, platform: 64-bit
 #include "sqlite__ffi.h"
 /*
- * hica – SQLite3 trampoline  [SKETCH — not yet wired into the build]
+ * hica – SQLite3 C backend
  *
  *  /==\   /==\                  Moonbun says:
  *  |  |   |  |      *  .    "store all the things!"

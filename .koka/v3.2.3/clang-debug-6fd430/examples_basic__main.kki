@@ -3,7 +3,6 @@ module interface examples/basic/@main
 //------------------------------
 //#kki: import declarations
  
-import list = list pub = "";
 import sqlite = sqlite pub = "";
 import sqlite_ffi = sqlite_ffi pub = "";
 import std/core/types = std/core/types pub = "";

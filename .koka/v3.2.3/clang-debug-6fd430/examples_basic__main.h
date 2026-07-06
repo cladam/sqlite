@@ -3,7 +3,6 @@
 #define kk_examples_basic__main_H
 // Koka generated module: examples/basic/@main, koka version: 3.2.3, platform: 64-bit
 #include <kklib.h>
-#include "list.h"
 #include "sqlite.h"
 #include "sqlite__ffi.h"
 #include "std_core_types.h"

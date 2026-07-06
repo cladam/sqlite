@@ -1,5 +1,5 @@
 /*
- * hica – SQLite3 trampoline  [SKETCH — not yet wired into the build]
+ * hica – SQLite3 C backend
  *
  *  /==\   /==\                  Moonbun says:
  *  |  |   |  |      *  .    "store all the things!"

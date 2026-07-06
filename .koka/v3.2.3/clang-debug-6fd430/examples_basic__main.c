@@ -10,7 +10,6 @@ void kk_examples_basic__main__init(kk_context_t* _ctx){
   static bool _kk_initialized = false;
   if (_kk_initialized) return;
   _kk_initialized = true;
-  kk_list__init(_ctx);
   kk_sqlite__init(_ctx);
   kk_sqlite__ffi__init(_ctx);
   kk_std_core_types__init(_ctx);
@@ -72,7 +71,6 @@ void kk_examples_basic__main__done(kk_context_t* _ctx){
   kk_std_core_types__done(_ctx);
   kk_sqlite__ffi__done(_ctx);
   kk_sqlite__done(_ctx);
-  kk_list__done(_ctx);
 }
 
 // main library entry points

@@ -3,39 +3,39 @@
 
 
 // lift anonymous function
-struct kk_sqlite_hc_assert_fun777__t {
+struct kk_sqlite_hc_assert_fun781__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc_assert_fun777(kk_function_t _fself, kk_box_t _b_x2, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc_assert_fun777(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc_assert_fun777, _ctx)
+static kk_box_t kk_sqlite_hc_assert_fun781(kk_function_t _fself, kk_box_t _b_x2, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc_assert_fun781(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc_assert_fun781, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc_assert_fun777(kk_function_t _fself, kk_box_t _b_x2, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc_assert_fun781(kk_function_t _fself, kk_box_t _b_x2, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  bool _x_x778;
+  bool _x_x782;
   bool b_0_9 = kk_bool_unbox(_b_x2); /*bool*/;
   if (b_0_9) {
-    _x_x778 = false; /*bool*/
+    _x_x782 = false; /*bool*/
   }
   else {
-    _x_x778 = true; /*bool*/
+    _x_x782 = true; /*bool*/
   }
-  return kk_bool_box(_x_x778);
+  return kk_bool_box(_x_x782);
 }
 
 kk_unit_t kk_sqlite_hc_assert(bool b, kk_context_t* _ctx) { /* (b : bool) -> exn () */ 
-  bool _match_x755;
-  kk_box_t _x_x776 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc_assert_fun777(_ctx), kk_bool_box(b), _ctx); /*10001*/
-  _match_x755 = kk_bool_unbox(_x_x776); /*bool*/
-  if (_match_x755) {
-    kk_box_t _x_x779;
-    kk_string_t _x_x780;
-    kk_define_string_literal(static, _s_x781, 16, "assertion failed", _ctx)
-    _x_x780 = kk_string_dup(_s_x781, _ctx); /*string*/
-    _x_x779 = kk_std_core_exn_throw(_x_x780, kk_std_core_types__new_None(_ctx), _ctx); /*10000*/
-    kk_unit_unbox(_x_x779); return kk_Unit;
+  bool _match_x759;
+  kk_box_t _x_x780 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc_assert_fun781(_ctx), kk_bool_box(b), _ctx); /*10001*/
+  _match_x759 = kk_bool_unbox(_x_x780); /*bool*/
+  if (_match_x759) {
+    kk_box_t _x_x783;
+    kk_string_t _x_x784;
+    kk_define_string_literal(static, _s_x785, 16, "assertion failed", _ctx)
+    _x_x784 = kk_string_dup(_s_x785, _ctx); /*string*/
+    _x_x783 = kk_std_core_exn_throw(_x_x784, kk_std_core_types__new_None(_ctx), _ctx); /*10000*/
+    kk_unit_unbox(_x_x783); return kk_Unit;
   }
   {
     kk_Unit; return kk_Unit;
@@ -44,364 +44,364 @@ kk_unit_t kk_sqlite_hc_assert(bool b, kk_context_t* _ctx) { /* (b : bool) -> exn
 
 
 // lift anonymous function
-struct kk_sqlite_hc_show_maybe_fun789__t {
+struct kk_sqlite_hc_show_maybe_fun793__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc_show_maybe_fun789(kk_function_t _fself, kk_box_t _b_x11, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc_show_maybe_fun789(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc_show_maybe_fun789, _ctx)
+static kk_box_t kk_sqlite_hc_show_maybe_fun793(kk_function_t _fself, kk_box_t _b_x11, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc_show_maybe_fun793(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc_show_maybe_fun793, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc_show_maybe_fun789(kk_function_t _fself, kk_box_t _b_x11, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc_show_maybe_fun793(kk_function_t _fself, kk_box_t _b_x11, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_string_t _y_x10090_13 = kk_string_unbox(_b_x11); /*string*/;
-  kk_string_t _x_x790;
-  kk_string_t _x_x791;
-  kk_define_string_literal(static, _s_x792, 5, "Some(", _ctx)
-  _x_x791 = kk_string_dup(_s_x792, _ctx); /*string*/
-  kk_string_t _x_x793;
   kk_string_t _x_x794;
-  kk_define_string_literal(static, _s_x795, 1, ")", _ctx)
-  _x_x794 = kk_string_dup(_s_x795, _ctx); /*string*/
-  _x_x793 = kk_std_core_types__lp__plus__plus__rp_(_y_x10090_13, _x_x794, _ctx); /*string*/
-  _x_x790 = kk_std_core_types__lp__plus__plus__rp_(_x_x791, _x_x793, _ctx); /*string*/
-  return kk_string_box(_x_x790);
+  kk_string_t _x_x795;
+  kk_define_string_literal(static, _s_x796, 5, "Some(", _ctx)
+  _x_x795 = kk_string_dup(_s_x796, _ctx); /*string*/
+  kk_string_t _x_x797;
+  kk_string_t _x_x798;
+  kk_define_string_literal(static, _s_x799, 1, ")", _ctx)
+  _x_x798 = kk_string_dup(_s_x799, _ctx); /*string*/
+  _x_x797 = kk_std_core_types__lp__plus__plus__rp_(_y_x10090_13, _x_x798, _ctx); /*string*/
+  _x_x794 = kk_std_core_types__lp__plus__plus__rp_(_x_x795, _x_x797, _ctx); /*string*/
+  return kk_string_box(_x_x794);
 }
 
 kk_string_t kk_sqlite_hc_show_maybe(kk_std_core_types__maybe m, kk_function_t show_a, kk_context_t* _ctx) { /* forall<a,e> (m : maybe<a>, show-a : (a) -> e string) -> e string */ 
   if (kk_std_core_types__is_Nothing(m, _ctx)) {
     kk_function_drop(show_a, _ctx);
-    kk_define_string_literal(static, _s_x787, 4, "None", _ctx)
-    return kk_string_dup(_s_x787, _ctx);
+    kk_define_string_literal(static, _s_x791, 4, "None", _ctx)
+    return kk_string_dup(_s_x791, _ctx);
   }
   {
     kk_box_t x = m._cons.Just.value;
-    kk_string_t x_0_10193 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_a, (show_a, x, _ctx), _ctx); /*string*/;
+    kk_string_t x_0_10194 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_a, (show_a, x, _ctx), _ctx); /*string*/;
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_0_10193, _ctx);
-      kk_box_t _x_x788 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_maybe_fun789(_ctx), _ctx); /*10001*/
-      return kk_string_unbox(_x_x788);
+      kk_string_drop(x_0_10194, _ctx);
+      kk_box_t _x_x792 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_maybe_fun793(_ctx), _ctx); /*10001*/
+      return kk_string_unbox(_x_x792);
     }
     {
-      kk_string_t _x_x796;
-      kk_define_string_literal(static, _s_x797, 5, "Some(", _ctx)
-      _x_x796 = kk_string_dup(_s_x797, _ctx); /*string*/
-      kk_string_t _x_x798;
-      kk_string_t _x_x799;
-      kk_define_string_literal(static, _s_x800, 1, ")", _ctx)
-      _x_x799 = kk_string_dup(_s_x800, _ctx); /*string*/
-      _x_x798 = kk_std_core_types__lp__plus__plus__rp_(x_0_10193, _x_x799, _ctx); /*string*/
-      return kk_std_core_types__lp__plus__plus__rp_(_x_x796, _x_x798, _ctx);
+      kk_string_t _x_x800;
+      kk_define_string_literal(static, _s_x801, 5, "Some(", _ctx)
+      _x_x800 = kk_string_dup(_s_x801, _ctx); /*string*/
+      kk_string_t _x_x802;
+      kk_string_t _x_x803;
+      kk_define_string_literal(static, _s_x804, 1, ")", _ctx)
+      _x_x803 = kk_string_dup(_s_x804, _ctx); /*string*/
+      _x_x802 = kk_std_core_types__lp__plus__plus__rp_(x_0_10194, _x_x803, _ctx); /*string*/
+      return kk_std_core_types__lp__plus__plus__rp_(_x_x800, _x_x802, _ctx);
     }
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc_show_result_fun812__t {
+struct kk_sqlite_hc_show_result_fun816__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc_show_result_fun812(kk_function_t _fself, kk_box_t _b_x15, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc_show_result_fun812(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc_show_result_fun812, _ctx)
+static kk_box_t kk_sqlite_hc_show_result_fun816(kk_function_t _fself, kk_box_t _b_x15, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc_show_result_fun816(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc_show_result_fun816, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc_show_result_fun812(kk_function_t _fself, kk_box_t _b_x15, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc_show_result_fun816(kk_function_t _fself, kk_box_t _b_x15, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_string_t _y_x10092_20 = kk_string_unbox(_b_x15); /*string*/;
-  kk_string_t _x_x813;
-  kk_string_t _x_x814;
-  kk_define_string_literal(static, _s_x815, 3, "Ok(", _ctx)
-  _x_x814 = kk_string_dup(_s_x815, _ctx); /*string*/
-  kk_string_t _x_x816;
   kk_string_t _x_x817;
-  kk_define_string_literal(static, _s_x818, 1, ")", _ctx)
-  _x_x817 = kk_string_dup(_s_x818, _ctx); /*string*/
-  _x_x816 = kk_std_core_types__lp__plus__plus__rp_(_y_x10092_20, _x_x817, _ctx); /*string*/
-  _x_x813 = kk_std_core_types__lp__plus__plus__rp_(_x_x814, _x_x816, _ctx); /*string*/
-  return kk_string_box(_x_x813);
+  kk_string_t _x_x818;
+  kk_define_string_literal(static, _s_x819, 3, "Ok(", _ctx)
+  _x_x818 = kk_string_dup(_s_x819, _ctx); /*string*/
+  kk_string_t _x_x820;
+  kk_string_t _x_x821;
+  kk_define_string_literal(static, _s_x822, 1, ")", _ctx)
+  _x_x821 = kk_string_dup(_s_x822, _ctx); /*string*/
+  _x_x820 = kk_std_core_types__lp__plus__plus__rp_(_y_x10092_20, _x_x821, _ctx); /*string*/
+  _x_x817 = kk_std_core_types__lp__plus__plus__rp_(_x_x818, _x_x820, _ctx); /*string*/
+  return kk_string_box(_x_x817);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc_show_result_fun825__t {
+struct kk_sqlite_hc_show_result_fun829__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc_show_result_fun825(kk_function_t _fself, kk_box_t _b_x17, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc_show_result_fun825(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc_show_result_fun825, _ctx)
+static kk_box_t kk_sqlite_hc_show_result_fun829(kk_function_t _fself, kk_box_t _b_x17, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc_show_result_fun829(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc_show_result_fun829, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc_show_result_fun825(kk_function_t _fself, kk_box_t _b_x17, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc_show_result_fun829(kk_function_t _fself, kk_box_t _b_x17, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_string_t _y_x10093_21 = kk_string_unbox(_b_x17); /*string*/;
-  kk_string_t _x_x826;
-  kk_string_t _x_x827;
-  kk_define_string_literal(static, _s_x828, 4, "Err(", _ctx)
-  _x_x827 = kk_string_dup(_s_x828, _ctx); /*string*/
-  kk_string_t _x_x829;
   kk_string_t _x_x830;
-  kk_define_string_literal(static, _s_x831, 1, ")", _ctx)
-  _x_x830 = kk_string_dup(_s_x831, _ctx); /*string*/
-  _x_x829 = kk_std_core_types__lp__plus__plus__rp_(_y_x10093_21, _x_x830, _ctx); /*string*/
-  _x_x826 = kk_std_core_types__lp__plus__plus__rp_(_x_x827, _x_x829, _ctx); /*string*/
-  return kk_string_box(_x_x826);
+  kk_string_t _x_x831;
+  kk_define_string_literal(static, _s_x832, 4, "Err(", _ctx)
+  _x_x831 = kk_string_dup(_s_x832, _ctx); /*string*/
+  kk_string_t _x_x833;
+  kk_string_t _x_x834;
+  kk_define_string_literal(static, _s_x835, 1, ")", _ctx)
+  _x_x834 = kk_string_dup(_s_x835, _ctx); /*string*/
+  _x_x833 = kk_std_core_types__lp__plus__plus__rp_(_y_x10093_21, _x_x834, _ctx); /*string*/
+  _x_x830 = kk_std_core_types__lp__plus__plus__rp_(_x_x831, _x_x833, _ctx); /*string*/
+  return kk_string_box(_x_x830);
 }
 
 kk_string_t kk_sqlite_hc_show_result(kk_std_core_types__either r, kk_function_t show_a, kk_function_t show_e, kk_context_t* _ctx) { /* forall<a,b,e> (r : either<a,b>, show-a : (b) -> e string, show-e : (a) -> e string) -> e string */ 
   if (kk_std_core_types__is_Right(r, _ctx)) {
     kk_box_t x = r._cons.Right.right;
     kk_function_drop(show_e, _ctx);
-    kk_string_t x_0_10197 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_a, (show_a, x, _ctx), _ctx); /*string*/;
+    kk_string_t x_0_10198 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_a, (show_a, x, _ctx), _ctx); /*string*/;
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_0_10197, _ctx);
-      kk_box_t _x_x811 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_result_fun812(_ctx), _ctx); /*10001*/
-      return kk_string_unbox(_x_x811);
+      kk_string_drop(x_0_10198, _ctx);
+      kk_box_t _x_x815 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_result_fun816(_ctx), _ctx); /*10001*/
+      return kk_string_unbox(_x_x815);
     }
     {
-      kk_string_t _x_x819;
-      kk_define_string_literal(static, _s_x820, 3, "Ok(", _ctx)
-      _x_x819 = kk_string_dup(_s_x820, _ctx); /*string*/
-      kk_string_t _x_x821;
-      kk_string_t _x_x822;
-      kk_define_string_literal(static, _s_x823, 1, ")", _ctx)
-      _x_x822 = kk_string_dup(_s_x823, _ctx); /*string*/
-      _x_x821 = kk_std_core_types__lp__plus__plus__rp_(x_0_10197, _x_x822, _ctx); /*string*/
-      return kk_std_core_types__lp__plus__plus__rp_(_x_x819, _x_x821, _ctx);
+      kk_string_t _x_x823;
+      kk_define_string_literal(static, _s_x824, 3, "Ok(", _ctx)
+      _x_x823 = kk_string_dup(_s_x824, _ctx); /*string*/
+      kk_string_t _x_x825;
+      kk_string_t _x_x826;
+      kk_define_string_literal(static, _s_x827, 1, ")", _ctx)
+      _x_x826 = kk_string_dup(_s_x827, _ctx); /*string*/
+      _x_x825 = kk_std_core_types__lp__plus__plus__rp_(x_0_10198, _x_x826, _ctx); /*string*/
+      return kk_std_core_types__lp__plus__plus__rp_(_x_x823, _x_x825, _ctx);
     }
   }
   {
     kk_box_t e = r._cons.Left.left;
     kk_function_drop(show_a, _ctx);
-    kk_string_t x_1_10201 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_e, (show_e, e, _ctx), _ctx); /*string*/;
+    kk_string_t x_1_10202 = kk_function_call(kk_string_t, (kk_function_t, kk_box_t, kk_context_t*), show_e, (show_e, e, _ctx), _ctx); /*string*/;
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_1_10201, _ctx);
-      kk_box_t _x_x824 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_result_fun825(_ctx), _ctx); /*10001*/
-      return kk_string_unbox(_x_x824);
+      kk_string_drop(x_1_10202, _ctx);
+      kk_box_t _x_x828 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc_show_result_fun829(_ctx), _ctx); /*10001*/
+      return kk_string_unbox(_x_x828);
     }
     {
-      kk_string_t _x_x832;
-      kk_define_string_literal(static, _s_x833, 4, "Err(", _ctx)
-      _x_x832 = kk_string_dup(_s_x833, _ctx); /*string*/
-      kk_string_t _x_x834;
-      kk_string_t _x_x835;
-      kk_define_string_literal(static, _s_x836, 1, ")", _ctx)
-      _x_x835 = kk_string_dup(_s_x836, _ctx); /*string*/
-      _x_x834 = kk_std_core_types__lp__plus__plus__rp_(x_1_10201, _x_x835, _ctx); /*string*/
-      return kk_std_core_types__lp__plus__plus__rp_(_x_x832, _x_x834, _ctx);
+      kk_string_t _x_x836;
+      kk_define_string_literal(static, _s_x837, 4, "Err(", _ctx)
+      _x_x836 = kk_string_dup(_s_x837, _ctx); /*string*/
+      kk_string_t _x_x838;
+      kk_string_t _x_x839;
+      kk_define_string_literal(static, _s_x840, 1, ")", _ctx)
+      _x_x839 = kk_string_dup(_s_x840, _ctx); /*string*/
+      _x_x838 = kk_std_core_types__lp__plus__plus__rp_(x_1_10202, _x_x839, _ctx); /*string*/
+      return kk_std_core_types__lp__plus__plus__rp_(_x_x836, _x_x838, _ctx);
     }
   }
 }
 
 kk_sqlite__db kk_sqlite_db_fs__copy(kk_sqlite__db _this, kk_std_core_types__optional h, kk_context_t* _ctx) { /* (db, h : ? int) -> db */ 
-  kk_integer_t _x_x837;
+  kk_integer_t _x_x841;
   if (kk_std_core_types__is_Optional(h, _ctx)) {
     kk_box_t _box_x22 = h._cons._Optional.value;
     kk_integer_t _uniq_h_474 = kk_integer_unbox(_box_x22, _ctx);
     kk_integer_dup(_uniq_h_474, _ctx);
     kk_std_core_types__optional_drop(h, _ctx);
     kk_sqlite__db_drop(_this, _ctx);
-    _x_x837 = _uniq_h_474; /*int*/
+    _x_x841 = _uniq_h_474; /*int*/
   }
   else {
     kk_std_core_types__optional_drop(h, _ctx);
     {
       kk_integer_t _x = _this.h;
-      _x_x837 = _x; /*int*/
+      _x_x841 = _x; /*int*/
     }
   }
-  return kk_sqlite__new_Db(_x_x837, _ctx);
+  return kk_sqlite__new_Db(_x_x841, _ctx);
 }
 
 kk_sqlite__row kk_sqlite_row_fs__copy(kk_sqlite__row _this, kk_std_core_types__optional values, kk_context_t* _ctx) { /* (row, values : ? (list<string>)) -> row */ 
-  kk_std_core_types__list _x_x838;
+  kk_std_core_types__list _x_x842;
   if (kk_std_core_types__is_Optional(values, _ctx)) {
     kk_box_t _box_x23 = values._cons._Optional.value;
     kk_std_core_types__list _uniq_values_498 = kk_std_core_types__list_unbox(_box_x23, KK_BORROWED, _ctx);
     kk_std_core_types__list_dup(_uniq_values_498, _ctx);
     kk_std_core_types__optional_drop(values, _ctx);
     kk_sqlite__row_drop(_this, _ctx);
-    _x_x838 = _uniq_values_498; /*list<string>*/
+    _x_x842 = _uniq_values_498; /*list<string>*/
   }
   else {
     kk_std_core_types__optional_drop(values, _ctx);
     {
       kk_std_core_types__list _x = _this.values;
-      _x_x838 = _x; /*list<string>*/
+      _x_x842 = _x; /*list<string>*/
     }
   }
-  return kk_sqlite__new_Row(_x_x838, _ctx);
+  return kk_sqlite__new_Row(_x_x842, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_row_fs_show_fun855__t {
+struct kk_sqlite_row_fs_show_fun859__t {
   struct kk_function_s _base;
 };
-static kk_string_t kk_sqlite_row_fs_show_fun855(kk_function_t _fself, kk_string_t _x1_x854, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_row_fs_new_show_fun855(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_row_fs_show_fun855, _ctx)
+static kk_string_t kk_sqlite_row_fs_show_fun859(kk_function_t _fself, kk_string_t _x1_x858, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_row_fs_new_show_fun859(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_row_fs_show_fun859, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_string_t kk_sqlite_row_fs_show_fun855(kk_function_t _fself, kk_string_t _x1_x854, kk_context_t* _ctx) {
+static kk_string_t kk_sqlite_row_fs_show_fun859(kk_function_t _fself, kk_string_t _x1_x858, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  return kk_std_core_show_string_fs_show(_x1_x854, _ctx);
+  return kk_std_core_show_string_fs_show(_x1_x858, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_row_fs_show_fun860__t {
+struct kk_sqlite_row_fs_show_fun864__t {
   struct kk_function_s _base;
   kk_function_t _b_x25_28;
 };
-static kk_string_t kk_sqlite_row_fs_show_fun860(kk_function_t _fself, kk_box_t _b_x26, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_row_fs_new_show_fun860(kk_function_t _b_x25_28, kk_context_t* _ctx) {
-  struct kk_sqlite_row_fs_show_fun860__t* _self = kk_function_alloc_as(struct kk_sqlite_row_fs_show_fun860__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_row_fs_show_fun860, kk_context());
+static kk_string_t kk_sqlite_row_fs_show_fun864(kk_function_t _fself, kk_box_t _b_x26, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_row_fs_new_show_fun864(kk_function_t _b_x25_28, kk_context_t* _ctx) {
+  struct kk_sqlite_row_fs_show_fun864__t* _self = kk_function_alloc_as(struct kk_sqlite_row_fs_show_fun864__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_row_fs_show_fun864, kk_context());
   _self->_b_x25_28 = _b_x25_28;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_string_t kk_sqlite_row_fs_show_fun860(kk_function_t _fself, kk_box_t _b_x26, kk_context_t* _ctx) {
-  struct kk_sqlite_row_fs_show_fun860__t* _self = kk_function_as(struct kk_sqlite_row_fs_show_fun860__t*, _fself, _ctx);
+static kk_string_t kk_sqlite_row_fs_show_fun864(kk_function_t _fself, kk_box_t _b_x26, kk_context_t* _ctx) {
+  struct kk_sqlite_row_fs_show_fun864__t* _self = kk_function_as(struct kk_sqlite_row_fs_show_fun864__t*, _fself, _ctx);
   kk_function_t _b_x25_28 = _self->_b_x25_28; /* (s : string) -> string */
   kk_drop_match(_self, {kk_function_dup(_b_x25_28, _ctx);}, {}, _ctx)
-  kk_string_t _x_x861 = kk_string_unbox(_b_x26); /*string*/
-  return kk_function_call(kk_string_t, (kk_function_t, kk_string_t, kk_context_t*), _b_x25_28, (_b_x25_28, _x_x861, _ctx), _ctx);
+  kk_string_t _x_x865 = kk_string_unbox(_b_x26); /*string*/
+  return kk_function_call(kk_string_t, (kk_function_t, kk_string_t, kk_context_t*), _b_x25_28, (_b_x25_28, _x_x865, _ctx), _ctx);
 }
 
 kk_string_t kk_sqlite_row_fs_show(kk_sqlite__row p, kk_context_t* _ctx) { /* (p : row) -> string */ 
-  kk_string_t _x_x851;
-  kk_define_string_literal(static, _s_x852, 4, "Row(", _ctx)
-  _x_x851 = kk_string_dup(_s_x852, _ctx); /*string*/
-  kk_string_t _x_x853;
+  kk_string_t _x_x855;
+  kk_define_string_literal(static, _s_x856, 4, "Row(", _ctx)
+  _x_x855 = kk_string_dup(_s_x856, _ctx); /*string*/
+  kk_string_t _x_x857;
   kk_std_core_types__list _b_x24_27;
   {
     kk_std_core_types__list _x = p.values;
     _b_x24_27 = _x; /*list<string>*/
   }
-  kk_function_t _b_x25_28 = kk_sqlite_row_fs_new_show_fun855(_ctx); /*(s : string) -> string*/;
-  kk_string_t _x_x856;
-  kk_define_string_literal(static, _s_x857, 8, "values: ", _ctx)
-  _x_x856 = kk_string_dup(_s_x857, _ctx); /*string*/
-  kk_string_t _x_x858;
-  kk_string_t _x_x859 = kk_std_core_list_show(_b_x24_27, kk_sqlite_row_fs_new_show_fun860(_b_x25_28, _ctx), _ctx); /*string*/
+  kk_function_t _b_x25_28 = kk_sqlite_row_fs_new_show_fun859(_ctx); /*(s : string) -> string*/;
+  kk_string_t _x_x860;
+  kk_define_string_literal(static, _s_x861, 8, "values: ", _ctx)
+  _x_x860 = kk_string_dup(_s_x861, _ctx); /*string*/
   kk_string_t _x_x862;
-  kk_define_string_literal(static, _s_x863, 1, ")", _ctx)
-  _x_x862 = kk_string_dup(_s_x863, _ctx); /*string*/
-  _x_x858 = kk_std_core_types__lp__plus__plus__rp_(_x_x859, _x_x862, _ctx); /*string*/
-  _x_x853 = kk_std_core_types__lp__plus__plus__rp_(_x_x856, _x_x858, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x851, _x_x853, _ctx);
+  kk_string_t _x_x863 = kk_std_core_list_show(_b_x24_27, kk_sqlite_row_fs_new_show_fun864(_b_x25_28, _ctx), _ctx); /*string*/
+  kk_string_t _x_x866;
+  kk_define_string_literal(static, _s_x867, 1, ")", _ctx)
+  _x_x866 = kk_string_dup(_s_x867, _ctx); /*string*/
+  _x_x862 = kk_std_core_types__lp__plus__plus__rp_(_x_x863, _x_x866, _ctx); /*string*/
+  _x_x857 = kk_std_core_types__lp__plus__plus__rp_(_x_x860, _x_x862, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x855, _x_x857, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_queryresult_fs_show_fun869__t {
+struct kk_sqlite_queryresult_fs_show_fun873__t {
   struct kk_function_s _base;
 };
-static kk_string_t kk_sqlite_queryresult_fs_show_fun869(kk_function_t _fself, kk_string_t _x1_x868, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_queryresult_fs_new_show_fun869(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_queryresult_fs_show_fun869, _ctx)
+static kk_string_t kk_sqlite_queryresult_fs_show_fun873(kk_function_t _fself, kk_string_t _x1_x872, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_queryresult_fs_new_show_fun873(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_queryresult_fs_show_fun873, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_string_t kk_sqlite_queryresult_fs_show_fun869(kk_function_t _fself, kk_string_t _x1_x868, kk_context_t* _ctx) {
+static kk_string_t kk_sqlite_queryresult_fs_show_fun873(kk_function_t _fself, kk_string_t _x1_x872, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  return kk_std_core_show_string_fs_show(_x1_x868, _ctx);
+  return kk_std_core_show_string_fs_show(_x1_x872, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_queryresult_fs_show_fun874__t {
+struct kk_sqlite_queryresult_fs_show_fun878__t {
   struct kk_function_s _base;
   kk_function_t _b_x30_36;
 };
-static kk_string_t kk_sqlite_queryresult_fs_show_fun874(kk_function_t _fself, kk_box_t _b_x31, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_queryresult_fs_new_show_fun874(kk_function_t _b_x30_36, kk_context_t* _ctx) {
-  struct kk_sqlite_queryresult_fs_show_fun874__t* _self = kk_function_alloc_as(struct kk_sqlite_queryresult_fs_show_fun874__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_queryresult_fs_show_fun874, kk_context());
+static kk_string_t kk_sqlite_queryresult_fs_show_fun878(kk_function_t _fself, kk_box_t _b_x31, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_queryresult_fs_new_show_fun878(kk_function_t _b_x30_36, kk_context_t* _ctx) {
+  struct kk_sqlite_queryresult_fs_show_fun878__t* _self = kk_function_alloc_as(struct kk_sqlite_queryresult_fs_show_fun878__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_queryresult_fs_show_fun878, kk_context());
   _self->_b_x30_36 = _b_x30_36;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_string_t kk_sqlite_queryresult_fs_show_fun874(kk_function_t _fself, kk_box_t _b_x31, kk_context_t* _ctx) {
-  struct kk_sqlite_queryresult_fs_show_fun874__t* _self = kk_function_as(struct kk_sqlite_queryresult_fs_show_fun874__t*, _fself, _ctx);
+static kk_string_t kk_sqlite_queryresult_fs_show_fun878(kk_function_t _fself, kk_box_t _b_x31, kk_context_t* _ctx) {
+  struct kk_sqlite_queryresult_fs_show_fun878__t* _self = kk_function_as(struct kk_sqlite_queryresult_fs_show_fun878__t*, _fself, _ctx);
   kk_function_t _b_x30_36 = _self->_b_x30_36; /* (s : string) -> string */
   kk_drop_match(_self, {kk_function_dup(_b_x30_36, _ctx);}, {}, _ctx)
-  kk_string_t _x_x875 = kk_string_unbox(_b_x31); /*string*/
-  return kk_function_call(kk_string_t, (kk_function_t, kk_string_t, kk_context_t*), _b_x30_36, (_b_x30_36, _x_x875, _ctx), _ctx);
+  kk_string_t _x_x879 = kk_string_unbox(_b_x31); /*string*/
+  return kk_function_call(kk_string_t, (kk_function_t, kk_string_t, kk_context_t*), _b_x30_36, (_b_x30_36, _x_x879, _ctx), _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_queryresult_fs_show_fun882__t {
+struct kk_sqlite_queryresult_fs_show_fun886__t {
   struct kk_function_s _base;
 };
-static kk_string_t kk_sqlite_queryresult_fs_show_fun882(kk_function_t _fself, kk_sqlite__row _x1_x881, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_queryresult_fs_new_show_fun882(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_queryresult_fs_show_fun882, _ctx)
+static kk_string_t kk_sqlite_queryresult_fs_show_fun886(kk_function_t _fself, kk_sqlite__row _x1_x885, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_queryresult_fs_new_show_fun886(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_queryresult_fs_show_fun886, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_string_t kk_sqlite_queryresult_fs_show_fun882(kk_function_t _fself, kk_sqlite__row _x1_x881, kk_context_t* _ctx) {
+static kk_string_t kk_sqlite_queryresult_fs_show_fun886(kk_function_t _fself, kk_sqlite__row _x1_x885, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  return kk_sqlite_row_fs_show(_x1_x881, _ctx);
+  return kk_sqlite_row_fs_show(_x1_x885, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_queryresult_fs_show_fun887__t {
+struct kk_sqlite_queryresult_fs_show_fun891__t {
   struct kk_function_s _base;
   kk_function_t _b_x33_38;
 };
-static kk_string_t kk_sqlite_queryresult_fs_show_fun887(kk_function_t _fself, kk_box_t _b_x34, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_queryresult_fs_new_show_fun887(kk_function_t _b_x33_38, kk_context_t* _ctx) {
-  struct kk_sqlite_queryresult_fs_show_fun887__t* _self = kk_function_alloc_as(struct kk_sqlite_queryresult_fs_show_fun887__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_queryresult_fs_show_fun887, kk_context());
+static kk_string_t kk_sqlite_queryresult_fs_show_fun891(kk_function_t _fself, kk_box_t _b_x34, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_queryresult_fs_new_show_fun891(kk_function_t _b_x33_38, kk_context_t* _ctx) {
+  struct kk_sqlite_queryresult_fs_show_fun891__t* _self = kk_function_alloc_as(struct kk_sqlite_queryresult_fs_show_fun891__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_queryresult_fs_show_fun891, kk_context());
   _self->_b_x33_38 = _b_x33_38;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_string_t kk_sqlite_queryresult_fs_show_fun887(kk_function_t _fself, kk_box_t _b_x34, kk_context_t* _ctx) {
-  struct kk_sqlite_queryresult_fs_show_fun887__t* _self = kk_function_as(struct kk_sqlite_queryresult_fs_show_fun887__t*, _fself, _ctx);
+static kk_string_t kk_sqlite_queryresult_fs_show_fun891(kk_function_t _fself, kk_box_t _b_x34, kk_context_t* _ctx) {
+  struct kk_sqlite_queryresult_fs_show_fun891__t* _self = kk_function_as(struct kk_sqlite_queryresult_fs_show_fun891__t*, _fself, _ctx);
   kk_function_t _b_x33_38 = _self->_b_x33_38; /* (p : sqlite/row) -> string */
   kk_drop_match(_self, {kk_function_dup(_b_x33_38, _ctx);}, {}, _ctx)
-  kk_sqlite__row _x_x888 = kk_sqlite__row_unbox(_b_x34, KK_OWNED, _ctx); /*sqlite/row*/
-  return kk_function_call(kk_string_t, (kk_function_t, kk_sqlite__row, kk_context_t*), _b_x33_38, (_b_x33_38, _x_x888, _ctx), _ctx);
+  kk_sqlite__row _x_x892 = kk_sqlite__row_unbox(_b_x34, KK_OWNED, _ctx); /*sqlite/row*/
+  return kk_function_call(kk_string_t, (kk_function_t, kk_sqlite__row, kk_context_t*), _b_x33_38, (_b_x33_38, _x_x892, _ctx), _ctx);
 }
 
 kk_string_t kk_sqlite_queryresult_fs_show(kk_sqlite__queryresult p, kk_context_t* _ctx) { /* (p : queryresult) -> string */ 
-  kk_string_t _x_x864;
-  kk_define_string_literal(static, _s_x865, 12, "QueryResult(", _ctx)
-  _x_x864 = kk_string_dup(_s_x865, _ctx); /*string*/
-  kk_string_t _x_x866;
+  kk_string_t _x_x868;
+  kk_define_string_literal(static, _s_x869, 12, "QueryResult(", _ctx)
+  _x_x868 = kk_string_dup(_s_x869, _ctx); /*string*/
+  kk_string_t _x_x870;
   kk_std_core_types__list _b_x29_35;
   {
-    struct kk_sqlite_Queryresult* _con_x867 = kk_sqlite__as_Queryresult(p, _ctx);
-    kk_std_core_types__list _x = _con_x867->columns;
+    struct kk_sqlite_Queryresult* _con_x871 = kk_sqlite__as_Queryresult(p, _ctx);
+    kk_std_core_types__list _x = _con_x871->columns;
     kk_std_core_types__list_dup(_x, _ctx);
     _b_x29_35 = _x; /*list<string>*/
   }
-  kk_function_t _b_x30_36 = kk_sqlite_queryresult_fs_new_show_fun869(_ctx); /*(s : string) -> string*/;
-  kk_string_t _x_x870;
-  kk_define_string_literal(static, _s_x871, 9, "columns: ", _ctx)
-  _x_x870 = kk_string_dup(_s_x871, _ctx); /*string*/
-  kk_string_t _x_x872;
-  kk_string_t _x_x873 = kk_std_core_list_show(_b_x29_35, kk_sqlite_queryresult_fs_new_show_fun874(_b_x30_36, _ctx), _ctx); /*string*/
+  kk_function_t _b_x30_36 = kk_sqlite_queryresult_fs_new_show_fun873(_ctx); /*(s : string) -> string*/;
+  kk_string_t _x_x874;
+  kk_define_string_literal(static, _s_x875, 9, "columns: ", _ctx)
+  _x_x874 = kk_string_dup(_s_x875, _ctx); /*string*/
   kk_string_t _x_x876;
-  kk_string_t _x_x877;
-  kk_define_string_literal(static, _s_x878, 2, ", ", _ctx)
-  _x_x877 = kk_string_dup(_s_x878, _ctx); /*string*/
-  kk_string_t _x_x879;
+  kk_string_t _x_x877 = kk_std_core_list_show(_b_x29_35, kk_sqlite_queryresult_fs_new_show_fun878(_b_x30_36, _ctx), _ctx); /*string*/
+  kk_string_t _x_x880;
+  kk_string_t _x_x881;
+  kk_define_string_literal(static, _s_x882, 2, ", ", _ctx)
+  _x_x881 = kk_string_dup(_s_x882, _ctx); /*string*/
+  kk_string_t _x_x883;
   kk_std_core_types__list _b_x32_37;
   {
-    struct kk_sqlite_Queryresult* _con_x880 = kk_sqlite__as_Queryresult(p, _ctx);
-    kk_std_core_types__list _pat_0_0 = _con_x880->columns;
-    kk_std_core_types__list _x_0 = _con_x880->rows;
+    struct kk_sqlite_Queryresult* _con_x884 = kk_sqlite__as_Queryresult(p, _ctx);
+    kk_std_core_types__list _pat_0_0 = _con_x884->columns;
+    kk_std_core_types__list _x_0 = _con_x884->rows;
     if kk_likely(kk_datatype_ptr_is_unique(p, _ctx)) {
       kk_std_core_types__list_drop(_pat_0_0, _ctx);
       kk_datatype_ptr_free(p, _ctx);
@@ -412,56 +412,56 @@ kk_string_t kk_sqlite_queryresult_fs_show(kk_sqlite__queryresult p, kk_context_t
     }
     _b_x32_37 = _x_0; /*list<sqlite/row>*/
   }
-  kk_function_t _b_x33_38 = kk_sqlite_queryresult_fs_new_show_fun882(_ctx); /*(p : sqlite/row) -> string*/;
-  kk_string_t _x_x883;
-  kk_define_string_literal(static, _s_x884, 6, "rows: ", _ctx)
-  _x_x883 = kk_string_dup(_s_x884, _ctx); /*string*/
-  kk_string_t _x_x885;
-  kk_string_t _x_x886 = kk_std_core_list_show(_b_x32_37, kk_sqlite_queryresult_fs_new_show_fun887(_b_x33_38, _ctx), _ctx); /*string*/
+  kk_function_t _b_x33_38 = kk_sqlite_queryresult_fs_new_show_fun886(_ctx); /*(p : sqlite/row) -> string*/;
+  kk_string_t _x_x887;
+  kk_define_string_literal(static, _s_x888, 6, "rows: ", _ctx)
+  _x_x887 = kk_string_dup(_s_x888, _ctx); /*string*/
   kk_string_t _x_x889;
-  kk_define_string_literal(static, _s_x890, 1, ")", _ctx)
-  _x_x889 = kk_string_dup(_s_x890, _ctx); /*string*/
-  _x_x885 = kk_std_core_types__lp__plus__plus__rp_(_x_x886, _x_x889, _ctx); /*string*/
-  _x_x879 = kk_std_core_types__lp__plus__plus__rp_(_x_x883, _x_x885, _ctx); /*string*/
-  _x_x876 = kk_std_core_types__lp__plus__plus__rp_(_x_x877, _x_x879, _ctx); /*string*/
-  _x_x872 = kk_std_core_types__lp__plus__plus__rp_(_x_x873, _x_x876, _ctx); /*string*/
-  _x_x866 = kk_std_core_types__lp__plus__plus__rp_(_x_x870, _x_x872, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x864, _x_x866, _ctx);
+  kk_string_t _x_x890 = kk_std_core_list_show(_b_x32_37, kk_sqlite_queryresult_fs_new_show_fun891(_b_x33_38, _ctx), _ctx); /*string*/
+  kk_string_t _x_x893;
+  kk_define_string_literal(static, _s_x894, 1, ")", _ctx)
+  _x_x893 = kk_string_dup(_s_x894, _ctx); /*string*/
+  _x_x889 = kk_std_core_types__lp__plus__plus__rp_(_x_x890, _x_x893, _ctx); /*string*/
+  _x_x883 = kk_std_core_types__lp__plus__plus__rp_(_x_x887, _x_x889, _ctx); /*string*/
+  _x_x880 = kk_std_core_types__lp__plus__plus__rp_(_x_x881, _x_x883, _ctx); /*string*/
+  _x_x876 = kk_std_core_types__lp__plus__plus__rp_(_x_x877, _x_x880, _ctx); /*string*/
+  _x_x870 = kk_std_core_types__lp__plus__plus__rp_(_x_x874, _x_x876, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x868, _x_x870, _ctx);
 }
 
 kk_sqlite__queryresult kk_sqlite_queryresult_fs__copy(kk_sqlite__queryresult _this, kk_std_core_types__optional columns, kk_std_core_types__optional rows, kk_context_t* _ctx) { /* (queryresult, columns : ? (list<string>), rows : ? (list<row>)) -> queryresult */ 
-  kk_std_core_types__list _x_x891;
+  kk_std_core_types__list _x_x895;
   if (kk_std_core_types__is_Optional(columns, _ctx)) {
     kk_box_t _box_x39 = columns._cons._Optional.value;
     kk_std_core_types__list _uniq_columns_1016 = kk_std_core_types__list_unbox(_box_x39, KK_BORROWED, _ctx);
     kk_std_core_types__list_dup(_uniq_columns_1016, _ctx);
     kk_std_core_types__optional_drop(columns, _ctx);
-    _x_x891 = _uniq_columns_1016; /*list<string>*/
+    _x_x895 = _uniq_columns_1016; /*list<string>*/
   }
   else {
     kk_std_core_types__optional_drop(columns, _ctx);
     {
-      struct kk_sqlite_Queryresult* _con_x892 = kk_sqlite__as_Queryresult(_this, _ctx);
-      kk_std_core_types__list _x = _con_x892->columns;
+      struct kk_sqlite_Queryresult* _con_x896 = kk_sqlite__as_Queryresult(_this, _ctx);
+      kk_std_core_types__list _x = _con_x896->columns;
       kk_std_core_types__list_dup(_x, _ctx);
-      _x_x891 = _x; /*list<string>*/
+      _x_x895 = _x; /*list<string>*/
     }
   }
-  kk_std_core_types__list _x_x893;
+  kk_std_core_types__list _x_x897;
   if (kk_std_core_types__is_Optional(rows, _ctx)) {
     kk_box_t _box_x40 = rows._cons._Optional.value;
     kk_std_core_types__list _uniq_rows_1024 = kk_std_core_types__list_unbox(_box_x40, KK_BORROWED, _ctx);
     kk_std_core_types__list_dup(_uniq_rows_1024, _ctx);
     kk_std_core_types__optional_drop(rows, _ctx);
     kk_datatype_ptr_dropn(_this, (KK_I32(2)), _ctx);
-    _x_x893 = _uniq_rows_1024; /*list<sqlite/row>*/
+    _x_x897 = _uniq_rows_1024; /*list<sqlite/row>*/
   }
   else {
     kk_std_core_types__optional_drop(rows, _ctx);
     {
-      struct kk_sqlite_Queryresult* _con_x894 = kk_sqlite__as_Queryresult(_this, _ctx);
-      kk_std_core_types__list _pat_0_1 = _con_x894->columns;
-      kk_std_core_types__list _x_0 = _con_x894->rows;
+      struct kk_sqlite_Queryresult* _con_x898 = kk_sqlite__as_Queryresult(_this, _ctx);
+      kk_std_core_types__list _pat_0_1 = _con_x898->columns;
+      kk_std_core_types__list _x_0 = _con_x898->rows;
       if kk_likely(kk_datatype_ptr_is_unique(_this, _ctx)) {
         kk_std_core_types__list_drop(_pat_0_1, _ctx);
         kk_datatype_ptr_free(_this, _ctx);
@@ -470,16 +470,16 @@ kk_sqlite__queryresult kk_sqlite_queryresult_fs__copy(kk_sqlite__queryresult _th
         kk_std_core_types__list_dup(_x_0, _ctx);
         kk_datatype_ptr_decref(_this, _ctx);
       }
-      _x_x893 = _x_0; /*list<sqlite/row>*/
+      _x_x897 = _x_0; /*list<sqlite/row>*/
     }
   }
-  return kk_sqlite__new_Queryresult(kk_reuse_null, 0, _x_x891, _x_x893, _ctx);
+  return kk_sqlite__new_Queryresult(kk_reuse_null, 0, _x_x895, _x_x897, _ctx);
 }
 
 kk_integer_t kk_sqlite_hc__clamp(kk_integer_t v, kk_integer_t lo, kk_integer_t hi, kk_context_t* _ctx) { /* (v : int, lo : int, hi : int) -> int */ 
   kk_integer_t a_10010;
-  bool _match_x748 = kk_integer_gt_borrow(v,lo,kk_context()); /*bool*/;
-  if (_match_x748) {
+  bool _match_x752 = kk_integer_gt_borrow(v,lo,kk_context()); /*bool*/;
+  if (_match_x752) {
     kk_integer_drop(lo, _ctx);
     a_10010 = v; /*int*/
   }
@@ -487,8 +487,8 @@ kk_integer_t kk_sqlite_hc__clamp(kk_integer_t v, kk_integer_t lo, kk_integer_t h
     kk_integer_drop(v, _ctx);
     a_10010 = lo; /*int*/
   }
-  bool _match_x747 = kk_integer_lt_borrow(a_10010,hi,kk_context()); /*bool*/;
-  if (_match_x747) {
+  bool _match_x751 = kk_integer_lt_borrow(a_10010,hi,kk_context()); /*bool*/;
+  if (_match_x751) {
     kk_integer_drop(hi, _ctx);
     return a_10010;
   }
@@ -500,81 +500,81 @@ kk_integer_t kk_sqlite_hc__clamp(kk_integer_t v, kk_integer_t lo, kk_integer_t h
 
 kk_integer_t kk_sqlite_hc__gcd(kk_integer_t a, kk_integer_t b, kk_context_t* _ctx) { /* (a : int, b : int) -> div int */ 
   kk__tailcall: ;
-  bool _match_x746 = kk_integer_eq_borrow(b,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x746) {
+  bool _match_x750 = kk_integer_eq_borrow(b,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x750) {
     kk_integer_drop(b, _ctx);
     return a;
   }
   { // tailcall
-    kk_integer_t _x_x895 = kk_integer_dup(b, _ctx); /*int*/
-    kk_integer_t _x_x896 = kk_integer_mod(a,b,kk_context()); /*int*/
-    a = _x_x895;
-    b = _x_x896;
+    kk_integer_t _x_x899 = kk_integer_dup(b, _ctx); /*int*/
+    kk_integer_t _x_x900 = kk_integer_mod(a,b,kk_context()); /*int*/
+    a = _x_x899;
+    b = _x_x900;
     goto kk__tailcall;
   }
 }
 
 kk_integer_t kk_sqlite_hc__lcm(kk_integer_t a, kk_integer_t b, kk_context_t* _ctx) { /* (a : int, b : int) -> div int */ 
-  bool _match_x743 = kk_integer_eq_borrow(a,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x743) {
+  bool _match_x747 = kk_integer_eq_borrow(a,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x747) {
     kk_integer_drop(b, _ctx);
     kk_integer_drop(a, _ctx);
     return kk_integer_from_small(0);
   }
   {
-    bool _match_x744 = kk_integer_eq_borrow(b,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-    if (_match_x744) {
+    bool _match_x748 = kk_integer_eq_borrow(b,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    if (_match_x748) {
       kk_integer_drop(b, _ctx);
       kk_integer_drop(a, _ctx);
       return kk_integer_from_small(0);
     }
     {
       kk_integer_t n_10014;
-      kk_integer_t _x_x897 = kk_integer_dup(a, _ctx); /*int*/
-      kk_integer_t _x_x898 = kk_integer_dup(b, _ctx); /*int*/
-      n_10014 = kk_integer_mul(_x_x897,_x_x898,kk_context()); /*int*/
-      kk_integer_t _x_x899;
-      bool _match_x745 = kk_integer_lt_borrow(n_10014,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-      if (_match_x745) {
-        _x_x899 = kk_integer_sub((kk_integer_from_small(0)),n_10014,kk_context()); /*int*/
+      kk_integer_t _x_x901 = kk_integer_dup(a, _ctx); /*int*/
+      kk_integer_t _x_x902 = kk_integer_dup(b, _ctx); /*int*/
+      n_10014 = kk_integer_mul(_x_x901,_x_x902,kk_context()); /*int*/
+      kk_integer_t _x_x903;
+      bool _match_x749 = kk_integer_lt_borrow(n_10014,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+      if (_match_x749) {
+        _x_x903 = kk_integer_sub((kk_integer_from_small(0)),n_10014,kk_context()); /*int*/
       }
       else {
-        _x_x899 = n_10014; /*int*/
+        _x_x903 = n_10014; /*int*/
       }
-      kk_integer_t _x_x900 = kk_sqlite_hc__gcd(a, b, _ctx); /*int*/
-      return kk_integer_div(_x_x899,_x_x900,kk_context());
+      kk_integer_t _x_x904 = kk_sqlite_hc__gcd(a, b, _ctx); /*int*/
+      return kk_integer_div(_x_x903,_x_x904,kk_context());
     }
   }
 }
 
 kk_integer_t kk_sqlite_hc__pow(kk_integer_t base, kk_integer_t exp, kk_context_t* _ctx) { /* (base : int, exp : int) -> div int */ 
-  bool _match_x742 = kk_integer_lte_borrow(exp,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x742) {
+  bool _match_x746 = kk_integer_lte_borrow(exp,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x746) {
     kk_integer_drop(exp, _ctx);
     kk_integer_drop(base, _ctx);
     return kk_integer_from_small(1);
   }
   {
-    kk_integer_t _x_x901 = kk_integer_dup(base, _ctx); /*int*/
-    kk_integer_t _x_x902;
-    kk_integer_t _x_x903 = kk_integer_add_small_const(exp, -1, _ctx); /*int*/
-    _x_x902 = kk_sqlite_hc__pow(base, _x_x903, _ctx); /*int*/
-    return kk_integer_mul(_x_x901,_x_x902,kk_context());
+    kk_integer_t _x_x905 = kk_integer_dup(base, _ctx); /*int*/
+    kk_integer_t _x_x906;
+    kk_integer_t _x_x907 = kk_integer_add_small_const(exp, -1, _ctx); /*int*/
+    _x_x906 = kk_sqlite_hc__pow(base, _x_x907, _ctx); /*int*/
+    return kk_integer_mul(_x_x905,_x_x906,kk_context());
   }
 }
 
 kk_integer_t kk_sqlite_hc__sign(kk_integer_t n, kk_context_t* _ctx) { /* (n : int) -> int */ 
-  bool _match_x739 = kk_integer_gt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x739) {
+  bool _match_x743 = kk_integer_gt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x743) {
     kk_integer_drop(n, _ctx);
     return kk_integer_from_small(1);
   }
   {
-    bool _match_x740;
-    bool _brw_x741 = kk_integer_lt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    bool _match_x744;
+    bool _brw_x745 = kk_integer_lt_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
     kk_integer_drop(n, _ctx);
-    _match_x740 = _brw_x741; /*bool*/
-    if (_match_x740) {
+    _match_x744 = _brw_x745; /*bool*/
+    if (_match_x744) {
       return kk_integer_add_small_const(kk_integer_from_small(0), -1, _ctx);
     }
     {
@@ -584,45 +584,45 @@ kk_integer_t kk_sqlite_hc__sign(kk_integer_t n, kk_context_t* _ctx) { /* (n : in
 }
 
 kk_std_core_types__list kk_sqlite_hc__range(kk_integer_t lo, kk_integer_t hi, kk_context_t* _ctx) { /* (lo : int, hi : int) -> div list<int> */ 
-  bool _match_x738 = kk_integer_gte_borrow(lo,hi,kk_context()); /*bool*/;
-  if (_match_x738) {
+  bool _match_x742 = kk_integer_gte_borrow(lo,hi,kk_context()); /*bool*/;
+  if (_match_x742) {
     kk_integer_drop(lo, _ctx);
     kk_integer_drop(hi, _ctx);
     return kk_std_core_types__new_Nil(_ctx);
   }
   {
     kk_std_core_types__list ys_10022;
-    kk_integer_t _x_x904;
-    kk_integer_t _x_x905 = kk_integer_dup(lo, _ctx); /*int*/
-    _x_x904 = kk_integer_add_small_const(_x_x905, 1, _ctx); /*int*/
-    ys_10022 = kk_sqlite_hc__range(_x_x904, hi, _ctx); /*list<int>*/
-    kk_std_core_types__list _x_x906 = kk_std_core_types__new_Cons(kk_reuse_null, 0, kk_integer_box(lo, _ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*list<10021>*/
-    return kk_std_core_list_append(_x_x906, ys_10022, _ctx);
+    kk_integer_t _x_x908;
+    kk_integer_t _x_x909 = kk_integer_dup(lo, _ctx); /*int*/
+    _x_x908 = kk_integer_add_small_const(_x_x909, 1, _ctx); /*int*/
+    ys_10022 = kk_sqlite_hc__range(_x_x908, hi, _ctx); /*list<int>*/
+    kk_std_core_types__list _x_x910 = kk_std_core_types__new_Cons(kk_reuse_null, 0, kk_integer_box(lo, _ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*list<10021>*/
+    return kk_std_core_list_append(_x_x910, ys_10022, _ctx);
   }
 }
 
 kk_std_core_types__list kk_sqlite_hc__range__inc(kk_integer_t lo, kk_integer_t hi, kk_context_t* _ctx) { /* (lo : int, hi : int) -> div list<int> */ 
-  bool _match_x737 = kk_integer_gt_borrow(lo,hi,kk_context()); /*bool*/;
-  if (_match_x737) {
+  bool _match_x741 = kk_integer_gt_borrow(lo,hi,kk_context()); /*bool*/;
+  if (_match_x741) {
     kk_integer_drop(lo, _ctx);
     kk_integer_drop(hi, _ctx);
     return kk_std_core_types__new_Nil(_ctx);
   }
   {
     kk_std_core_types__list ys_10026;
-    kk_integer_t _x_x907;
-    kk_integer_t _x_x908 = kk_integer_dup(lo, _ctx); /*int*/
-    _x_x907 = kk_integer_add_small_const(_x_x908, 1, _ctx); /*int*/
-    ys_10026 = kk_sqlite_hc__range__inc(_x_x907, hi, _ctx); /*list<int>*/
-    kk_std_core_types__list _x_x909 = kk_std_core_types__new_Cons(kk_reuse_null, 0, kk_integer_box(lo, _ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*list<10021>*/
-    return kk_std_core_list_append(_x_x909, ys_10026, _ctx);
+    kk_integer_t _x_x911;
+    kk_integer_t _x_x912 = kk_integer_dup(lo, _ctx); /*int*/
+    _x_x911 = kk_integer_add_small_const(_x_x912, 1, _ctx); /*int*/
+    ys_10026 = kk_sqlite_hc__range__inc(_x_x911, hi, _ctx); /*list<int>*/
+    kk_std_core_types__list _x_x913 = kk_std_core_types__new_Cons(kk_reuse_null, 0, kk_integer_box(lo, _ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*list<10021>*/
+    return kk_std_core_list_append(_x_x913, ys_10026, _ctx);
   }
 }
 
 kk_integer_t kk_sqlite_hc__isqrt__loop(kk_integer_t n, kk_integer_t x0, kk_integer_t x1, kk_context_t* _ctx) { /* (n : int, x0 : int, x1 : int) -> div int */ 
   kk__tailcall: ;
-  bool _match_x736 = kk_integer_gte_borrow(x1,x0,kk_context()); /*bool*/;
-  if (_match_x736) {
+  bool _match_x740 = kk_integer_gte_borrow(x1,x0,kk_context()); /*bool*/;
+  if (_match_x740) {
     kk_integer_drop(x1, _ctx);
     kk_integer_drop(n, _ctx);
     return x0;
@@ -630,17 +630,17 @@ kk_integer_t kk_sqlite_hc__isqrt__loop(kk_integer_t n, kk_integer_t x0, kk_integ
   {
     kk_integer_drop(x0, _ctx);
     kk_integer_t y_10030;
-    kk_integer_t _x_x910 = kk_integer_dup(n, _ctx); /*int*/
-    kk_integer_t _x_x911 = kk_integer_dup(x1, _ctx); /*int*/
-    y_10030 = kk_integer_div(_x_x910,_x_x911,kk_context()); /*int*/
+    kk_integer_t _x_x914 = kk_integer_dup(n, _ctx); /*int*/
+    kk_integer_t _x_x915 = kk_integer_dup(x1, _ctx); /*int*/
+    y_10030 = kk_integer_div(_x_x914,_x_x915,kk_context()); /*int*/
     kk_integer_t x2;
-    kk_integer_t _x_x912;
-    kk_integer_t _x_x913 = kk_integer_dup(x1, _ctx); /*int*/
-    _x_x912 = kk_integer_add(_x_x913,y_10030,kk_context()); /*int*/
-    x2 = kk_integer_div(_x_x912,(kk_integer_from_small(2)),kk_context()); /*int*/
+    kk_integer_t _x_x916;
+    kk_integer_t _x_x917 = kk_integer_dup(x1, _ctx); /*int*/
+    _x_x916 = kk_integer_add(_x_x917,y_10030,kk_context()); /*int*/
+    x2 = kk_integer_div(_x_x916,(kk_integer_from_small(2)),kk_context()); /*int*/
     { // tailcall
-      kk_integer_t _x_x914 = x1; /*int*/
-      x0 = _x_x914;
+      kk_integer_t _x_x918 = x1; /*int*/
+      x0 = _x_x918;
       x1 = x2;
       goto kk__tailcall;
     }
@@ -648,29 +648,29 @@ kk_integer_t kk_sqlite_hc__isqrt__loop(kk_integer_t n, kk_integer_t x0, kk_integ
 }
 
 kk_integer_t kk_sqlite_hc__isqrt(kk_integer_t n, kk_context_t* _ctx) { /* (n : int) -> div int */ 
-  bool _match_x735 = kk_integer_lte_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x735) {
+  bool _match_x739 = kk_integer_lte_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x739) {
     kk_integer_drop(n, _ctx);
     return kk_integer_from_small(0);
   }
   {
     kk_integer_t x1;
-    kk_integer_t _x_x915;
-    kk_integer_t _x_x916 = kk_integer_dup(n, _ctx); /*int*/
-    _x_x915 = kk_integer_add_small_const(_x_x916, 1, _ctx); /*int*/
-    x1 = kk_integer_div(_x_x915,(kk_integer_from_small(2)),kk_context()); /*int*/
-    kk_integer_t _x_x917 = kk_integer_dup(n, _ctx); /*int*/
-    return kk_sqlite_hc__isqrt__loop(_x_x917, n, x1, _ctx);
+    kk_integer_t _x_x919;
+    kk_integer_t _x_x920 = kk_integer_dup(n, _ctx); /*int*/
+    _x_x919 = kk_integer_add_small_const(_x_x920, 1, _ctx); /*int*/
+    x1 = kk_integer_div(_x_x919,(kk_integer_from_small(2)),kk_context()); /*int*/
+    kk_integer_t _x_x921 = kk_integer_dup(n, _ctx); /*int*/
+    return kk_sqlite_hc__isqrt__loop(_x_x921, n, x1, _ctx);
   }
 }
 
 bool kk_sqlite_hc__is__digit(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x733 = kk_integer_gte_borrow(n,(kk_integer_from_small(48)),kk_context()); /*bool*/;
-  if (_match_x733) {
-    bool _brw_x734 = kk_integer_lte_borrow(n,(kk_integer_from_small(57)),kk_context()); /*bool*/;
+  bool _match_x737 = kk_integer_gte_borrow(n,(kk_integer_from_small(48)),kk_context()); /*bool*/;
+  if (_match_x737) {
+    bool _brw_x738 = kk_integer_lte_borrow(n,(kk_integer_from_small(57)),kk_context()); /*bool*/;
     kk_integer_drop(n, _ctx);
-    return _brw_x734;
+    return _brw_x738;
   }
   {
     kk_integer_drop(n, _ctx);
@@ -680,11 +680,11 @@ bool kk_sqlite_hc__is__digit(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 bool kk_sqlite_hc__is__upper(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x731 = kk_integer_gte_borrow(n,(kk_integer_from_small(65)),kk_context()); /*bool*/;
-  if (_match_x731) {
-    bool _brw_x732 = kk_integer_lte_borrow(n,(kk_integer_from_small(90)),kk_context()); /*bool*/;
+  bool _match_x735 = kk_integer_gte_borrow(n,(kk_integer_from_small(65)),kk_context()); /*bool*/;
+  if (_match_x735) {
+    bool _brw_x736 = kk_integer_lte_borrow(n,(kk_integer_from_small(90)),kk_context()); /*bool*/;
     kk_integer_drop(n, _ctx);
-    return _brw_x732;
+    return _brw_x736;
   }
   {
     kk_integer_drop(n, _ctx);
@@ -694,11 +694,11 @@ bool kk_sqlite_hc__is__upper(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 bool kk_sqlite_hc__is__lower(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x729 = kk_integer_gte_borrow(n,(kk_integer_from_small(97)),kk_context()); /*bool*/;
-  if (_match_x729) {
-    bool _brw_x730 = kk_integer_lte_borrow(n,(kk_integer_from_small(122)),kk_context()); /*bool*/;
+  bool _match_x733 = kk_integer_gte_borrow(n,(kk_integer_from_small(97)),kk_context()); /*bool*/;
+  if (_match_x733) {
+    bool _brw_x734 = kk_integer_lte_borrow(n,(kk_integer_from_small(122)),kk_context()); /*bool*/;
     kk_integer_drop(n, _ctx);
-    return _brw_x730;
+    return _brw_x734;
   }
   {
     kk_integer_drop(n, _ctx);
@@ -708,22 +708,22 @@ bool kk_sqlite_hc__is__lower(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 bool kk_sqlite_hc__is__alpha(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x722 = kk_integer_gte_borrow(n,(kk_integer_from_small(65)),kk_context()); /*bool*/;
-  if (_match_x722) {
-    bool _match_x725;
-    bool _brw_x728 = kk_integer_lte_borrow(n,(kk_integer_from_small(90)),kk_context()); /*bool*/;
+  bool _match_x726 = kk_integer_gte_borrow(n,(kk_integer_from_small(65)),kk_context()); /*bool*/;
+  if (_match_x726) {
+    bool _match_x729;
+    bool _brw_x732 = kk_integer_lte_borrow(n,(kk_integer_from_small(90)),kk_context()); /*bool*/;
     kk_integer_drop(n, _ctx);
-    _match_x725 = _brw_x728; /*bool*/
-    if (_match_x725) {
+    _match_x729 = _brw_x732; /*bool*/
+    if (_match_x729) {
       return true;
     }
     {
       kk_integer_t n_0 = kk_integer_from_int(c,kk_context()); /*int*/;
-      bool _match_x726 = kk_integer_gte_borrow(n_0,(kk_integer_from_small(97)),kk_context()); /*bool*/;
-      if (_match_x726) {
-        bool _brw_x727 = kk_integer_lte_borrow(n_0,(kk_integer_from_small(122)),kk_context()); /*bool*/;
+      bool _match_x730 = kk_integer_gte_borrow(n_0,(kk_integer_from_small(97)),kk_context()); /*bool*/;
+      if (_match_x730) {
+        bool _brw_x731 = kk_integer_lte_borrow(n_0,(kk_integer_from_small(122)),kk_context()); /*bool*/;
         kk_integer_drop(n_0, _ctx);
-        return _brw_x727;
+        return _brw_x731;
       }
       {
         kk_integer_drop(n_0, _ctx);
@@ -734,11 +734,11 @@ bool kk_sqlite_hc__is__alpha(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
   {
     kk_integer_drop(n, _ctx);
     kk_integer_t n_0_0 = kk_integer_from_int(c,kk_context()); /*int*/;
-    bool _match_x723 = kk_integer_gte_borrow(n_0_0,(kk_integer_from_small(97)),kk_context()); /*bool*/;
-    if (_match_x723) {
-      bool _brw_x724 = kk_integer_lte_borrow(n_0_0,(kk_integer_from_small(122)),kk_context()); /*bool*/;
+    bool _match_x727 = kk_integer_gte_borrow(n_0_0,(kk_integer_from_small(97)),kk_context()); /*bool*/;
+    if (_match_x727) {
+      bool _brw_x728 = kk_integer_lte_borrow(n_0_0,(kk_integer_from_small(122)),kk_context()); /*bool*/;
       kk_integer_drop(n_0_0, _ctx);
-      return _brw_x724;
+      return _brw_x728;
     }
     {
       kk_integer_drop(n_0_0, _ctx);
@@ -748,17 +748,17 @@ bool kk_sqlite_hc__is__alpha(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 }
 
 bool kk_sqlite_hc__is__alnum(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
-  bool _match_x719 = kk_sqlite_hc__is__alpha(c, _ctx); /*bool*/;
-  if (_match_x719) {
+  bool _match_x723 = kk_sqlite_hc__is__alpha(c, _ctx); /*bool*/;
+  if (_match_x723) {
     return true;
   }
   {
     kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-    bool _match_x720 = kk_integer_gte_borrow(n,(kk_integer_from_small(48)),kk_context()); /*bool*/;
-    if (_match_x720) {
-      bool _brw_x721 = kk_integer_lte_borrow(n,(kk_integer_from_small(57)),kk_context()); /*bool*/;
+    bool _match_x724 = kk_integer_gte_borrow(n,(kk_integer_from_small(48)),kk_context()); /*bool*/;
+    if (_match_x724) {
+      bool _brw_x725 = kk_integer_lte_borrow(n,(kk_integer_from_small(57)),kk_context()); /*bool*/;
       kk_integer_drop(n, _ctx);
-      return _brw_x721;
+      return _brw_x725;
     }
     {
       kk_integer_drop(n, _ctx);
@@ -769,27 +769,27 @@ bool kk_sqlite_hc__is__alnum(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 bool kk_sqlite_hc__is__space(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x715 = kk_integer_eq_borrow(n,(kk_integer_from_small(32)),kk_context()); /*bool*/;
-  if (_match_x715) {
+  bool _match_x719 = kk_integer_eq_borrow(n,(kk_integer_from_small(32)),kk_context()); /*bool*/;
+  if (_match_x719) {
     kk_integer_drop(n, _ctx);
     return true;
   }
   {
-    bool _match_x716 = kk_integer_eq_borrow(n,(kk_integer_from_small(9)),kk_context()); /*bool*/;
-    if (_match_x716) {
+    bool _match_x720 = kk_integer_eq_borrow(n,(kk_integer_from_small(9)),kk_context()); /*bool*/;
+    if (_match_x720) {
       kk_integer_drop(n, _ctx);
       return true;
     }
     {
-      bool _match_x717 = kk_integer_eq_borrow(n,(kk_integer_from_small(10)),kk_context()); /*bool*/;
-      if (_match_x717) {
+      bool _match_x721 = kk_integer_eq_borrow(n,(kk_integer_from_small(10)),kk_context()); /*bool*/;
+      if (_match_x721) {
         kk_integer_drop(n, _ctx);
         return true;
       }
       {
-        bool _brw_x718 = kk_integer_eq_borrow(n,(kk_integer_from_small(13)),kk_context()); /*bool*/;
+        bool _brw_x722 = kk_integer_eq_borrow(n,(kk_integer_from_small(13)),kk_context()); /*bool*/;
         kk_integer_drop(n, _ctx);
-        return _brw_x718;
+        return _brw_x722;
       }
     }
   }
@@ -797,50 +797,50 @@ bool kk_sqlite_hc__is__space(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 bool kk_sqlite_hc__is__punct(kk_char_t c, kk_context_t* _ctx) { /* (c : char) -> bool */ 
   kk_integer_t n = kk_integer_from_int(c,kk_context()); /*int*/;
-  bool _match_x704;
-  bool _match_x711 = kk_integer_gte_borrow(n,(kk_integer_from_small(33)),kk_context()); /*bool*/;
-  if (_match_x711) {
-    bool _match_x713 = kk_integer_lte_borrow(n,(kk_integer_from_small(47)),kk_context()); /*bool*/;
-    if (_match_x713) {
-      _match_x704 = true; /*bool*/
+  bool _match_x708;
+  bool _match_x715 = kk_integer_gte_borrow(n,(kk_integer_from_small(33)),kk_context()); /*bool*/;
+  if (_match_x715) {
+    bool _match_x717 = kk_integer_lte_borrow(n,(kk_integer_from_small(47)),kk_context()); /*bool*/;
+    if (_match_x717) {
+      _match_x708 = true; /*bool*/
     }
     else {
-      bool _match_x714 = kk_integer_gte_borrow(n,(kk_integer_from_small(58)),kk_context()); /*bool*/;
-      if (_match_x714) {
-        _match_x704 = kk_integer_lte_borrow(n,(kk_integer_from_small(64)),kk_context()); /*bool*/
+      bool _match_x718 = kk_integer_gte_borrow(n,(kk_integer_from_small(58)),kk_context()); /*bool*/;
+      if (_match_x718) {
+        _match_x708 = kk_integer_lte_borrow(n,(kk_integer_from_small(64)),kk_context()); /*bool*/
       }
       else {
-        _match_x704 = false; /*bool*/
+        _match_x708 = false; /*bool*/
       }
     }
   }
   else {
-    bool _match_x712 = kk_integer_gte_borrow(n,(kk_integer_from_small(58)),kk_context()); /*bool*/;
-    if (_match_x712) {
-      _match_x704 = kk_integer_lte_borrow(n,(kk_integer_from_small(64)),kk_context()); /*bool*/
+    bool _match_x716 = kk_integer_gte_borrow(n,(kk_integer_from_small(58)),kk_context()); /*bool*/;
+    if (_match_x716) {
+      _match_x708 = kk_integer_lte_borrow(n,(kk_integer_from_small(64)),kk_context()); /*bool*/
     }
     else {
-      _match_x704 = false; /*bool*/
+      _match_x708 = false; /*bool*/
     }
   }
-  if (_match_x704) {
+  if (_match_x708) {
     kk_integer_drop(n, _ctx);
     return true;
   }
   {
-    bool _match_x705 = kk_integer_gte_borrow(n,(kk_integer_from_small(91)),kk_context()); /*bool*/;
-    if (_match_x705) {
-      bool _match_x708 = kk_integer_lte_borrow(n,(kk_integer_from_small(96)),kk_context()); /*bool*/;
-      if (_match_x708) {
+    bool _match_x709 = kk_integer_gte_borrow(n,(kk_integer_from_small(91)),kk_context()); /*bool*/;
+    if (_match_x709) {
+      bool _match_x712 = kk_integer_lte_borrow(n,(kk_integer_from_small(96)),kk_context()); /*bool*/;
+      if (_match_x712) {
         kk_integer_drop(n, _ctx);
         return true;
       }
       {
-        bool _match_x709 = kk_integer_gte_borrow(n,(kk_integer_from_small(123)),kk_context()); /*bool*/;
-        if (_match_x709) {
-          bool _brw_x710 = kk_integer_lte_borrow(n,(kk_integer_from_small(126)),kk_context()); /*bool*/;
+        bool _match_x713 = kk_integer_gte_borrow(n,(kk_integer_from_small(123)),kk_context()); /*bool*/;
+        if (_match_x713) {
+          bool _brw_x714 = kk_integer_lte_borrow(n,(kk_integer_from_small(126)),kk_context()); /*bool*/;
           kk_integer_drop(n, _ctx);
-          return _brw_x710;
+          return _brw_x714;
         }
         {
           kk_integer_drop(n, _ctx);
@@ -849,11 +849,11 @@ bool kk_sqlite_hc__is__punct(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
       }
     }
     {
-      bool _match_x706 = kk_integer_gte_borrow(n,(kk_integer_from_small(123)),kk_context()); /*bool*/;
-      if (_match_x706) {
-        bool _brw_x707 = kk_integer_lte_borrow(n,(kk_integer_from_small(126)),kk_context()); /*bool*/;
+      bool _match_x710 = kk_integer_gte_borrow(n,(kk_integer_from_small(123)),kk_context()); /*bool*/;
+      if (_match_x710) {
+        bool _brw_x711 = kk_integer_lte_borrow(n,(kk_integer_from_small(126)),kk_context()); /*bool*/;
         kk_integer_drop(n, _ctx);
-        return _brw_x707;
+        return _brw_x711;
       }
       {
         kk_integer_drop(n, _ctx);
@@ -865,199 +865,199 @@ bool kk_sqlite_hc__is__punct(kk_char_t c, kk_context_t* _ctx) { /* (c : char) ->
 
 
 // lift anonymous function
-struct kk_sqlite_hc__all__digits_fun919__t {
+struct kk_sqlite_hc__all__digits_fun923__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__all__digits_fun919(kk_function_t _fself, kk_box_t _b_x51, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__all__digits_fun919(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__all__digits_fun919, _ctx)
+static bool kk_sqlite_hc__all__digits_fun923(kk_function_t _fself, kk_box_t _b_x51, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__all__digits_fun923(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__all__digits_fun923, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__all__digits_fun919(kk_function_t _fself, kk_box_t _b_x51, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__all__digits_fun923(kk_function_t _fself, kk_box_t _b_x51, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_char_t _x_x920 = kk_char_unbox(_b_x51, KK_OWNED, _ctx); /*char*/
-  return kk_sqlite_hc__is__digit(_x_x920, _ctx);
+  kk_char_t _x_x924 = kk_char_unbox(_b_x51, KK_OWNED, _ctx); /*char*/
+  return kk_sqlite_hc__is__digit(_x_x924, _ctx);
 }
 
 bool kk_sqlite_hc__all__digits(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  bool _match_x701;
-  kk_integer_t _brw_x702;
-  kk_string_t _x_x918 = kk_string_dup(s, _ctx); /*string*/
-  _brw_x702 = kk_std_core_string_chars_fs_count(_x_x918, _ctx); /*int*/
-  bool _brw_x703 = kk_integer_eq_borrow(_brw_x702,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x702, _ctx);
-  _match_x701 = _brw_x703; /*bool*/
-  if (_match_x701) {
+  bool _match_x705;
+  kk_integer_t _brw_x706;
+  kk_string_t _x_x922 = kk_string_dup(s, _ctx); /*string*/
+  _brw_x706 = kk_std_core_string_chars_fs_count(_x_x922, _ctx); /*int*/
+  bool _brw_x707 = kk_integer_eq_borrow(_brw_x706,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x706, _ctx);
+  _match_x705 = _brw_x707; /*bool*/
+  if (_match_x705) {
     kk_string_drop(s, _ctx);
     return false;
   }
   {
     kk_std_core_types__list _b_x49_52 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    return kk_std_core_list_all(_b_x49_52, kk_sqlite_new_hc__all__digits_fun919(_ctx), _ctx);
+    return kk_std_core_list_all(_b_x49_52, kk_sqlite_new_hc__all__digits_fun923(_ctx), _ctx);
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__all__alpha_fun922__t {
+struct kk_sqlite_hc__all__alpha_fun926__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__all__alpha_fun922(kk_function_t _fself, kk_box_t _b_x56, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__all__alpha_fun922(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__all__alpha_fun922, _ctx)
+static bool kk_sqlite_hc__all__alpha_fun926(kk_function_t _fself, kk_box_t _b_x56, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__all__alpha_fun926(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__all__alpha_fun926, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__all__alpha_fun922(kk_function_t _fself, kk_box_t _b_x56, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__all__alpha_fun926(kk_function_t _fself, kk_box_t _b_x56, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_char_t _x_x923 = kk_char_unbox(_b_x56, KK_OWNED, _ctx); /*char*/
-  return kk_sqlite_hc__is__alpha(_x_x923, _ctx);
+  kk_char_t _x_x927 = kk_char_unbox(_b_x56, KK_OWNED, _ctx); /*char*/
+  return kk_sqlite_hc__is__alpha(_x_x927, _ctx);
 }
 
 bool kk_sqlite_hc__all__alpha(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  bool _match_x698;
-  kk_integer_t _brw_x699;
-  kk_string_t _x_x921 = kk_string_dup(s, _ctx); /*string*/
-  _brw_x699 = kk_std_core_string_chars_fs_count(_x_x921, _ctx); /*int*/
-  bool _brw_x700 = kk_integer_eq_borrow(_brw_x699,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x699, _ctx);
-  _match_x698 = _brw_x700; /*bool*/
-  if (_match_x698) {
+  bool _match_x702;
+  kk_integer_t _brw_x703;
+  kk_string_t _x_x925 = kk_string_dup(s, _ctx); /*string*/
+  _brw_x703 = kk_std_core_string_chars_fs_count(_x_x925, _ctx); /*int*/
+  bool _brw_x704 = kk_integer_eq_borrow(_brw_x703,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x703, _ctx);
+  _match_x702 = _brw_x704; /*bool*/
+  if (_match_x702) {
     kk_string_drop(s, _ctx);
     return false;
   }
   {
     kk_std_core_types__list _b_x54_57 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    return kk_std_core_list_all(_b_x54_57, kk_sqlite_new_hc__all__alpha_fun922(_ctx), _ctx);
+    return kk_std_core_list_all(_b_x54_57, kk_sqlite_new_hc__all__alpha_fun926(_ctx), _ctx);
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__all__upper_fun925__t {
+struct kk_sqlite_hc__all__upper_fun929__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__all__upper_fun925(kk_function_t _fself, kk_box_t _b_x61, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__all__upper_fun925(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__all__upper_fun925, _ctx)
+static bool kk_sqlite_hc__all__upper_fun929(kk_function_t _fself, kk_box_t _b_x61, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__all__upper_fun929(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__all__upper_fun929, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__all__upper_fun925(kk_function_t _fself, kk_box_t _b_x61, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__all__upper_fun929(kk_function_t _fself, kk_box_t _b_x61, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_char_t _x_x926 = kk_char_unbox(_b_x61, KK_OWNED, _ctx); /*char*/
-  return kk_sqlite_hc__is__upper(_x_x926, _ctx);
+  kk_char_t _x_x930 = kk_char_unbox(_b_x61, KK_OWNED, _ctx); /*char*/
+  return kk_sqlite_hc__is__upper(_x_x930, _ctx);
 }
 
 bool kk_sqlite_hc__all__upper(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  bool _match_x695;
-  kk_integer_t _brw_x696;
-  kk_string_t _x_x924 = kk_string_dup(s, _ctx); /*string*/
-  _brw_x696 = kk_std_core_string_chars_fs_count(_x_x924, _ctx); /*int*/
-  bool _brw_x697 = kk_integer_eq_borrow(_brw_x696,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x696, _ctx);
-  _match_x695 = _brw_x697; /*bool*/
-  if (_match_x695) {
+  bool _match_x699;
+  kk_integer_t _brw_x700;
+  kk_string_t _x_x928 = kk_string_dup(s, _ctx); /*string*/
+  _brw_x700 = kk_std_core_string_chars_fs_count(_x_x928, _ctx); /*int*/
+  bool _brw_x701 = kk_integer_eq_borrow(_brw_x700,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x700, _ctx);
+  _match_x699 = _brw_x701; /*bool*/
+  if (_match_x699) {
     kk_string_drop(s, _ctx);
     return false;
   }
   {
     kk_std_core_types__list _b_x59_62 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    return kk_std_core_list_all(_b_x59_62, kk_sqlite_new_hc__all__upper_fun925(_ctx), _ctx);
+    return kk_std_core_list_all(_b_x59_62, kk_sqlite_new_hc__all__upper_fun929(_ctx), _ctx);
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__all__lower_fun928__t {
+struct kk_sqlite_hc__all__lower_fun932__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__all__lower_fun928(kk_function_t _fself, kk_box_t _b_x66, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__all__lower_fun928(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__all__lower_fun928, _ctx)
+static bool kk_sqlite_hc__all__lower_fun932(kk_function_t _fself, kk_box_t _b_x66, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__all__lower_fun932(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__all__lower_fun932, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__all__lower_fun928(kk_function_t _fself, kk_box_t _b_x66, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__all__lower_fun932(kk_function_t _fself, kk_box_t _b_x66, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_char_t _x_x929 = kk_char_unbox(_b_x66, KK_OWNED, _ctx); /*char*/
-  return kk_sqlite_hc__is__lower(_x_x929, _ctx);
+  kk_char_t _x_x933 = kk_char_unbox(_b_x66, KK_OWNED, _ctx); /*char*/
+  return kk_sqlite_hc__is__lower(_x_x933, _ctx);
 }
 
 bool kk_sqlite_hc__all__lower(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  bool _match_x692;
-  kk_integer_t _brw_x693;
-  kk_string_t _x_x927 = kk_string_dup(s, _ctx); /*string*/
-  _brw_x693 = kk_std_core_string_chars_fs_count(_x_x927, _ctx); /*int*/
-  bool _brw_x694 = kk_integer_eq_borrow(_brw_x693,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x693, _ctx);
-  _match_x692 = _brw_x694; /*bool*/
-  if (_match_x692) {
+  bool _match_x696;
+  kk_integer_t _brw_x697;
+  kk_string_t _x_x931 = kk_string_dup(s, _ctx); /*string*/
+  _brw_x697 = kk_std_core_string_chars_fs_count(_x_x931, _ctx); /*int*/
+  bool _brw_x698 = kk_integer_eq_borrow(_brw_x697,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x697, _ctx);
+  _match_x696 = _brw_x698; /*bool*/
+  if (_match_x696) {
     kk_string_drop(s, _ctx);
     return false;
   }
   {
     kk_std_core_types__list _b_x64_67 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    return kk_std_core_list_all(_b_x64_67, kk_sqlite_new_hc__all__lower_fun928(_ctx), _ctx);
+    return kk_std_core_list_all(_b_x64_67, kk_sqlite_new_hc__all__lower_fun932(_ctx), _ctx);
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__all__alnum_fun931__t {
+struct kk_sqlite_hc__all__alnum_fun935__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__all__alnum_fun931(kk_function_t _fself, kk_box_t _b_x71, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__all__alnum_fun931(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__all__alnum_fun931, _ctx)
+static bool kk_sqlite_hc__all__alnum_fun935(kk_function_t _fself, kk_box_t _b_x71, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__all__alnum_fun935(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__all__alnum_fun935, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__all__alnum_fun931(kk_function_t _fself, kk_box_t _b_x71, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__all__alnum_fun935(kk_function_t _fself, kk_box_t _b_x71, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_char_t _x_x932 = kk_char_unbox(_b_x71, KK_OWNED, _ctx); /*char*/
-  return kk_sqlite_hc__is__alnum(_x_x932, _ctx);
+  kk_char_t _x_x936 = kk_char_unbox(_b_x71, KK_OWNED, _ctx); /*char*/
+  return kk_sqlite_hc__is__alnum(_x_x936, _ctx);
 }
 
 bool kk_sqlite_hc__all__alnum(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> bool */ 
-  bool _match_x689;
-  kk_integer_t _brw_x690;
-  kk_string_t _x_x930 = kk_string_dup(s, _ctx); /*string*/
-  _brw_x690 = kk_std_core_string_chars_fs_count(_x_x930, _ctx); /*int*/
-  bool _brw_x691 = kk_integer_eq_borrow(_brw_x690,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x690, _ctx);
-  _match_x689 = _brw_x691; /*bool*/
-  if (_match_x689) {
+  bool _match_x693;
+  kk_integer_t _brw_x694;
+  kk_string_t _x_x934 = kk_string_dup(s, _ctx); /*string*/
+  _brw_x694 = kk_std_core_string_chars_fs_count(_x_x934, _ctx); /*int*/
+  bool _brw_x695 = kk_integer_eq_borrow(_brw_x694,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x694, _ctx);
+  _match_x693 = _brw_x695; /*bool*/
+  if (_match_x693) {
     kk_string_drop(s, _ctx);
     return false;
   }
   {
     kk_std_core_types__list _b_x69_72 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    return kk_std_core_list_all(_b_x69_72, kk_sqlite_new_hc__all__alnum_fun931(_ctx), _ctx);
+    return kk_std_core_list_all(_b_x69_72, kk_sqlite_new_hc__all__alnum_fun935(_ctx), _ctx);
   }
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__glob__match__chars_fun938__t {
+struct kk_sqlite_hc__glob__match__chars_fun942__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__glob__match__chars_fun938(kk_function_t _fself, kk_box_t _b_x78, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__glob__match__chars_fun938(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__chars_fun938, _ctx)
+static bool kk_sqlite_hc__glob__match__chars_fun942(kk_function_t _fself, kk_box_t _b_x78, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__glob__match__chars_fun942(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__chars_fun942, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__glob__match__chars_fun938(kk_function_t _fself, kk_box_t _b_x78, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__glob__match__chars_fun942(kk_function_t _fself, kk_box_t _b_x78, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x939;
-  kk_char_t _x_x940 = kk_char_unbox(_b_x78, KK_OWNED, _ctx); /*char*/
-  _x_x939 = kk_std_core_string_char_fs_string(_x_x940, _ctx); /*string*/
-  kk_string_t _x_x941;
-  kk_define_string_literal(static, _s_x942, 1, "/", _ctx)
-  _x_x941 = kk_string_dup(_s_x942, _ctx); /*string*/
-  return kk_string_is_neq(_x_x939,_x_x941,kk_context());
+  kk_string_t _x_x943;
+  kk_char_t _x_x944 = kk_char_unbox(_b_x78, KK_OWNED, _ctx); /*char*/
+  _x_x943 = kk_std_core_string_char_fs_string(_x_x944, _ctx); /*string*/
+  kk_string_t _x_x945;
+  kk_define_string_literal(static, _s_x946, 1, "/", _ctx)
+  _x_x945 = kk_string_dup(_s_x946, _ctx); /*string*/
+  return kk_string_is_neq(_x_x943,_x_x945,kk_context());
 }
 
 bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_types__list input, kk_context_t* _ctx) { /* (pat : list<char>, input : list<char>) -> div bool */ 
@@ -1072,9 +1072,9 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
     }
   }
   {
-    struct kk_std_core_types_Cons* _con_x933 = kk_std_core_types__as_Cons(pat, _ctx);
-    kk_box_t _box_x74 = _con_x933->head;
-    kk_std_core_types__list prest = _con_x933->tail;
+    struct kk_std_core_types_Cons* _con_x937 = kk_std_core_types__as_Cons(pat, _ctx);
+    kk_box_t _box_x74 = _con_x937->head;
+    kk_std_core_types__list prest = _con_x937->tail;
     kk_char_t p = kk_char_unbox(_box_x74, KK_BORROWED, _ctx);
     if kk_likely(kk_datatype_ptr_is_unique(pat, _ctx)) {
       kk_datatype_ptr_free(pat, _ctx);
@@ -1083,17 +1083,17 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
       kk_std_core_types__list_dup(prest, _ctx);
       kk_datatype_ptr_decref(pat, _ctx);
     }
-    kk_string_t _match_x686 = kk_std_core_string_char_fs_string(p, _ctx); /*string*/;
-    if (kk_string_cmp_cstr_borrow(_match_x686, "\?", _ctx) == 0) {
-      kk_string_drop(_match_x686, _ctx);
+    kk_string_t _match_x690 = kk_std_core_string_char_fs_string(p, _ctx); /*string*/;
+    if (kk_string_cmp_cstr_borrow(_match_x690, "\?", _ctx) == 0) {
+      kk_string_drop(_match_x690, _ctx);
       if (kk_std_core_types__is_Nil(input, _ctx)) {
         kk_std_core_types__list_drop(prest, _ctx);
         return false;
       }
       {
-        struct kk_std_core_types_Cons* _con_x934 = kk_std_core_types__as_Cons(input, _ctx);
-        kk_box_t _box_x75 = _con_x934->head;
-        kk_std_core_types__list irest = _con_x934->tail;
+        struct kk_std_core_types_Cons* _con_x938 = kk_std_core_types__as_Cons(input, _ctx);
+        kk_box_t _box_x75 = _con_x938->head;
+        kk_std_core_types__list irest = _con_x938->tail;
         kk_char_t c = kk_char_unbox(_box_x75, KK_BORROWED, _ctx);
         if kk_likely(kk_datatype_ptr_is_unique(input, _ctx)) {
           kk_datatype_ptr_free(input, _ctx);
@@ -1102,13 +1102,13 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
           kk_std_core_types__list_dup(irest, _ctx);
           kk_datatype_ptr_decref(input, _ctx);
         }
-        bool _match_x688;
-        kk_string_t _x_x935 = kk_std_core_string_char_fs_string(c, _ctx); /*string*/
-        kk_string_t _x_x936;
-        kk_define_string_literal(static, _s_x937, 1, "/", _ctx)
-        _x_x936 = kk_string_dup(_s_x937, _ctx); /*string*/
-        _match_x688 = kk_string_is_eq(_x_x935,_x_x936,kk_context()); /*bool*/
-        if (_match_x688) {
+        bool _match_x692;
+        kk_string_t _x_x939 = kk_std_core_string_char_fs_string(c, _ctx); /*string*/
+        kk_string_t _x_x940;
+        kk_define_string_literal(static, _s_x941, 1, "/", _ctx)
+        _x_x940 = kk_string_dup(_s_x941, _ctx); /*string*/
+        _match_x692 = kk_string_is_eq(_x_x939,_x_x940,kk_context()); /*bool*/
+        if (_match_x692) {
           kk_std_core_types__list_drop(prest, _ctx);
           kk_std_core_types__list_drop(irest, _ctx);
           return false;
@@ -1120,25 +1120,25 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
         }
       }
     }
-    if (kk_string_cmp_cstr_borrow(_match_x686, "*", _ctx) == 0) {
-      kk_string_drop(_match_x686, _ctx);
+    if (kk_string_cmp_cstr_borrow(_match_x690, "*", _ctx) == 0) {
+      kk_string_drop(_match_x690, _ctx);
       if (kk_std_core_types__is_Nil(prest, _ctx)) {
-        return kk_std_core_list_all(input, kk_sqlite_new_hc__glob__match__chars_fun938(_ctx), _ctx);
+        return kk_std_core_list_all(input, kk_sqlite_new_hc__glob__match__chars_fun942(_ctx), _ctx);
       }
       {
         return kk_sqlite_hc__glob__star(prest, input, _ctx);
       }
     }
     {
-      kk_string_drop(_match_x686, _ctx);
+      kk_string_drop(_match_x690, _ctx);
       if (kk_std_core_types__is_Nil(input, _ctx)) {
         kk_std_core_types__list_drop(prest, _ctx);
         return false;
       }
       {
-        struct kk_std_core_types_Cons* _con_x943 = kk_std_core_types__as_Cons(input, _ctx);
-        kk_box_t _box_x79 = _con_x943->head;
-        kk_std_core_types__list irest_0 = _con_x943->tail;
+        struct kk_std_core_types_Cons* _con_x947 = kk_std_core_types__as_Cons(input, _ctx);
+        kk_box_t _box_x79 = _con_x947->head;
+        kk_std_core_types__list irest_0 = _con_x947->tail;
         kk_char_t c_1 = kk_char_unbox(_box_x79, KK_BORROWED, _ctx);
         if kk_likely(kk_datatype_ptr_is_unique(input, _ctx)) {
           kk_datatype_ptr_free(input, _ctx);
@@ -1147,8 +1147,8 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
           kk_std_core_types__list_dup(irest_0, _ctx);
           kk_datatype_ptr_decref(input, _ctx);
         }
-        bool _match_x687 = (p == c_1); /*bool*/;
-        if (_match_x687) { // tailcall
+        bool _match_x691 = (p == c_1); /*bool*/;
+        if (_match_x691) { // tailcall
                            pat = prest;
                            input = irest_0;
                            goto kk__tailcall;
@@ -1165,11 +1165,11 @@ bool kk_sqlite_hc__glob__match__chars(kk_std_core_types__list pat, kk_std_core_t
 
 bool kk_sqlite_hc__glob__star(kk_std_core_types__list prest_0, kk_std_core_types__list input_0, kk_context_t* _ctx) { /* (prest : list<char>, input : list<char>) -> div bool */ 
   kk__tailcall: ;
-  bool _match_x684;
-  kk_std_core_types__list _x_x944 = kk_std_core_types__list_dup(prest_0, _ctx); /*list<char>*/
-  kk_std_core_types__list _x_x945 = kk_std_core_types__list_dup(input_0, _ctx); /*list<char>*/
-  _match_x684 = kk_sqlite_hc__glob__match__chars(_x_x944, _x_x945, _ctx); /*bool*/
-  if (_match_x684) {
+  bool _match_x688;
+  kk_std_core_types__list _x_x948 = kk_std_core_types__list_dup(prest_0, _ctx); /*list<char>*/
+  kk_std_core_types__list _x_x949 = kk_std_core_types__list_dup(input_0, _ctx); /*list<char>*/
+  _match_x688 = kk_sqlite_hc__glob__match__chars(_x_x948, _x_x949, _ctx); /*bool*/
+  if (_match_x688) {
     kk_std_core_types__list_drop(prest_0, _ctx);
     kk_std_core_types__list_drop(input_0, _ctx);
     return true;
@@ -1179,9 +1179,9 @@ bool kk_sqlite_hc__glob__star(kk_std_core_types__list prest_0, kk_std_core_types
     return false;
   }
   {
-    struct kk_std_core_types_Cons* _con_x946 = kk_std_core_types__as_Cons(input_0, _ctx);
-    kk_box_t _box_x83 = _con_x946->head;
-    kk_std_core_types__list irest_1 = _con_x946->tail;
+    struct kk_std_core_types_Cons* _con_x950 = kk_std_core_types__as_Cons(input_0, _ctx);
+    kk_box_t _box_x83 = _con_x950->head;
+    kk_std_core_types__list irest_1 = _con_x950->tail;
     kk_char_t c_2 = kk_char_unbox(_box_x83, KK_BORROWED, _ctx);
     if kk_likely(kk_datatype_ptr_is_unique(input_0, _ctx)) {
       kk_datatype_ptr_free(input_0, _ctx);
@@ -1190,13 +1190,13 @@ bool kk_sqlite_hc__glob__star(kk_std_core_types__list prest_0, kk_std_core_types
       kk_std_core_types__list_dup(irest_1, _ctx);
       kk_datatype_ptr_decref(input_0, _ctx);
     }
-    bool _match_x685;
-    kk_string_t _x_x947 = kk_std_core_string_char_fs_string(c_2, _ctx); /*string*/
-    kk_string_t _x_x948;
-    kk_define_string_literal(static, _s_x949, 1, "/", _ctx)
-    _x_x948 = kk_string_dup(_s_x949, _ctx); /*string*/
-    _match_x685 = kk_string_is_eq(_x_x947,_x_x948,kk_context()); /*bool*/
-    if (_match_x685) {
+    bool _match_x689;
+    kk_string_t _x_x951 = kk_std_core_string_char_fs_string(c_2, _ctx); /*string*/
+    kk_string_t _x_x952;
+    kk_define_string_literal(static, _s_x953, 1, "/", _ctx)
+    _x_x952 = kk_string_dup(_s_x953, _ctx); /*string*/
+    _match_x689 = kk_string_is_eq(_x_x951,_x_x952,kk_context()); /*bool*/
+    if (_match_x689) {
       kk_std_core_types__list_drop(prest_0, _ctx);
       kk_std_core_types__list_drop(irest_1, _ctx);
       return false;
@@ -1210,11 +1210,11 @@ bool kk_sqlite_hc__glob__star(kk_std_core_types__list prest_0, kk_std_core_types
 
 bool kk_sqlite_hc__glob__doublestar(kk_std_core_types__list prest, kk_std_core_types__list paths, kk_context_t* _ctx) { /* (prest : list<string>, paths : list<string>) -> div bool */ 
   kk__tailcall: ;
-  bool _match_x683;
-  kk_std_core_types__list _x_x952 = kk_std_core_types__list_dup(prest, _ctx); /*list<string>*/
-  kk_std_core_types__list _x_x953 = kk_std_core_types__list_dup(paths, _ctx); /*list<string>*/
-  _match_x683 = kk_sqlite_hc__glob__match__segments(_x_x952, _x_x953, _ctx); /*bool*/
-  if (_match_x683) {
+  bool _match_x687;
+  kk_std_core_types__list _x_x956 = kk_std_core_types__list_dup(prest, _ctx); /*list<string>*/
+  kk_std_core_types__list _x_x957 = kk_std_core_types__list_dup(paths, _ctx); /*list<string>*/
+  _match_x687 = kk_sqlite_hc__glob__match__segments(_x_x956, _x_x957, _ctx); /*bool*/
+  if (_match_x687) {
     kk_std_core_types__list_drop(prest, _ctx);
     kk_std_core_types__list_drop(paths, _ctx);
     return true;
@@ -1224,9 +1224,9 @@ bool kk_sqlite_hc__glob__doublestar(kk_std_core_types__list prest, kk_std_core_t
     return false;
   }
   {
-    struct kk_std_core_types_Cons* _con_x954 = kk_std_core_types__as_Cons(paths, _ctx);
-    kk_box_t _box_x84 = _con_x954->head;
-    kk_std_core_types__list srest = _con_x954->tail;
+    struct kk_std_core_types_Cons* _con_x958 = kk_std_core_types__as_Cons(paths, _ctx);
+    kk_box_t _box_x84 = _con_x958->head;
+    kk_std_core_types__list srest = _con_x958->tail;
     kk_string_t _pat_3 = kk_string_unbox(_box_x84);
     if kk_likely(kk_datatype_ptr_is_unique(paths, _ctx)) {
       kk_string_drop(_pat_3, _ctx);
@@ -1255,9 +1255,9 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
     }
   }
   {
-    struct kk_std_core_types_Cons* _con_x955 = kk_std_core_types__as_Cons(pats, _ctx);
-    kk_box_t _box_x85 = _con_x955->head;
-    kk_std_core_types__list prest_0 = _con_x955->tail;
+    struct kk_std_core_types_Cons* _con_x959 = kk_std_core_types__as_Cons(pats, _ctx);
+    kk_box_t _box_x85 = _con_x959->head;
+    kk_std_core_types__list prest_0 = _con_x959->tail;
     kk_string_t p = kk_string_unbox(_box_x85);
     if kk_likely(kk_datatype_ptr_is_unique(pats, _ctx)) {
       kk_datatype_ptr_free(pats, _ctx);
@@ -1267,13 +1267,13 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
       kk_std_core_types__list_dup(prest_0, _ctx);
       kk_datatype_ptr_decref(pats, _ctx);
     }
-    bool _match_x681;
-    kk_string_t _x_x956 = kk_string_dup(p, _ctx); /*string*/
-    kk_string_t _x_x957;
-    kk_define_string_literal(static, _s_x958, 2, "**", _ctx)
-    _x_x957 = kk_string_dup(_s_x958, _ctx); /*string*/
-    _match_x681 = kk_string_is_eq(_x_x956,_x_x957,kk_context()); /*bool*/
-    if (_match_x681) {
+    bool _match_x685;
+    kk_string_t _x_x960 = kk_string_dup(p, _ctx); /*string*/
+    kk_string_t _x_x961;
+    kk_define_string_literal(static, _s_x962, 2, "**", _ctx)
+    _x_x961 = kk_string_dup(_s_x962, _ctx); /*string*/
+    _match_x685 = kk_string_is_eq(_x_x960,_x_x961,kk_context()); /*bool*/
+    if (_match_x685) {
       kk_string_drop(p, _ctx);
       return kk_sqlite_hc__glob__doublestar(prest_0, paths_0, _ctx);
     }
@@ -1283,9 +1283,9 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
       return false;
     }
     {
-      struct kk_std_core_types_Cons* _con_x959 = kk_std_core_types__as_Cons(paths_0, _ctx);
-      kk_box_t _box_x86 = _con_x959->head;
-      kk_std_core_types__list srest_0 = _con_x959->tail;
+      struct kk_std_core_types_Cons* _con_x963 = kk_std_core_types__as_Cons(paths_0, _ctx);
+      kk_box_t _box_x86 = _con_x963->head;
+      kk_std_core_types__list srest_0 = _con_x963->tail;
       kk_string_t s = kk_string_unbox(_box_x86);
       if kk_likely(kk_datatype_ptr_is_unique(paths_0, _ctx)) {
         kk_datatype_ptr_free(paths_0, _ctx);
@@ -1295,11 +1295,11 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
         kk_std_core_types__list_dup(srest_0, _ctx);
         kk_datatype_ptr_decref(paths_0, _ctx);
       }
-      bool _match_x682;
-      kk_std_core_types__list _x_x960 = kk_std_core_string_list(p, _ctx); /*list<char>*/
-      kk_std_core_types__list _x_x961 = kk_std_core_string_list(s, _ctx); /*list<char>*/
-      _match_x682 = kk_sqlite_hc__glob__match__chars(_x_x960, _x_x961, _ctx); /*bool*/
-      if (_match_x682) { // tailcall
+      bool _match_x686;
+      kk_std_core_types__list _x_x964 = kk_std_core_string_list(p, _ctx); /*list<char>*/
+      kk_std_core_types__list _x_x965 = kk_std_core_string_list(s, _ctx); /*list<char>*/
+      _match_x686 = kk_sqlite_hc__glob__match__chars(_x_x964, _x_x965, _ctx); /*bool*/
+      if (_match_x686) { // tailcall
                          pats = prest_0;
                          paths_0 = srest_0;
                          goto kk__tailcall;
@@ -1315,85 +1315,85 @@ bool kk_sqlite_hc__glob__match__segments(kk_std_core_types__list pats, kk_std_co
 
 
 // lift anonymous function
-struct kk_sqlite_hc__glob__match__path_fun966__t {
+struct kk_sqlite_hc__glob__match__path_fun970__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__glob__match__path_fun966(kk_function_t _fself, kk_box_t _b_x89, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__glob__match__path_fun966(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__path_fun966, _ctx)
+static kk_box_t kk_sqlite_hc__glob__match__path_fun970(kk_function_t _fself, kk_box_t _b_x89, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__glob__match__path_fun970(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__path_fun970, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__glob__match__path_fun966(kk_function_t _fself, kk_box_t _b_x89, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__glob__match__path_fun970(kk_function_t _fself, kk_box_t _b_x89, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x967;
-  kk_char_t _x_x968 = kk_char_unbox(_b_x89, KK_OWNED, _ctx); /*char*/
-  _x_x967 = kk_std_core_string_char_fs_string(_x_x968, _ctx); /*string*/
-  return kk_string_box(_x_x967);
+  kk_string_t _x_x971;
+  kk_char_t _x_x972 = kk_char_unbox(_b_x89, KK_OWNED, _ctx); /*char*/
+  _x_x971 = kk_std_core_string_char_fs_string(_x_x972, _ctx); /*string*/
+  return kk_string_box(_x_x971);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__glob__match__path_fun975__t {
+struct kk_sqlite_hc__glob__match__path_fun979__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__glob__match__path_fun975(kk_function_t _fself, kk_box_t _b_x94, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__glob__match__path_fun975(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__path_fun975, _ctx)
+static kk_box_t kk_sqlite_hc__glob__match__path_fun979(kk_function_t _fself, kk_box_t _b_x94, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__glob__match__path_fun979(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__glob__match__path_fun979, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__glob__match__path_fun975(kk_function_t _fself, kk_box_t _b_x94, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__glob__match__path_fun979(kk_function_t _fself, kk_box_t _b_x94, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x976;
-  kk_char_t _x_x977 = kk_char_unbox(_b_x94, KK_OWNED, _ctx); /*char*/
-  _x_x976 = kk_std_core_string_char_fs_string(_x_x977, _ctx); /*string*/
-  return kk_string_box(_x_x976);
+  kk_string_t _x_x980;
+  kk_char_t _x_x981 = kk_char_unbox(_b_x94, KK_OWNED, _ctx); /*char*/
+  _x_x980 = kk_std_core_string_char_fs_string(_x_x981, _ctx); /*string*/
+  return kk_string_box(_x_x980);
 }
 
 bool kk_sqlite_hc__glob__match__path(kk_string_t pattern, kk_string_t hc__path, kk_context_t* _ctx) { /* (pattern : string, hc_path : string) -> div bool */ 
   kk_std_core_types__list pat__parts;
-  bool _match_x678;
-  kk_string_t _x_x962;
-  kk_define_string_literal(static, _s_x963, 1, "/", _ctx)
-  _x_x962 = kk_string_dup(_s_x963, _ctx); /*string*/
-  kk_string_t _x_x964 = kk_string_empty(); /*string*/
-  _match_x678 = kk_string_is_eq(_x_x962,_x_x964,kk_context()); /*bool*/
-  if (_match_x678) {
+  bool _match_x682;
+  kk_string_t _x_x966;
+  kk_define_string_literal(static, _s_x967, 1, "/", _ctx)
+  _x_x966 = kk_string_dup(_s_x967, _ctx); /*string*/
+  kk_string_t _x_x968 = kk_string_empty(); /*string*/
+  _match_x682 = kk_string_is_eq(_x_x966,_x_x968,kk_context()); /*bool*/
+  if (_match_x682) {
     kk_std_core_types__list _b_x87_90 = kk_std_core_string_list(pattern, _ctx); /*list<char>*/;
-    kk_function_t _brw_x679 = kk_sqlite_new_hc__glob__match__path_fun966(_ctx); /*(10001) -> 10003 10002*/;
-    kk_std_core_types__list _brw_x680 = kk_std_core_list_map(_b_x87_90, _brw_x679, _ctx); /*list<10002>*/;
-    kk_function_drop(_brw_x679, _ctx);
-    pat__parts = _brw_x680; /*list<string>*/
+    kk_function_t _brw_x683 = kk_sqlite_new_hc__glob__match__path_fun970(_ctx); /*(10001) -> 10003 10002*/;
+    kk_std_core_types__list _brw_x684 = kk_std_core_list_map(_b_x87_90, _brw_x683, _ctx); /*list<10002>*/;
+    kk_function_drop(_brw_x683, _ctx);
+    pat__parts = _brw_x684; /*list<string>*/
   }
   else {
     kk_vector_t v_10011;
-    kk_string_t _x_x969;
-    kk_define_string_literal(static, _s_x970, 1, "/", _ctx)
-    _x_x969 = kk_string_dup(_s_x970, _ctx); /*string*/
-    v_10011 = kk_string_splitv(pattern,_x_x969,kk_context()); /*vector<string>*/
+    kk_string_t _x_x973;
+    kk_define_string_literal(static, _s_x974, 1, "/", _ctx)
+    _x_x973 = kk_string_dup(_s_x974, _ctx); /*string*/
+    v_10011 = kk_string_splitv(pattern,_x_x973,kk_context()); /*vector<string>*/
     pat__parts = kk_std_core_vector_vlist(v_10011, kk_std_core_types__new_None(_ctx), _ctx); /*list<string>*/
   }
   kk_std_core_types__list path__parts;
-  bool _match_x675;
-  kk_string_t _x_x971;
-  kk_define_string_literal(static, _s_x972, 1, "/", _ctx)
-  _x_x971 = kk_string_dup(_s_x972, _ctx); /*string*/
-  kk_string_t _x_x973 = kk_string_empty(); /*string*/
-  _match_x675 = kk_string_is_eq(_x_x971,_x_x973,kk_context()); /*bool*/
-  if (_match_x675) {
+  bool _match_x679;
+  kk_string_t _x_x975;
+  kk_define_string_literal(static, _s_x976, 1, "/", _ctx)
+  _x_x975 = kk_string_dup(_s_x976, _ctx); /*string*/
+  kk_string_t _x_x977 = kk_string_empty(); /*string*/
+  _match_x679 = kk_string_is_eq(_x_x975,_x_x977,kk_context()); /*bool*/
+  if (_match_x679) {
     kk_std_core_types__list _b_x92_95 = kk_std_core_string_list(hc__path, _ctx); /*list<char>*/;
-    kk_function_t _brw_x676 = kk_sqlite_new_hc__glob__match__path_fun975(_ctx); /*(10001) -> 10003 10002*/;
-    kk_std_core_types__list _brw_x677 = kk_std_core_list_map(_b_x92_95, _brw_x676, _ctx); /*list<10002>*/;
-    kk_function_drop(_brw_x676, _ctx);
-    path__parts = _brw_x677; /*list<string>*/
+    kk_function_t _brw_x680 = kk_sqlite_new_hc__glob__match__path_fun979(_ctx); /*(10001) -> 10003 10002*/;
+    kk_std_core_types__list _brw_x681 = kk_std_core_list_map(_b_x92_95, _brw_x680, _ctx); /*list<10002>*/;
+    kk_function_drop(_brw_x680, _ctx);
+    path__parts = _brw_x681; /*list<string>*/
   }
   else {
     kk_vector_t v_10011_0;
-    kk_string_t _x_x978;
-    kk_define_string_literal(static, _s_x979, 1, "/", _ctx)
-    _x_x978 = kk_string_dup(_s_x979, _ctx); /*string*/
-    v_10011_0 = kk_string_splitv(hc__path,_x_x978,kk_context()); /*vector<string>*/
+    kk_string_t _x_x982;
+    kk_define_string_literal(static, _s_x983, 1, "/", _ctx)
+    _x_x982 = kk_string_dup(_s_x983, _ctx); /*string*/
+    v_10011_0 = kk_string_splitv(hc__path,_x_x982,kk_context()); /*vector<string>*/
     path__parts = kk_std_core_vector_vlist(v_10011_0, kk_std_core_types__new_None(_ctx), _ctx); /*list<string>*/
   }
   return kk_sqlite_hc__glob__match__segments(pat__parts, path__parts, _ctx);
@@ -1401,43 +1401,43 @@ bool kk_sqlite_hc__glob__match__path(kk_string_t pattern, kk_string_t hc__path, 
 
 
 // lift anonymous function
-struct kk_sqlite_hc__words_fun985__t {
+struct kk_sqlite_hc__words_fun989__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__words_fun985(kk_function_t _fself, kk_box_t _b_x99, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__words_fun985(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__words_fun985, _ctx)
+static kk_box_t kk_sqlite_hc__words_fun989(kk_function_t _fself, kk_box_t _b_x99, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__words_fun989(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__words_fun989, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__words_fun985(kk_function_t _fself, kk_box_t _b_x99, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__words_fun989(kk_function_t _fself, kk_box_t _b_x99, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x986;
-  kk_char_t _x_x987 = kk_char_unbox(_b_x99, KK_OWNED, _ctx); /*char*/
-  _x_x986 = kk_std_core_string_char_fs_string(_x_x987, _ctx); /*string*/
-  return kk_string_box(_x_x986);
+  kk_string_t _x_x990;
+  kk_char_t _x_x991 = kk_char_unbox(_b_x99, KK_OWNED, _ctx); /*char*/
+  _x_x990 = kk_std_core_string_char_fs_string(_x_x991, _ctx); /*string*/
+  return kk_string_box(_x_x990);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__words_fun990__t {
+struct kk_sqlite_hc__words_fun994__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite_hc__words_fun990(kk_function_t _fself, kk_box_t _b_x102, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__words_fun990(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__words_fun990, _ctx)
+static bool kk_sqlite_hc__words_fun994(kk_function_t _fself, kk_box_t _b_x102, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__words_fun994(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__words_fun994, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite_hc__words_fun990(kk_function_t _fself, kk_box_t _b_x102, kk_context_t* _ctx) {
+static bool kk_sqlite_hc__words_fun994(kk_function_t _fself, kk_box_t _b_x102, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   bool b_10049;
-  kk_integer_t _brw_x666;
-  kk_string_t _x_x991 = kk_string_unbox(_b_x102); /*string*/
-  _brw_x666 = kk_std_core_string_chars_fs_count(_x_x991, _ctx); /*int*/
-  bool _brw_x667 = kk_integer_eq_borrow(_brw_x666,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  kk_integer_drop(_brw_x666, _ctx);
-  b_10049 = _brw_x667; /*bool*/
+  kk_integer_t _brw_x670;
+  kk_string_t _x_x995 = kk_string_unbox(_b_x102); /*string*/
+  _brw_x670 = kk_std_core_string_chars_fs_count(_x_x995, _ctx); /*int*/
+  bool _brw_x671 = kk_integer_eq_borrow(_brw_x670,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x670, _ctx);
+  b_10049 = _brw_x671; /*bool*/
   if (b_10049) {
     return false;
   }
@@ -1448,135 +1448,135 @@ static bool kk_sqlite_hc__words_fun990(kk_function_t _fself, kk_box_t _b_x102, k
 
 kk_std_core_types__list kk_sqlite_hc__words(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> list<string> */ 
   kk_std_core_types__list _b_x100_103;
-  bool _match_x668;
-  kk_string_t _x_x981;
-  kk_define_string_literal(static, _s_x982, 1, " ", _ctx)
-  _x_x981 = kk_string_dup(_s_x982, _ctx); /*string*/
-  kk_string_t _x_x983 = kk_string_empty(); /*string*/
-  _match_x668 = kk_string_is_eq(_x_x981,_x_x983,kk_context()); /*bool*/
-  if (_match_x668) {
+  bool _match_x672;
+  kk_string_t _x_x985;
+  kk_define_string_literal(static, _s_x986, 1, " ", _ctx)
+  _x_x985 = kk_string_dup(_s_x986, _ctx); /*string*/
+  kk_string_t _x_x987 = kk_string_empty(); /*string*/
+  _match_x672 = kk_string_is_eq(_x_x985,_x_x987,kk_context()); /*bool*/
+  if (_match_x672) {
     kk_std_core_types__list _b_x97_105 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    kk_function_t _brw_x669 = kk_sqlite_new_hc__words_fun985(_ctx); /*(10001) -> 10003 10002*/;
-    kk_std_core_types__list _brw_x670 = kk_std_core_list_map(_b_x97_105, _brw_x669, _ctx); /*list<10002>*/;
-    kk_function_drop(_brw_x669, _ctx);
-    _b_x100_103 = _brw_x670; /*list<string>*/
+    kk_function_t _brw_x673 = kk_sqlite_new_hc__words_fun989(_ctx); /*(10001) -> 10003 10002*/;
+    kk_std_core_types__list _brw_x674 = kk_std_core_list_map(_b_x97_105, _brw_x673, _ctx); /*list<10002>*/;
+    kk_function_drop(_brw_x673, _ctx);
+    _b_x100_103 = _brw_x674; /*list<string>*/
   }
   else {
     kk_vector_t v_10011;
-    kk_string_t _x_x988;
-    kk_define_string_literal(static, _s_x989, 1, " ", _ctx)
-    _x_x988 = kk_string_dup(_s_x989, _ctx); /*string*/
-    v_10011 = kk_string_splitv(s,_x_x988,kk_context()); /*vector<string>*/
+    kk_string_t _x_x992;
+    kk_define_string_literal(static, _s_x993, 1, " ", _ctx)
+    _x_x992 = kk_string_dup(_s_x993, _ctx); /*string*/
+    v_10011 = kk_string_splitv(s,_x_x992,kk_context()); /*vector<string>*/
     _b_x100_103 = kk_std_core_vector_vlist(v_10011, kk_std_core_types__new_None(_ctx), _ctx); /*list<string>*/
   }
-  return kk_std_core_list_filter(_b_x100_103, kk_sqlite_new_hc__words_fun990(_ctx), _ctx);
+  return kk_std_core_list_filter(_b_x100_103, kk_sqlite_new_hc__words_fun994(_ctx), _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__lines_fun996__t {
+struct kk_sqlite_hc__lines_fun1000__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__lines_fun996(kk_function_t _fself, kk_box_t _b_x110, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__lines_fun996(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__lines_fun996, _ctx)
+static kk_box_t kk_sqlite_hc__lines_fun1000(kk_function_t _fself, kk_box_t _b_x110, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__lines_fun1000(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__lines_fun1000, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__lines_fun996(kk_function_t _fself, kk_box_t _b_x110, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__lines_fun1000(kk_function_t _fself, kk_box_t _b_x110, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x997;
-  kk_char_t _x_x998 = kk_char_unbox(_b_x110, KK_OWNED, _ctx); /*char*/
-  _x_x997 = kk_std_core_string_char_fs_string(_x_x998, _ctx); /*string*/
-  return kk_string_box(_x_x997);
+  kk_string_t _x_x1001;
+  kk_char_t _x_x1002 = kk_char_unbox(_b_x110, KK_OWNED, _ctx); /*char*/
+  _x_x1001 = kk_std_core_string_char_fs_string(_x_x1002, _ctx); /*string*/
+  return kk_string_box(_x_x1001);
 }
 
 kk_std_core_types__list kk_sqlite_hc__lines(kk_string_t s, kk_context_t* _ctx) { /* (s : string) -> list<string> */ 
-  bool _match_x663;
-  kk_string_t _x_x992;
-  kk_define_string_literal(static, _s_x993, 1, "\n", _ctx)
-  _x_x992 = kk_string_dup(_s_x993, _ctx); /*string*/
-  kk_string_t _x_x994 = kk_string_empty(); /*string*/
-  _match_x663 = kk_string_is_eq(_x_x992,_x_x994,kk_context()); /*bool*/
-  if (_match_x663) {
+  bool _match_x667;
+  kk_string_t _x_x996;
+  kk_define_string_literal(static, _s_x997, 1, "\n", _ctx)
+  _x_x996 = kk_string_dup(_s_x997, _ctx); /*string*/
+  kk_string_t _x_x998 = kk_string_empty(); /*string*/
+  _match_x667 = kk_string_is_eq(_x_x996,_x_x998,kk_context()); /*bool*/
+  if (_match_x667) {
     kk_std_core_types__list _b_x108_111 = kk_std_core_string_list(s, _ctx); /*list<char>*/;
-    kk_function_t _brw_x664 = kk_sqlite_new_hc__lines_fun996(_ctx); /*(10001) -> 10003 10002*/;
-    kk_std_core_types__list _brw_x665 = kk_std_core_list_map(_b_x108_111, _brw_x664, _ctx); /*list<10002>*/;
-    kk_function_drop(_brw_x664, _ctx);
-    return _brw_x665;
+    kk_function_t _brw_x668 = kk_sqlite_new_hc__lines_fun1000(_ctx); /*(10001) -> 10003 10002*/;
+    kk_std_core_types__list _brw_x669 = kk_std_core_list_map(_b_x108_111, _brw_x668, _ctx); /*list<10002>*/;
+    kk_function_drop(_brw_x668, _ctx);
+    return _brw_x669;
   }
   {
     kk_vector_t v_10011;
-    kk_string_t _x_x999;
-    kk_define_string_literal(static, _s_x1000, 1, "\n", _ctx)
-    _x_x999 = kk_string_dup(_s_x1000, _ctx); /*string*/
-    v_10011 = kk_string_splitv(s,_x_x999,kk_context()); /*vector<string>*/
+    kk_string_t _x_x1003;
+    kk_define_string_literal(static, _s_x1004, 1, "\n", _ctx)
+    _x_x1003 = kk_string_dup(_s_x1004, _ctx); /*string*/
+    v_10011 = kk_string_splitv(s,_x_x1003,kk_context()); /*vector<string>*/
     return kk_std_core_vector_vlist(v_10011, kk_std_core_types__new_None(_ctx), _ctx);
   }
 }
 
 kk_string_t kk_sqlite_hc__repeat__str(kk_string_t s, kk_integer_t n, kk_context_t* _ctx) { /* (s : string, n : int) -> div string */ 
-  bool _match_x662 = kk_integer_lte_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x662) {
+  bool _match_x666 = kk_integer_lte_borrow(n,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x666) {
     kk_string_drop(s, _ctx);
     kk_integer_drop(n, _ctx);
     return kk_string_empty();
   }
   {
-    kk_string_t _x_x1006 = kk_string_dup(s, _ctx); /*string*/
-    kk_string_t _x_x1007;
-    kk_integer_t _x_x1008 = kk_integer_add_small_const(n, -1, _ctx); /*int*/
-    _x_x1007 = kk_sqlite_hc__repeat__str(s, _x_x1008, _ctx); /*string*/
-    return kk_std_core_types__lp__plus__plus__rp_(_x_x1006, _x_x1007, _ctx);
+    kk_string_t _x_x1010 = kk_string_dup(s, _ctx); /*string*/
+    kk_string_t _x_x1011;
+    kk_integer_t _x_x1012 = kk_integer_add_small_const(n, -1, _ctx); /*int*/
+    _x_x1011 = kk_sqlite_hc__repeat__str(s, _x_x1012, _ctx); /*string*/
+    return kk_std_core_types__lp__plus__plus__rp_(_x_x1010, _x_x1011, _ctx);
   }
 }
 
 kk_string_t kk_sqlite_hc__pad__left(kk_string_t s, kk_integer_t width, kk_string_t ch, kk_context_t* _ctx) { /* (s : string, width : int, ch : string) -> div string */ 
   kk_integer_t y_10063;
-  kk_string_t _x_x1009 = kk_string_dup(s, _ctx); /*string*/
-  y_10063 = kk_std_core_string_chars_fs_count(_x_x1009, _ctx); /*int*/
+  kk_string_t _x_x1013 = kk_string_dup(s, _ctx); /*string*/
+  y_10063 = kk_std_core_string_chars_fs_count(_x_x1013, _ctx); /*int*/
   kk_integer_t b_10061 = kk_integer_sub(width,y_10063,kk_context()); /*int*/;
-  kk_string_t _x_x1010;
-  kk_integer_t _x_x1011;
-  bool _match_x661 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10061,kk_context()); /*bool*/;
-  if (_match_x661) {
+  kk_string_t _x_x1014;
+  kk_integer_t _x_x1015;
+  bool _match_x665 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10061,kk_context()); /*bool*/;
+  if (_match_x665) {
     kk_integer_drop(b_10061, _ctx);
-    _x_x1011 = kk_integer_from_small(0); /*int*/
+    _x_x1015 = kk_integer_from_small(0); /*int*/
   }
   else {
-    _x_x1011 = b_10061; /*int*/
+    _x_x1015 = b_10061; /*int*/
   }
-  _x_x1010 = kk_sqlite_hc__repeat__str(ch, _x_x1011, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x1010, s, _ctx);
+  _x_x1014 = kk_sqlite_hc__repeat__str(ch, _x_x1015, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x1014, s, _ctx);
 }
 
 kk_string_t kk_sqlite_hc__pad__right(kk_string_t s, kk_integer_t width, kk_string_t ch, kk_context_t* _ctx) { /* (s : string, width : int, ch : string) -> div string */ 
   kk_integer_t y_10067;
-  kk_string_t _x_x1012 = kk_string_dup(s, _ctx); /*string*/
-  y_10067 = kk_std_core_string_chars_fs_count(_x_x1012, _ctx); /*int*/
+  kk_string_t _x_x1016 = kk_string_dup(s, _ctx); /*string*/
+  y_10067 = kk_std_core_string_chars_fs_count(_x_x1016, _ctx); /*int*/
   kk_integer_t b_10065 = kk_integer_sub(width,y_10067,kk_context()); /*int*/;
-  kk_string_t _x_x1013;
-  kk_integer_t _x_x1014;
-  bool _match_x660 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10065,kk_context()); /*bool*/;
-  if (_match_x660) {
+  kk_string_t _x_x1017;
+  kk_integer_t _x_x1018;
+  bool _match_x664 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10065,kk_context()); /*bool*/;
+  if (_match_x664) {
     kk_integer_drop(b_10065, _ctx);
-    _x_x1014 = kk_integer_from_small(0); /*int*/
+    _x_x1018 = kk_integer_from_small(0); /*int*/
   }
   else {
-    _x_x1014 = b_10065; /*int*/
+    _x_x1018 = b_10065; /*int*/
   }
-  _x_x1013 = kk_sqlite_hc__repeat__str(ch, _x_x1014, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(s, _x_x1013, _ctx);
+  _x_x1017 = kk_sqlite_hc__repeat__str(ch, _x_x1018, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(s, _x_x1017, _ctx);
 }
 
 kk_string_t kk_sqlite_hc__center(kk_string_t s, kk_integer_t width, kk_string_t ch, kk_context_t* _ctx) { /* (s : string, width : int, ch : string) -> div string */ 
   kk_integer_t y_10071;
-  kk_string_t _x_x1015 = kk_string_dup(s, _ctx); /*string*/
-  y_10071 = kk_std_core_string_chars_fs_count(_x_x1015, _ctx); /*int*/
+  kk_string_t _x_x1019 = kk_string_dup(s, _ctx); /*string*/
+  y_10071 = kk_std_core_string_chars_fs_count(_x_x1019, _ctx); /*int*/
   kk_integer_t b_10069 = kk_integer_sub(width,y_10071,kk_context()); /*int*/;
   kk_integer_t total;
-  bool _match_x659 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10069,kk_context()); /*bool*/;
-  if (_match_x659) {
+  bool _match_x663 = kk_integer_gt_borrow((kk_integer_from_small(0)),b_10069,kk_context()); /*bool*/;
+  if (_match_x663) {
     kk_integer_drop(b_10069, _ctx);
     total = kk_integer_from_small(0); /*int*/
   }
@@ -1584,33 +1584,33 @@ kk_string_t kk_sqlite_hc__center(kk_string_t s, kk_integer_t width, kk_string_t 
     total = b_10069; /*int*/
   }
   kk_integer_t left;
-  kk_integer_t _x_x1016 = kk_integer_dup(total, _ctx); /*int*/
-  left = kk_integer_div(_x_x1016,(kk_integer_from_small(2)),kk_context()); /*int*/
+  kk_integer_t _x_x1020 = kk_integer_dup(total, _ctx); /*int*/
+  left = kk_integer_div(_x_x1020,(kk_integer_from_small(2)),kk_context()); /*int*/
   kk_integer_t right;
-  kk_integer_t _x_x1017 = kk_integer_dup(left, _ctx); /*int*/
-  right = kk_integer_sub(total,_x_x1017,kk_context()); /*int*/
-  kk_string_t _x_x1018;
-  kk_string_t _x_x1019;
-  kk_string_t _x_x1020 = kk_string_dup(ch, _ctx); /*string*/
-  _x_x1019 = kk_sqlite_hc__repeat__str(_x_x1020, left, _ctx); /*string*/
-  _x_x1018 = kk_std_core_types__lp__plus__plus__rp_(_x_x1019, s, _ctx); /*string*/
-  kk_string_t _x_x1021 = kk_sqlite_hc__repeat__str(ch, right, _ctx); /*string*/
-  return kk_std_core_types__lp__plus__plus__rp_(_x_x1018, _x_x1021, _ctx);
+  kk_integer_t _x_x1021 = kk_integer_dup(left, _ctx); /*int*/
+  right = kk_integer_sub(total,_x_x1021,kk_context()); /*int*/
+  kk_string_t _x_x1022;
+  kk_string_t _x_x1023;
+  kk_string_t _x_x1024 = kk_string_dup(ch, _ctx); /*string*/
+  _x_x1023 = kk_sqlite_hc__repeat__str(_x_x1024, left, _ctx); /*string*/
+  _x_x1022 = kk_std_core_types__lp__plus__plus__rp_(_x_x1023, s, _ctx); /*string*/
+  kk_string_t _x_x1025 = kk_sqlite_hc__repeat__str(ch, right, _ctx); /*string*/
+  return kk_std_core_types__lp__plus__plus__rp_(_x_x1022, _x_x1025, _ctx);
 }
 
 kk_string_t kk_sqlite_hc__removeprefix(kk_string_t s, kk_string_t pre, kk_context_t* _ctx) { /* (s : string, pre : string) -> string */ 
   kk_std_core_types__maybe maybe_10074;
-  kk_string_t _x_x1022 = kk_string_dup(s, _ctx); /*string*/
-  kk_string_t _x_x1023 = kk_string_dup(pre, _ctx); /*string*/
-  maybe_10074 = kk_std_core_sslice_starts_with(_x_x1022, _x_x1023, _ctx); /*maybe<sslice/sslice>*/
+  kk_string_t _x_x1026 = kk_string_dup(s, _ctx); /*string*/
+  kk_string_t _x_x1027 = kk_string_dup(pre, _ctx); /*string*/
+  maybe_10074 = kk_std_core_sslice_starts_with(_x_x1026, _x_x1027, _ctx); /*maybe<sslice/sslice>*/
   if (kk_std_core_types__is_Just(maybe_10074, _ctx)) {
     kk_box_t _box_x113 = maybe_10074._cons.Just.value;
     kk_std_core_types__maybe_drop(maybe_10074, _ctx);
-    kk_std_core_types__list _x_x1024;
-    kk_std_core_types__list _x_x1025 = kk_std_core_string_list(s, _ctx); /*list<char>*/
-    kk_integer_t _x_x1026 = kk_std_core_string_chars_fs_count(pre, _ctx); /*int*/
-    _x_x1024 = kk_std_core_list_drop(_x_x1025, _x_x1026, _ctx); /*list<10001>*/
-    return kk_std_core_string_listchar_fs_string(_x_x1024, _ctx);
+    kk_std_core_types__list _x_x1028;
+    kk_std_core_types__list _x_x1029 = kk_std_core_string_list(s, _ctx); /*list<char>*/
+    kk_integer_t _x_x1030 = kk_std_core_string_chars_fs_count(pre, _ctx); /*int*/
+    _x_x1028 = kk_std_core_list_drop(_x_x1029, _x_x1030, _ctx); /*list<10001>*/
+    return kk_std_core_string_listchar_fs_string(_x_x1028, _ctx);
   }
   {
     kk_string_drop(pre, _ctx);
@@ -1620,306 +1620,306 @@ kk_string_t kk_sqlite_hc__removeprefix(kk_string_t s, kk_string_t pre, kk_contex
  
 // monadic lift
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__open_10176(kk_string_t hc__path, kk_integer_t h, kk_context_t* _ctx) { /* (hc_path : string, h : int) -> io either<string,db> */ 
-  bool _match_x658 = kk_integer_eq_borrow(h,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-  if (_match_x658) {
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__open_10177(kk_string_t hc__path, kk_integer_t h, kk_context_t* _ctx) { /* (hc_path : string, h : int) -> io either<string,db> */ 
+  bool _match_x662 = kk_integer_eq_borrow(h,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  if (_match_x662) {
     kk_integer_drop(h, _ctx);
     kk_string_t _b_x114_116;
-    kk_string_t _x_x1027;
-    kk_define_string_literal(static, _s_x1028, 20, "sqlite open failed: ", _ctx)
-    _x_x1027 = kk_string_dup(_s_x1028, _ctx); /*string*/
-    _b_x114_116 = kk_std_core_types__lp__plus__plus__rp_(_x_x1027, hc__path, _ctx); /*string*/
+    kk_string_t _x_x1031;
+    kk_define_string_literal(static, _s_x1032, 20, "sqlite open failed: ", _ctx)
+    _x_x1031 = kk_string_dup(_s_x1032, _ctx); /*string*/
+    _b_x114_116 = kk_std_core_types__lp__plus__plus__rp_(_x_x1031, hc__path, _ctx); /*string*/
     return kk_std_core_types__new_Left(kk_string_box(_b_x114_116), _ctx);
   }
   {
     kk_string_drop(hc__path, _ctx);
-    kk_box_t _x_x1029;
-    kk_sqlite__db _x_x1030 = kk_sqlite__new_Db(h, _ctx); /*sqlite/db*/
-    _x_x1029 = kk_sqlite__db_box(_x_x1030, _ctx); /*10015*/
-    return kk_std_core_types__new_Right(_x_x1029, _ctx);
+    kk_box_t _x_x1033;
+    kk_sqlite__db _x_x1034 = kk_sqlite__new_Db(h, _ctx); /*sqlite/db*/
+    _x_x1033 = kk_sqlite__db_box(_x_x1034, _ctx); /*10015*/
+    return kk_std_core_types__new_Right(_x_x1033, _ctx);
   }
 }
  
-// .hc:38
+// .hc:37
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__open_fun1033__t {
+struct kk_sqlite_hc__sqlite__open_fun1037__t {
   struct kk_function_s _base;
   kk_string_t hc__path;
 };
-static kk_box_t kk_sqlite_hc__sqlite__open_fun1033(kk_function_t _fself, kk_box_t _b_x119, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__open_fun1033(kk_string_t hc__path, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__open_fun1033__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__open_fun1033__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__open_fun1033, kk_context());
+static kk_box_t kk_sqlite_hc__sqlite__open_fun1037(kk_function_t _fself, kk_box_t _b_x119, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__open_fun1037(kk_string_t hc__path, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__open_fun1037__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__open_fun1037__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__open_fun1037, kk_context());
   _self->hc__path = hc__path;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__open_fun1033(kk_function_t _fself, kk_box_t _b_x119, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__open_fun1033__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__open_fun1033__t*, _fself, _ctx);
+static kk_box_t kk_sqlite_hc__sqlite__open_fun1037(kk_function_t _fself, kk_box_t _b_x119, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__open_fun1037__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__open_fun1037__t*, _fself, _ctx);
   kk_string_t hc__path = _self->hc__path; /* string */
   kk_drop_match(_self, {kk_string_dup(hc__path, _ctx);}, {}, _ctx)
   kk_integer_t h_125 = kk_integer_unbox(_b_x119, _ctx); /*int*/;
-  kk_std_core_types__either _x_x1034 = kk_sqlite__mlift_hc__sqlite__open_10176(hc__path, h_125, _ctx); /*either<string,sqlite/db>*/
-  return kk_std_core_types__either_box(_x_x1034, _ctx);
+  kk_std_core_types__either _x_x1038 = kk_sqlite__mlift_hc__sqlite__open_10177(hc__path, h_125, _ctx); /*either<string,sqlite/db>*/
+  return kk_std_core_types__either_box(_x_x1038, _ctx);
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__open(kk_string_t hc__path, kk_context_t* _ctx) { /* (hc_path : string) -> io either<string,db> */ 
-  kk_integer_t x_10205;
-  kk_string_t _x_x1031 = kk_string_dup(hc__path, _ctx); /*string*/
-  x_10205 = kk_sqlite__ffi_sqlite__open__raw(_x_x1031, _ctx); /*int*/
+  kk_integer_t x_10206;
+  kk_string_t _x_x1035 = kk_string_dup(hc__path, _ctx); /*string*/
+  x_10206 = kk_sqlite__ffi_sqlite__open__raw(_x_x1035, _ctx); /*int*/
   if (kk_yielding(kk_context())) {
-    kk_integer_drop(x_10205, _ctx);
-    kk_box_t _x_x1032 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__open_fun1033(hc__path, _ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1032, KK_OWNED, _ctx);
+    kk_integer_drop(x_10206, _ctx);
+    kk_box_t _x_x1036 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__open_fun1037(hc__path, _ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1036, KK_OWNED, _ctx);
   }
   {
-    bool _match_x657 = kk_integer_eq_borrow(x_10205,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-    if (_match_x657) {
-      kk_integer_drop(x_10205, _ctx);
+    bool _match_x661 = kk_integer_eq_borrow(x_10206,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    if (_match_x661) {
+      kk_integer_drop(x_10206, _ctx);
       kk_string_t _b_x120_123;
-      kk_string_t _x_x1035;
-      kk_define_string_literal(static, _s_x1036, 20, "sqlite open failed: ", _ctx)
-      _x_x1035 = kk_string_dup(_s_x1036, _ctx); /*string*/
-      _b_x120_123 = kk_std_core_types__lp__plus__plus__rp_(_x_x1035, hc__path, _ctx); /*string*/
+      kk_string_t _x_x1039;
+      kk_define_string_literal(static, _s_x1040, 20, "sqlite open failed: ", _ctx)
+      _x_x1039 = kk_string_dup(_s_x1040, _ctx); /*string*/
+      _b_x120_123 = kk_std_core_types__lp__plus__plus__rp_(_x_x1039, hc__path, _ctx); /*string*/
       return kk_std_core_types__new_Left(kk_string_box(_b_x120_123), _ctx);
     }
     {
       kk_string_drop(hc__path, _ctx);
-      kk_box_t _x_x1037;
-      kk_sqlite__db _x_x1038 = kk_sqlite__new_Db(x_10205, _ctx); /*sqlite/db*/
-      _x_x1037 = kk_sqlite__db_box(_x_x1038, _ctx); /*10015*/
-      return kk_std_core_types__new_Right(_x_x1037, _ctx);
+      kk_box_t _x_x1041;
+      kk_sqlite__db _x_x1042 = kk_sqlite__new_Db(x_10206, _ctx); /*sqlite/db*/
+      _x_x1041 = kk_sqlite__db_box(_x_x1042, _ctx); /*10015*/
+      return kk_std_core_types__new_Right(_x_x1041, _ctx);
     }
   }
 }
  
-// .hc:45
+// .hc:44
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__close_fun1041__t {
+struct kk_sqlite_hc__sqlite__close_fun1045__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__close_fun1041(kk_function_t _fself, kk_box_t _b_x128, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__close_fun1041(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__close_fun1041, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__close_fun1045(kk_function_t _fself, kk_box_t _b_x128, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__close_fun1045(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__close_fun1045, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__close_fun1041(kk_function_t _fself, kk_box_t _b_x128, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__close_fun1045(kk_function_t _fself, kk_box_t _b_x128, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1042;
+  kk_integer_t _x_x1046;
   kk_sqlite__db db_131 = kk_sqlite__db_unbox(_b_x128, KK_OWNED, _ctx); /*sqlite/db*/;
   {
     kk_integer_t _x = db_131.h;
-    _x_x1042 = _x; /*int*/
+    _x_x1046 = _x; /*int*/
   }
-  return kk_integer_box(_x_x1042, _ctx);
+  return kk_integer_box(_x_x1046, _ctx);
 }
 
 kk_unit_t kk_sqlite_hc__sqlite__close(kk_sqlite__db d, kk_context_t* _ctx) { /* (d : db) -> io () */ 
-  kk_integer_t _x_x1039;
-  kk_box_t _x_x1040 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__close_fun1041(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-  _x_x1039 = kk_integer_unbox(_x_x1040, _ctx); /*int*/
-  kk_sqlite__ffi_sqlite__close__raw(_x_x1039, _ctx); return kk_Unit;
+  kk_integer_t _x_x1043;
+  kk_box_t _x_x1044 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__close_fun1045(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+  _x_x1043 = kk_integer_unbox(_x_x1044, _ctx); /*int*/
+  kk_sqlite__ffi_sqlite__close__raw(_x_x1043, _ctx); return kk_Unit;
 }
  
 // monadic lift
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__exec_10178_fun1045__t {
+struct kk_sqlite__mlift_hc__sqlite__exec_10179_fun1049__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10178_fun1045(kk_function_t _fself, kk_box_t _b_x137, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec_10178_fun1045(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec_10178_fun1045, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10179_fun1049(kk_function_t _fself, kk_box_t _b_x137, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec_10179_fun1049(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec_10179_fun1049, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10178_fun1045(kk_function_t _fself, kk_box_t _b_x137, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10179_fun1049(kk_function_t _fself, kk_box_t _b_x137, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1046;
-  kk_sqlite__db _match_x654 = kk_sqlite__db_unbox(_b_x137, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1050;
+  kk_sqlite__db _match_x658 = kk_sqlite__db_unbox(_b_x137, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x_0 = _match_x654.h;
-    _x_x1046 = _x_0; /*int*/
+    kk_integer_t _x_0 = _match_x658.h;
+    _x_x1050 = _x_0; /*int*/
   }
-  return kk_integer_box(_x_x1046, _ctx);
+  return kk_integer_box(_x_x1050, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__exec_10178_fun1048__t {
+struct kk_sqlite__mlift_hc__sqlite__exec_10179_fun1052__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10178_fun1048(kk_function_t _fself, kk_box_t _b_x142, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec_10178_fun1048(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec_10178_fun1048, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10179_fun1052(kk_function_t _fself, kk_box_t _b_x142, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec_10179_fun1052(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec_10179_fun1052, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10178_fun1048(kk_function_t _fself, kk_box_t _b_x142, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec_10179_fun1052(kk_function_t _fself, kk_box_t _b_x142, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1049;
-  kk_string_t _x_x1050 = kk_string_unbox(_b_x142); /*string*/
-  _x_x1049 = kk_sqlite__mlift_hc__sqlite__exec_10177(_x_x1050, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1049, _ctx);
+  kk_std_core_types__either _x_x1053;
+  kk_string_t _x_x1054 = kk_string_unbox(_b_x142); /*string*/
+  _x_x1053 = kk_sqlite__mlift_hc__sqlite__exec_10178(_x_x1054, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1053, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10178(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx) { /* (d : db, rc : int) -> io either<string,bool> */ 
-  bool _match_x652;
-  bool _brw_x655 = kk_integer_eq_borrow(rc,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec_10179(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx) { /* (d : db, rc : int) -> io either<string,bool> */ 
+  bool _match_x656;
+  bool _brw_x659 = kk_integer_eq_borrow(rc,(kk_integer_from_small(0)),kk_context()); /*bool*/;
   kk_integer_drop(rc, _ctx);
-  _match_x652 = _brw_x655; /*bool*/
-  if (_match_x652) {
+  _match_x656 = _brw_x659; /*bool*/
+  if (_match_x656) {
     kk_sqlite__db_drop(d, _ctx);
     return kk_std_core_types__new_Right(kk_bool_box(true), _ctx);
   }
   {
-    kk_string_t x_10208;
-    kk_integer_t _x_x1043;
-    kk_box_t _x_x1044 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__exec_10178_fun1045(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-    _x_x1043 = kk_integer_unbox(_x_x1044, _ctx); /*int*/
-    x_10208 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1043, _ctx); /*string*/
+    kk_string_t x_10209;
+    kk_integer_t _x_x1047;
+    kk_box_t _x_x1048 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__exec_10179_fun1049(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+    _x_x1047 = kk_integer_unbox(_x_x1048, _ctx); /*int*/
+    x_10209 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1047, _ctx); /*string*/
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_10208, _ctx);
-      kk_box_t _x_x1047 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__exec_10178_fun1048(_ctx), _ctx); /*10001*/
-      return kk_std_core_types__either_unbox(_x_x1047, KK_OWNED, _ctx);
+      kk_string_drop(x_10209, _ctx);
+      kk_box_t _x_x1051 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__exec_10179_fun1052(_ctx), _ctx); /*10001*/
+      return kk_std_core_types__either_unbox(_x_x1051, KK_OWNED, _ctx);
     }
     {
-      return kk_std_core_types__new_Left(kk_string_box(x_10208), _ctx);
+      return kk_std_core_types__new_Left(kk_string_box(x_10209), _ctx);
     }
   }
 }
  
-// .hc:55
+// .hc:54
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__exec_fun1053__t {
+struct kk_sqlite_hc__sqlite__exec_fun1057__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1053(kk_function_t _fself, kk_box_t _b_x149, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1053(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1053, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1057(kk_function_t _fself, kk_box_t _b_x149, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1057(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1057, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1053(kk_function_t _fself, kk_box_t _b_x149, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1057(kk_function_t _fself, kk_box_t _b_x149, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1054;
-  kk_sqlite__db _match_x651 = kk_sqlite__db_unbox(_b_x149, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1058;
+  kk_sqlite__db _match_x655 = kk_sqlite__db_unbox(_b_x149, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x = _match_x651.h;
-    _x_x1054 = _x; /*int*/
+    kk_integer_t _x = _match_x655.h;
+    _x_x1058 = _x; /*int*/
   }
-  return kk_integer_box(_x_x1054, _ctx);
-}
-
-
-// lift anonymous function
-struct kk_sqlite_hc__sqlite__exec_fun1058__t {
-  struct kk_function_s _base;
-  kk_sqlite__db d;
-};
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1058(kk_function_t _fself, kk_box_t _b_x154, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1058(kk_sqlite__db d, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__exec_fun1058__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__exec_fun1058__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__exec_fun1058, kk_context());
-  _self->d = d;
-  return kk_datatype_from_base(&_self->_base, kk_context());
-}
-
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1058(kk_function_t _fself, kk_box_t _b_x154, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__exec_fun1058__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__exec_fun1058__t*, _fself, _ctx);
-  kk_sqlite__db d = _self->d; /* sqlite/db */
-  kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
-  kk_integer_t rc_169 = kk_integer_unbox(_b_x154, _ctx); /*int*/;
-  kk_std_core_types__either _x_x1059 = kk_sqlite__mlift_hc__sqlite__exec_10178(d, rc_169, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1059, _ctx);
+  return kk_integer_box(_x_x1058, _ctx);
 }
 
 
 // lift anonymous function
 struct kk_sqlite_hc__sqlite__exec_fun1062__t {
   struct kk_function_s _base;
+  kk_sqlite__db d;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1062(kk_function_t _fself, kk_box_t _b_x158, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1062(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1062, _ctx)
-  return kk_function_static_dup(_fself,kk_context());
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1062(kk_function_t _fself, kk_box_t _b_x154, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1062(kk_sqlite__db d, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__exec_fun1062__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__exec_fun1062__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__exec_fun1062, kk_context());
+  _self->d = d;
+  return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1062(kk_function_t _fself, kk_box_t _b_x158, kk_context_t* _ctx) {
-  kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1063;
-  kk_sqlite__db _match_x649 = kk_sqlite__db_unbox(_b_x158, KK_OWNED, _ctx); /*sqlite/db*/;
-  {
-    kk_integer_t _x_0 = _match_x649.h;
-    _x_x1063 = _x_0; /*int*/
-  }
-  return kk_integer_box(_x_x1063, _ctx);
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1062(kk_function_t _fself, kk_box_t _b_x154, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__exec_fun1062__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__exec_fun1062__t*, _fself, _ctx);
+  kk_sqlite__db d = _self->d; /* sqlite/db */
+  kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
+  kk_integer_t rc_169 = kk_integer_unbox(_b_x154, _ctx); /*int*/;
+  kk_std_core_types__either _x_x1063 = kk_sqlite__mlift_hc__sqlite__exec_10179(d, rc_169, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1063, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__exec_fun1065__t {
+struct kk_sqlite_hc__sqlite__exec_fun1066__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1065(kk_function_t _fself, kk_box_t _b_x163, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1065(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1065, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1066(kk_function_t _fself, kk_box_t _b_x158, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1066(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1066, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec_fun1065(kk_function_t _fself, kk_box_t _b_x163, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1066(kk_function_t _fself, kk_box_t _b_x158, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1066;
-  kk_string_t _x_x1067 = kk_string_unbox(_b_x163); /*string*/
-  _x_x1066 = kk_sqlite__mlift_hc__sqlite__exec_10177(_x_x1067, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1066, _ctx);
+  kk_integer_t _x_x1067;
+  kk_sqlite__db _match_x653 = kk_sqlite__db_unbox(_b_x158, KK_OWNED, _ctx); /*sqlite/db*/;
+  {
+    kk_integer_t _x_0 = _match_x653.h;
+    _x_x1067 = _x_0; /*int*/
+  }
+  return kk_integer_box(_x_x1067, _ctx);
+}
+
+
+// lift anonymous function
+struct kk_sqlite_hc__sqlite__exec_fun1069__t {
+  struct kk_function_s _base;
+};
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1069(kk_function_t _fself, kk_box_t _b_x163, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec_fun1069(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec_fun1069, _ctx)
+  return kk_function_static_dup(_fself,kk_context());
+}
+
+static kk_box_t kk_sqlite_hc__sqlite__exec_fun1069(kk_function_t _fself, kk_box_t _b_x163, kk_context_t* _ctx) {
+  kk_function_static_drop(_fself,kk_context());
+  kk_std_core_types__either _x_x1070;
+  kk_string_t _x_x1071 = kk_string_unbox(_b_x163); /*string*/
+  _x_x1070 = kk_sqlite__mlift_hc__sqlite__exec_10178(_x_x1071, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1070, _ctx);
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__exec(kk_sqlite__db d, kk_string_t sql, kk_context_t* _ctx) { /* (d : db, sql : string) -> io either<string,bool> */ 
-  kk_integer_t x_10210;
-  kk_integer_t _x_x1051;
-  kk_box_t _x_x1052;
-  kk_box_t _x_x1055;
-  kk_sqlite__db _x_x1056 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
-  _x_x1055 = kk_sqlite__db_box(_x_x1056, _ctx); /*10000*/
-  _x_x1052 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec_fun1053(_ctx), _x_x1055, _ctx); /*10001*/
-  _x_x1051 = kk_integer_unbox(_x_x1052, _ctx); /*int*/
-  x_10210 = kk_sqlite__ffi_sqlite__exec__raw(_x_x1051, sql, _ctx); /*int*/
+  kk_integer_t x_10211;
+  kk_integer_t _x_x1055;
+  kk_box_t _x_x1056;
+  kk_box_t _x_x1059;
+  kk_sqlite__db _x_x1060 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
+  _x_x1059 = kk_sqlite__db_box(_x_x1060, _ctx); /*10000*/
+  _x_x1056 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec_fun1057(_ctx), _x_x1059, _ctx); /*10001*/
+  _x_x1055 = kk_integer_unbox(_x_x1056, _ctx); /*int*/
+  x_10211 = kk_sqlite__ffi_sqlite__exec__raw(_x_x1055, sql, _ctx); /*int*/
   if (kk_yielding(kk_context())) {
-    kk_integer_drop(x_10210, _ctx);
-    kk_box_t _x_x1057 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec_fun1058(d, _ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1057, KK_OWNED, _ctx);
+    kk_integer_drop(x_10211, _ctx);
+    kk_box_t _x_x1061 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec_fun1062(d, _ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1061, KK_OWNED, _ctx);
   }
   {
-    bool _match_x647;
-    bool _brw_x650 = kk_integer_eq_borrow(x_10210,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-    kk_integer_drop(x_10210, _ctx);
-    _match_x647 = _brw_x650; /*bool*/
-    if (_match_x647) {
+    bool _match_x651;
+    bool _brw_x654 = kk_integer_eq_borrow(x_10211,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    kk_integer_drop(x_10211, _ctx);
+    _match_x651 = _brw_x654; /*bool*/
+    if (_match_x651) {
       kk_sqlite__db_drop(d, _ctx);
       return kk_std_core_types__new_Right(kk_bool_box(true), _ctx);
     }
     {
-      kk_string_t x_0_10213;
-      kk_integer_t _x_x1060;
-      kk_box_t _x_x1061 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec_fun1062(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-      _x_x1060 = kk_integer_unbox(_x_x1061, _ctx); /*int*/
-      x_0_10213 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1060, _ctx); /*string*/
+      kk_string_t x_0_10214;
+      kk_integer_t _x_x1064;
+      kk_box_t _x_x1065 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec_fun1066(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+      _x_x1064 = kk_integer_unbox(_x_x1065, _ctx); /*int*/
+      x_0_10214 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1064, _ctx); /*string*/
       if (kk_yielding(kk_context())) {
-        kk_string_drop(x_0_10213, _ctx);
-        kk_box_t _x_x1064 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec_fun1065(_ctx), _ctx); /*10001*/
-        return kk_std_core_types__either_unbox(_x_x1064, KK_OWNED, _ctx);
+        kk_string_drop(x_0_10214, _ctx);
+        kk_box_t _x_x1068 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec_fun1069(_ctx), _ctx); /*10001*/
+        return kk_std_core_types__either_unbox(_x_x1068, KK_OWNED, _ctx);
       }
       {
-        return kk_std_core_types__new_Left(kk_string_box(x_0_10213), _ctx);
+        return kk_std_core_types__new_Left(kk_string_box(x_0_10214), _ctx);
       }
     }
   }
@@ -1929,201 +1929,201 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__exec(kk_sqlite__db d, kk_string_
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1070__t {
+struct kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1074__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1070(kk_function_t _fself, kk_box_t _b_x175, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec__p_10180_fun1070(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1070, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1074(kk_function_t _fself, kk_box_t _b_x175, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec__p_10181_fun1074(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1074, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1070(kk_function_t _fself, kk_box_t _b_x175, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1074(kk_function_t _fself, kk_box_t _b_x175, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1071;
-  kk_sqlite__db _match_x644 = kk_sqlite__db_unbox(_b_x175, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1075;
+  kk_sqlite__db _match_x648 = kk_sqlite__db_unbox(_b_x175, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x_0 = _match_x644.h;
-    _x_x1071 = _x_0; /*int*/
+    kk_integer_t _x_0 = _match_x648.h;
+    _x_x1075 = _x_0; /*int*/
   }
-  return kk_integer_box(_x_x1071, _ctx);
+  return kk_integer_box(_x_x1075, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1073__t {
+struct kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1077__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1073(kk_function_t _fself, kk_box_t _b_x180, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec__p_10180_fun1073(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1073, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1077(kk_function_t _fself, kk_box_t _b_x180, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__exec__p_10181_fun1077(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1077, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10180_fun1073(kk_function_t _fself, kk_box_t _b_x180, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__exec__p_10181_fun1077(kk_function_t _fself, kk_box_t _b_x180, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1074;
-  kk_string_t _x_x1075 = kk_string_unbox(_b_x180); /*string*/
-  _x_x1074 = kk_sqlite__mlift_hc__sqlite__exec__p_10179(_x_x1075, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1074, _ctx);
+  kk_std_core_types__either _x_x1078;
+  kk_string_t _x_x1079 = kk_string_unbox(_b_x180); /*string*/
+  _x_x1078 = kk_sqlite__mlift_hc__sqlite__exec__p_10180(_x_x1079, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1078, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10180(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx) { /* (d : db, rc : int) -> io either<string,bool> */ 
-  bool _match_x642;
-  bool _brw_x645 = kk_integer_eq_borrow(rc,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__exec__p_10181(kk_sqlite__db d, kk_integer_t rc, kk_context_t* _ctx) { /* (d : db, rc : int) -> io either<string,bool> */ 
+  bool _match_x646;
+  bool _brw_x649 = kk_integer_eq_borrow(rc,(kk_integer_from_small(0)),kk_context()); /*bool*/;
   kk_integer_drop(rc, _ctx);
-  _match_x642 = _brw_x645; /*bool*/
-  if (_match_x642) {
+  _match_x646 = _brw_x649; /*bool*/
+  if (_match_x646) {
     kk_sqlite__db_drop(d, _ctx);
     return kk_std_core_types__new_Right(kk_bool_box(true), _ctx);
   }
   {
-    kk_string_t x_10216;
-    kk_integer_t _x_x1068;
-    kk_box_t _x_x1069 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__exec__p_10180_fun1070(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-    _x_x1068 = kk_integer_unbox(_x_x1069, _ctx); /*int*/
-    x_10216 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1068, _ctx); /*string*/
+    kk_string_t x_10217;
+    kk_integer_t _x_x1072;
+    kk_box_t _x_x1073 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__exec__p_10181_fun1074(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+    _x_x1072 = kk_integer_unbox(_x_x1073, _ctx); /*int*/
+    x_10217 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1072, _ctx); /*string*/
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_10216, _ctx);
-      kk_box_t _x_x1072 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__exec__p_10180_fun1073(_ctx), _ctx); /*10001*/
-      return kk_std_core_types__either_unbox(_x_x1072, KK_OWNED, _ctx);
+      kk_string_drop(x_10217, _ctx);
+      kk_box_t _x_x1076 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__exec__p_10181_fun1077(_ctx), _ctx); /*10001*/
+      return kk_std_core_types__either_unbox(_x_x1076, KK_OWNED, _ctx);
     }
     {
-      return kk_std_core_types__new_Left(kk_string_box(x_10216), _ctx);
+      return kk_std_core_types__new_Left(kk_string_box(x_10217), _ctx);
     }
   }
 }
  
-// .hc:63
+// .hc:62
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__exec__p_fun1078__t {
+struct kk_sqlite_hc__sqlite__exec__p_fun1082__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1078(kk_function_t _fself, kk_box_t _b_x187, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1078(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1078, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1082(kk_function_t _fself, kk_box_t _b_x187, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1082(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1082, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1078(kk_function_t _fself, kk_box_t _b_x187, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1082(kk_function_t _fself, kk_box_t _b_x187, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1079;
-  kk_sqlite__db _match_x641 = kk_sqlite__db_unbox(_b_x187, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1083;
+  kk_sqlite__db _match_x645 = kk_sqlite__db_unbox(_b_x187, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x = _match_x641.h;
-    _x_x1079 = _x; /*int*/
+    kk_integer_t _x = _match_x645.h;
+    _x_x1083 = _x; /*int*/
   }
-  return kk_integer_box(_x_x1079, _ctx);
-}
-
-
-// lift anonymous function
-struct kk_sqlite_hc__sqlite__exec__p_fun1086__t {
-  struct kk_function_s _base;
-  kk_sqlite__db d;
-};
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1086(kk_function_t _fself, kk_box_t _b_x192, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1086(kk_sqlite__db d, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__exec__p_fun1086__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__exec__p_fun1086__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__exec__p_fun1086, kk_context());
-  _self->d = d;
-  return kk_datatype_from_base(&_self->_base, kk_context());
-}
-
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1086(kk_function_t _fself, kk_box_t _b_x192, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__exec__p_fun1086__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__exec__p_fun1086__t*, _fself, _ctx);
-  kk_sqlite__db d = _self->d; /* sqlite/db */
-  kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
-  kk_integer_t rc_207 = kk_integer_unbox(_b_x192, _ctx); /*int*/;
-  kk_std_core_types__either _x_x1087 = kk_sqlite__mlift_hc__sqlite__exec__p_10180(d, rc_207, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1087, _ctx);
+  return kk_integer_box(_x_x1083, _ctx);
 }
 
 
 // lift anonymous function
 struct kk_sqlite_hc__sqlite__exec__p_fun1090__t {
   struct kk_function_s _base;
+  kk_sqlite__db d;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1090(kk_function_t _fself, kk_box_t _b_x196, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1090(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1090, _ctx)
-  return kk_function_static_dup(_fself,kk_context());
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1090(kk_function_t _fself, kk_box_t _b_x192, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1090(kk_sqlite__db d, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__exec__p_fun1090__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__exec__p_fun1090__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__exec__p_fun1090, kk_context());
+  _self->d = d;
+  return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1090(kk_function_t _fself, kk_box_t _b_x196, kk_context_t* _ctx) {
-  kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1091;
-  kk_sqlite__db _match_x639 = kk_sqlite__db_unbox(_b_x196, KK_OWNED, _ctx); /*sqlite/db*/;
-  {
-    kk_integer_t _x_0 = _match_x639.h;
-    _x_x1091 = _x_0; /*int*/
-  }
-  return kk_integer_box(_x_x1091, _ctx);
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1090(kk_function_t _fself, kk_box_t _b_x192, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__exec__p_fun1090__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__exec__p_fun1090__t*, _fself, _ctx);
+  kk_sqlite__db d = _self->d; /* sqlite/db */
+  kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
+  kk_integer_t rc_207 = kk_integer_unbox(_b_x192, _ctx); /*int*/;
+  kk_std_core_types__either _x_x1091 = kk_sqlite__mlift_hc__sqlite__exec__p_10181(d, rc_207, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1091, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__exec__p_fun1093__t {
+struct kk_sqlite_hc__sqlite__exec__p_fun1094__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1093(kk_function_t _fself, kk_box_t _b_x201, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1093(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1093, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1094(kk_function_t _fself, kk_box_t _b_x196, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1094(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1094, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1093(kk_function_t _fself, kk_box_t _b_x201, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1094(kk_function_t _fself, kk_box_t _b_x196, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1094;
-  kk_string_t _x_x1095 = kk_string_unbox(_b_x201); /*string*/
-  _x_x1094 = kk_sqlite__mlift_hc__sqlite__exec__p_10179(_x_x1095, _ctx); /*either<string,bool>*/
-  return kk_std_core_types__either_box(_x_x1094, _ctx);
+  kk_integer_t _x_x1095;
+  kk_sqlite__db _match_x643 = kk_sqlite__db_unbox(_b_x196, KK_OWNED, _ctx); /*sqlite/db*/;
+  {
+    kk_integer_t _x_0 = _match_x643.h;
+    _x_x1095 = _x_0; /*int*/
+  }
+  return kk_integer_box(_x_x1095, _ctx);
+}
+
+
+// lift anonymous function
+struct kk_sqlite_hc__sqlite__exec__p_fun1097__t {
+  struct kk_function_s _base;
+};
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1097(kk_function_t _fself, kk_box_t _b_x201, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__exec__p_fun1097(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__exec__p_fun1097, _ctx)
+  return kk_function_static_dup(_fself,kk_context());
+}
+
+static kk_box_t kk_sqlite_hc__sqlite__exec__p_fun1097(kk_function_t _fself, kk_box_t _b_x201, kk_context_t* _ctx) {
+  kk_function_static_drop(_fself,kk_context());
+  kk_std_core_types__either _x_x1098;
+  kk_string_t _x_x1099 = kk_string_unbox(_b_x201); /*string*/
+  _x_x1098 = kk_sqlite__mlift_hc__sqlite__exec__p_10180(_x_x1099, _ctx); /*either<string,bool>*/
+  return kk_std_core_types__either_box(_x_x1098, _ctx);
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__exec__p(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx) { /* (d : db, sql : string, params : list<string>) -> io either<string,bool> */ 
-  kk_integer_t x_10218;
-  kk_integer_t _x_x1076;
-  kk_box_t _x_x1077;
-  kk_box_t _x_x1080;
-  kk_sqlite__db _x_x1081 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
-  _x_x1080 = kk_sqlite__db_box(_x_x1081, _ctx); /*10000*/
-  _x_x1077 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec__p_fun1078(_ctx), _x_x1080, _ctx); /*10001*/
-  _x_x1076 = kk_integer_unbox(_x_x1077, _ctx); /*int*/
-  kk_string_t _x_x1082;
-  kk_string_t _x_x1083;
-  kk_define_string_literal(static, _s_x1084, 1, "" "\x1F" "", _ctx)
-  _x_x1083 = kk_string_dup(_s_x1084, _ctx); /*string*/
-  _x_x1082 = kk_std_core_list_joinsep(params, _x_x1083, _ctx); /*string*/
-  x_10218 = kk_sqlite__ffi_sqlite__exec__p__raw(_x_x1076, sql, _x_x1082, _ctx); /*int*/
+  kk_integer_t x_10219;
+  kk_integer_t _x_x1080;
+  kk_box_t _x_x1081;
+  kk_box_t _x_x1084;
+  kk_sqlite__db _x_x1085 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
+  _x_x1084 = kk_sqlite__db_box(_x_x1085, _ctx); /*10000*/
+  _x_x1081 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec__p_fun1082(_ctx), _x_x1084, _ctx); /*10001*/
+  _x_x1080 = kk_integer_unbox(_x_x1081, _ctx); /*int*/
+  kk_string_t _x_x1086;
+  kk_string_t _x_x1087;
+  kk_define_string_literal(static, _s_x1088, 1, "" "\x1F" "", _ctx)
+  _x_x1087 = kk_string_dup(_s_x1088, _ctx); /*string*/
+  _x_x1086 = kk_std_core_list_joinsep(params, _x_x1087, _ctx); /*string*/
+  x_10219 = kk_sqlite__ffi_sqlite__exec__p__raw(_x_x1080, sql, _x_x1086, _ctx); /*int*/
   if (kk_yielding(kk_context())) {
-    kk_integer_drop(x_10218, _ctx);
-    kk_box_t _x_x1085 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec__p_fun1086(d, _ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1085, KK_OWNED, _ctx);
+    kk_integer_drop(x_10219, _ctx);
+    kk_box_t _x_x1089 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec__p_fun1090(d, _ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1089, KK_OWNED, _ctx);
   }
   {
-    bool _match_x637;
-    bool _brw_x640 = kk_integer_eq_borrow(x_10218,(kk_integer_from_small(0)),kk_context()); /*bool*/;
-    kk_integer_drop(x_10218, _ctx);
-    _match_x637 = _brw_x640; /*bool*/
-    if (_match_x637) {
+    bool _match_x641;
+    bool _brw_x644 = kk_integer_eq_borrow(x_10219,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    kk_integer_drop(x_10219, _ctx);
+    _match_x641 = _brw_x644; /*bool*/
+    if (_match_x641) {
       kk_sqlite__db_drop(d, _ctx);
       return kk_std_core_types__new_Right(kk_bool_box(true), _ctx);
     }
     {
-      kk_string_t x_0_10221;
-      kk_integer_t _x_x1088;
-      kk_box_t _x_x1089 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec__p_fun1090(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-      _x_x1088 = kk_integer_unbox(_x_x1089, _ctx); /*int*/
-      x_0_10221 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1088, _ctx); /*string*/
+      kk_string_t x_0_10222;
+      kk_integer_t _x_x1092;
+      kk_box_t _x_x1093 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__exec__p_fun1094(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+      _x_x1092 = kk_integer_unbox(_x_x1093, _ctx); /*int*/
+      x_0_10222 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1092, _ctx); /*string*/
       if (kk_yielding(kk_context())) {
-        kk_string_drop(x_0_10221, _ctx);
-        kk_box_t _x_x1092 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec__p_fun1093(_ctx), _ctx); /*10001*/
-        return kk_std_core_types__either_unbox(_x_x1092, KK_OWNED, _ctx);
+        kk_string_drop(x_0_10222, _ctx);
+        kk_box_t _x_x1096 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__exec__p_fun1097(_ctx), _ctx); /*10001*/
+        return kk_std_core_types__either_unbox(_x_x1096, KK_OWNED, _ctx);
       }
       {
-        return kk_std_core_types__new_Left(kk_string_box(x_0_10221), _ctx);
+        return kk_std_core_types__new_Left(kk_string_box(x_0_10222), _ctx);
       }
     }
   }
@@ -2133,176 +2133,176 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__exec__p(kk_sqlite__db d, kk_stri
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1098__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1102__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1098(kk_function_t _fself, kk_box_t _b_x231, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1098(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1098, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1102(kk_function_t _fself, kk_box_t _b_x231, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1102(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1102, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1104__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1108__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1104(kk_function_t _fself, kk_box_t _b_x214, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1104(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1104, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1108(kk_function_t _fself, kk_box_t _b_x214, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1108(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1108, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1104(kk_function_t _fself, kk_box_t _b_x214, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1108(kk_function_t _fself, kk_box_t _b_x214, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x1105;
-  kk_char_t _x_x1106 = kk_char_unbox(_b_x214, KK_OWNED, _ctx); /*char*/
-  _x_x1105 = kk_std_core_string_char_fs_string(_x_x1106, _ctx); /*string*/
-  return kk_string_box(_x_x1105);
+  kk_string_t _x_x1109;
+  kk_char_t _x_x1110 = kk_char_unbox(_b_x214, KK_OWNED, _ctx); /*char*/
+  _x_x1109 = kk_std_core_string_char_fs_string(_x_x1110, _ctx); /*string*/
+  return kk_string_box(_x_x1109);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1108__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1112__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1108(kk_function_t _fself, kk_box_t _b_x218, kk_box_t _b_x219, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1108(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1108, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1112(kk_function_t _fself, kk_box_t _b_x218, kk_box_t _b_x219, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1112(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1112, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1108(kk_function_t _fself, kk_box_t _b_x218, kk_box_t _b_x219, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1112(kk_function_t _fself, kk_box_t _b_x218, kk_box_t _b_x219, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_vector_t v_10011_1;
-  kk_string_t _x_x1109 = kk_string_unbox(_b_x218); /*string*/
-  kk_string_t _x_x1110 = kk_string_unbox(_b_x219); /*string*/
-  v_10011_1 = kk_string_splitv(_x_x1109,_x_x1110,kk_context()); /*vector<string>*/
-  kk_std_core_types__list _x_x1111 = kk_std_core_vector_vlist(v_10011_1, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
-  return kk_std_core_types__list_box(_x_x1111, _ctx);
+  kk_string_t _x_x1113 = kk_string_unbox(_b_x218); /*string*/
+  kk_string_t _x_x1114 = kk_string_unbox(_b_x219); /*string*/
+  v_10011_1 = kk_string_splitv(_x_x1113,_x_x1114,kk_context()); /*vector<string>*/
+  kk_std_core_types__list _x_x1115 = kk_std_core_vector_vlist(v_10011_1, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
+  return kk_std_core_types__list_box(_x_x1115, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1117__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1121__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1117(kk_function_t _fself, kk_box_t _b_x228, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1117(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1117, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1121(kk_function_t _fself, kk_box_t _b_x228, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1121(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1121, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1117(kk_function_t _fself, kk_box_t _b_x228, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1121(kk_function_t _fself, kk_box_t _b_x228, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_sqlite__row _x_x1118;
-  kk_std_core_types__list _x_x1119 = kk_std_core_types__list_unbox(_b_x228, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1118 = kk_sqlite__mlift_hc__sqlite__query__p_10182(_x_x1119, _ctx); /*sqlite/row*/
-  return kk_sqlite__row_box(_x_x1118, _ctx);
+  kk_sqlite__row _x_x1122;
+  kk_std_core_types__list _x_x1123 = kk_std_core_types__list_unbox(_b_x228, KK_OWNED, _ctx); /*list<string>*/
+  _x_x1122 = kk_sqlite__mlift_hc__sqlite__query__p_10183(_x_x1123, _ctx); /*sqlite/row*/
+  return kk_sqlite__row_box(_x_x1122, _ctx);
 }
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1098(kk_function_t _fself, kk_box_t _b_x231, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1102(kk_function_t _fself, kk_box_t _b_x231, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__list x_0_10226;
-  bool _match_x631;
-  kk_string_t _x_x1099;
-  kk_define_string_literal(static, _s_x1100, 1, "" "\x1F" "", _ctx)
-  _x_x1099 = kk_string_dup(_s_x1100, _ctx); /*string*/
-  kk_string_t _x_x1101 = kk_string_empty(); /*string*/
-  _match_x631 = kk_string_is_eq(_x_x1099,_x_x1101,kk_context()); /*bool*/
-  if (_match_x631) {
+  kk_std_core_types__list x_0_10227;
+  bool _match_x635;
+  kk_string_t _x_x1103;
+  kk_define_string_literal(static, _s_x1104, 1, "" "\x1F" "", _ctx)
+  _x_x1103 = kk_string_dup(_s_x1104, _ctx); /*string*/
+  kk_string_t _x_x1105 = kk_string_empty(); /*string*/
+  _match_x635 = kk_string_is_eq(_x_x1103,_x_x1105,kk_context()); /*bool*/
+  if (_match_x635) {
     kk_std_core_types__list _b_x212_220;
-    kk_string_t _x_x1103 = kk_string_unbox(_b_x231); /*string*/
-    _b_x212_220 = kk_std_core_string_list(_x_x1103, _ctx); /*list<char>*/
-    kk_function_t _brw_x632 = kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1104(_ctx); /*(10001) -> 10003 10002*/;
-    kk_std_core_types__list _brw_x633 = kk_std_core_list_map(_b_x212_220, _brw_x632, _ctx); /*list<10002>*/;
-    kk_function_drop(_brw_x632, _ctx);
-    x_0_10226 = _brw_x633; /*list<string>*/
+    kk_string_t _x_x1107 = kk_string_unbox(_b_x231); /*string*/
+    _b_x212_220 = kk_std_core_string_list(_x_x1107, _ctx); /*list<char>*/
+    kk_function_t _brw_x636 = kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1108(_ctx); /*(10001) -> 10003 10002*/;
+    kk_std_core_types__list _brw_x637 = kk_std_core_list_map(_b_x212_220, _brw_x636, _ctx); /*list<10002>*/;
+    kk_function_drop(_brw_x636, _ctx);
+    x_0_10227 = _brw_x637; /*list<string>*/
   }
   else {
-    kk_box_t _x_x1107;
-    kk_box_t _x_x1112;
-    kk_string_t _x_x1113;
-    kk_define_string_literal(static, _s_x1114, 1, "" "\x1F" "", _ctx)
-    _x_x1113 = kk_string_dup(_s_x1114, _ctx); /*string*/
-    _x_x1112 = kk_string_box(_x_x1113); /*10001*/
-    _x_x1107 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1108(_ctx), _b_x231, _x_x1112, _ctx); /*10002*/
-    x_0_10226 = kk_std_core_types__list_unbox(_x_x1107, KK_OWNED, _ctx); /*list<string>*/
+    kk_box_t _x_x1111;
+    kk_box_t _x_x1116;
+    kk_string_t _x_x1117;
+    kk_define_string_literal(static, _s_x1118, 1, "" "\x1F" "", _ctx)
+    _x_x1117 = kk_string_dup(_s_x1118, _ctx); /*string*/
+    _x_x1116 = kk_string_box(_x_x1117); /*10001*/
+    _x_x1111 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1112(_ctx), _b_x231, _x_x1116, _ctx); /*10002*/
+    x_0_10227 = kk_std_core_types__list_unbox(_x_x1111, KK_OWNED, _ctx); /*list<string>*/
   }
-  kk_sqlite__row _x_x1115;
+  kk_sqlite__row _x_x1119;
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__list_drop(x_0_10226, _ctx);
-    kk_box_t _x_x1116 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1117(_ctx), _ctx); /*10001*/
-    _x_x1115 = kk_sqlite__row_unbox(_x_x1116, KK_OWNED, _ctx); /*sqlite/row*/
+    kk_std_core_types__list_drop(x_0_10227, _ctx);
+    kk_box_t _x_x1120 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1121(_ctx), _ctx); /*10001*/
+    _x_x1119 = kk_sqlite__row_unbox(_x_x1120, KK_OWNED, _ctx); /*sqlite/row*/
   }
   else {
-    _x_x1115 = kk_sqlite__new_Row(x_0_10226, _ctx); /*sqlite/row*/
+    _x_x1119 = kk_sqlite__new_Row(x_0_10227, _ctx); /*sqlite/row*/
   }
-  return kk_sqlite__row_box(_x_x1115, _ctx);
+  return kk_sqlite__row_box(_x_x1119, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124__t {
   struct kk_function_s _base;
   kk_std_core_types__list _c_x10110;
 };
-static kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120(kk_function_t _fself, kk_std_core_types__list _y_x10113, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1120(kk_std_core_types__list _c_x10110, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120, kk_context());
+static kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124(kk_function_t _fself, kk_std_core_types__list _y_x10113, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1124(kk_std_core_types__list _c_x10110, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124, kk_context());
   _self->_c_x10110 = _c_x10110;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120(kk_function_t _fself, kk_std_core_types__list _y_x10113, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1120__t*, _fself, _ctx);
+static kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124(kk_function_t _fself, kk_std_core_types__list _y_x10113, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1124__t*, _fself, _ctx);
   kk_std_core_types__list _c_x10110 = _self->_c_x10110; /* list<string> */
   kk_drop_match(_self, {kk_std_core_types__list_dup(_c_x10110, _ctx);}, {}, _ctx)
-  kk_box_t _x_x1121;
-  kk_sqlite__queryresult _x_x1122 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, _c_x10110, _y_x10113, _ctx); /*sqlite/queryresult*/
-  _x_x1121 = kk_sqlite__queryresult_box(_x_x1122, _ctx); /*10015*/
-  return kk_std_core_types__new_Right(_x_x1121, _ctx);
+  kk_box_t _x_x1125;
+  kk_sqlite__queryresult _x_x1126 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, _c_x10110, _y_x10113, _ctx); /*sqlite/queryresult*/
+  _x_x1125 = kk_sqlite__queryresult_box(_x_x1126, _ctx); /*10015*/
+  return kk_std_core_types__new_Right(_x_x1125, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128__t {
   struct kk_function_s _base;
-  kk_function_t next_10225;
+  kk_function_t next_10226;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124(kk_function_t _fself, kk_box_t _b_x239, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1124(kk_function_t next_10225, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124, kk_context());
-  _self->next_10225 = next_10225;
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128(kk_function_t _fself, kk_box_t _b_x239, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1128(kk_function_t next_10226, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128, kk_context());
+  _self->next_10226 = next_10226;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124(kk_function_t _fself, kk_box_t _b_x239, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10184_fun1124__t*, _fself, _ctx);
-  kk_function_t next_10225 = _self->next_10225; /* (list<sqlite/row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,sqlite/queryresult> */
-  kk_drop_match(_self, {kk_function_dup(next_10225, _ctx);}, {}, _ctx)
-  kk_std_core_types__either _x_x1125;
-  kk_std_core_types__list _x_x1126 = kk_std_core_types__list_unbox(_b_x239, KK_OWNED, _ctx); /*list<sqlite/row>*/
-  _x_x1125 = kk_function_call(kk_std_core_types__either, (kk_function_t, kk_std_core_types__list, kk_context_t*), next_10225, (next_10225, _x_x1126, _ctx), _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1125, _ctx);
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128(kk_function_t _fself, kk_box_t _b_x239, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1128__t*, _fself, _ctx);
+  kk_function_t next_10226 = _self->next_10226; /* (list<sqlite/row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,sqlite/queryresult> */
+  kk_drop_match(_self, {kk_function_dup(next_10226, _ctx);}, {}, _ctx)
+  kk_std_core_types__either _x_x1129;
+  kk_std_core_types__list _x_x1130 = kk_std_core_types__list_unbox(_b_x239, KK_OWNED, _ctx); /*list<sqlite/row>*/
+  _x_x1129 = kk_function_call(kk_std_core_types__either, (kk_function_t, kk_std_core_types__list, kk_context_t*), next_10226, (next_10226, _x_x1130, _ctx), _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1129, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184(kk_std_core_types__list data__rows, kk_std_core_types__list _c_x10110, kk_context_t* _ctx) { /* (data_rows : list<string>, list<string>) -> either<string,queryresult> */ 
-  kk_std_core_types__list x_10224;
-  kk_function_t _brw_x634 = kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1098(_ctx); /*(10001) -> 10003 10002*/;
-  kk_std_core_types__list _brw_x635 = kk_std_core_list_map(data__rows, _brw_x634, _ctx); /*list<10002>*/;
-  kk_function_drop(_brw_x634, _ctx);
-  x_10224 = _brw_x635; /*list<sqlite/row>*/
-  kk_function_t next_10225 = kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1120(_c_x10110, _ctx); /*(list<sqlite/row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,sqlite/queryresult>*/;
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_core_types__list data__rows, kk_std_core_types__list _c_x10110, kk_context_t* _ctx) { /* (data_rows : list<string>, list<string>) -> either<string,queryresult> */ 
+  kk_std_core_types__list x_10225;
+  kk_function_t _brw_x638 = kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1102(_ctx); /*(10001) -> 10003 10002*/;
+  kk_std_core_types__list _brw_x639 = kk_std_core_list_map(data__rows, _brw_x638, _ctx); /*list<10002>*/;
+  kk_function_drop(_brw_x638, _ctx);
+  x_10225 = _brw_x639; /*list<sqlite/row>*/
+  kk_function_t next_10226 = kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1124(_c_x10110, _ctx); /*(list<sqlite/row>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,sqlite/queryresult>*/;
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__list_drop(x_10224, _ctx);
-    kk_box_t _x_x1123 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10184_fun1124(next_10225, _ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1123, KK_OWNED, _ctx);
+    kk_std_core_types__list_drop(x_10225, _ctx);
+    kk_box_t _x_x1127 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1128(next_10226, _ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1127, KK_OWNED, _ctx);
   }
   {
-    return kk_function_call(kk_std_core_types__either, (kk_function_t, kk_std_core_types__list, kk_context_t*), next_10225, (next_10225, x_10224, _ctx), _ctx);
+    return kk_function_call(kk_std_core_types__either, (kk_function_t, kk_std_core_types__list, kk_context_t*), next_10226, (next_10226, x_10225, _ctx), _ctx);
   }
 }
  
@@ -2310,78 +2310,78 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10184(kk_std_cor
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1134__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1138__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1134(kk_function_t _fself, kk_box_t _b_x245, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1134(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1134, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1138(kk_function_t _fself, kk_box_t _b_x245, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1138(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1138, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1134(kk_function_t _fself, kk_box_t _b_x245, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1138(kk_function_t _fself, kk_box_t _b_x245, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x1135;
-  kk_char_t _x_x1136 = kk_char_unbox(_b_x245, KK_OWNED, _ctx); /*char*/
-  _x_x1135 = kk_std_core_string_char_fs_string(_x_x1136, _ctx); /*string*/
-  return kk_string_box(_x_x1135);
+  kk_string_t _x_x1139;
+  kk_char_t _x_x1140 = kk_char_unbox(_b_x245, KK_OWNED, _ctx); /*char*/
+  _x_x1139 = kk_std_core_string_char_fs_string(_x_x1140, _ctx); /*string*/
+  return kk_string_box(_x_x1139);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1138__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1142__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1138(kk_function_t _fself, kk_box_t _b_x249, kk_box_t _b_x250, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1138(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1138, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1142(kk_function_t _fself, kk_box_t _b_x249, kk_box_t _b_x250, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1142(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1142, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1138(kk_function_t _fself, kk_box_t _b_x249, kk_box_t _b_x250, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1142(kk_function_t _fself, kk_box_t _b_x249, kk_box_t _b_x250, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_vector_t v_10011_0;
-  kk_string_t _x_x1139 = kk_string_unbox(_b_x249); /*string*/
-  kk_string_t _x_x1140 = kk_string_unbox(_b_x250); /*string*/
-  v_10011_0 = kk_string_splitv(_x_x1139,_x_x1140,kk_context()); /*vector<string>*/
-  kk_std_core_types__list _x_x1141 = kk_std_core_vector_vlist(v_10011_0, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
-  return kk_std_core_types__list_box(_x_x1141, _ctx);
+  kk_string_t _x_x1143 = kk_string_unbox(_b_x249); /*string*/
+  kk_string_t _x_x1144 = kk_string_unbox(_b_x250); /*string*/
+  v_10011_0 = kk_string_splitv(_x_x1143,_x_x1144,kk_context()); /*vector<string>*/
+  kk_std_core_types__list _x_x1145 = kk_std_core_vector_vlist(v_10011_0, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
+  return kk_std_core_types__list_box(_x_x1145, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150__t {
   struct kk_function_s _base;
   kk_std_core_types__list data__rows;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146(kk_function_t _fself, kk_box_t _b_x259, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1146(kk_std_core_types__list data__rows, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146, kk_context());
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150(kk_function_t _fself, kk_box_t _b_x259, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1150(kk_std_core_types__list data__rows, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150, kk_context());
   _self->data__rows = data__rows;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146(kk_function_t _fself, kk_box_t _b_x259, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10185_fun1146__t*, _fself, _ctx);
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150(kk_function_t _fself, kk_box_t _b_x259, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1150__t*, _fself, _ctx);
   kk_std_core_types__list data__rows = _self->data__rows; /* list<string> */
   kk_drop_match(_self, {kk_std_core_types__list_dup(data__rows, _ctx);}, {}, _ctx)
   kk_std_core_types__list _c_x10110_262 = kk_std_core_types__list_unbox(_b_x259, KK_OWNED, _ctx); /*list<string>*/;
-  kk_std_core_types__either _x_x1147 = kk_sqlite__mlift_hc__sqlite__query__p_10184(data__rows, _c_x10110_262, _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1147, _ctx);
+  kk_std_core_types__either _x_x1151 = kk_sqlite__mlift_hc__sqlite__query__p_10185(data__rows, _c_x10110_262, _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1151, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_core_types__list row__strs, kk_context_t* _ctx) { /* (row_strs : list<string>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10186(kk_std_core_types__list row__strs, kk_context_t* _ctx) { /* (row_strs : list<string>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>> either<string,queryresult> */ 
   if (kk_std_core_types__is_Nil(row__strs, _ctx)) {
-    kk_box_t _x_x1127;
-    kk_sqlite__queryresult _x_x1128 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, kk_std_core_types__new_Nil(_ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*sqlite/queryresult*/
-    _x_x1127 = kk_sqlite__queryresult_box(_x_x1128, _ctx); /*10015*/
-    return kk_std_core_types__new_Right(_x_x1127, _ctx);
+    kk_box_t _x_x1131;
+    kk_sqlite__queryresult _x_x1132 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, kk_std_core_types__new_Nil(_ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*sqlite/queryresult*/
+    _x_x1131 = kk_sqlite__queryresult_box(_x_x1132, _ctx); /*10015*/
+    return kk_std_core_types__new_Right(_x_x1131, _ctx);
   }
   {
-    struct kk_std_core_types_Cons* _con_x1129 = kk_std_core_types__as_Cons(row__strs, _ctx);
-    kk_box_t _box_x242 = _con_x1129->head;
-    kk_std_core_types__list data__rows = _con_x1129->tail;
+    struct kk_std_core_types_Cons* _con_x1133 = kk_std_core_types__as_Cons(row__strs, _ctx);
+    kk_box_t _box_x242 = _con_x1133->head;
+    kk_std_core_types__list data__rows = _con_x1133->tail;
     kk_string_t header = kk_string_unbox(_box_x242);
     if kk_likely(kk_datatype_ptr_is_unique(row__strs, _ctx)) {
       kk_datatype_ptr_free(row__strs, _ctx);
@@ -2391,37 +2391,37 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_cor
       kk_string_dup(header, _ctx);
       kk_datatype_ptr_decref(row__strs, _ctx);
     }
-    kk_std_core_types__list x_10230;
-    bool _match_x626;
-    kk_string_t _x_x1130;
-    kk_define_string_literal(static, _s_x1131, 1, "" "\x1F" "", _ctx)
-    _x_x1130 = kk_string_dup(_s_x1131, _ctx); /*string*/
-    kk_string_t _x_x1132 = kk_string_empty(); /*string*/
-    _match_x626 = kk_string_is_eq(_x_x1130,_x_x1132,kk_context()); /*bool*/
-    if (_match_x626) {
+    kk_std_core_types__list x_10231;
+    bool _match_x630;
+    kk_string_t _x_x1134;
+    kk_define_string_literal(static, _s_x1135, 1, "" "\x1F" "", _ctx)
+    _x_x1134 = kk_string_dup(_s_x1135, _ctx); /*string*/
+    kk_string_t _x_x1136 = kk_string_empty(); /*string*/
+    _match_x630 = kk_string_is_eq(_x_x1134,_x_x1136,kk_context()); /*bool*/
+    if (_match_x630) {
       kk_std_core_types__list _b_x243_251 = kk_std_core_string_list(header, _ctx); /*list<char>*/;
-      kk_function_t _brw_x627 = kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1134(_ctx); /*(10001) -> 10003 10002*/;
-      kk_std_core_types__list _brw_x628 = kk_std_core_list_map(_b_x243_251, _brw_x627, _ctx); /*list<10002>*/;
-      kk_function_drop(_brw_x627, _ctx);
-      x_10230 = _brw_x628; /*list<string>*/
+      kk_function_t _brw_x631 = kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1138(_ctx); /*(10001) -> 10003 10002*/;
+      kk_std_core_types__list _brw_x632 = kk_std_core_list_map(_b_x243_251, _brw_x631, _ctx); /*list<10002>*/;
+      kk_function_drop(_brw_x631, _ctx);
+      x_10231 = _brw_x632; /*list<string>*/
     }
     else {
-      kk_box_t _x_x1137;
-      kk_box_t _x_x1142;
-      kk_string_t _x_x1143;
-      kk_define_string_literal(static, _s_x1144, 1, "" "\x1F" "", _ctx)
-      _x_x1143 = kk_string_dup(_s_x1144, _ctx); /*string*/
-      _x_x1142 = kk_string_box(_x_x1143); /*10001*/
-      _x_x1137 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1138(_ctx), kk_string_box(header), _x_x1142, _ctx); /*10002*/
-      x_10230 = kk_std_core_types__list_unbox(_x_x1137, KK_OWNED, _ctx); /*list<string>*/
+      kk_box_t _x_x1141;
+      kk_box_t _x_x1146;
+      kk_string_t _x_x1147;
+      kk_define_string_literal(static, _s_x1148, 1, "" "\x1F" "", _ctx)
+      _x_x1147 = kk_string_dup(_s_x1148, _ctx); /*string*/
+      _x_x1146 = kk_string_box(_x_x1147); /*10001*/
+      _x_x1141 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1142(_ctx), kk_string_box(header), _x_x1146, _ctx); /*10002*/
+      x_10231 = kk_std_core_types__list_unbox(_x_x1141, KK_OWNED, _ctx); /*list<string>*/
     }
     if (kk_yielding(kk_context())) {
-      kk_std_core_types__list_drop(x_10230, _ctx);
-      kk_box_t _x_x1145 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10185_fun1146(data__rows, _ctx), _ctx); /*10001*/
-      return kk_std_core_types__either_unbox(_x_x1145, KK_OWNED, _ctx);
+      kk_std_core_types__list_drop(x_10231, _ctx);
+      kk_box_t _x_x1149 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1150(data__rows, _ctx), _ctx); /*10001*/
+      return kk_std_core_types__either_unbox(_x_x1149, KK_OWNED, _ctx);
     }
     {
-      return kk_sqlite__mlift_hc__sqlite__query__p_10184(data__rows, x_10230, _ctx);
+      return kk_sqlite__mlift_hc__sqlite__query__p_10185(data__rows, x_10231, _ctx);
     }
   }
 }
@@ -2430,50 +2430,50 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10185(kk_std_cor
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1148__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1152__t {
   struct kk_function_s _base;
 };
-static bool kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1148(kk_function_t _fself, kk_box_t _b_x265, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1148(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1148, _ctx)
+static bool kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1152(kk_function_t _fself, kk_box_t _b_x265, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1152(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1152, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static bool kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1148(kk_function_t _fself, kk_box_t _b_x265, kk_context_t* _ctx) {
+static bool kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1152(kk_function_t _fself, kk_box_t _b_x265, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x1149 = kk_string_unbox(_b_x265); /*string*/
-  kk_string_t _x_x1150 = kk_string_empty(); /*string*/
-  return kk_string_is_neq(_x_x1149,_x_x1150,kk_context());
+  kk_string_t _x_x1153 = kk_string_unbox(_b_x265); /*string*/
+  kk_string_t _x_x1154 = kk_string_empty(); /*string*/
+  return kk_string_is_neq(_x_x1153,_x_x1154,kk_context());
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1153__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1157__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1153(kk_function_t _fself, kk_box_t _b_x270, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1153(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1153, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1157(kk_function_t _fself, kk_box_t _b_x270, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1157(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1157, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10186_fun1153(kk_function_t _fself, kk_box_t _b_x270, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1157(kk_function_t _fself, kk_box_t _b_x270, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1154;
-  kk_std_core_types__list _x_x1155 = kk_std_core_types__list_unbox(_b_x270, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1154 = kk_sqlite__mlift_hc__sqlite__query__p_10185(_x_x1155, _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1154, _ctx);
+  kk_std_core_types__either _x_x1158;
+  kk_std_core_types__list _x_x1159 = kk_std_core_types__list_unbox(_b_x270, KK_OWNED, _ctx); /*list<string>*/
+  _x_x1158 = kk_sqlite__mlift_hc__sqlite__query__p_10186(_x_x1159, _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1158, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10186(kk_std_core_types__list _c_x10107, kk_context_t* _ctx) { /* (list<string>) -> either<string,queryresult> */ 
-  kk_std_core_types__list x_10232 = kk_std_core_list_filter(_c_x10107, kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1148(_ctx), _ctx); /*list<string>*/;
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10187(kk_std_core_types__list _c_x10107, kk_context_t* _ctx) { /* (list<string>) -> either<string,queryresult> */ 
+  kk_std_core_types__list x_10233 = kk_std_core_list_filter(_c_x10107, kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1152(_ctx), _ctx); /*list<string>*/;
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__list_drop(x_10232, _ctx);
-    kk_box_t _x_x1152 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10186_fun1153(_ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1152, KK_OWNED, _ctx);
+    kk_std_core_types__list_drop(x_10233, _ctx);
+    kk_box_t _x_x1156 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1157(_ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1156, KK_OWNED, _ctx);
   }
   {
-    return kk_sqlite__mlift_hc__sqlite__query__p_10185(x_10232, _ctx);
+    return kk_sqlite__mlift_hc__sqlite__query__p_10186(x_10233, _ctx);
   }
 }
  
@@ -2481,207 +2481,210 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10186(kk_std_cor
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1161__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1163__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1161(kk_function_t _fself, kk_box_t _b_x274, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1161(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1161, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1163(kk_function_t _fself, kk_box_t _b_x274, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1163(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1163, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1161(kk_function_t _fself, kk_box_t _b_x274, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1163(kk_function_t _fself, kk_box_t _b_x274, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1162;
-  kk_sqlite__db _match_x623 = kk_sqlite__db_unbox(_b_x274, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1164;
+  kk_sqlite__db _match_x625 = kk_sqlite__db_unbox(_b_x274, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x_0 = _match_x623.h;
-    _x_x1162 = _x_0; /*int*/
+    kk_integer_t _x_0 = _match_x625.h;
+    _x_x1164 = _x_0; /*int*/
   }
-  return kk_integer_box(_x_x1162, _ctx);
+  return kk_integer_box(_x_x1164, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1164__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1166__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1164(kk_function_t _fself, kk_box_t _b_x279, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1164(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1164, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1166(kk_function_t _fself, kk_box_t _b_x279, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1166(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1166, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1164(kk_function_t _fself, kk_box_t _b_x279, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1166(kk_function_t _fself, kk_box_t _b_x279, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1165;
-  kk_string_t _x_x1166 = kk_string_unbox(_b_x279); /*string*/
-  _x_x1165 = kk_sqlite__mlift_hc__sqlite__query__p_10181(_x_x1166, _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1165, _ctx);
+  kk_std_core_types__either _x_x1167;
+  kk_string_t _x_x1168 = kk_string_unbox(_b_x279); /*string*/
+  _x_x1167 = kk_sqlite__mlift_hc__sqlite__query__p_10182(_x_x1168, _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1167, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1171__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1173__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1171(kk_function_t _fself, kk_box_t _b_x283, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1171(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1171, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1173(kk_function_t _fself, kk_box_t _b_x283, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1173(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1173, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1171(kk_function_t _fself, kk_box_t _b_x283, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1173(kk_function_t _fself, kk_box_t _b_x283, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_string_t _x_x1172;
-  kk_char_t _x_x1173 = kk_char_unbox(_b_x283, KK_OWNED, _ctx); /*char*/
-  _x_x1172 = kk_std_core_string_char_fs_string(_x_x1173, _ctx); /*string*/
-  return kk_string_box(_x_x1172);
+  kk_string_t _x_x1174;
+  kk_char_t _x_x1175 = kk_char_unbox(_b_x283, KK_OWNED, _ctx); /*char*/
+  _x_x1174 = kk_std_core_string_char_fs_string(_x_x1175, _ctx); /*string*/
+  return kk_string_box(_x_x1174);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1175__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1177__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1175(kk_function_t _fself, kk_box_t _b_x287, kk_box_t _b_x288, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1175(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1175, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1177(kk_function_t _fself, kk_box_t _b_x287, kk_box_t _b_x288, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1177(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1177, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1175(kk_function_t _fself, kk_box_t _b_x287, kk_box_t _b_x288, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1177(kk_function_t _fself, kk_box_t _b_x287, kk_box_t _b_x288, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_vector_t v_10011;
-  kk_string_t _x_x1176 = kk_string_unbox(_b_x287); /*string*/
-  kk_string_t _x_x1177 = kk_string_unbox(_b_x288); /*string*/
-  v_10011 = kk_string_splitv(_x_x1176,_x_x1177,kk_context()); /*vector<string>*/
-  kk_std_core_types__list _x_x1178 = kk_std_core_vector_vlist(v_10011, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
-  return kk_std_core_types__list_box(_x_x1178, _ctx);
+  kk_string_t _x_x1178 = kk_string_unbox(_b_x287); /*string*/
+  kk_string_t _x_x1179 = kk_string_unbox(_b_x288); /*string*/
+  v_10011 = kk_string_splitv(_x_x1178,_x_x1179,kk_context()); /*vector<string>*/
+  kk_std_core_types__list _x_x1180 = kk_std_core_vector_vlist(v_10011, kk_std_core_types__new_None(_ctx), _ctx); /*list<10000>*/
+  return kk_std_core_types__list_box(_x_x1180, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1183__t {
+struct kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1185__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1183(kk_function_t _fself, kk_box_t _b_x297, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1183(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1183, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1185(kk_function_t _fself, kk_box_t _b_x297, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1185(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1185, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10187_fun1183(kk_function_t _fself, kk_box_t _b_x297, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__p_10188_fun1185(kk_function_t _fself, kk_box_t _b_x297, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__either _x_x1184;
-  kk_std_core_types__list _x_x1185 = kk_std_core_types__list_unbox(_b_x297, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1184 = kk_sqlite__mlift_hc__sqlite__query__p_10186(_x_x1185, _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1184, _ctx);
+  kk_std_core_types__either _x_x1186;
+  kk_std_core_types__list _x_x1187 = kk_std_core_types__list_unbox(_b_x297, KK_OWNED, _ctx); /*list<string>*/
+  _x_x1186 = kk_sqlite__mlift_hc__sqlite__query__p_10187(_x_x1187, _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1186, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10187(kk_sqlite__db d, kk_string_t hc__raw, kk_context_t* _ctx) { /* (d : db, hc_raw : string) -> io either<string,queryresult> */ 
-  bool _match_x617;
-  kk_string_t _x_x1156 = kk_string_dup(hc__raw, _ctx); /*string*/
-  kk_string_t _x_x1157 = kk_string_empty(); /*string*/
-  _match_x617 = kk_string_is_eq(_x_x1156,_x_x1157,kk_context()); /*bool*/
-  if (_match_x617) {
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__p_10188(kk_sqlite__db d, kk_string_t hc__raw, kk_context_t* _ctx) { /* (d : db, hc_raw : string) -> io either<string,queryresult> */ 
+  bool _match_x619;
+  kk_integer_t _brw_x626;
+  kk_string_t _x_x1160 = kk_string_dup(hc__raw, _ctx); /*string*/
+  _brw_x626 = kk_std_core_string_chars_fs_count(_x_x1160, _ctx); /*int*/
+  bool _brw_x627 = kk_integer_eq_borrow(_brw_x626,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+  kk_integer_drop(_brw_x626, _ctx);
+  _match_x619 = _brw_x627; /*bool*/
+  if (_match_x619) {
     kk_string_drop(hc__raw, _ctx);
-    kk_string_t x_10234;
-    kk_integer_t _x_x1159;
-    kk_box_t _x_x1160 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1161(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
-    _x_x1159 = kk_integer_unbox(_x_x1160, _ctx); /*int*/
-    x_10234 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1159, _ctx); /*string*/
+    kk_string_t x_10235;
+    kk_integer_t _x_x1161;
+    kk_box_t _x_x1162 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1163(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+    _x_x1161 = kk_integer_unbox(_x_x1162, _ctx); /*int*/
+    x_10235 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1161, _ctx); /*string*/
     if (kk_yielding(kk_context())) {
-      kk_string_drop(x_10234, _ctx);
-      kk_box_t _x_x1163 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1164(_ctx), _ctx); /*10001*/
-      return kk_std_core_types__either_unbox(_x_x1163, KK_OWNED, _ctx);
+      kk_string_drop(x_10235, _ctx);
+      kk_box_t _x_x1165 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1166(_ctx), _ctx); /*10001*/
+      return kk_std_core_types__either_unbox(_x_x1165, KK_OWNED, _ctx);
     }
     {
-      return kk_std_core_types__new_Left(kk_string_box(x_10234), _ctx);
+      return kk_std_core_types__new_Left(kk_string_box(x_10235), _ctx);
     }
   }
   {
     kk_sqlite__db_drop(d, _ctx);
-    kk_std_core_types__list x_0_10236;
-    bool _match_x619;
-    kk_string_t _x_x1167;
-    kk_define_string_literal(static, _s_x1168, 1, "" "\x1E" "", _ctx)
-    _x_x1167 = kk_string_dup(_s_x1168, _ctx); /*string*/
-    kk_string_t _x_x1169 = kk_string_empty(); /*string*/
-    _match_x619 = kk_string_is_eq(_x_x1167,_x_x1169,kk_context()); /*bool*/
-    if (_match_x619) {
+    kk_std_core_types__list x_0_10237;
+    bool _match_x621;
+    kk_string_t _x_x1169;
+    kk_define_string_literal(static, _s_x1170, 1, "" "\x1E" "", _ctx)
+    _x_x1169 = kk_string_dup(_s_x1170, _ctx); /*string*/
+    kk_string_t _x_x1171 = kk_string_empty(); /*string*/
+    _match_x621 = kk_string_is_eq(_x_x1169,_x_x1171,kk_context()); /*bool*/
+    if (_match_x621) {
       kk_std_core_types__list _b_x281_289 = kk_std_core_string_list(hc__raw, _ctx); /*list<char>*/;
-      kk_function_t _brw_x620 = kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1171(_ctx); /*(10001) -> 10003 10002*/;
-      kk_std_core_types__list _brw_x621 = kk_std_core_list_map(_b_x281_289, _brw_x620, _ctx); /*list<10002>*/;
-      kk_function_drop(_brw_x620, _ctx);
-      x_0_10236 = _brw_x621; /*list<string>*/
+      kk_function_t _brw_x622 = kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1173(_ctx); /*(10001) -> 10003 10002*/;
+      kk_std_core_types__list _brw_x623 = kk_std_core_list_map(_b_x281_289, _brw_x622, _ctx); /*list<10002>*/;
+      kk_function_drop(_brw_x622, _ctx);
+      x_0_10237 = _brw_x623; /*list<string>*/
     }
     else {
-      kk_box_t _x_x1174;
-      kk_box_t _x_x1179;
-      kk_string_t _x_x1180;
-      kk_define_string_literal(static, _s_x1181, 1, "" "\x1E" "", _ctx)
-      _x_x1180 = kk_string_dup(_s_x1181, _ctx); /*string*/
-      _x_x1179 = kk_string_box(_x_x1180); /*10001*/
-      _x_x1174 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1175(_ctx), kk_string_box(hc__raw), _x_x1179, _ctx); /*10002*/
-      x_0_10236 = kk_std_core_types__list_unbox(_x_x1174, KK_OWNED, _ctx); /*list<string>*/
+      kk_box_t _x_x1176;
+      kk_box_t _x_x1181;
+      kk_string_t _x_x1182;
+      kk_define_string_literal(static, _s_x1183, 1, "" "\x1E" "", _ctx)
+      _x_x1182 = kk_string_dup(_s_x1183, _ctx); /*string*/
+      _x_x1181 = kk_string_box(_x_x1182); /*10001*/
+      _x_x1176 = kk_std_core_hnd__open_none2(kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1177(_ctx), kk_string_box(hc__raw), _x_x1181, _ctx); /*10002*/
+      x_0_10237 = kk_std_core_types__list_unbox(_x_x1176, KK_OWNED, _ctx); /*list<string>*/
     }
     if (kk_yielding(kk_context())) {
-      kk_std_core_types__list_drop(x_0_10236, _ctx);
-      kk_box_t _x_x1182 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10187_fun1183(_ctx), _ctx); /*10001*/
-      return kk_std_core_types__either_unbox(_x_x1182, KK_OWNED, _ctx);
+      kk_std_core_types__list_drop(x_0_10237, _ctx);
+      kk_box_t _x_x1184 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__sqlite__query__p_10188_fun1185(_ctx), _ctx); /*10001*/
+      return kk_std_core_types__either_unbox(_x_x1184, KK_OWNED, _ctx);
     }
     {
-      return kk_sqlite__mlift_hc__sqlite__query__p_10186(x_0_10236, _ctx);
+      return kk_sqlite__mlift_hc__sqlite__query__p_10187(x_0_10237, _ctx);
     }
   }
 }
  
-// .hc:71
+// .hc:70
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__query__p_fun1188__t {
+struct kk_sqlite_hc__sqlite__query__p_fun1190__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1188(kk_function_t _fself, kk_box_t _b_x303, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1188(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__query__p_fun1188, _ctx)
+static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1190(kk_function_t _fself, kk_box_t _b_x303, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1190(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite_hc__sqlite__query__p_fun1190, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1188(kk_function_t _fself, kk_box_t _b_x303, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1190(kk_function_t _fself, kk_box_t _b_x303, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_integer_t _x_x1189;
-  kk_sqlite__db _match_x616 = kk_sqlite__db_unbox(_b_x303, KK_OWNED, _ctx); /*sqlite/db*/;
+  kk_integer_t _x_x1191;
+  kk_sqlite__db _match_x618 = kk_sqlite__db_unbox(_b_x303, KK_OWNED, _ctx); /*sqlite/db*/;
   {
-    kk_integer_t _x = _match_x616.h;
-    _x_x1189 = _x; /*int*/
+    kk_integer_t _x = _match_x618.h;
+    _x_x1191 = _x; /*int*/
   }
-  return kk_integer_box(_x_x1189, _ctx);
+  return kk_integer_box(_x_x1191, _ctx);
 }
 
 
 // lift anonymous function
-struct kk_sqlite_hc__sqlite__query__p_fun1196__t {
+struct kk_sqlite_hc__sqlite__query__p_fun1198__t {
   struct kk_function_s _base;
   kk_sqlite__db d;
 };
-static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1196(kk_function_t _fself, kk_box_t _b_x308, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1196(kk_sqlite__db d, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__query__p_fun1196__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__query__p_fun1196__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__query__p_fun1196, kk_context());
+static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1198(kk_function_t _fself, kk_box_t _b_x308, kk_context_t* _ctx);
+static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1198(kk_sqlite__db d, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__query__p_fun1198__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__query__p_fun1198__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__query__p_fun1198, kk_context());
   _self->d = d;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1196(kk_function_t _fself, kk_box_t _b_x308, kk_context_t* _ctx) {
-  struct kk_sqlite_hc__sqlite__query__p_fun1196__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__query__p_fun1196__t*, _fself, _ctx);
+static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1198(kk_function_t _fself, kk_box_t _b_x308, kk_context_t* _ctx) {
+  struct kk_sqlite_hc__sqlite__query__p_fun1198__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__query__p_fun1198__t*, _fself, _ctx);
   kk_sqlite__db d = _self->d; /* sqlite/db */
   kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
   kk_string_t hc__raw_400 = kk_string_unbox(_b_x308); /*string*/;
-  kk_std_core_types__either _x_x1197 = kk_sqlite__mlift_hc__sqlite__query__p_10187(d, hc__raw_400, _ctx); /*either<string,sqlite/queryresult>*/
-  return kk_std_core_types__either_box(_x_x1197, _ctx);
+  kk_std_core_types__either _x_x1199 = kk_sqlite__mlift_hc__sqlite__query__p_10188(d, hc__raw_400, _ctx); /*either<string,sqlite/queryresult>*/
+  return kk_std_core_types__either_box(_x_x1199, _ctx);
 }
 
 
@@ -2721,7 +2724,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1206(kk_function_t _fself, kk_
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__either _x_x1207;
   kk_string_t _x_x1208 = kk_string_unbox(_b_x316); /*string*/
-  _x_x1207 = kk_sqlite__mlift_hc__sqlite__query__p_10181(_x_x1208, _ctx); /*either<string,sqlite/queryresult>*/
+  _x_x1207 = kk_sqlite__mlift_hc__sqlite__query__p_10182(_x_x1208, _ctx); /*either<string,sqlite/queryresult>*/
   return kk_std_core_types__either_box(_x_x1207, _ctx);
 }
 
@@ -2780,7 +2783,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1225(kk_function_t _fself, kk_
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__either _x_x1226;
   kk_std_core_types__list _x_x1227 = kk_std_core_types__list_unbox(_b_x334, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1226 = kk_sqlite__mlift_hc__sqlite__query__p_10186(_x_x1227, _ctx); /*either<string,sqlite/queryresult>*/
+  _x_x1226 = kk_sqlite__mlift_hc__sqlite__query__p_10187(_x_x1227, _ctx); /*either<string,sqlite/queryresult>*/
   return kk_std_core_types__either_box(_x_x1226, _ctx);
 }
 
@@ -2817,7 +2820,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1233(kk_function_t _fself, kk_
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__either _x_x1234;
   kk_std_core_types__list _x_x1235 = kk_std_core_types__list_unbox(_b_x342, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1234 = kk_sqlite__mlift_hc__sqlite__query__p_10185(_x_x1235, _ctx); /*either<string,sqlite/queryresult>*/
+  _x_x1234 = kk_sqlite__mlift_hc__sqlite__query__p_10186(_x_x1235, _ctx); /*either<string,sqlite/queryresult>*/
   return kk_std_core_types__either_box(_x_x1234, _ctx);
 }
 
@@ -2880,7 +2883,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1255(kk_function_t _fself, kk_
   kk_std_core_types__list data__rows = _self->data__rows; /* list<string> */
   kk_drop_match(_self, {kk_std_core_types__list_dup(data__rows, _ctx);}, {}, _ctx)
   kk_std_core_types__list _c_x10110_401 = kk_std_core_types__list_unbox(_b_x361, KK_OWNED, _ctx); /*list<string>*/;
-  kk_std_core_types__either _x_x1256 = kk_sqlite__mlift_hc__sqlite__query__p_10184(data__rows, _c_x10110_401, _ctx); /*either<string,sqlite/queryresult>*/
+  kk_std_core_types__either _x_x1256 = kk_sqlite__mlift_hc__sqlite__query__p_10185(data__rows, _c_x10110_401, _ctx); /*either<string,sqlite/queryresult>*/
   return kk_std_core_types__either_box(_x_x1256, _ctx);
 }
 
@@ -2951,12 +2954,12 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1276(kk_function_t _fself, kk_
   kk_function_static_drop(_fself,kk_context());
   kk_sqlite__row _x_x1277;
   kk_std_core_types__list _x_x1278 = kk_std_core_types__list_unbox(_b_x378, KK_OWNED, _ctx); /*list<string>*/
-  _x_x1277 = kk_sqlite__mlift_hc__sqlite__query__p_10182(_x_x1278, _ctx); /*sqlite/row*/
+  _x_x1277 = kk_sqlite__mlift_hc__sqlite__query__p_10183(_x_x1278, _ctx); /*sqlite/row*/
   return kk_sqlite__row_box(_x_x1277, _ctx);
 }
 static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1257(kk_function_t _fself, kk_box_t _b_x381, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
-  kk_std_core_types__list x_5_10256;
+  kk_std_core_types__list x_5_10257;
   bool _match_x603;
   kk_string_t _x_x1258;
   kk_define_string_literal(static, _s_x1259, 1, "" "\x1F" "", _ctx)
@@ -2970,7 +2973,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1257(kk_function_t _fself, kk_
     kk_function_t _brw_x604 = kk_sqlite_new_hc__sqlite__query__p_fun1263(_ctx); /*(10001) -> 10003 10002*/;
     kk_std_core_types__list _brw_x605 = kk_std_core_list_map(_b_x362_370, _brw_x604, _ctx); /*list<10002>*/;
     kk_function_drop(_brw_x604, _ctx);
-    x_5_10256 = _brw_x605; /*list<string>*/
+    x_5_10257 = _brw_x605; /*list<string>*/
   }
   else {
     kk_box_t _x_x1266;
@@ -2980,16 +2983,16 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1257(kk_function_t _fself, kk_
     _x_x1272 = kk_string_dup(_s_x1273, _ctx); /*string*/
     _x_x1271 = kk_string_box(_x_x1272); /*10001*/
     _x_x1266 = kk_std_core_hnd__open_none2(kk_sqlite_new_hc__sqlite__query__p_fun1267(_ctx), _b_x381, _x_x1271, _ctx); /*10002*/
-    x_5_10256 = kk_std_core_types__list_unbox(_x_x1266, KK_OWNED, _ctx); /*list<string>*/
+    x_5_10257 = kk_std_core_types__list_unbox(_x_x1266, KK_OWNED, _ctx); /*list<string>*/
   }
   kk_sqlite__row _x_x1274;
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__list_drop(x_5_10256, _ctx);
+    kk_std_core_types__list_drop(x_5_10257, _ctx);
     kk_box_t _x_x1275 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1276(_ctx), _ctx); /*10001*/
     _x_x1274 = kk_sqlite__row_unbox(_x_x1275, KK_OWNED, _ctx); /*sqlite/row*/
   }
   else {
-    _x_x1274 = kk_sqlite__new_Row(x_5_10256, _ctx); /*sqlite/row*/
+    _x_x1274 = kk_sqlite__new_Row(x_5_10257, _ctx); /*sqlite/row*/
   }
   return kk_sqlite__row_box(_x_x1274, _ctx);
 }
@@ -2998,70 +3001,73 @@ static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1257(kk_function_t _fself, kk_
 // lift anonymous function
 struct kk_sqlite_hc__sqlite__query__p_fun1280__t {
   struct kk_function_s _base;
-  kk_std_core_types__list x_3_10250;
+  kk_std_core_types__list x_3_10251;
 };
 static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1280(kk_function_t _fself, kk_box_t _b_x388, kk_context_t* _ctx);
-static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1280(kk_std_core_types__list x_3_10250, kk_context_t* _ctx) {
+static kk_function_t kk_sqlite_new_hc__sqlite__query__p_fun1280(kk_std_core_types__list x_3_10251, kk_context_t* _ctx) {
   struct kk_sqlite_hc__sqlite__query__p_fun1280__t* _self = kk_function_alloc_as(struct kk_sqlite_hc__sqlite__query__p_fun1280__t, 2, _ctx);
   _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite_hc__sqlite__query__p_fun1280, kk_context());
-  _self->x_3_10250 = x_3_10250;
+  _self->x_3_10251 = x_3_10251;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
 static kk_box_t kk_sqlite_hc__sqlite__query__p_fun1280(kk_function_t _fself, kk_box_t _b_x388, kk_context_t* _ctx) {
   struct kk_sqlite_hc__sqlite__query__p_fun1280__t* _self = kk_function_as(struct kk_sqlite_hc__sqlite__query__p_fun1280__t*, _fself, _ctx);
-  kk_std_core_types__list x_3_10250 = _self->x_3_10250; /* list<string> */
-  kk_drop_match(_self, {kk_std_core_types__list_dup(x_3_10250, _ctx);}, {}, _ctx)
+  kk_std_core_types__list x_3_10251 = _self->x_3_10251; /* list<string> */
+  kk_drop_match(_self, {kk_std_core_types__list_dup(x_3_10251, _ctx);}, {}, _ctx)
   kk_std_core_types__list _y_x10113_402 = kk_std_core_types__list_unbox(_b_x388, KK_OWNED, _ctx); /*list<sqlite/row>*/;
-  kk_sqlite__queryresult _b_x386_398 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, x_3_10250, _y_x10113_402, _ctx); /*sqlite/queryresult*/;
+  kk_sqlite__queryresult _b_x386_398 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, x_3_10251, _y_x10113_402, _ctx); /*sqlite/queryresult*/;
   kk_std_core_types__either _x_x1281 = kk_std_core_types__new_Right(kk_sqlite__queryresult_box(_b_x386_398, _ctx), _ctx); /*either<10014,10015>*/
   return kk_std_core_types__either_box(_x_x1281, _ctx);
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx) { /* (d : db, sql : string, params : list<string>) -> io either<string,queryresult> */ 
-  kk_string_t x_10238;
-  kk_integer_t _x_x1186;
-  kk_box_t _x_x1187;
-  kk_box_t _x_x1190;
-  kk_sqlite__db _x_x1191 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
-  _x_x1190 = kk_sqlite__db_box(_x_x1191, _ctx); /*10000*/
-  _x_x1187 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__p_fun1188(_ctx), _x_x1190, _ctx); /*10001*/
-  _x_x1186 = kk_integer_unbox(_x_x1187, _ctx); /*int*/
-  kk_string_t _x_x1192;
-  kk_string_t _x_x1193;
-  kk_define_string_literal(static, _s_x1194, 1, "" "\x1F" "", _ctx)
-  _x_x1193 = kk_string_dup(_s_x1194, _ctx); /*string*/
-  _x_x1192 = kk_std_core_list_joinsep(params, _x_x1193, _ctx); /*string*/
-  x_10238 = kk_sqlite__ffi_sqlite__query__p__raw(_x_x1186, sql, _x_x1192, _ctx); /*string*/
+  kk_string_t x_10239;
+  kk_integer_t _x_x1188;
+  kk_box_t _x_x1189;
+  kk_box_t _x_x1192;
+  kk_sqlite__db _x_x1193 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
+  _x_x1192 = kk_sqlite__db_box(_x_x1193, _ctx); /*10000*/
+  _x_x1189 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__p_fun1190(_ctx), _x_x1192, _ctx); /*10001*/
+  _x_x1188 = kk_integer_unbox(_x_x1189, _ctx); /*int*/
+  kk_string_t _x_x1194;
+  kk_string_t _x_x1195;
+  kk_define_string_literal(static, _s_x1196, 1, "" "\x1F" "", _ctx)
+  _x_x1195 = kk_string_dup(_s_x1196, _ctx); /*string*/
+  _x_x1194 = kk_std_core_list_joinsep(params, _x_x1195, _ctx); /*string*/
+  x_10239 = kk_sqlite__ffi_sqlite__query__p__raw(_x_x1188, sql, _x_x1194, _ctx); /*string*/
   if (kk_yielding(kk_context())) {
-    kk_string_drop(x_10238, _ctx);
-    kk_box_t _x_x1195 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1196(d, _ctx), _ctx); /*10001*/
-    return kk_std_core_types__either_unbox(_x_x1195, KK_OWNED, _ctx);
+    kk_string_drop(x_10239, _ctx);
+    kk_box_t _x_x1197 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1198(d, _ctx), _ctx); /*10001*/
+    return kk_std_core_types__either_unbox(_x_x1197, KK_OWNED, _ctx);
   }
   {
     bool _match_x597;
-    kk_string_t _x_x1198 = kk_string_dup(x_10238, _ctx); /*string*/
-    kk_string_t _x_x1199 = kk_string_empty(); /*string*/
-    _match_x597 = kk_string_is_eq(_x_x1198,_x_x1199,kk_context()); /*bool*/
+    kk_integer_t _brw_x616;
+    kk_string_t _x_x1200 = kk_string_dup(x_10239, _ctx); /*string*/
+    _brw_x616 = kk_std_core_string_chars_fs_count(_x_x1200, _ctx); /*int*/
+    bool _brw_x617 = kk_integer_eq_borrow(_brw_x616,(kk_integer_from_small(0)),kk_context()); /*bool*/;
+    kk_integer_drop(_brw_x616, _ctx);
+    _match_x597 = _brw_x617; /*bool*/
     if (_match_x597) {
-      kk_string_drop(x_10238, _ctx);
-      kk_string_t x_0_10241;
+      kk_string_drop(x_10239, _ctx);
+      kk_string_t x_0_10242;
       kk_integer_t _x_x1201;
       kk_box_t _x_x1202 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__p_fun1203(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
       _x_x1201 = kk_integer_unbox(_x_x1202, _ctx); /*int*/
-      x_0_10241 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1201, _ctx); /*string*/
+      x_0_10242 = kk_sqlite__ffi_sqlite__errmsg__raw(_x_x1201, _ctx); /*string*/
       if (kk_yielding(kk_context())) {
-        kk_string_drop(x_0_10241, _ctx);
+        kk_string_drop(x_0_10242, _ctx);
         kk_box_t _x_x1205 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1206(_ctx), _ctx); /*10001*/
         return kk_std_core_types__either_unbox(_x_x1205, KK_OWNED, _ctx);
       }
       {
-        return kk_std_core_types__new_Left(kk_string_box(x_0_10241), _ctx);
+        return kk_std_core_types__new_Left(kk_string_box(x_0_10242), _ctx);
       }
     }
     {
       kk_sqlite__db_drop(d, _ctx);
-      kk_std_core_types__list x_1_10244;
+      kk_std_core_types__list x_1_10245;
       bool _match_x611;
       kk_string_t _x_x1209;
       kk_define_string_literal(static, _s_x1210, 1, "" "\x1E" "", _ctx)
@@ -3069,11 +3075,11 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_str
       kk_string_t _x_x1211 = kk_string_empty(); /*string*/
       _match_x611 = kk_string_is_eq(_x_x1209,_x_x1211,kk_context()); /*bool*/
       if (_match_x611) {
-        kk_std_core_types__list _b_x318_326 = kk_std_core_string_list(x_10238, _ctx); /*list<char>*/;
+        kk_std_core_types__list _b_x318_326 = kk_std_core_string_list(x_10239, _ctx); /*list<char>*/;
         kk_function_t _brw_x612 = kk_sqlite_new_hc__sqlite__query__p_fun1213(_ctx); /*(10001) -> 10003 10002*/;
         kk_std_core_types__list _brw_x613 = kk_std_core_list_map(_b_x318_326, _brw_x612, _ctx); /*list<10002>*/;
         kk_function_drop(_brw_x612, _ctx);
-        x_1_10244 = _brw_x613; /*list<string>*/
+        x_1_10245 = _brw_x613; /*list<string>*/
       }
       else {
         kk_box_t _x_x1216;
@@ -3082,42 +3088,42 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_str
         kk_define_string_literal(static, _s_x1223, 1, "" "\x1E" "", _ctx)
         _x_x1222 = kk_string_dup(_s_x1223, _ctx); /*string*/
         _x_x1221 = kk_string_box(_x_x1222); /*10001*/
-        _x_x1216 = kk_std_core_hnd__open_none2(kk_sqlite_new_hc__sqlite__query__p_fun1217(_ctx), kk_string_box(x_10238), _x_x1221, _ctx); /*10002*/
-        x_1_10244 = kk_std_core_types__list_unbox(_x_x1216, KK_OWNED, _ctx); /*list<string>*/
+        _x_x1216 = kk_std_core_hnd__open_none2(kk_sqlite_new_hc__sqlite__query__p_fun1217(_ctx), kk_string_box(x_10239), _x_x1221, _ctx); /*10002*/
+        x_1_10245 = kk_std_core_types__list_unbox(_x_x1216, KK_OWNED, _ctx); /*list<string>*/
       }
       if (kk_yielding(kk_context())) {
-        kk_std_core_types__list_drop(x_1_10244, _ctx);
+        kk_std_core_types__list_drop(x_1_10245, _ctx);
         kk_box_t _x_x1224 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1225(_ctx), _ctx); /*10001*/
         return kk_std_core_types__either_unbox(_x_x1224, KK_OWNED, _ctx);
       }
       {
-        kk_std_core_types__list x_2_10247 = kk_std_core_list_filter(x_1_10244, kk_sqlite_new_hc__sqlite__query__p_fun1228(_ctx), _ctx); /*list<string>*/;
+        kk_std_core_types__list x_2_10248 = kk_std_core_list_filter(x_1_10245, kk_sqlite_new_hc__sqlite__query__p_fun1228(_ctx), _ctx); /*list<string>*/;
         if (kk_yielding(kk_context())) {
-          kk_std_core_types__list_drop(x_2_10247, _ctx);
+          kk_std_core_types__list_drop(x_2_10248, _ctx);
           kk_box_t _x_x1232 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1233(_ctx), _ctx); /*10001*/
           return kk_std_core_types__either_unbox(_x_x1232, KK_OWNED, _ctx);
         }
-        if (kk_std_core_types__is_Nil(x_2_10247, _ctx)) {
+        if (kk_std_core_types__is_Nil(x_2_10248, _ctx)) {
           kk_box_t _x_x1236;
           kk_sqlite__queryresult _x_x1237 = kk_sqlite__new_Queryresult(kk_reuse_null, 0, kk_std_core_types__new_Nil(_ctx), kk_std_core_types__new_Nil(_ctx), _ctx); /*sqlite/queryresult*/
           _x_x1236 = kk_sqlite__queryresult_box(_x_x1237, _ctx); /*10015*/
           return kk_std_core_types__new_Right(_x_x1236, _ctx);
         }
         {
-          struct kk_std_core_types_Cons* _con_x1238 = kk_std_core_types__as_Cons(x_2_10247, _ctx);
+          struct kk_std_core_types_Cons* _con_x1238 = kk_std_core_types__as_Cons(x_2_10248, _ctx);
           kk_box_t _box_x344 = _con_x1238->head;
           kk_std_core_types__list data__rows = _con_x1238->tail;
           kk_string_t header = kk_string_unbox(_box_x344);
-          kk_reuse_t _ru_x767 = kk_reuse_null; /*@reuse*/;
-          if kk_likely(kk_datatype_ptr_is_unique(x_2_10247, _ctx)) {
-            _ru_x767 = (kk_datatype_ptr_reuse(x_2_10247, _ctx));
+          kk_reuse_t _ru_x771 = kk_reuse_null; /*@reuse*/;
+          if kk_likely(kk_datatype_ptr_is_unique(x_2_10248, _ctx)) {
+            _ru_x771 = (kk_datatype_ptr_reuse(x_2_10248, _ctx));
           }
           else {
             kk_std_core_types__list_dup(data__rows, _ctx);
             kk_string_dup(header, _ctx);
-            kk_datatype_ptr_decref(x_2_10247, _ctx);
+            kk_datatype_ptr_decref(x_2_10248, _ctx);
           }
-          kk_std_core_types__list x_3_10250;
+          kk_std_core_types__list x_3_10251;
           bool _match_x608;
           kk_string_t _x_x1239;
           kk_define_string_literal(static, _s_x1240, 1, "" "\x1F" "", _ctx)
@@ -3129,7 +3135,7 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_str
             kk_function_t _brw_x609 = kk_sqlite_new_hc__sqlite__query__p_fun1243(_ctx); /*(10001) -> 10003 10002*/;
             kk_std_core_types__list _brw_x610 = kk_std_core_list_map(_b_x345_353, _brw_x609, _ctx); /*list<10002>*/;
             kk_function_drop(_brw_x609, _ctx);
-            x_3_10250 = _brw_x610; /*list<string>*/
+            x_3_10251 = _brw_x610; /*list<string>*/
           }
           else {
             kk_box_t _x_x1246;
@@ -3139,29 +3145,29 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_str
             _x_x1252 = kk_string_dup(_s_x1253, _ctx); /*string*/
             _x_x1251 = kk_string_box(_x_x1252); /*10001*/
             _x_x1246 = kk_std_core_hnd__open_none2(kk_sqlite_new_hc__sqlite__query__p_fun1247(_ctx), kk_string_box(header), _x_x1251, _ctx); /*10002*/
-            x_3_10250 = kk_std_core_types__list_unbox(_x_x1246, KK_OWNED, _ctx); /*list<string>*/
+            x_3_10251 = kk_std_core_types__list_unbox(_x_x1246, KK_OWNED, _ctx); /*list<string>*/
           }
           if (kk_yielding(kk_context())) {
-            kk_reuse_drop(_ru_x767,kk_context());
-            kk_std_core_types__list_drop(x_3_10250, _ctx);
+            kk_reuse_drop(_ru_x771,kk_context());
+            kk_std_core_types__list_drop(x_3_10251, _ctx);
             kk_box_t _x_x1254 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1255(data__rows, _ctx), _ctx); /*10001*/
             return kk_std_core_types__either_unbox(_x_x1254, KK_OWNED, _ctx);
           }
           {
-            kk_std_core_types__list x_4_10253;
+            kk_std_core_types__list x_4_10254;
             kk_function_t _brw_x606 = kk_sqlite_new_hc__sqlite__query__p_fun1257(_ctx); /*(10001) -> 10003 10002*/;
             kk_std_core_types__list _brw_x607 = kk_std_core_list_map(data__rows, _brw_x606, _ctx); /*list<10002>*/;
             kk_function_drop(_brw_x606, _ctx);
-            x_4_10253 = _brw_x607; /*list<sqlite/row>*/
+            x_4_10254 = _brw_x607; /*list<sqlite/row>*/
             if (kk_yielding(kk_context())) {
-              kk_reuse_drop(_ru_x767,kk_context());
-              kk_std_core_types__list_drop(x_4_10253, _ctx);
-              kk_box_t _x_x1279 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1280(x_3_10250, _ctx), _ctx); /*10001*/
+              kk_reuse_drop(_ru_x771,kk_context());
+              kk_std_core_types__list_drop(x_4_10254, _ctx);
+              kk_box_t _x_x1279 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__p_fun1280(x_3_10251, _ctx), _ctx); /*10001*/
               return kk_std_core_types__either_unbox(_x_x1279, KK_OWNED, _ctx);
             }
             {
               kk_box_t _x_x1282;
-              kk_sqlite__queryresult _x_x1283 = kk_sqlite__new_Queryresult(_ru_x767, 0, x_3_10250, x_4_10253, _ctx); /*sqlite/queryresult*/
+              kk_sqlite__queryresult _x_x1283 = kk_sqlite__new_Queryresult(_ru_x771, 0, x_3_10251, x_4_10254, _ctx); /*sqlite/queryresult*/
               _x_x1282 = kk_sqlite__queryresult_box(_x_x1283, _ctx); /*10015*/
               return kk_std_core_types__new_Right(_x_x1282, _ctx);
             }
@@ -3176,16 +3182,16 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__query__p(kk_sqlite__db d, kk_str
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1286__t {
+struct kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1286__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1286(kk_function_t _fself, kk_box_t _b_x408, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__one_10188_fun1286(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1286, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1286(kk_function_t _fself, kk_box_t _b_x408, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__one_10189_fun1286(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1286, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1286(kk_function_t _fself, kk_box_t _b_x408, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1286(kk_function_t _fself, kk_box_t _b_x408, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__list _x_x1287;
   kk_sqlite__queryresult _match_x595 = kk_sqlite__queryresult_unbox(_b_x408, KK_OWNED, _ctx); /*sqlite/queryresult*/;
@@ -3208,16 +3214,16 @@ static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1286(kk_functio
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1290__t {
+struct kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1290__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1290(kk_function_t _fself, kk_box_t _b_x416, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__one_10188_fun1290(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1290, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1290(kk_function_t _fself, kk_box_t _b_x416, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__query__one_10189_fun1290(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1290, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1290(kk_function_t _fself, kk_box_t _b_x416, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10189_fun1290(kk_function_t _fself, kk_box_t _b_x416, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__list xs_423 = kk_std_core_types__list_unbox(_b_x416, KK_OWNED, _ctx); /*list<sqlite/row>*/;
   kk_std_core_types__maybe _x_x1291;
@@ -3244,7 +3250,7 @@ static kk_box_t kk_sqlite__mlift_hc__sqlite__query__one_10188_fun1290(kk_functio
   return kk_std_core_types__maybe_box(_x_x1291, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__one_10188(kk_std_core_types__either _y_x10117, kk_context_t* _ctx) { /* (either<string,queryresult>) -> io either<string,maybe<row>> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__one_10189(kk_std_core_types__either _y_x10117, kk_context_t* _ctx) { /* (either<string,queryresult>) -> io either<string,maybe<row>> */ 
   if (kk_std_core_types__is_Left(_y_x10117, _ctx)) {
     kk_box_t _box_x403 = _y_x10117._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x403);
@@ -3258,17 +3264,17 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__query__one_10188(kk_std_c
     struct kk_sqlite_Queryresult* _con_x1284 = kk_sqlite__as_Queryresult(r, _ctx);
     kk_sqlite__queryresult_dup(r, _ctx);
     kk_std_core_types__either_drop(_y_x10117, _ctx);
-    kk_std_core_types__list _x_x1_10165;
-    kk_box_t _x_x1285 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__one_10188_fun1286(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
-    _x_x1_10165 = kk_std_core_types__list_unbox(_x_x1285, KK_OWNED, _ctx); /*list<sqlite/row>*/
+    kk_std_core_types__list _x_x1_10166;
+    kk_box_t _x_x1285 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__one_10189_fun1286(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
+    _x_x1_10166 = kk_std_core_types__list_unbox(_x_x1285, KK_OWNED, _ctx); /*list<sqlite/row>*/
     kk_std_core_types__maybe _b_x417_419;
-    kk_box_t _x_x1289 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__one_10188_fun1290(_ctx), kk_std_core_types__list_box(_x_x1_10165, _ctx), _ctx); /*10001*/
+    kk_box_t _x_x1289 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__query__one_10189_fun1290(_ctx), kk_std_core_types__list_box(_x_x1_10166, _ctx), _ctx); /*10001*/
     _b_x417_419 = kk_std_core_types__maybe_unbox(_x_x1289, KK_OWNED, _ctx); /*maybe<sqlite/row>*/
     return kk_std_core_types__new_Right(kk_std_core_types__maybe_box(_b_x417_419, _ctx), _ctx);
   }
 }
  
-// .hc:94
+// .hc:93
 
 
 // lift anonymous function
@@ -3285,7 +3291,7 @@ static kk_box_t kk_sqlite_hc__sqlite__query__one_fun1294(kk_function_t _fself, k
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__either _x_x1295;
   kk_std_core_types__either _x_x1296 = kk_std_core_types__either_unbox(_b_x425, KK_OWNED, _ctx); /*either<string,sqlite/queryresult>*/
-  _x_x1295 = kk_sqlite__mlift_hc__sqlite__query__one_10188(_x_x1296, _ctx); /*either<string,maybe<sqlite/row>>*/
+  _x_x1295 = kk_sqlite__mlift_hc__sqlite__query__one_10189(_x_x1296, _ctx); /*either<string,maybe<sqlite/row>>*/
   return kk_std_core_types__either_box(_x_x1295, _ctx);
 }
 
@@ -3360,36 +3366,36 @@ static kk_box_t kk_sqlite_hc__sqlite__query__one_fun1303(kk_function_t _fself, k
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__query__one(kk_sqlite__db d, kk_string_t sql, kk_std_core_types__list params, kk_context_t* _ctx) { /* (d : db, sql : string, params : list<string>) -> io either<string,maybe<row>> */ 
-  kk_std_core_types__either x_10260 = kk_sqlite_hc__sqlite__query__p(d, sql, params, _ctx); /*either<string,sqlite/queryresult>*/;
+  kk_std_core_types__either x_10261 = kk_sqlite_hc__sqlite__query__p(d, sql, params, _ctx); /*either<string,sqlite/queryresult>*/;
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__either_drop(x_10260, _ctx);
+    kk_std_core_types__either_drop(x_10261, _ctx);
     kk_box_t _x_x1293 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__query__one_fun1294(_ctx), _ctx); /*10001*/
     return kk_std_core_types__either_unbox(_x_x1293, KK_OWNED, _ctx);
   }
-  if (kk_std_core_types__is_Left(x_10260, _ctx)) {
-    kk_box_t _box_x426 = x_10260._cons.Left.left;
+  if (kk_std_core_types__is_Left(x_10261, _ctx)) {
+    kk_box_t _box_x426 = x_10261._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x426);
     kk_string_dup(e, _ctx);
-    kk_std_core_types__either_drop(x_10260, _ctx);
+    kk_std_core_types__either_drop(x_10261, _ctx);
     return kk_std_core_types__new_Left(kk_string_box(e), _ctx);
   }
   {
-    kk_box_t _box_x428 = x_10260._cons.Right.right;
+    kk_box_t _box_x428 = x_10261._cons.Right.right;
     kk_sqlite__queryresult r = kk_sqlite__queryresult_unbox(_box_x428, KK_BORROWED, _ctx);
     struct kk_sqlite_Queryresult* _con_x1297 = kk_sqlite__as_Queryresult(r, _ctx);
     kk_sqlite__queryresult_dup(r, _ctx);
-    kk_std_core_types__either_drop(x_10260, _ctx);
-    kk_std_core_types__list _x_x1_10165;
+    kk_std_core_types__either_drop(x_10261, _ctx);
+    kk_std_core_types__list _x_x1_10166;
     kk_box_t _x_x1298 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__one_fun1299(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
-    _x_x1_10165 = kk_std_core_types__list_unbox(_x_x1298, KK_OWNED, _ctx); /*list<sqlite/row>*/
+    _x_x1_10166 = kk_std_core_types__list_unbox(_x_x1298, KK_OWNED, _ctx); /*list<sqlite/row>*/
     kk_std_core_types__maybe _b_x440_443;
-    kk_box_t _x_x1302 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__one_fun1303(_ctx), kk_std_core_types__list_box(_x_x1_10165, _ctx), _ctx); /*10001*/
+    kk_box_t _x_x1302 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__query__one_fun1303(_ctx), kk_std_core_types__list_box(_x_x1_10166, _ctx), _ctx); /*10001*/
     _b_x440_443 = kk_std_core_types__maybe_unbox(_x_x1302, KK_OWNED, _ctx); /*maybe<sqlite/row>*/
     return kk_std_core_types__new_Right(kk_std_core_types__maybe_box(_b_x440_443, _ctx), _ctx);
   }
 }
  
-// .hc:105
+// .hc:104
 
 
 // lift anonymous function
@@ -3420,7 +3426,7 @@ kk_integer_t kk_sqlite_hc__sqlite__last__insert__id(kk_sqlite__db d, kk_context_
   return kk_sqlite__ffi_sqlite__last__insert__id__raw(_x_x1306, _ctx);
 }
  
-// .hc:109
+// .hc:108
 
 
 // lift anonymous function
@@ -3455,16 +3461,16 @@ kk_integer_t kk_sqlite_hc__sqlite__changes(kk_sqlite__db d, kk_context_t* _ctx) 
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__sqlite__table__exists_10189_fun1316__t {
+struct kk_sqlite__mlift_hc__sqlite__table__exists_10190_fun1316__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__sqlite__table__exists_10189_fun1316(kk_function_t _fself, kk_box_t _b_x465, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__sqlite__table__exists_10189_fun1316(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__table__exists_10189_fun1316, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__sqlite__table__exists_10190_fun1316(kk_function_t _fself, kk_box_t _b_x465, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__sqlite__table__exists_10190_fun1316(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__sqlite__table__exists_10190_fun1316, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__sqlite__table__exists_10189_fun1316(kk_function_t _fself, kk_box_t _b_x465, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__sqlite__table__exists_10190_fun1316(kk_function_t _fself, kk_box_t _b_x465, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__list _x_x1317;
   kk_sqlite__queryresult _match_x592 = kk_sqlite__queryresult_unbox(_b_x465, KK_OWNED, _ctx); /*sqlite/queryresult*/;
@@ -3485,7 +3491,7 @@ static kk_box_t kk_sqlite__mlift_hc__sqlite__table__exists_10189_fun1316(kk_func
   return kk_std_core_types__list_box(_x_x1317, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10189(kk_std_core_types__either _y_x10121, kk_context_t* _ctx) { /* (either<string,queryresult>) -> io either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10190(kk_std_core_types__either _y_x10121, kk_context_t* _ctx) { /* (either<string,queryresult>) -> io either<string,bool> */ 
   if (kk_std_core_types__is_Left(_y_x10121, _ctx)) {
     kk_box_t _box_x460 = _y_x10121._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x460);
@@ -3499,11 +3505,11 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10189(kk_st
     struct kk_sqlite_Queryresult* _con_x1314 = kk_sqlite__as_Queryresult(r, _ctx);
     kk_sqlite__queryresult_dup(r, _ctx);
     kk_std_core_types__either_drop(_y_x10121, _ctx);
-    kk_std_core_types__list xs_10146;
-    kk_box_t _x_x1315 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__table__exists_10189_fun1316(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
-    xs_10146 = kk_std_core_types__list_unbox(_x_x1315, KK_OWNED, _ctx); /*list<sqlite/row>*/
+    kk_std_core_types__list xs_10147;
+    kk_box_t _x_x1315 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__sqlite__table__exists_10190_fun1316(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
+    xs_10147 = kk_std_core_types__list_unbox(_x_x1315, KK_OWNED, _ctx); /*list<sqlite/row>*/
     bool _b_x469_471;
-    kk_integer_t _brw_x590 = kk_std_core_list__lift_length_6003(xs_10146, kk_integer_from_small(0), _ctx); /*int*/;
+    kk_integer_t _brw_x590 = kk_std_core_list__lift_length_6003(xs_10147, kk_integer_from_small(0), _ctx); /*int*/;
     bool _brw_x591 = kk_integer_gt_borrow(_brw_x590,(kk_integer_from_small(0)),kk_context()); /*bool*/;
     kk_integer_drop(_brw_x590, _ctx);
     _b_x469_471 = _brw_x591; /*bool*/
@@ -3511,7 +3517,7 @@ kk_std_core_types__either kk_sqlite__mlift_hc__sqlite__table__exists_10189(kk_st
   }
 }
  
-// .hc:114
+// .hc:113
 
 
 // lift anonymous function
@@ -3528,7 +3534,7 @@ static kk_box_t kk_sqlite_hc__sqlite__table__exists_fun1323(kk_function_t _fself
   kk_function_static_drop(_fself,kk_context());
   kk_std_core_types__either _x_x1324;
   kk_std_core_types__either _x_x1325 = kk_std_core_types__either_unbox(_b_x477, KK_OWNED, _ctx); /*either<string,sqlite/queryresult>*/
-  _x_x1324 = kk_sqlite__mlift_hc__sqlite__table__exists_10189(_x_x1325, _ctx); /*either<string,bool>*/
+  _x_x1324 = kk_sqlite__mlift_hc__sqlite__table__exists_10190(_x_x1325, _ctx); /*either<string,bool>*/
   return kk_std_core_types__either_box(_x_x1324, _ctx);
 }
 
@@ -3565,35 +3571,35 @@ static kk_box_t kk_sqlite_hc__sqlite__table__exists_fun1328(kk_function_t _fself
 }
 
 kk_std_core_types__either kk_sqlite_hc__sqlite__table__exists(kk_sqlite__db d, kk_string_t name, kk_context_t* _ctx) { /* (d : db, name : string) -> io either<string,bool> */ 
-  kk_std_core_types__either x_10263;
+  kk_std_core_types__either x_10264;
   kk_string_t _x_x1319;
   kk_define_string_literal(static, _s_x1320, 57, "SELECT 1 FROM sqlite_master WHERE type=\'table\' AND name=\?", _ctx)
   _x_x1319 = kk_string_dup(_s_x1320, _ctx); /*string*/
   kk_std_core_types__list _x_x1321 = kk_std_core_types__new_Cons(kk_reuse_null, 0, kk_string_box(name), kk_std_core_types__new_Nil(_ctx), _ctx); /*list<10021>*/
-  x_10263 = kk_sqlite_hc__sqlite__query__p(d, _x_x1319, _x_x1321, _ctx); /*either<string,sqlite/queryresult>*/
+  x_10264 = kk_sqlite_hc__sqlite__query__p(d, _x_x1319, _x_x1321, _ctx); /*either<string,sqlite/queryresult>*/
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__either_drop(x_10263, _ctx);
+    kk_std_core_types__either_drop(x_10264, _ctx);
     kk_box_t _x_x1322 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__sqlite__table__exists_fun1323(_ctx), _ctx); /*10001*/
     return kk_std_core_types__either_unbox(_x_x1322, KK_OWNED, _ctx);
   }
-  if (kk_std_core_types__is_Left(x_10263, _ctx)) {
-    kk_box_t _box_x478 = x_10263._cons.Left.left;
+  if (kk_std_core_types__is_Left(x_10264, _ctx)) {
+    kk_box_t _box_x478 = x_10264._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x478);
     kk_string_dup(e, _ctx);
-    kk_std_core_types__either_drop(x_10263, _ctx);
+    kk_std_core_types__either_drop(x_10264, _ctx);
     return kk_std_core_types__new_Left(kk_string_box(e), _ctx);
   }
   {
-    kk_box_t _box_x480 = x_10263._cons.Right.right;
+    kk_box_t _box_x480 = x_10264._cons.Right.right;
     kk_sqlite__queryresult r = kk_sqlite__queryresult_unbox(_box_x480, KK_BORROWED, _ctx);
     struct kk_sqlite_Queryresult* _con_x1326 = kk_sqlite__as_Queryresult(r, _ctx);
     kk_sqlite__queryresult_dup(r, _ctx);
-    kk_std_core_types__either_drop(x_10263, _ctx);
-    kk_std_core_types__list xs_10146;
+    kk_std_core_types__either_drop(x_10264, _ctx);
+    kk_std_core_types__list xs_10147;
     kk_box_t _x_x1327 = kk_std_core_hnd__open_none1(kk_sqlite_new_hc__sqlite__table__exists_fun1328(_ctx), kk_sqlite__queryresult_box(r, _ctx), _ctx); /*10001*/
-    xs_10146 = kk_std_core_types__list_unbox(_x_x1327, KK_OWNED, _ctx); /*list<sqlite/row>*/
+    xs_10147 = kk_std_core_types__list_unbox(_x_x1327, KK_OWNED, _ctx); /*list<sqlite/row>*/
     bool _b_x487_490;
-    kk_integer_t _brw_x587 = kk_std_core_list__lift_length_6003(xs_10146, kk_integer_from_small(0), _ctx); /*int*/;
+    kk_integer_t _brw_x587 = kk_std_core_list__lift_length_6003(xs_10147, kk_integer_from_small(0), _ctx); /*int*/;
     bool _brw_x588 = kk_integer_gt_borrow(_brw_x587,(kk_integer_from_small(0)),kk_context()); /*bool*/;
     kk_integer_drop(_brw_x587, _ctx);
     _b_x487_490 = _brw_x588; /*bool*/
@@ -3601,7 +3607,7 @@ kk_std_core_types__either kk_sqlite_hc__sqlite__table__exists(kk_sqlite__db d, k
   }
 }
  
-// .hc:127
+// .hc:126
 
 kk_std_core_types__maybe kk_sqlite_hc__row__str(kk_sqlite__row r, kk_integer_t idx, kk_context_t* _ctx) { /* (r : row, idx : int) -> maybe<string> */ 
   bool _match_x585 = kk_integer_lt_borrow(idx,(kk_integer_from_small(0)),kk_context()); /*bool*/;
@@ -3639,7 +3645,7 @@ kk_std_core_types__maybe kk_sqlite_hc__row__str(kk_sqlite__row r, kk_integer_t i
   }
 }
  
-// .hc:131
+// .hc:130
 
 kk_std_core_types__maybe kk_sqlite_hc__row__int(kk_sqlite__row r, kk_integer_t idx, kk_context_t* _ctx) { /* (r : row, idx : int) -> maybe<int> */ 
   kk_std_core_types__maybe _match_x583 = kk_sqlite_hc__row__str(r, idx, _ctx); /*maybe<string>*/;
@@ -3671,28 +3677,28 @@ kk_std_core_types__maybe kk_sqlite_hc__row__int(kk_sqlite__row r, kk_integer_t i
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__with__sqlite_10191_fun1336__t {
+struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1336__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1336(kk_function_t _fself, kk_box_t _b_x504, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1336(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10191_fun1336, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1336(kk_function_t _fself, kk_box_t _b_x504, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1336(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10192_fun1336, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__with__sqlite_10191_fun1340__t {
+struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1340__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1340(kk_function_t _fself, kk_box_t _b_x500, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1340(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10191_fun1340, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1340(kk_function_t _fself, kk_box_t _b_x500, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1340(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10192_fun1340, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1340(kk_function_t _fself, kk_box_t _b_x500, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1340(kk_function_t _fself, kk_box_t _b_x500, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_integer_t _x_x1341;
   kk_sqlite__db _match_x582 = kk_sqlite__db_unbox(_b_x500, KK_OWNED, _ctx); /*sqlite/db*/;
@@ -3702,11 +3708,11 @@ static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1340(kk_function_t _f
   }
   return kk_integer_box(_x_x1341, _ctx);
 }
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1336(kk_function_t _fself, kk_box_t _b_x504, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1336(kk_function_t _fself, kk_box_t _b_x504, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_unit_t _x_x1337 = kk_Unit;
   kk_integer_t _x_x1338;
-  kk_box_t _x_x1339 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1340(_ctx), _b_x504, _ctx); /*10001*/
+  kk_box_t _x_x1339 = kk_std_core_hnd__open_none1(kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1340(_ctx), _b_x504, _ctx); /*10001*/
   _x_x1338 = kk_integer_unbox(_x_x1339, _ctx); /*int*/
   kk_sqlite__ffi_sqlite__close__raw(_x_x1338, _ctx);
   return kk_unit_box(_x_x1337);
@@ -3714,16 +3720,16 @@ static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1336(kk_function_t _f
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__with__sqlite_10191_fun1343__t {
+struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1343__t {
   struct kk_function_s _base;
 };
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1343(kk_function_t _fself, kk_box_t _b_x513, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1343(kk_context_t* _ctx) {
-  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10191_fun1343, _ctx)
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1343(kk_function_t _fself, kk_box_t _b_x513, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1343(kk_context_t* _ctx) {
+  kk_define_static_function(_fself, kk_sqlite__mlift_hc__with__sqlite_10192_fun1343, _ctx)
   return kk_function_static_dup(_fself,kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1343(kk_function_t _fself, kk_box_t _b_x513, kk_context_t* _ctx) {
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1343(kk_function_t _fself, kk_box_t _b_x513, kk_context_t* _ctx) {
   kk_function_static_drop(_fself,kk_context());
   kk_unit_t wild___0_519 = kk_Unit;
   kk_unit_unbox(_b_x513);
@@ -3732,16 +3738,16 @@ static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10191_fun1343(kk_function_t _f
   return kk_std_core_types__either_box(_x_x1344, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10191(kk_sqlite__db d, kk_box_t wild__, kk_context_t* _ctx) { /* forall<a,e> (d : db, wild_ : a) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10192(kk_sqlite__db d, kk_box_t wild__, kk_context_t* _ctx) { /* forall<a,e> (d : db, wild_ : a) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
   kk_box_drop(wild__, _ctx);
   kk_ssize_t _b_x501_505;
   kk_std_core_hnd__htag _x_x1334 = kk_std_core_hnd__htag_dup(kk_std_core_exn_exn_fs__tag, _ctx); /*hnd/htag<exn>*/
   _b_x501_505 = kk_std_core_hnd__evv_index(_x_x1334, _ctx); /*hnd/ev-index*/
-  kk_unit_t x_10266 = kk_Unit;
-  kk_box_t _x_x1335 = kk_std_core_hnd__open_at1(_b_x501_505, kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1336(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
+  kk_unit_t x_10267 = kk_Unit;
+  kk_box_t _x_x1335 = kk_std_core_hnd__open_at1(_b_x501_505, kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1336(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
   kk_unit_unbox(_x_x1335);
   if (kk_yielding(kk_context())) {
-    kk_box_t _x_x1342 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__with__sqlite_10191_fun1343(_ctx), _ctx); /*10001*/
+    kk_box_t _x_x1342 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1343(_ctx), _ctx); /*10001*/
     return kk_std_core_types__either_unbox(_x_x1342, KK_OWNED, _ctx);
   }
   {
@@ -3753,28 +3759,28 @@ kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10191(kk_sqlite__db 
 
 
 // lift anonymous function
-struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1347__t {
+struct kk_sqlite__mlift_hc__with__sqlite_10193_fun1347__t {
   struct kk_function_s _base;
   kk_sqlite__db d;
 };
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1347(kk_function_t _fself, kk_box_t _b_x524, kk_context_t* _ctx);
-static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1347(kk_sqlite__db d, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1347__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1347__t, 2, _ctx);
-  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__with__sqlite_10192_fun1347, kk_context());
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10193_fun1347(kk_function_t _fself, kk_box_t _b_x524, kk_context_t* _ctx);
+static kk_function_t kk_sqlite__new_mlift_hc__with__sqlite_10193_fun1347(kk_sqlite__db d, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__with__sqlite_10193_fun1347__t* _self = kk_function_alloc_as(struct kk_sqlite__mlift_hc__with__sqlite_10193_fun1347__t, 2, _ctx);
+  _self->_base.fun = kk_kkfun_ptr_box(&kk_sqlite__mlift_hc__with__sqlite_10193_fun1347, kk_context());
   _self->d = d;
   return kk_datatype_from_base(&_self->_base, kk_context());
 }
 
-static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10192_fun1347(kk_function_t _fself, kk_box_t _b_x524, kk_context_t* _ctx) {
-  struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1347__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__with__sqlite_10192_fun1347__t*, _fself, _ctx);
+static kk_box_t kk_sqlite__mlift_hc__with__sqlite_10193_fun1347(kk_function_t _fself, kk_box_t _b_x524, kk_context_t* _ctx) {
+  struct kk_sqlite__mlift_hc__with__sqlite_10193_fun1347__t* _self = kk_function_as(struct kk_sqlite__mlift_hc__with__sqlite_10193_fun1347__t*, _fself, _ctx);
   kk_sqlite__db d = _self->d; /* sqlite/db */
   kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
-  kk_box_t wild___527 = _b_x524; /*7430*/;
-  kk_std_core_types__either _x_x1348 = kk_sqlite__mlift_hc__with__sqlite_10191(d, wild___527, _ctx); /*either<string,bool>*/
+  kk_box_t wild___527 = _b_x524; /*7310*/;
+  kk_std_core_types__either _x_x1348 = kk_sqlite__mlift_hc__with__sqlite_10192(d, wild___527, _ctx); /*either<string,bool>*/
   return kk_std_core_types__either_box(_x_x1348, _ctx);
 }
 
-kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10192(kk_function_t f, kk_std_core_types__either _y_x10123, kk_context_t* _ctx) { /* forall<a,e> (f : (db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> a, either<string,db>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
+kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10193(kk_function_t f, kk_std_core_types__either _y_x10123, kk_context_t* _ctx) { /* forall<a,e> (f : (db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> a, either<string,db>) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|e> either<string,bool> */ 
   if (kk_std_core_types__is_Left(_y_x10123, _ctx)) {
     kk_box_t _box_x520 = _y_x10123._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x520);
@@ -3788,21 +3794,21 @@ kk_std_core_types__either kk_sqlite__mlift_hc__with__sqlite_10192(kk_function_t 
     kk_sqlite__db d = kk_sqlite__db_unbox(_box_x522, KK_BORROWED, _ctx);
     kk_sqlite__db_dup(d, _ctx);
     kk_std_core_types__either_drop(_y_x10123, _ctx);
-    kk_box_t x_10269;
+    kk_box_t x_10270;
     kk_sqlite__db _x_x1345 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
-    x_10269 = kk_function_call(kk_box_t, (kk_function_t, kk_sqlite__db, kk_context_t*), f, (f, _x_x1345, _ctx), _ctx); /*7430*/
+    x_10270 = kk_function_call(kk_box_t, (kk_function_t, kk_sqlite__db, kk_context_t*), f, (f, _x_x1345, _ctx), _ctx); /*7310*/
     if (kk_yielding(kk_context())) {
-      kk_box_drop(x_10269, _ctx);
-      kk_box_t _x_x1346 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__with__sqlite_10192_fun1347(d, _ctx), _ctx); /*10001*/
+      kk_box_drop(x_10270, _ctx);
+      kk_box_t _x_x1346 = kk_std_core_hnd_yield_extend(kk_sqlite__new_mlift_hc__with__sqlite_10193_fun1347(d, _ctx), _ctx); /*10001*/
       return kk_std_core_types__either_unbox(_x_x1346, KK_OWNED, _ctx);
     }
     {
-      return kk_sqlite__mlift_hc__with__sqlite_10191(d, x_10269, _ctx);
+      return kk_sqlite__mlift_hc__with__sqlite_10192(d, x_10270, _ctx);
     }
   }
 }
  
-// .hc:142
+// .hc:141
 
 
 // lift anonymous function
@@ -3839,10 +3845,10 @@ static kk_function_t kk_sqlite_new_hc__with__sqlite_fun1355(kk_function_t f, kk_
 
 static kk_box_t kk_sqlite_hc__with__sqlite_fun1355(kk_function_t _fself, kk_box_t _b_x536, kk_context_t* _ctx) {
   struct kk_sqlite_hc__with__sqlite_fun1355__t* _self = kk_function_as(struct kk_sqlite_hc__with__sqlite_fun1355__t*, _fself, _ctx);
-  kk_function_t f = _self->f; /* (sqlite/db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|7431> 7430 */
+  kk_function_t f = _self->f; /* (sqlite/db) -> <alloc<global>,console/console,div,exn,fsys,ndet,net,read<global>,ui,write<global>|7311> 7310 */
   kk_drop_match(_self, {kk_function_dup(f, _ctx);}, {}, _ctx)
   kk_std_core_types__either _y_x10123_566 = kk_std_core_types__either_unbox(_b_x536, KK_OWNED, _ctx); /*either<string,sqlite/db>*/;
-  kk_std_core_types__either _x_x1356 = kk_sqlite__mlift_hc__with__sqlite_10192(f, _y_x10123_566, _ctx); /*either<string,bool>*/
+  kk_std_core_types__either _x_x1356 = kk_sqlite__mlift_hc__with__sqlite_10193(f, _y_x10123_566, _ctx); /*either<string,bool>*/
   return kk_std_core_types__either_box(_x_x1356, _ctx);
 }
 
@@ -3864,8 +3870,8 @@ static kk_box_t kk_sqlite_hc__with__sqlite_fun1359(kk_function_t _fself, kk_box_
   struct kk_sqlite_hc__with__sqlite_fun1359__t* _self = kk_function_as(struct kk_sqlite_hc__with__sqlite_fun1359__t*, _fself, _ctx);
   kk_sqlite__db d = _self->d; /* sqlite/db */
   kk_drop_match(_self, {kk_sqlite__db_dup(d, _ctx);}, {}, _ctx)
-  kk_box_t wild___567 = _b_x541; /*7430*/;
-  kk_std_core_types__either _x_x1360 = kk_sqlite__mlift_hc__with__sqlite_10191(d, wild___567, _ctx); /*either<string,bool>*/
+  kk_box_t wild___567 = _b_x541; /*7310*/;
+  kk_std_core_types__either _x_x1360 = kk_sqlite__mlift_hc__with__sqlite_10192(d, wild___567, _ctx); /*either<string,bool>*/
   return kk_std_core_types__either_box(_x_x1360, _ctx);
 }
 
@@ -3936,31 +3942,31 @@ kk_std_core_types__either kk_sqlite_hc__with__sqlite(kk_string_t hc__path, kk_fu
   kk_ssize_t _b_x528_532;
   kk_std_core_hnd__htag _x_x1349 = kk_std_core_hnd__htag_dup(kk_std_core_exn_exn_fs__tag, _ctx); /*hnd/htag<exn>*/
   _b_x528_532 = kk_std_core_hnd__evv_index(_x_x1349, _ctx); /*hnd/ev-index*/
-  kk_std_core_types__either x_10271;
+  kk_std_core_types__either x_10272;
   kk_box_t _x_x1350 = kk_std_core_hnd__open_at1(_b_x528_532, kk_sqlite_new_hc__with__sqlite_fun1351(_ctx), kk_string_box(hc__path), _ctx); /*10001*/
-  x_10271 = kk_std_core_types__either_unbox(_x_x1350, KK_OWNED, _ctx); /*either<string,sqlite/db>*/
+  x_10272 = kk_std_core_types__either_unbox(_x_x1350, KK_OWNED, _ctx); /*either<string,sqlite/db>*/
   if (kk_yielding(kk_context())) {
-    kk_std_core_types__either_drop(x_10271, _ctx);
+    kk_std_core_types__either_drop(x_10272, _ctx);
     kk_box_t _x_x1354 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__with__sqlite_fun1355(f, _ctx), _ctx); /*10001*/
     return kk_std_core_types__either_unbox(_x_x1354, KK_OWNED, _ctx);
   }
-  if (kk_std_core_types__is_Left(x_10271, _ctx)) {
-    kk_box_t _box_x537 = x_10271._cons.Left.left;
+  if (kk_std_core_types__is_Left(x_10272, _ctx)) {
+    kk_box_t _box_x537 = x_10272._cons.Left.left;
     kk_string_t e = kk_string_unbox(_box_x537);
     kk_string_dup(e, _ctx);
-    kk_std_core_types__either_drop(x_10271, _ctx);
+    kk_std_core_types__either_drop(x_10272, _ctx);
     kk_function_drop(f, _ctx);
     return kk_std_core_types__new_Left(kk_string_box(e), _ctx);
   }
   {
-    kk_box_t _box_x539 = x_10271._cons.Right.right;
+    kk_box_t _box_x539 = x_10272._cons.Right.right;
     kk_sqlite__db d = kk_sqlite__db_unbox(_box_x539, KK_BORROWED, _ctx);
     kk_sqlite__db_dup(d, _ctx);
-    kk_std_core_types__either_drop(x_10271, _ctx);
-    kk_box_t x_0_10274;
+    kk_std_core_types__either_drop(x_10272, _ctx);
+    kk_box_t x_0_10275;
     kk_sqlite__db _x_x1357 = kk_sqlite__db_dup(d, _ctx); /*sqlite/db*/
-    x_0_10274 = kk_function_call(kk_box_t, (kk_function_t, kk_sqlite__db, kk_context_t*), f, (f, _x_x1357, _ctx), _ctx); /*7430*/
-    kk_box_drop(x_0_10274, _ctx);
+    x_0_10275 = kk_function_call(kk_box_t, (kk_function_t, kk_sqlite__db, kk_context_t*), f, (f, _x_x1357, _ctx), _ctx); /*7310*/
+    kk_box_drop(x_0_10275, _ctx);
     if (kk_yielding(kk_context())) {
       kk_box_t _x_x1358 = kk_std_core_hnd_yield_extend(kk_sqlite_new_hc__with__sqlite_fun1359(d, _ctx), _ctx); /*10001*/
       return kk_std_core_types__either_unbox(_x_x1358, KK_OWNED, _ctx);
@@ -3969,7 +3975,7 @@ kk_std_core_types__either kk_sqlite_hc__with__sqlite(kk_string_t hc__path, kk_fu
       kk_ssize_t _b_x545_549;
       kk_std_core_hnd__htag _x_x1361 = kk_std_core_hnd__htag_dup(kk_std_core_exn_exn_fs__tag, _ctx); /*hnd/htag<exn>*/
       _b_x545_549 = kk_std_core_hnd__evv_index(_x_x1361, _ctx); /*hnd/ev-index*/
-      kk_unit_t x_1_10277 = kk_Unit;
+      kk_unit_t x_1_10278 = kk_Unit;
       kk_box_t _x_x1362 = kk_std_core_hnd__open_at1(_b_x545_549, kk_sqlite_new_hc__with__sqlite_fun1363(_ctx), kk_sqlite__db_box(d, _ctx), _ctx); /*10001*/
       kk_unit_unbox(_x_x1362);
       if (kk_yielding(kk_context())) {
@@ -3983,7 +3989,7 @@ kk_std_core_types__either kk_sqlite_hc__with__sqlite(kk_string_t hc__path, kk_fu
   }
 }
  
-// .hc:159
+// .hc:158
 
 
 // lift anonymous function
@@ -4072,7 +4078,6 @@ void kk_sqlite__init(kk_context_t* _ctx){
   kk_std_core_console__init(_ctx);
   kk_std_core__init(_ctx);
   kk_sqlite__ffi__init(_ctx);
-  kk_list__init(_ctx);
   #if defined(KK_CUSTOM_INIT)
     KK_CUSTOM_INIT (_ctx);
   #endif
@@ -4086,7 +4091,6 @@ void kk_sqlite__done(kk_context_t* _ctx){
   #if defined(KK_CUSTOM_DONE)
     KK_CUSTOM_DONE (_ctx);
   #endif
-  kk_list__done(_ctx);
   kk_sqlite__ffi__done(_ctx);
   kk_std_core__done(_ctx);
   kk_std_core_console__done(_ctx);

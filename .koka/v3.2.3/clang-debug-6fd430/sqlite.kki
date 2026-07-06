@@ -26,7 +26,6 @@ import std/core/delayed = std/core/delayed pub = "";
 import std/core/console = std/core/console pub = "";
 import std/core = std/core = "";
 import sqlite_ffi = sqlite_ffi = "";
-import list = list = "";
  
 //------------------------------
 //#kki: external imports
@@ -45,145 +44,145 @@ local alias std/core/io[78,1,78,29] :: E = <(std/core/types/handled :: ((E, V) -
 //------------------------------
 //#kki: type declarations
  
-pub value{0,1,8} type db[22,1,23,9] {
-  pub con Db[22,12,22,13](h: std/core/types/int){0,1,8} : (h : std/core/types/int) -> db = 1;
+pub value{0,1,8} type db[21,1,22,9] {
+  pub con Db[21,12,21,13](h: std/core/types/int){0,1,8} : (h : std/core/types/int) -> db = 1;
 };
-pub value{0,1,8} type row[28,1,29,23] {
-  pub con Row[28,12,28,14](values: (std/core/types/list :: V -> V)<std/core/types/string>){0,1,8} : (values : (std/core/types/list :: V -> V)<std/core/types/string>) -> row = 1;
+pub value{0,1,8} type row[27,1,28,23] {
+  pub con Row[27,12,27,14](values: (std/core/types/list :: V -> V)<std/core/types/string>){0,1,8} : (values : (std/core/types/list :: V -> V)<std/core/types/string>) -> row = 1;
 };
-pub type queryresult[34,1,36,18] {
-  pub con Queryresult[34,12,34,22](columns: (std/core/types/list :: V -> V)<std/core/types/string>, rows: (std/core/types/list :: V -> V)<row>){0,2,8} : (columns : (std/core/types/list :: V -> V)<std/core/types/string>, rows : (std/core/types/list :: V -> V)<row>) -> queryresult = 1;
+pub type queryresult[33,1,35,18] {
+  pub con Queryresult[33,12,33,22](columns: (std/core/types/list :: V -> V)<std/core/types/string>, rows: (std/core/types/list :: V -> V)<row>){0,2,8} : (columns : (std/core/types/list :: V -> V)<std/core/types/string>, rows : (std/core/types/list :: V -> V)<row>) -> queryresult = 1;
 };
  
 //------------------------------
 //#kki: declarations
  
-fun hc-assert[9,5,9,13] : (b : std/core/types/bool) -> <(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>> ();
+fun hc-assert[8,5,8,13] : (b : std/core/types/bool) -> <(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>> ();
 // monadic lift
-fun @mlift-hc-show-maybe@10173[1,0,1,0] : forall<(e :: E)> (@y-x10090 : std/core/types/string) -> (e :: E) std/core/types/string;
-fun hc-show-maybe[12,5,12,17] : forall<a,(e :: E)> (m : (std/core/types/maybe :: V -> V)<a>, show-a : (a) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
+fun @mlift-hc-show-maybe@10174[1,0,1,0] : forall<(e :: E)> (@y-x10090 : std/core/types/string) -> (e :: E) std/core/types/string;
+fun hc-show-maybe[11,5,11,17] : forall<a,(e :: E)> (m : (std/core/types/maybe :: V -> V)<a>, show-a : (a) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
 // monadic lift
-fun @mlift-hc-show-result@10174[1,0,1,0] : forall<(e :: E)> (@y-x10092 : std/core/types/string) -> (e :: E) std/core/types/string;
+fun @mlift-hc-show-result@10175[1,0,1,0] : forall<(e :: E)> (@y-x10092 : std/core/types/string) -> (e :: E) std/core/types/string;
 // monadic lift
-fun @mlift-hc-show-result@10175[1,0,1,0] : forall<(e :: E)> (@y-x10093 : std/core/types/string) -> (e :: E) std/core/types/string;
-fun hc-show-result[17,5,17,18] : forall<a,b,(e :: E)> (r : (std/core/types/either :: (V, V) -> V)<a,b>, show-a : (b) -> (e :: E) std/core/types/string, show-e : (a) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
+fun @mlift-hc-show-result@10176[1,0,1,0] : forall<(e :: E)> (@y-x10093 : std/core/types/string) -> (e :: E) std/core/types/string;
+fun hc-show-result[16,5,16,18] : forall<a,b,(e :: E)> (r : (std/core/types/either :: (V, V) -> V)<a,b>, show-a : (b) -> (e :: E) std/core/types/string, show-e : (a) -> (e :: E) std/core/types/string) -> (e :: E) std/core/types/string;
 // Automatically generated. Retrieves the `h` constructor field of the `:db` type.
-pub fun db/h[23,3,23,3] : (^ db : db) -> std/core/types/int;
-pub fun db/@copy[22,12,22,13] : (@this : db, h : (std/core/types/@optional :: V -> V)<std/core/types/int>) -> db;
+pub fun db/h[22,3,22,3] : (^ db : db) -> std/core/types/int;
+pub fun db/@copy[21,12,21,13] : (@this : db, h : (std/core/types/@optional :: V -> V)<std/core/types/int>) -> db;
 // Automatically generated. Retrieves the `values` constructor field of the `:row` type.
-pub fun row/values[29,3,29,8] : (^ row : row) -> (std/core/types/list :: V -> V)<std/core/types/string>;
-pub fun row/@copy[28,12,28,14] : (@this : row, values : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<std/core/types/string>>) -> row;
+pub fun row/values[28,3,28,8] : (^ row : row) -> (std/core/types/list :: V -> V)<std/core/types/string>;
+pub fun row/@copy[27,12,27,14] : (@this : row, values : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<std/core/types/string>>) -> row;
 // Automatically generated. Retrieves the `columns` constructor field of the `:queryresult` type.
-pub fun queryresult/columns[35,3,35,9] : (^ queryresult : queryresult) -> (std/core/types/list :: V -> V)<std/core/types/string>;
+pub fun queryresult/columns[34,3,34,9] : (^ queryresult : queryresult) -> (std/core/types/list :: V -> V)<std/core/types/string>;
 // Automatically generated. Retrieves the `rows` constructor field of the `:queryresult` type.
-pub fun queryresult/rows[36,3,36,6] : (^ queryresult : queryresult) -> (std/core/types/list :: V -> V)<row>;
-pub fun db/show[25,9,25,15] : (p : db) -> std/core/types/string;
-pub fun row/show[31,9,31,16] : (p : row) -> std/core/types/string;
-pub fun queryresult/show[38,9,38,24] : (p : queryresult) -> std/core/types/string;
-pub fun queryresult/@copy[34,12,34,22] : (@this : queryresult, columns : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<std/core/types/string>>, rows : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<row>>) -> queryresult;
-fun hc_abs[41,5,41,10] : (n : std/core/types/int) -> std/core/types/int;
-fun hc_min[44,5,44,10] : (a : std/core/types/int, b : std/core/types/int) -> std/core/types/int;
-fun hc_max[47,5,47,10] : (a : std/core/types/int, b : std/core/types/int) -> std/core/types/int;
-fun hc_clamp[50,5,50,12] : (v : std/core/types/int, lo : std/core/types/int, hi : std/core/types/int) -> std/core/types/int;
-fun hc_gcd[53,5,53,10] : (a : std/core/types/int, b : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
-fun hc_lcm[56,5,56,10] : (a : std/core/types/int, b : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
-fun hc_pow[59,5,59,10] : (base : std/core/types/int, exp : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
-fun hc_sign[62,5,62,11] : (n : std/core/types/int) -> std/core/types/int;
-fun hc_range[65,5,65,12] : (lo : std/core/types/int, hi : std/core/types/int) -> <(std/core/types/div :: X)> (std/core/types/list :: V -> V)<std/core/types/int>;
-fun hc_range_inc[68,5,68,16] : (lo : std/core/types/int, hi : std/core/types/int) -> <(std/core/types/div :: X)> (std/core/types/list :: V -> V)<std/core/types/int>;
-fun hc_isqrt_loop[80,5,80,17] : (n : std/core/types/int, x0 : std/core/types/int, x1 : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
-fun hc_isqrt[71,5,71,12] : (n : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
-fun hc_is_digit[87,5,87,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_upper[91,5,91,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_lower[95,5,95,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_alpha[99,5,99,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_alnum[102,5,102,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_space[105,5,105,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_is_punct[109,5,109,15] : (c : std/core/types/char) -> std/core/types/bool;
-fun hc_all_digits[113,5,113,17] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_all_alpha[116,5,116,16] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_all_upper[119,5,119,16] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_all_lower[122,5,122,16] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_all_alnum[125,5,125,16] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_glob_match_chars[128,5,128,23] : (pat : (std/core/types/list :: V -> V)<std/core/types/char>, input : (std/core/types/list :: V -> V)<std/core/types/char>) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_glob_star[157,5,157,16] : (prest : (std/core/types/list :: V -> V)<std/core/types/char>, input : (std/core/types/list :: V -> V)<std/core/types/char>) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_glob_match[167,5,167,17] : (pattern : std/core/types/string, s : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_glob_doublestar[193,5,193,22] : (prest : (std/core/types/list :: V -> V)<std/core/types/string>, paths : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_glob_match_segments[175,5,175,26] : (pats : (std/core/types/list :: V -> V)<std/core/types/string>, paths : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_glob_match_path[170,5,170,22] : (pattern : std/core/types/string, hc_path : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/bool;
-fun hc_is_empty[203,5,203,15] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_is_blank[206,5,206,15] : (s : std/core/types/string) -> std/core/types/bool;
-fun hc_words[209,5,209,12] : (s : std/core/types/string) -> (std/core/types/list :: V -> V)<std/core/types/string>;
-fun hc_lines[212,5,212,12] : (s : std/core/types/string) -> (std/core/types/list :: V -> V)<std/core/types/string>;
-fun hc_unwords[215,5,215,14] : (ws : (std/core/types/list :: V -> V)<std/core/types/string>) -> std/core/types/string;
-fun hc_unlines[218,5,218,14] : (ls : (std/core/types/list :: V -> V)<std/core/types/string>) -> std/core/types/string;
-fun hc_repeat_str[221,5,221,17] : (s : std/core/types/string, n : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/string;
-fun hc_pad_left[224,5,224,15] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
-fun hc_pad_right[227,5,227,16] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
-fun hc_center[230,5,230,13] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
-fun hc_removeprefix[236,5,236,19] : (s : std/core/types/string, pre : std/core/types/string) -> std/core/types/string;
+pub fun queryresult/rows[35,3,35,6] : (^ queryresult : queryresult) -> (std/core/types/list :: V -> V)<row>;
+pub fun db/show[24,9,24,15] : (p : db) -> std/core/types/string;
+pub fun row/show[30,9,30,16] : (p : row) -> std/core/types/string;
+pub fun queryresult/show[37,9,37,24] : (p : queryresult) -> std/core/types/string;
+pub fun queryresult/@copy[33,12,33,22] : (@this : queryresult, columns : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<std/core/types/string>>, rows : (std/core/types/@optional :: V -> V)<(std/core/types/list :: V -> V)<row>>) -> queryresult;
+fun hc_abs[40,5,40,10] : (n : std/core/types/int) -> std/core/types/int;
+fun hc_min[43,5,43,10] : (a : std/core/types/int, b : std/core/types/int) -> std/core/types/int;
+fun hc_max[46,5,46,10] : (a : std/core/types/int, b : std/core/types/int) -> std/core/types/int;
+fun hc_clamp[49,5,49,12] : (v : std/core/types/int, lo : std/core/types/int, hi : std/core/types/int) -> std/core/types/int;
+fun hc_gcd[52,5,52,10] : (a : std/core/types/int, b : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
+fun hc_lcm[55,5,55,10] : (a : std/core/types/int, b : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
+fun hc_pow[58,5,58,10] : (base : std/core/types/int, exp : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
+fun hc_sign[61,5,61,11] : (n : std/core/types/int) -> std/core/types/int;
+fun hc_range[64,5,64,12] : (lo : std/core/types/int, hi : std/core/types/int) -> <(std/core/types/div :: X)> (std/core/types/list :: V -> V)<std/core/types/int>;
+fun hc_range_inc[67,5,67,16] : (lo : std/core/types/int, hi : std/core/types/int) -> <(std/core/types/div :: X)> (std/core/types/list :: V -> V)<std/core/types/int>;
+fun hc_isqrt_loop[79,5,79,17] : (n : std/core/types/int, x0 : std/core/types/int, x1 : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
+fun hc_isqrt[70,5,70,12] : (n : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/int;
+fun hc_is_digit[86,5,86,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_upper[90,5,90,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_lower[94,5,94,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_alpha[98,5,98,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_alnum[101,5,101,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_space[104,5,104,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_is_punct[108,5,108,15] : (c : std/core/types/char) -> std/core/types/bool;
+fun hc_all_digits[112,5,112,17] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_all_alpha[115,5,115,16] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_all_upper[118,5,118,16] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_all_lower[121,5,121,16] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_all_alnum[124,5,124,16] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_glob_match_chars[127,5,127,23] : (pat : (std/core/types/list :: V -> V)<std/core/types/char>, input : (std/core/types/list :: V -> V)<std/core/types/char>) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_glob_star[156,5,156,16] : (prest : (std/core/types/list :: V -> V)<std/core/types/char>, input : (std/core/types/list :: V -> V)<std/core/types/char>) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_glob_match[166,5,166,17] : (pattern : std/core/types/string, s : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_glob_doublestar[192,5,192,22] : (prest : (std/core/types/list :: V -> V)<std/core/types/string>, paths : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_glob_match_segments[174,5,174,26] : (pats : (std/core/types/list :: V -> V)<std/core/types/string>, paths : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_glob_match_path[169,5,169,22] : (pattern : std/core/types/string, hc_path : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/bool;
+fun hc_is_empty[202,5,202,15] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_is_blank[205,5,205,15] : (s : std/core/types/string) -> std/core/types/bool;
+fun hc_words[208,5,208,12] : (s : std/core/types/string) -> (std/core/types/list :: V -> V)<std/core/types/string>;
+fun hc_lines[211,5,211,12] : (s : std/core/types/string) -> (std/core/types/list :: V -> V)<std/core/types/string>;
+fun hc_unwords[214,5,214,14] : (ws : (std/core/types/list :: V -> V)<std/core/types/string>) -> std/core/types/string;
+fun hc_unlines[217,5,217,14] : (ls : (std/core/types/list :: V -> V)<std/core/types/string>) -> std/core/types/string;
+fun hc_repeat_str[220,5,220,17] : (s : std/core/types/string, n : std/core/types/int) -> <(std/core/types/div :: X)> std/core/types/string;
+fun hc_pad_left[223,5,223,15] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
+fun hc_pad_right[226,5,226,16] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
+fun hc_center[229,5,229,13] : (s : std/core/types/string, width : std/core/types/int, ch : std/core/types/string) -> <(std/core/types/div :: X)> std/core/types/string;
+fun hc_removeprefix[235,5,235,19] : (s : std/core/types/string, pre : std/core/types/string) -> std/core/types/string;
 // monadic lift
-fun @mlift-hc_sqlite_open@10176[1,0,1,0] : (hc_path : std/core/types/string, h : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>;
-// .hc:38
-pub fun hc_sqlite_open[240,9,240,22] : (hc_path : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>;
-// .hc:45
-pub fun hc_sqlite_close[245,9,245,23] : (d : db) -> <(std/core/io :: E)> ();
+fun @mlift-hc_sqlite_open@10177[1,0,1,0] : (hc_path : std/core/types/string, h : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>;
+// .hc:37
+pub fun hc_sqlite_open[239,9,239,22] : (hc_path : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>;
+// .hc:44
+pub fun hc_sqlite_close[244,9,244,23] : (d : db) -> <(std/core/io :: E)> ();
 // monadic lift
-fun @mlift-hc_sqlite_exec@10177[1,0,1,0] : (@y-x10099 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_sqlite_exec@10178[1,0,1,0] : (@y-x10099 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_sqlite_exec@10178[1,0,1,0] : (d : db, rc : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:55
-pub fun hc_sqlite_exec[249,9,249,22] : (d : db, sql : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_sqlite_exec@10179[1,0,1,0] : (d : db, rc : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:54
+pub fun hc_sqlite_exec[248,9,248,22] : (d : db, sql : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_sqlite_exec_p@10179[1,0,1,0] : (@y-x10102 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_sqlite_exec_p@10180[1,0,1,0] : (@y-x10102 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_sqlite_exec_p@10180[1,0,1,0] : (d : db, rc : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:63
-pub fun hc_sqlite_exec_p[254,9,254,24] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_sqlite_exec_p@10181[1,0,1,0] : (d : db, rc : std/core/types/int) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:62
+pub fun hc_sqlite_exec_p[253,9,253,24] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10181[1,0,1,0] : (@y-x10105 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10182[1,0,1,0] : (@y-x10105 : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10182[1,0,1,0] : (@c-x10112 : (std/core/types/list :: V -> V)<std/core/types/string>) -> row;
+fun @mlift-hc_sqlite_query_p@10183[1,0,1,0] : (@c-x10112 : (std/core/types/list :: V -> V)<std/core/types/string>) -> row;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10183[1,0,1,0] : (@c-x10110 : (std/core/types/list :: V -> V)<std/core/types/string>, @y-x10113 : (std/core/types/list :: V -> V)<row>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10184[1,0,1,0] : (@c-x10110 : (std/core/types/list :: V -> V)<std/core/types/string>, @y-x10113 : (std/core/types/list :: V -> V)<row>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10184[1,0,1,0] : (data_rows : (std/core/types/list :: V -> V)<std/core/types/string>, @c-x10110 : (std/core/types/list :: V -> V)<std/core/types/string>) -> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10185[1,0,1,0] : (data_rows : (std/core/types/list :: V -> V)<std/core/types/string>, @c-x10110 : (std/core/types/list :: V -> V)<std/core/types/string>) -> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10185[1,0,1,0] : (row_strs : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10186[1,0,1,0] : (row_strs : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10186[1,0,1,0] : (@c-x10107 : (std/core/types/list :: V -> V)<std/core/types/string>) -> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10187[1,0,1,0] : (@c-x10107 : (std/core/types/list :: V -> V)<std/core/types/string>) -> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_p@10187[1,0,1,0] : (d : db, hc_raw : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
-// .hc:71
-pub fun hc_sqlite_query_p[259,9,259,25] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
-// .hc:84
-pub fun hc_sqlite_query[272,9,272,23] : (d : db, sql : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+fun @mlift-hc_sqlite_query_p@10188[1,0,1,0] : (d : db, hc_raw : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+// .hc:70
+pub fun hc_sqlite_query_p[258,9,258,25] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
+// .hc:83
+pub fun hc_sqlite_query[271,9,271,23] : (d : db, sql : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>;
 // monadic lift
-fun @mlift-hc_sqlite_query_one@10188[1,0,1,0] : (@y-x10117 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,(std/core/types/maybe :: V -> V)<row>>;
-// .hc:94
-pub fun hc_sqlite_query_one[276,9,276,27] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,(std/core/types/maybe :: V -> V)<row>>;
-// .hc:105
-pub fun hc_sqlite_last_insert_id[284,9,284,32] : (d : db) -> <(std/core/io :: E)> std/core/types/int;
-// .hc:109
-pub fun hc_sqlite_changes[288,9,288,25] : (d : db) -> <(std/core/io :: E)> std/core/types/int;
+fun @mlift-hc_sqlite_query_one@10189[1,0,1,0] : (@y-x10117 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,(std/core/types/maybe :: V -> V)<row>>;
+// .hc:93
+pub fun hc_sqlite_query_one[275,9,275,27] : (d : db, sql : std/core/types/string, params : (std/core/types/list :: V -> V)<std/core/types/string>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,(std/core/types/maybe :: V -> V)<row>>;
+// .hc:104
+pub fun hc_sqlite_last_insert_id[283,9,283,32] : (d : db) -> <(std/core/io :: E)> std/core/types/int;
+// .hc:108
+pub fun hc_sqlite_changes[287,9,287,25] : (d : db) -> <(std/core/io :: E)> std/core/types/int;
 // monadic lift
-fun @mlift-hc_sqlite_table_exists@10189[1,0,1,0] : (@y-x10121 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:114
-pub fun hc_sqlite_table_exists[292,9,292,30] : (d : db, name : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:127
-pub fun hc_row_str[300,9,300,18] : (r : row, idx : std/core/types/int) -> (std/core/types/maybe :: V -> V)<std/core/types/string>;
-// .hc:131
-pub fun hc_row_int[304,9,304,18] : (r : row, idx : std/core/types/int) -> (std/core/types/maybe :: V -> V)<std/core/types/int>;
+fun @mlift-hc_sqlite_table_exists@10190[1,0,1,0] : (@y-x10121 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,queryresult>) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:113
+pub fun hc_sqlite_table_exists[291,9,291,30] : (d : db, name : std/core/types/string) -> <(std/core/io :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:126
+pub fun hc_row_str[299,9,299,18] : (r : row, idx : std/core/types/int) -> (std/core/types/maybe :: V -> V)<std/core/types/string>;
+// .hc:130
+pub fun hc_row_int[303,9,303,18] : (r : row, idx : std/core/types/int) -> (std/core/types/maybe :: V -> V)<std/core/types/int>;
 // monadic lift
-fun @mlift-hc_with_sqlite@10190[1,0,1,0] : forall<(e :: E)> (wild_@0 : ()) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_with_sqlite@10191[1,0,1,0] : forall<(e :: E)> (wild_@0 : ()) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_with_sqlite@10191[1,0,1,0] : forall<a,(e :: E)> (d : db, wild_ : a) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+fun @mlift-hc_with_sqlite@10192[1,0,1,0] : forall<a,(e :: E)> (d : db, wild_ : a) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
 // monadic lift
-fun @mlift-hc_with_sqlite@10192[1,0,1,0] : forall<a,(e :: E)> (f : (db) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> a, @y-x10123 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:142
-pub fun hc_with_sqlite[312,9,312,22] : forall<a,(e :: E)> (hc_path : std/core/types/string, f : (db) -> <(std/core/io :: E)|(e :: E)> a) -> <(std/core/io :: E)|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
-// .hc:159
-pub fun hc_print_rows[322,9,322,21] : (r : queryresult) -> <(std/core/console/console :: X)> ();
+fun @mlift-hc_with_sqlite@10193[1,0,1,0] : forall<a,(e :: E)> (f : (db) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> a, @y-x10123 : (std/core/types/either :: (V, V) -> V)<std/core/types/string,db>) -> <(std/core/types/alloc :: H -> X)<(std/core/types/global :: H)>,(std/core/console/console :: X),(std/core/types/div :: X),(std/core/types/handled :: ((E, V) -> V) -> X)<(std/core/exn/exn :: (E, V) -> V)>,(std/core/fsys :: X),(std/core/types/ndet :: X),(std/core/net :: X),(std/core/types/read :: H -> X)<(std/core/types/global :: H)>,(std/core/ui :: X),(std/core/types/write :: H -> X)<(std/core/types/global :: H)>|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:141
+pub fun hc_with_sqlite[311,9,311,22] : forall<a,(e :: E)> (hc_path : std/core/types/string, f : (db) -> <(std/core/io :: E)|(e :: E)> a) -> <(std/core/io :: E)|(e :: E)> (std/core/types/either :: (V, V) -> V)<std/core/types/string,std/core/types/bool>;
+// .hc:158
+pub fun hc_print_rows[321,9,321,21] : (r : queryresult) -> <(std/core/console/console :: X)> ();
  
 //------------------------------
 //#kki: external declarations
@@ -324,7 +323,7 @@ fun hc_clamp // inline size: 4
   };
 fun hc_is_digit // inline size: 4
   = fn(c: std/core/types/char){
-    val n[88,7,88,7] : std/core/types/int
+    val n[87,7,87,7] : std/core/types/int
           = std/core/char/int(c);
     match ((std/core/int/(>=)(n, 48))) {
       ((std/core/types/True() : std/core/types/bool ) as @pat: std/core/types/bool)
@@ -335,7 +334,7 @@ fun hc_is_digit // inline size: 4
   };
 fun hc_is_upper // inline size: 4
   = fn(c: std/core/types/char){
-    val n[92,7,92,7] : std/core/types/int
+    val n[91,7,91,7] : std/core/types/int
           = std/core/char/int(c);
     match ((std/core/int/(>=)(n, 65))) {
       ((std/core/types/True() : std/core/types/bool ) as @pat: std/core/types/bool)
@@ -346,7 +345,7 @@ fun hc_is_upper // inline size: 4
   };
 fun hc_is_lower // inline size: 4
   = fn(c: std/core/types/char){
-    val n[96,7,96,7] : std/core/types/int
+    val n[95,7,95,7] : std/core/types/int
           = std/core/char/int(c);
     match ((std/core/int/(>=)(n, 97))) {
       ((std/core/types/True() : std/core/types/bool ) as @pat: std/core/types/bool)

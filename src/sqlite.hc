@@ -13,7 +13,6 @@
 // See https://github.com/cladam/hica/blob/main/LICENSE for license information
 
 extern import "sqlite_ffi"
-import "std/list"
 
 // ---------------------------------------------------------------------------
 // Types
@@ -73,7 +72,7 @@ pub fun sqlite_exec_p(d: Db, sql: string, params: list<string>) {
 // Run a parameterised SELECT. params bind to ? placeholders in order.
 pub fun sqlite_query_p(d: Db, sql: string, params: list<string>) {
   let raw = sqlite_query_p_raw(d.h, sql, join(params, "\x1F"))
-  if raw == "" {
+  if is_empty(raw) {
     Err(sqlite_errmsg_raw(d.h))
   } else {
     let row_strs = filter(split(raw, "\x1E"), (s) => s != "")
