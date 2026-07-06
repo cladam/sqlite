@@ -1,50 +1,53 @@
 # sqlite
 
-Hica SQLite3 library — a thin, safe wrapper around the system SQLite3 C library.
+A SQLite3 library for [hica](https://github.com/cladam/hica). Thin, safe wrapper around the system SQLite3 C library with parameterised queries, structured result types, and automatic resource management.
 
 ## Requirements
 
-- [SQLite3](https://www.sqlite.org/) installed on your system (ships with macOS, `apt install libsqlite3-dev` on Debian/Ubuntu, `dnf install sqlite-devel` on Fedora)
-- [Koka](https://koka-lang.github.io/) 3.2.3+
-- [Hica](https://github.com/cladam/hica) 0.39.0+
-
-## Setup
-
-Add the library as a git submodule in your project:
+SQLite3 must be present on the system:
 
 ```sh
-mkdir -p lib
-git submodule add https://github.com/cladam/sqlite lib/sqlite
+# macOS — ships with the OS, nothing to install
+# Linux (Debian/Ubuntu):
+sudo apt install libsqlite3-dev
+# Linux (Fedora/RHEL):
+sudo dnf install sqlite-devel
 ```
 
-Then configure your `hica.hml` to include the library source and link SQLite3:
+## Installation
+
+### 1. Add the package
+
+```sh
+hica add sqlite
+hica fetch
+```
+
+This records the dependency in `hica.hml` and downloads the package into `vendor/`.
+
+### 2. Configure `hica.hml`
+
+Add the SQLite3 linker flag to your project's `hica.hml`:
 
 ```hml
-@project {
-    name: "my-app"
-    version: "0.1.0"
-    entry: "main.hc"
-}
-
 @koka {
-    include: "./lib/sqlite/src"
     flags: "--cclib=sqlite3"
 }
 ```
 
-The `sqlite` module is written in Koka (C FFI), so import it with `extern import`:
+### 3. Import
 
 ```hica
-extern import "sqlite"
+import "sqlite"
 ```
 
 ## Quick start
 
 ```hica
-extern import "sqlite"
+import "sqlite"
 
 fun main() {
-  match with_sqlite(":memory:", fun(db) {
+  let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)")
     let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Hello from hica"])
     let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Moonbun stores all the things!"])
@@ -53,85 +56,121 @@ fun main() {
       Err(e) => println("query failed: " + e),
       Ok(r)  => print_rows(r)
     }
-  }) {
-    Err(e) => println("Error: " + e),
-    Ok(_)  => {}
-  }
+  })
 }
 ```
 
-Build and run:
+Output:
 
-```sh
-hica run main.hc
+```
+id | body
+1 | Hello from hica
+2 | Moonbun stores all the things!
 ```
 
-## API reference
-
-All functions are in the `sqlite` Koka module, accessed via `extern import "sqlite"`.
-In hica, Koka names use underscores (e.g. `sqlite_open`, `print_rows`).
+## API
 
 ### Types
 
 | Type | Fields | Description |
-|---|---|---|
-| `Db` | `handle: int` | Opaque database handle |
+|------|--------|-------------|
+| `Db` | opaque | Database connection handle |
 | `Row` | `values: list<string>` | A single result row; SQL NULL → `""` |
 | `QueryResult` | `columns: list<string>`, `rows: list<Row>` | Full SELECT result |
 
 ### Open / Close
 
-| Function | Returns | Description |
-|---|---|---|
-| `sqlite_open(path)` | `result<Db, string>` | Open or create a database file. Use `":memory:"` for an in-memory DB |
-| `sqlite_close(db)` | `()` | Close the database and free resources |
+| Function | Description |
+|----------|-------------|
+| `sqlite_open(path)` | Open or create a database file. Use `":memory:"` for an in-memory DB. Returns `Err(msg)` on failure |
+| `sqlite_close(db)` | Close the connection and release all resources |
 
 ### Execute (no rows returned)
 
-| Function | Returns | Description |
-|---|---|---|
-| `sqlite_exec(db, sql)` | `result<(), string>` | Execute a plain SQL statement (DDL, trusted SQL) |
-| `sqlite_exec_p(db, sql, params)` | `result<(), string>` | Execute with `?` parameters — **use this for all user input** |
+Always use the `_p` variants for any SQL that contains user input.
+
+| Function | Description |
+|----------|-------------|
+| `sqlite_exec(db, sql)` | Execute a plain SQL statement (DDL, trusted SQL only) |
+| `sqlite_exec_p(db, sql, params)` | Execute with `?` placeholders bound to `params` in order |
+
+Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on failure.
 
 ### Query (rows returned)
 
-| Function | Returns | Description |
-|---|---|---|
-| `sqlite_query(db, sql)` | `result<QueryResult, string>` | Plain SELECT |
-| `sqlite_query_p(db, sql, params)` | `result<QueryResult, string>` | Parameterised SELECT |
-| `sqlite_query_one(db, sql, params)` | `result<maybe<Row>, string>` | At most one row (useful for aggregates or `LIMIT 1`) |
+| Function | Description |
+|----------|-------------|
+| `sqlite_query(db, sql)` | Plain SELECT; returns `result<QueryResult, string>` |
+| `sqlite_query_p(db, sql, params)` | Parameterised SELECT; returns `result<QueryResult, string>` |
+| `sqlite_query_one(db, sql, params)` | At most one row; returns `result<maybe<Row>, string>` |
 
 ### Metadata
 
-| Function | Returns | Description |
-|---|---|---|
-| `sqlite_last_insert_id(db)` | `int` | Rowid of the last INSERT, or `-1` |
-| `sqlite_changes(db)` | `int` | Rows affected by the last INSERT/UPDATE/DELETE |
-| `sqlite_table_exists(db, name)` | `result<bool, string>` | Check whether a table exists in the main schema |
+| Function | Description |
+|----------|-------------|
+| `sqlite_last_insert_id(db)` | Rowid of the last INSERT, or `-1` |
+| `sqlite_changes(db)` | Rows affected by the last INSERT / UPDATE / DELETE |
+| `sqlite_table_exists(db, name)` | Returns `result<bool, string>` |
 
 ### Row accessors
 
-| Function | Returns | Description |
-|---|---|---|
-| `row_str(row, idx)` | `maybe<string>` | Column value as string (0-indexed) |
-| `row_int(row, idx)` | `maybe<int>` | Column value parsed as int |
+| Function | Description |
+|----------|-------------|
+| `row_str(row, idx)` | Column value as `maybe<string>` (0-indexed); `None` if out of range |
+| `row_int(row, idx)` | Column value parsed as `maybe<int>`; `None` if out of range or non-numeric |
 
 ### Resource management
 
-| Function | Returns | Description |
-|---|---|---|
-| `with_sqlite(path, f)` | `result<(), string>` | Open → `f(db)` → close, always |
-| `with_sqlite_r(path, f)` | `result<a, string>` | Same, but `f` returns a value |
+| Function | Description |
+|----------|-------------|
+| `with_sqlite(path, f)` | Open → `f(db)` → close, always. Returns `result<bool, string>` |
 
 ### Display
 
-| Function | Returns | Description |
-|---|---|---|
-| `print_rows(result)` | `()` | Print a `QueryResult` to stdout as a simple table |
+| Function | Description |
+|----------|-------------|
+| `print_rows(r)` | Print a `QueryResult` to stdout as a simple pipe-separated table |
+
+## Examples
+
+### Parameterised query
+
+```hica
+import "sqlite"
+
+fun find_users(db, min_age: int) {
+  match sqlite_query_p(db, "SELECT name FROM users WHERE age >= ?", [show(min_age)]) {
+    Err(e) => println("error: " + e),
+    Ok(r)  => foreach(r.rows, (row) => {
+      match row_str(row, 0) {
+        None    => { },
+        Some(n) => println(n)
+      }
+    })
+  }
+}
+```
+
+### Single-row lookup
+
+```hica
+import "sqlite"
+
+fun get_setting(db, key: string) {
+  match sqlite_query_one(db, "SELECT value FROM settings WHERE key = ?", [key]) {
+    Err(e)        => println("db error: " + e),
+    Ok(None)      => println("key not found"),
+    Ok(Some(row)) => match row_str(row, 0) {
+      None    => println("null value"),
+      Some(v) => println("{key} = {v}")
+    }
+  }
+}
+```
 
 ## Security
 
-Parameterised queries (`sqlite_exec_p`, `sqlite_query_p`) bind values at the C layer via `sqlite3_bind_text`, preventing SQL injection. Never build SQL strings by concatenating user input — always use `?` placeholders and the `_p` variants.
+`sqlite_exec_p` and `sqlite_query_p` bind values at the C layer via `sqlite3_bind_text` — SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` placeholders and the `_p` variants.
 
 ## License
 
