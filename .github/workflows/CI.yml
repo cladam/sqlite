@@ -12,78 +12,59 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-# Build the native static library on each supported platform.
-# This IS the test: if the C++ compilation succeeds, the library is healthy.
-# Headless GUI tests are not possible in CI — they will live in examples/.
-#
-# On release tags the per-platform .a files are attached to the GitHub Release
-# so users can download a pre-built binary instead of running build.sh.
-# Users still need the SDL2 dynamic library on their machine (brew/apt/etc.),
-# but they no longer need a C++ compiler or the Dear ImGui source.
-
 jobs:
-  build:
-    name: Build (${{ matrix.platform }})
+  test:
     strategy:
-      fail-fast: false
       matrix:
-        include:
-          # Apple Silicon (macos-latest = macos-14, arm64)
-          - os: macos-latest
-            platform: macos-arm64
-            sdl2_install: brew install sdl2
-
-          # Linux x86-64
-          - os: ubuntu-latest
-            platform: linux-x86_64
-            sdl2_install: sudo apt-get update -qq && sudo apt-get install -y libsdl2-dev
-
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install SDL2
-        run: ${{ matrix.sdl2_install }}
+      - name: Install SQLite3 (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y libsqlite3-dev
 
-      - name: Build libimgui_hica.a
-        run: ./build.sh
+      - name: Install Koka (Unix)
+        run: |
+          curl -sSL https://github.com/koka-lang/koka/releases/latest/download/install.sh | sudo sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: libimgui_hica-${{ matrix.platform }}
-          path: lib/libimgui_hica.a
-          if-no-files-found: error
+      - name: Install Hica
+        run: |
+          curl -fsSL https://www.hica.dev/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Verify tools
+        run: |
+          koka --version
+          hica --version
+
+      - name: Run tests
+        run: |
+          set +e
+          failed=0
+          for f in tests/test_*.hc; do
+            echo "=== $f ==="
+            output=$(hica test "$f" 2>&1)
+            echo "$output"
+            if echo "$output" | grep -q 'failed'; then
+              failed=1
+            fi
+          done
+          exit $failed
 
   release:
-    name: Publish release
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download all platform artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts/
-
-      # Rename each artifact directory's .a to carry the platform suffix:
-      #   artifacts/libimgui_hica-macos-arm64/libimgui_hica.a
-      #     → libimgui_hica-macos-arm64.a
-      - name: Prepare release assets
-        run: |
-          for dir in artifacts/libimgui_hica-*/; do
-            platform="${dir%/}"
-            platform="${platform#artifacts/libimgui_hica-}"
-            cp "$dir/libimgui_hica.a" "libimgui_hica-${platform}.a"
-          done
-          ls -lh libimgui_hica-*.a
-
-      - name: Create GitHub Release
+      - name: Create release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
-          files: libimgui_hica-*.a
+
