@@ -67,6 +67,16 @@ pub fun sqlite_exec_p(d: Db, sql: string, params: list<string>) {
   if rc == 0 { Ok(true) } else { Err(sqlite_errmsg_raw(d.h)) }
 }
 
+// Execute a named-parameter SQL statement.
+// params is a list of (name, value) pairs; names include the leading sigil
+// (e.g. ":id", "@name", "$val").
+pub fun sqlite_exec_named(d: Db, sql: string, params: list<(string, string)>) {
+  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1), "\x1F") + "\x1F"
+  let params_str = if is_empty(params) { "" } else { pairs_str }
+  let rc = sqlite_exec_named_raw(d.h, sql, params_str)
+  if rc == 0 { Ok(true) } else { Err(sqlite_errmsg_raw(d.h)) }
+}
+
 // ---------------------------------------------------------------------------
 // Query (rows returned)
 // ---------------------------------------------------------------------------
@@ -81,6 +91,30 @@ pub fun parse_row(raw_row: string) : Row {
 pub fun sqlite_query_p(d: Db, sql: string, params: list<string>) {
   let params_str = if is_empty(params) { "" } else { join(params, "\x1F") + "\x1F" }
   let raw = sqlite_query_p_raw(d.h, sql, params_str)
+  if is_empty(raw) {
+    Err(sqlite_errmsg_raw(d.h))
+  } else {
+    let all_strs = split(raw, "\x1E")
+    let row_strs = match last(all_strs) {
+      None    => [],
+      Some(s) => if is_empty(s) { take(all_strs, length(all_strs) - 1) } else { all_strs }
+    }
+    match row_strs {
+      [] => Ok(QueryResult { columns: [], rows: [] }),
+      [header, ..data_rows] => Ok(QueryResult {
+        columns: split(header, "\x1F"),
+        rows: map(data_rows, parse_row)
+      })
+    }
+  }
+}
+
+// Run a named-parameter SELECT.
+// params is a list of (name, value) pairs; names include the leading sigil.
+pub fun sqlite_query_named(d: Db, sql: string, params: list<(string, string)>) {
+  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1), "\x1F") + "\x1F"
+  let params_str = if is_empty(params) { "" } else { pairs_str }
+  let raw = sqlite_query_named_raw(d.h, sql, params_str)
   if is_empty(raw) {
     Err(sqlite_errmsg_raw(d.h))
   } else {

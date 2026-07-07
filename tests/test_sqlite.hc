@@ -338,3 +338,87 @@ test "query: all-NULL row is distinguishable" {
     }
   })
 }
+
+// ── Named parameters ───────────────────────────────────────────────────────
+
+test "exec_named: insert with colon params" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (k TEXT, v TEXT)")
+    let r = sqlite_exec_named(db, "INSERT INTO t VALUES (:key, :val)",
+              [(":key", "lang"), (":val", "hica")])
+    assert(is_ok(r))
+    match sqlite_query(db, "SELECT k, v FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => {
+        assert_eq(length(r.rows), 1)
+        match head(r.rows) {
+          None      => assert(false),
+          Some(row) => {
+            assert_eq(row_str(row, 0), Some("lang"))
+            assert_eq(row_str(row, 1), Some("hica"))
+          }
+        }
+      }
+    }
+  })
+}
+
+test "exec_named: at-sign params" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
+    let r = sqlite_exec_named(db, "INSERT INTO t VALUES (@num)", [("@num", "42")])
+    assert(is_ok(r))
+  })
+}
+
+test "exec_named: reuse param in multiple places" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (a TEXT, b TEXT)")
+    let r = sqlite_exec_named(db,
+              "INSERT INTO t VALUES (:x, :x)",
+              [(":x", "same")])
+    assert(is_ok(r))
+    match sqlite_query(db, "SELECT a, b FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => match head(r.rows) {
+        None      => assert(false),
+        Some(row) => {
+          assert_eq(row_str(row, 0), Some("same"))
+          assert_eq(row_str(row, 1), Some("same"))
+        }
+      }
+    }
+  })
+}
+
+test "query_named: filters by named param" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["5"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["10"])
+    match sqlite_query_named(db, "SELECT n FROM t WHERE n > :min", [(":min", "3")]) {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 2)
+    }
+  })
+}
+
+test "query_named: returns correct values" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (name TEXT, score INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["alice", "90"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["bob", "70"])
+    match sqlite_query_named(db, "SELECT name FROM t WHERE score >= :min",
+            [(":min", "80")]) {
+      Err(_) => assert(false),
+      Ok(r)  => {
+        assert_eq(length(r.rows), 1)
+        match head(r.rows) {
+          None      => assert(false),
+          Some(row) => assert_eq(row_str(row, 0), Some("alice"))
+        }
+      }
+    }
+  })
+}

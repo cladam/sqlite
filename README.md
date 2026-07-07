@@ -75,7 +75,7 @@ id | body
 | Type | Fields | Description |
 |------|--------|-------------|
 | `Db` | opaque | Database connection handle |
-| `Row` | `values: list<string>` | A single result row; SQL NULL → `""` |
+| `Row` | `values: list<maybe<string>>` | A single result row; SQL NULL → `None`, empty string → `Some("")` |
 | `QueryResult` | `columns: list<string>`, `rows: list<Row>` | Full SELECT result |
 
 ### Open / Close
@@ -93,6 +93,7 @@ Always use the `_p` variants for any SQL that contains user input.
 |----------|-------------|
 | `sqlite_exec(db, sql)` | Execute a plain SQL statement (DDL, trusted SQL only) |
 | `sqlite_exec_p(db, sql, params)` | Execute with `?` placeholders bound to `params` in order |
+| `sqlite_exec_named(db, sql, params)` | Execute with named placeholders (`:name`, `@name`, `$name`) bound to `params: list<(string, string)>` |
 
 Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on failure.
 
@@ -102,6 +103,7 @@ Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on 
 |----------|-------------|
 | `sqlite_query(db, sql)` | Plain SELECT; returns `result<QueryResult, string>` |
 | `sqlite_query_p(db, sql, params)` | Parameterised SELECT; returns `result<QueryResult, string>` |
+| `sqlite_query_named(db, sql, params)` | Named-parameter SELECT; `params: list<(string, string)>`; returns `result<QueryResult, string>` |
 | `sqlite_query_one(db, sql, params)` | At most one row; returns `result<maybe<Row>, string>` |
 
 ### Metadata
@@ -116,7 +118,7 @@ Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on 
 
 | Function | Description |
 |----------|-------------|
-| `row_str(row, idx)` | Column value as `maybe<string>` (0-indexed); `None` if out of range |
+| `row_str(row, idx)` | Column value as `maybe<string>` (0-indexed); `None` for SQL NULL or out of range |
 | `row_int(row, idx)` | Column value parsed as `maybe<int>`; `None` if out of range or non-numeric |
 
 ### Resource management
@@ -170,7 +172,7 @@ fun get_setting(db, key: string) {
 
 ## Security
 
-`sqlite_exec_p` and `sqlite_query_p` bind values at the C layer via `sqlite3_bind_text` — SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` placeholders and the `_p` variants.
+`sqlite_exec_p`, `sqlite_exec_named`, `sqlite_query_p`, and `sqlite_query_named` bind values at the C layer via `sqlite3_bind_text` — SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` or named placeholders and the `_p` / `_named` variants.
 
 ## License
 

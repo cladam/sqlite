@@ -223,6 +223,75 @@ done:
 }
 
 // ---------------------------------------------------------------------------
+// bind_named_params — shared helper for named-parameter binding
+//
+// params_str format: name\x1Evalue\x1Fname\x1Evalue\x1F...
+//   \x1E separates name from value within each pair
+//   \x1F separates pairs (trailing \x1F required)
+// Names must include the leading sigil (:name, @name, $name).
+// ---------------------------------------------------------------------------
+
+static void bind_named_params(sqlite3_stmt* stmt, const char* params, kk_context_t* ctx) {
+  (void)ctx;
+  const char* p = params;
+  while (*p) {
+    // Find the \x1E separating name from value
+    const char* eq  = strchr(p, '\x1E');
+    if (!eq) break;
+    // Find the \x1F ending the value
+    const char* sep = strchr(eq + 1, '\x1F');
+    if (!sep) break;
+
+    int name_len  = (int)(eq - p);
+    int value_len = (int)(sep - eq - 1);
+
+    // Temporarily null-terminate the name for sqlite3_bind_parameter_index
+    char name_buf[128];
+    if (name_len < (int)(sizeof(name_buf) - 1)) {
+      memcpy(name_buf, p, (size_t)name_len);
+      name_buf[name_len] = '\0';
+      int idx = sqlite3_bind_parameter_index(stmt, name_buf);
+      if (idx > 0) {
+        sqlite3_bind_text(stmt, idx, eq + 1, value_len, SQLITE_TRANSIENT);
+      }
+    }
+    p = sep + 1;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// kk_hica_sqlite_exec_named — named-parameter exec
+// ---------------------------------------------------------------------------
+
+static kk_integer_t kk_hica_sqlite_exec_named(kk_integer_t h_kk, kk_string_t sql_str,
+                                               kk_string_t params_str, kk_context_t* ctx) {
+  int64_t handle = kk_integer_clamp64(h_kk, ctx);
+  sqlite3* db = handle_to_db(handle);
+  if (!db) {
+    kk_string_drop(sql_str, ctx);
+    kk_string_drop(params_str, ctx);
+    return kk_integer_from_int(-1, ctx);
+  }
+  const char* sql    = kk_string_cbuf_borrow(sql_str, NULL, ctx);
+  const char* params = kk_string_cbuf_borrow(params_str, NULL, ctx);
+
+  sqlite3_stmt* stmt = NULL;
+  int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+  if (rc != SQLITE_OK) goto done;
+
+  bind_named_params(stmt, params, ctx);
+
+  rc = sqlite3_step(stmt);
+  if (rc == SQLITE_DONE) rc = SQLITE_OK;
+
+done:
+  if (stmt) sqlite3_finalize(stmt);
+  kk_string_drop(sql_str, ctx);
+  kk_string_drop(params_str, ctx);
+  return kk_integer_from_int((rc == SQLITE_OK) ? 0 : rc, ctx);
+}
+
+// ---------------------------------------------------------------------------
 // kk_hica_sqlite_query_p — parameterised SELECT, returns serialised rows
 //
 // params_str: \x1F-delimited bind values (pass empty string for no params).
@@ -306,6 +375,74 @@ done:
   }
 
   // Transfer sb.data ownership to Koka's GC.
+  kk_string_t result = kk_string_alloc_dup_valid_utf8(sb.data, ctx);
+  free(sb.data);
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// kk_hica_sqlite_query_named — named-parameter SELECT, returns serialised rows
+//
+// params_str format: name\x1Evalue\x1Fname\x1Evalue\x1F...
+// Return format: same as kk_hica_sqlite_query_p.
+// ---------------------------------------------------------------------------
+
+static kk_string_t kk_hica_sqlite_query_named(kk_integer_t h_kk, kk_string_t sql_str,
+                                               kk_string_t params_str, kk_context_t* ctx) {
+  int64_t handle = kk_integer_clamp64(h_kk, ctx);
+  sqlite3* db = handle_to_db(handle);
+  if (!db) {
+    kk_string_drop(sql_str, ctx);
+    kk_string_drop(params_str, ctx);
+    return kk_string_alloc_dup_valid_utf8("", ctx);
+  }
+
+  const char* sql    = kk_string_cbuf_borrow(sql_str, NULL, ctx);
+  const char* params = kk_string_cbuf_borrow(params_str, NULL, ctx);
+
+  sqlite3_stmt* stmt = NULL;
+  hica_sb_t sb = { NULL, 0, 0 };
+  int ok = 1;
+
+  if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
+    ok = 0; goto done;
+  }
+
+  bind_named_params(stmt, params, ctx);
+
+  // Emit header row (column names).
+  {
+    int ncols = sqlite3_column_count(stmt);
+    for (int c = 0; c < ncols; c++) {
+      const char* name = sqlite3_column_name(stmt, c);
+      if (c > 0) sb_push_sep(&sb, '\x1F');
+      sb_push(&sb, name ? name : "", name ? strlen(name) : 0);
+    }
+    sb_push_sep(&sb, '\x1E');
+  }
+
+  // Emit data rows.
+  while (sqlite3_step(stmt) == SQLITE_ROW) {
+    int ncols = sqlite3_column_count(stmt);
+    for (int c = 0; c < ncols; c++) {
+      const char* val = (const char*)sqlite3_column_text(stmt, c);
+      if (c > 0) sb_push_sep(&sb, '\x1F');
+      if (val == NULL) { sb_push(&sb, "\x01", 1); }
+      else             { sb_push(&sb, val, strlen(val)); }
+    }
+    sb_push_sep(&sb, '\x1E');
+  }
+
+done:
+  if (stmt) sqlite3_finalize(stmt);
+  kk_string_drop(sql_str, ctx);
+  kk_string_drop(params_str, ctx);
+
+  if (!ok || !sb.data) {
+    free(sb.data);
+    return kk_string_alloc_dup_valid_utf8("", ctx);
+  }
+
   kk_string_t result = kk_string_alloc_dup_valid_utf8(sb.data, ctx);
   free(sb.data);
   return result;

@@ -45,9 +45,15 @@ pub extern sqlite_exec_raw( h : int, sql : string ) : io int
 pub extern sqlite_exec_p_raw( h : int, sql : string, params : string ) : io int
   c "kk_hica_sqlite_exec_p"
 
+pub extern sqlite_exec_named_raw( h : int, sql : string, params : string ) : io int
+  c "kk_hica_sqlite_exec_named"
+
 // ---------------------------------------------------------------------------
 // Query (rows returned)
 // ---------------------------------------------------------------------------
 
 pub extern sqlite_query_p_raw( h : int, sql : string, params : string ) : io string
   c "kk_hica_sqlite_query_p"
+
+pub extern sqlite_query_named_raw( h : int, sql : string, params : string ) : io string
+  c "kk_hica_sqlite_query_named"
