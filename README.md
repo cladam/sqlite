@@ -185,7 +185,7 @@ fun get_setting(db, key: string) {
 
 ## Security
 
-`sqlite_exec_p`, `sqlite_exec_named`, `sqlite_query_p`, and `sqlite_query_named` bind values at the C layer via `sqlite3_bind_text` — SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` or named placeholders and the `_p` / `_named` variants.
+`sqlite_exec_p`, `sqlite_exec_named`, `sqlite_query_p`, and `sqlite_query_named` bind values at the C layer via `sqlite3_bind_text`, SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` or named placeholders and the `_p` / `_named` variants.
 
 ## License
 
