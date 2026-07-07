@@ -422,3 +422,26 @@ test "query_named: returns correct values" {
     }
   })
 }
+
+// ── SqliteError ────────────────────────────────────────────────────────────
+
+test "error: bad sql has non-zero code and non-empty message" {
+  let _ = with_sqlite(":memory:", (db) => {
+    match sqlite_exec(db, "NOT VALID SQL") {
+      Ok(_)  => assert(false),
+      Err(e) => {
+        assert(e.code != 0)
+        assert(str_length(e.message) > 0)
+      }
+    }
+  })
+}
+
+test "error: message is accessible as string" {
+  let _ = with_sqlite(":memory:", (db) => {
+    match sqlite_exec(db, "SELECT * FROM no_such_table") {
+      Ok(_)  => assert(false),
+      Err(e) => assert(contains(e.message, "no such table"))
+    }
+  })
+}

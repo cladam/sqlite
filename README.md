@@ -53,7 +53,7 @@ fun main() {
     let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Moonbun stores all the things!"])
 
     match sqlite_query(db, "SELECT * FROM notes") {
-      Err(e) => println("query failed: " + e),
+      Err(e) => println("query failed: " + e.message),
       Ok(r)  => print_rows(r)
     }
   })
@@ -77,6 +77,7 @@ id | body
 | `Db` | opaque | Database connection handle |
 | `Row` | `values: list<maybe<string>>` | A single result row; SQL NULL → `None`, empty string → `Some("")` |
 | `QueryResult` | `columns: list<string>`, `rows: list<Row>` | Full SELECT result |
+| `SqliteError` | `code: int`, `message: string` | Error from any sqlite operation; `code` is the SQLite extended error code |
 
 ### Open / Close
 
@@ -142,7 +143,7 @@ import "sqlite"
 
 fun find_users(db, min_age: int) {
   match sqlite_query_p(db, "SELECT name FROM users WHERE age >= ?", [show(min_age)]) {
-    Err(e) => println("error: " + e),
+    Err(e) => println("error: " + e.message),
     Ok(r)  => foreach(r.rows, (row) => {
       match row_str(row, 0) {
         None    => { },
@@ -160,7 +161,7 @@ import "sqlite"
 
 fun get_setting(db, key: string) {
   match sqlite_query_one(db, "SELECT value FROM settings WHERE key = ?", [key]) {
-    Err(e)        => println("db error: " + e),
+    Err(e)        => println("db error: " + e.message),
     Ok(None)      => println("key not found"),
     Ok(Some(row)) => match row_str(row, 0) {
       None    => println("null value"),

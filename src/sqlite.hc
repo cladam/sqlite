@@ -29,6 +29,11 @@ pub struct Row { values: list<maybe<string>> }
 // Full result of a SELECT query.
 pub struct QueryResult { columns: list<string>, rows: list<Row> }
 
+// Structured error returned by all sqlite operations.
+// code: SQLite extended error code (e.g. 1 = SQLITE_ERROR, 14 = SQLITE_CANTOPEN).
+// message: human-readable description from sqlite3_errmsg.
+pub struct SqliteError { code: int, message: string }
+
 // ---------------------------------------------------------------------------
 // Open / Close
 // ---------------------------------------------------------------------------
@@ -38,7 +43,11 @@ pub struct QueryResult { columns: list<string>, rows: list<Row> }
 // Returns Err(msg) if the file cannot be opened or created.
 pub fun sqlite_open(path: string) {
   let h = sqlite_open_raw(path)
-  if h == 0 { Err("sqlite open failed: " + path) } else { Ok(Db { h: h }) }
+  if h == 0 {
+    Err(SqliteError { code: -1, message: "sqlite open failed: " + path })
+  } else {
+    Ok(Db { h: h })
+  }
 }
 
 // Close a database handle and release all resources.
@@ -55,7 +64,13 @@ pub fun sqlite_close(d: Db) {
 // Use for DDL (CREATE TABLE, DROP TABLE) or when SQL contains no user input.
 pub fun sqlite_exec(d: Db, sql: string) {
   let rc = sqlite_exec_raw(d.h, sql)
-  if rc == 0 { Ok(true) } else { Err(sqlite_errmsg_raw(d.h)) }
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
 }
 
 // Execute a parameterised SQL statement.
@@ -64,7 +79,13 @@ pub fun sqlite_exec(d: Db, sql: string) {
 pub fun sqlite_exec_p(d: Db, sql: string, params: list<string>) {
   let params_str = if is_empty(params) { "" } else { join(params, "\x1F") + "\x1F" }
   let rc = sqlite_exec_p_raw(d.h, sql, params_str)
-  if rc == 0 { Ok(true) } else { Err(sqlite_errmsg_raw(d.h)) }
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
 }
 
 // Execute a named-parameter SQL statement.
@@ -74,7 +95,13 @@ pub fun sqlite_exec_named(d: Db, sql: string, params: list<(string, string)>) {
   let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1), "\x1F") + "\x1F"
   let params_str = if is_empty(params) { "" } else { pairs_str }
   let rc = sqlite_exec_named_raw(d.h, sql, params_str)
-  if rc == 0 { Ok(true) } else { Err(sqlite_errmsg_raw(d.h)) }
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -92,7 +119,9 @@ pub fun sqlite_query_p(d: Db, sql: string, params: list<string>) {
   let params_str = if is_empty(params) { "" } else { join(params, "\x1F") + "\x1F" }
   let raw = sqlite_query_p_raw(d.h, sql, params_str)
   if is_empty(raw) {
-    Err(sqlite_errmsg_raw(d.h))
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
   } else {
     let all_strs = split(raw, "\x1E")
     let row_strs = match last(all_strs) {
@@ -116,7 +145,9 @@ pub fun sqlite_query_named(d: Db, sql: string, params: list<(string, string)>) {
   let params_str = if is_empty(params) { "" } else { pairs_str }
   let raw = sqlite_query_named_raw(d.h, sql, params_str)
   if is_empty(raw) {
-    Err(sqlite_errmsg_raw(d.h))
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
   } else {
     let all_strs = split(raw, "\x1E")
     let row_strs = match last(all_strs) {

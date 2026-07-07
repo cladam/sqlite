@@ -37,6 +37,13 @@ pub struct queryresult
 pub fun queryresult/show(p : queryresult) : string
   "QueryResult(" ++ "columns: " ++ p.columns.show ++ ", " ++ "rows: " ++ p.rows.show ++ ")"
 
+pub struct sqliteerror
+  code : int
+  message : string
+
+pub fun sqliteerror/show(p : sqliteerror) : string
+  "SqliteError(" ++ "code: " ++ p.code.show ++ ", " ++ "message: " ++ p.message ++ ")"
+
 fun hc_abs(n : int)
   if (n < 0) then (0 - n) else n
 
@@ -235,34 +242,49 @@ fun hc_center(s : string, width : int, ch : string)
 fun hc_removeprefix(s : string, pre : string) : string
   if s.starts-with(pre).is-just then s.list.drop(pre.count).string else s
 
-// .hc:38
+// .hc:43
 pub fun hc_sqlite_open(hc_path : string)
   val h : int = sqlite_open_raw(hc_path)
-  if (h == 0) then Left(("sqlite open failed: " ++ hc_path)) else Right(Db(h))
+  if (h == 0) then Left(SqliteError((0 - 1), ("sqlite open failed: " ++ hc_path))) else Right(Db(h))
 
-// .hc:45
+// .hc:54
 pub fun hc_sqlite_close(d : db)
   sqlite_close_raw(d.h)
 
-// .hc:55
+// .hc:64
 pub fun hc_sqlite_exec(d : db, sql : string)
   val rc : int = sqlite_exec_raw(d.h, sql)
-  if (rc == 0) then Right(True) else Left(sqlite_errmsg_raw(d.h))
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
 
-// .hc:63
+// .hc:78
 pub fun hc_sqlite_exec_p(d : db, sql : string, params : list<string>)
   val params_str : string = if params.is-nil then "" else (params.join("\x1F") ++ "\x1F")
   val rc : int = sqlite_exec_p_raw(d.h, sql, params_str)
-  if (rc == 0) then Right(True) else Left(sqlite_errmsg_raw(d.h))
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
 
-// .hc:71
+// .hc:92
 pub fun hc_sqlite_exec_named(d : db, sql : string, params : list<(string, string)>)
   val pairs_str : string = (map(params, fn(p) ((p.fst ++ "\x1E") ++ p.snd)).join("\x1F") ++ "\x1F")
   val params_str : string = if params.is-nil then "" else pairs_str
   val rc : int = sqlite_exec_named_raw(d.h, sql, params_str)
-  if (rc == 0) then Right(True) else Left(sqlite_errmsg_raw(d.h))
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
 
-// .hc:82
+// .hc:109
 pub fun hc_parse_row(raw_row : string) : row
   val cells : list<string> = (fn(hc__s: string, hc__sep: string) if hc__sep.is-empty then hc__s.list.map(fn(c) c.string) else hc__s.split(hc__sep))(raw_row, "\x1F")
   val maybe_cells : list<maybe<string>> =
@@ -270,12 +292,14 @@ pub fun hc_parse_row(raw_row : string) : row
       if (s == "\x01") then Nothing else Just(s)
   Row(maybe_cells)
 
-// .hc:87
+// .hc:114
 pub fun hc_sqlite_query_p(d : db, sql : string, params : list<string>)
   val params_str : string = if params.is-nil then "" else (params.join("\x1F") ++ "\x1F")
   val hc_raw : string = sqlite_query_p_raw(d.h, sql, params_str)
   if hc_is_empty(hc_raw) then
-    Left(sqlite_errmsg_raw(d.h))
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
   else
     val all_strs : list<string> = (fn(hc__s: string, hc__sep: string) if hc__sep.is-empty then hc__s.list.map(fn(c) c.string) else hc__s.split(hc__sep))(hc_raw, "\x1E")
     val row_strs : list<string> =
@@ -290,13 +314,15 @@ pub fun hc_sqlite_query_p(d : db, sql : string, params : list<string>)
       Cons(header, data_rows) ->
         Right(QueryResult((fn(hc__s: string, hc__sep: string) if hc__sep.is-empty then hc__s.list.map(fn(c) c.string) else hc__s.split(hc__sep))(header, "\x1F"), map(data_rows, hc_parse_row)))
 
-// .hc:112
+// .hc:141
 pub fun hc_sqlite_query_named(d : db, sql : string, params : list<(string, string)>)
   val pairs_str : string = (map(params, fn(p) ((p.fst ++ "\x1E") ++ p.snd)).join("\x1F") ++ "\x1F")
   val params_str : string = if params.is-nil then "" else pairs_str
   val hc_raw : string = sqlite_query_named_raw(d.h, sql, params_str)
   if hc_is_empty(hc_raw) then
-    Left(sqlite_errmsg_raw(d.h))
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
   else
     val all_strs : list<string> = (fn(hc__s: string, hc__sep: string) if hc__sep.is-empty then hc__s.list.map(fn(c) c.string) else hc__s.split(hc__sep))(hc_raw, "\x1E")
     val row_strs : list<string> =
@@ -311,11 +337,11 @@ pub fun hc_sqlite_query_named(d : db, sql : string, params : list<(string, strin
       Cons(header, data_rows) ->
         Right(QueryResult((fn(hc__s: string, hc__sep: string) if hc__sep.is-empty then hc__s.list.map(fn(c) c.string) else hc__s.split(hc__sep))(header, "\x1F"), map(data_rows, hc_parse_row)))
 
-// .hc:130
+// .hc:161
 pub fun hc_sqlite_query(d : db, sql : string)
   hc_sqlite_query_p(d, sql, [])
 
-// .hc:138
+// .hc:169
 pub fun hc_sqlite_query_one(d : db, sql : string, params : list<string>)
   match hc_sqlite_query_p(d, sql, params)
     Left(e) ->
@@ -323,15 +349,15 @@ pub fun hc_sqlite_query_one(d : db, sql : string, params : list<string>)
     Right(r) ->
       Right(r.rows.head)
 
-// .hc:151
+// .hc:182
 pub fun hc_sqlite_last_insert_id(d : db)
   sqlite_last_insert_id_raw(d.h)
 
-// .hc:154
+// .hc:185
 pub fun hc_sqlite_changes(d : db)
   sqlite_changes_raw(d.h)
 
-// .hc:159
+// .hc:190
 pub fun hc_sqlite_table_exists(d : db, name : string)
   match hc_sqlite_query_p(d, "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", [name])
     Left(e) ->
@@ -339,7 +365,7 @@ pub fun hc_sqlite_table_exists(d : db, name : string)
     Right(r) ->
       Right((list/length(r.rows) > 0))
 
-// .hc:173
+// .hc:204
 pub fun hc_row_str(r : row, idx : int) : maybe<string>
   if (idx < 0) then
     Nothing
@@ -350,7 +376,7 @@ pub fun hc_row_str(r : row, idx : int) : maybe<string>
       Just(cell) ->
         cell
 
-// .hc:181
+// .hc:211
 pub fun hc_row_int(r : row, idx : int) : maybe<int>
   match hc_row_str(r, idx)
     Nothing ->
@@ -358,7 +384,7 @@ pub fun hc_row_int(r : row, idx : int) : maybe<int>
     Just(s) ->
       s.parse-int
 
-// .hc:194
+// .hc:225
 pub fun hc_with_sqlite(hc_path : string, f)
   match hc_sqlite_open(hc_path)
     Left(e) ->
@@ -368,7 +394,7 @@ pub fun hc_with_sqlite(hc_path : string, f)
       hc_sqlite_close(d)
       Right(True)
 
-// .hc:211
+// .hc:242
 pub fun hc_print_rows(r : queryresult)
   println(r.columns.join(" | "))
   foreach(r.rows) fn(row)

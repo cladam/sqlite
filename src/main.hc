@@ -2,21 +2,21 @@ import "./sqlite"
 
 fun print_all_rows(db, sql) {
   match sqlite_query(db, sql) {
-    Err(e) => println("query failed: " + e),
+    Err(e) => println("query failed: " + e.message),
     Ok(r)  => print_rows(r)
   }
 }
 
 fun print_filtered(db) {
   match sqlite_query_p(db, "SELECT * FROM notes WHERE body LIKE ?", ["%hica%"]) {
-    Err(e) => println("filtered query failed: " + e),
+    Err(e) => println("filtered query failed: " + e.message),
     Ok(r)  => print_rows(r)
   }
 }
 
 fun print_table_check(db, name) {
   match sqlite_table_exists(db, name) {
-    Err(e)     => println("table_exists failed: " + e),
+    Err(e)     => println("table_exists failed: " + e.message),
     Ok(found) => println(name + " table exists: " + show(found))
   }
 }
@@ -41,7 +41,7 @@ fun main() {
   println("=== sqlite library demo ===")
   println("")
   match with_sqlite(":memory:", (db) => run_demo(db)) {
-    Err(e) => println("Error: " + e),
+    Err(e) => println("Error: " + e.message),
     Ok(_)  => println("Done!")
   }
 }

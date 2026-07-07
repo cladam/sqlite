@@ -137,6 +137,17 @@ static kk_string_t kk_hica_sqlite_errmsg(kk_integer_t h_kk, kk_context_t* ctx) {
 }
 
 // ---------------------------------------------------------------------------
+// kk_hica_sqlite_errcode — extended error code for a handle
+// ---------------------------------------------------------------------------
+
+static kk_integer_t kk_hica_sqlite_errcode(kk_integer_t h_kk, kk_context_t* ctx) {
+  int64_t handle = kk_integer_clamp64(h_kk, ctx);
+  sqlite3* db = handle_to_db(handle);
+  (void)ctx;
+  return kk_integer_from_int(db ? sqlite3_extended_errcode(db) : -1, ctx);
+}
+
+// ---------------------------------------------------------------------------
 // kk_hica_sqlite_last_insert_id
 // ---------------------------------------------------------------------------
 

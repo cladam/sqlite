@@ -20,7 +20,7 @@ import "../src/sqlite"
 
 fun show_kv(db) {
   match sqlite_query(db, "SELECT key, value FROM kv ORDER BY key") {
-    Err(e) => println("query failed: " + e),
+    Err(e) => println("query failed: " + e.message),
     Ok(r)  => print_rows(r)
   }
 }
@@ -43,7 +43,7 @@ fun print_hit_value(row) {
 
 fun check_hits(db) {
   match sqlite_query_one(db, "SELECT n FROM counters WHERE name = ?", ["hits"]) {
-    Err(e)        => println("query_one failed: " + e),
+    Err(e)        => println("query_one failed: " + e.message),
     Ok(None)      => println("no row found"),
     Ok(Some(row)) => print_hit_value(row)
   }
@@ -51,7 +51,7 @@ fun check_hits(db) {
 
 fun print_table_exists(db, name) {
   match sqlite_table_exists(db, name) {
-    Err(e)     => println("table_exists failed: " + e),
+    Err(e)     => println("table_exists failed: " + e.message),
     Ok(found) => println(name + " table exists: " + show(found))
   }
 }
@@ -72,7 +72,7 @@ fun run_counters(db) {
 fun demo_open_close() {
   println("--- open/close ---")
   match sqlite_open(":memory:") {
-    Err(e) => println("open failed: " + e),
+    Err(e) => println("open failed: " + e.message),
     Ok(db) => run_kv_demo(db)
   }
 }
@@ -80,7 +80,7 @@ fun demo_open_close() {
 fun demo_with_sqlite() {
   println("--- with_sqlite ---")
   match with_sqlite(":memory:", (db) => run_counters(db)) {
-    Err(e) => println("Error: " + e),
+    Err(e) => println("Error: " + e.message),
     Ok(_)  => println("done")
   }
 }

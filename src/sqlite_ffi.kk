@@ -25,6 +25,9 @@ pub extern sqlite_close_raw( h : int ) : io ()
 pub extern sqlite_errmsg_raw( h : int ) : io string
   c "kk_hica_sqlite_errmsg"
 
+pub extern sqlite_errcode_raw( h : int ) : io int
+  c "kk_hica_sqlite_errcode"
+
 // ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
