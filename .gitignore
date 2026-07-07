@@ -17,3 +17,5 @@ tests/*
 *.tar.gz
 *.json
 latest
+
+BACKLOG.md

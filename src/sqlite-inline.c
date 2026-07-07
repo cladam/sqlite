@@ -199,16 +199,17 @@ static kk_integer_t kk_hica_sqlite_exec_p(kk_integer_t h_kk, kk_string_t sql_str
   int rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
   if (rc != SQLITE_OK) goto done;
 
-  // Bind each \x1F-delimited token in order.
+  // Bind each \x1F-delimited field in order.
+  // Hica sends a trailing \x1F so empty-string params are preserved.
   {
-    char* copy = strdup(params);
-    char* tok  = strtok(copy, "\x1F");
-    int   idx  = 1;
-    while (tok) {
-      sqlite3_bind_text(stmt, idx++, tok, -1, SQLITE_TRANSIENT);
-      tok = strtok(NULL, "\x1F");
+    const char* p = params;
+    int   idx = 1;
+    while (*p) {
+      const char* sep = strchr(p, '\x1F');
+      if (!sep) { sqlite3_bind_text(stmt, idx++, p, -1, SQLITE_TRANSIENT); break; }
+      sqlite3_bind_text(stmt, idx++, p, (int)(sep - p), SQLITE_TRANSIENT);
+      p = sep + 1;
     }
-    free(copy);
   }
 
   rc = sqlite3_step(stmt);
@@ -257,15 +258,16 @@ static kk_string_t kk_hica_sqlite_query_p(kk_integer_t h_kk, kk_string_t sql_str
   }
 
   // Bind parameters.
+  // Hica sends a trailing \x1F so empty-string params are preserved.
   {
-    char* copy = strdup(params);
-    char* tok  = strtok(copy, "\x1F");
-    int   idx  = 1;
-    while (tok) {
-      sqlite3_bind_text(stmt, idx++, tok, -1, SQLITE_TRANSIENT);
-      tok = strtok(NULL, "\x1F");
+    const char* p = params;
+    int   idx = 1;
+    while (*p) {
+      const char* sep = strchr(p, '\x1F');
+      if (!sep) { sqlite3_bind_text(stmt, idx++, p, -1, SQLITE_TRANSIENT); break; }
+      sqlite3_bind_text(stmt, idx++, p, (int)(sep - p), SQLITE_TRANSIENT);
+      p = sep + 1;
     }
-    free(copy);
   }
 
   // Emit header row (column names).
@@ -280,12 +282,15 @@ static kk_string_t kk_hica_sqlite_query_p(kk_integer_t h_kk, kk_string_t sql_str
   }
 
   // Emit data rows.
+  // NULL columns are encoded as \x01 (SOH); the Hica layer converts these to None.
+  // Empty-string columns are encoded as zero bytes (distinguishable from NULL).
   while (sqlite3_step(stmt) == SQLITE_ROW) {
     int ncols = sqlite3_column_count(stmt);
     for (int c = 0; c < ncols; c++) {
       const char* val = (const char*)sqlite3_column_text(stmt, c);
       if (c > 0) sb_push_sep(&sb, '\x1F');
-      sb_push(&sb, val ? val : "", val ? strlen(val) : 0);
+      if (val == NULL) { sb_push(&sb, "\x01", 1); }
+      else             { sb_push(&sb, val, strlen(val)); }
     }
     sb_push_sep(&sb, '\x1E');
   }

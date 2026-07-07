@@ -3,19 +3,19 @@ import "../src/sqlite"
 // ── Row accessor tests (pure — no IO needed) ──────────────────────────────
 
 test "row_str: returns value at each index" {
-  let row = Row { values: ["alpha", "beta", "gamma"] }
+  let row = Row { values: [Some("alpha"), Some("beta"), Some("gamma")] }
   assert_eq(row_str(row, 0), Some("alpha"))
   assert_eq(row_str(row, 1), Some("beta"))
   assert_eq(row_str(row, 2), Some("gamma"))
 }
 
 test "row_str: negative index returns None" {
-  let row = Row { values: ["x"] }
+  let row = Row { values: [Some("x")] }
   assert_eq(row_str(row, -1), None)
 }
 
 test "row_str: out-of-range returns None" {
-  let row = Row { values: ["x"] }
+  let row = Row { values: [Some("x")] }
   assert_eq(row_str(row, 5), None)
 }
 
@@ -25,28 +25,43 @@ test "row_str: empty row returns None" {
 }
 
 test "row_int: parses valid positive integer" {
-  let row = Row { values: ["42"] }
+  let row = Row { values: [Some("42")] }
   assert_eq(row_int(row, 0), Some(42))
 }
 
 test "row_int: parses negative integer" {
-  let row = Row { values: ["-7"] }
+  let row = Row { values: [Some("-7")] }
   assert_eq(row_int(row, 0), Some(-7))
 }
 
 test "row_int: non-numeric returns None" {
-  let row = Row { values: ["hello"] }
+  let row = Row { values: [Some("hello")] }
   assert_eq(row_int(row, 0), None)
 }
 
 test "row_int: empty string returns None" {
-  let row = Row { values: [""] }
+  let row = Row { values: [Some("")] }
   assert_eq(row_int(row, 0), None)
 }
 
 test "row_int: out-of-range returns None" {
-  let row = Row { values: ["1"] }
+  let row = Row { values: [Some("1")] }
   assert_eq(row_int(row, 9), None)
+}
+
+test "row_str: None for SQL NULL cell" {
+  let row = Row { values: [Some("a"), None, Some("c")] }
+  assert_eq(row_str(row, 1), None)
+}
+
+test "row_str: Some for empty-string cell" {
+  let row = Row { values: [Some("")] }
+  assert_eq(row_str(row, 0), Some(""))
+}
+
+test "row_int: None for SQL NULL cell" {
+  let row = Row { values: [None] }
+  assert_eq(row_int(row, 0), None)
 }
 
 // ── Open / close ───────────────────────────────────────────────────────────
@@ -271,5 +286,55 @@ test "with_sqlite: executes callback and closes db" {
   let _ = with_sqlite(":memory:", (db) => {
     let r = sqlite_exec(db, "CREATE TABLE t (x INT)")
     assert(is_ok(r))
+  })
+}
+
+// ── NULL handling ──────────────────────────────────────────────────────────
+
+test "query: SQL NULL column returns None from row_str" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT, y TEXT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, NULL)", ["hello"])
+    match sqlite_query(db, "SELECT x, y FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => match head(r.rows) {
+        None      => assert(false),
+        Some(row) => {
+          assert_eq(row_str(row, 0), Some("hello"))
+          assert_eq(row_str(row, 1), None)
+        }
+      }
+    }
+  })
+}
+
+test "query: empty-string column is Some, not None" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [""])
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => match head(r.rows) {
+        None      => assert(false),
+        Some(row) => assert_eq(row_str(row, 0), Some(""))
+      }
+    }
+  })
+}
+
+test "query: all-NULL row is distinguishable" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (a TEXT, b TEXT)")
+    let _ = sqlite_exec(db, "INSERT INTO t VALUES (NULL, NULL)")
+    match sqlite_query(db, "SELECT a, b FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => match head(r.rows) {
+        None      => assert(false),
+        Some(row) => {
+          assert_eq(row_str(row, 0), None)
+          assert_eq(row_str(row, 1), None)
+        }
+      }
+    }
   })
 }
