@@ -188,6 +188,43 @@ static kk_integer_t kk_hica_sqlite_exec(kk_integer_t h_kk, kk_string_t sql_str, 
 }
 
 // ---------------------------------------------------------------------------
+// kk_hica_sqlite_exec_batch — execute multiple semicolon-separated statements
+//
+// Uses sqlite3_prepare_v2 in a loop so each statement is compiled and stepped
+// individually. Stops at the first error; the error is available via
+// sqlite3_errmsg / sqlite3_extended_errcode on the connection.
+// Returns 0 on success, non-zero SQLite error code on failure.
+// ---------------------------------------------------------------------------
+
+static kk_integer_t kk_hica_sqlite_exec_batch(kk_integer_t h_kk, kk_string_t sql_str, kk_context_t* ctx) {
+  int64_t handle = kk_integer_clamp64(h_kk, ctx);
+  sqlite3* db = handle_to_db(handle);
+  if (!db) { kk_string_drop(sql_str, ctx); return kk_integer_from_int(-1, ctx); }
+
+  const char* sql  = kk_string_cbuf_borrow(sql_str, NULL, ctx);
+  const char* tail = sql;
+  int rc = SQLITE_OK;
+
+  while (tail && *tail) {
+    sqlite3_stmt* stmt = NULL;
+    rc = sqlite3_prepare_v2(db, tail, -1, &stmt, &tail);
+    if (rc != SQLITE_OK) break;
+    if (!stmt) continue;  // blank statement or comment — skip
+
+    rc = sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    if (rc == SQLITE_DONE || rc == SQLITE_ROW) {
+      rc = SQLITE_OK;
+    } else {
+      break;
+    }
+  }
+
+  kk_string_drop(sql_str, ctx);
+  return kk_integer_from_int((rc == SQLITE_OK) ? 0 : rc, ctx);
+}
+
+// ---------------------------------------------------------------------------
 // kk_hica_sqlite_exec_p — parameterised exec (? placeholders)
 //
 // params_str: \x1F-delimited list of text values, one per ? placeholder.

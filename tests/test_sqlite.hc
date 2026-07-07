@@ -515,3 +515,48 @@ test "with_transaction: multiple inserts are atomic" {
     }
   })
 }
+
+// ── Batch execute ──────────────────────────────────────────────────────────
+
+test "exec_batch: single statement works" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let r = sqlite_exec_batch(db, "CREATE TABLE t (x INT)")
+    assert(is_ok(r))
+  })
+}
+
+test "exec_batch: two statements in one string" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let r = sqlite_exec_batch(db,
+      "CREATE TABLE t (x INT); INSERT INTO t VALUES (1)")
+    assert(is_ok(r))
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 1)
+    }
+  })
+}
+
+test "exec_batch: multiple DDL statements" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let r = sqlite_exec_batch(db,
+      "CREATE TABLE a (id INT); CREATE TABLE b (id INT); CREATE TABLE c (id INT)")
+    assert(is_ok(r))
+    match sqlite_table_exists(db, "a") { Ok(found) => assert(found), Err(_) => assert(false) }
+    match sqlite_table_exists(db, "b") { Ok(found) => assert(found), Err(_) => assert(false) }
+    match sqlite_table_exists(db, "c") { Ok(found) => assert(found), Err(_) => assert(false) }
+  })
+}
+
+test "exec_batch: stops and returns Err on first bad statement" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec_batch(db, "CREATE TABLE t (x INT)")
+    let r = sqlite_exec_batch(db,
+      "INSERT INTO t VALUES (1); NOT VALID SQL; INSERT INTO t VALUES (2)")
+    assert(is_err(r))
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 1)
+    }
+  })
+}

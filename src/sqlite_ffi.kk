@@ -45,6 +45,9 @@ pub extern sqlite_changes_raw( h : int ) : io int
 pub extern sqlite_exec_raw( h : int, sql : string ) : io int
   c "kk_hica_sqlite_exec"
 
+pub extern sqlite_exec_batch_raw( h : int, sql : string ) : io int
+  c "kk_hica_sqlite_exec_batch"
+
 pub extern sqlite_exec_p_raw( h : int, sql : string, params : string ) : io int
   c "kk_hica_sqlite_exec_p"
 

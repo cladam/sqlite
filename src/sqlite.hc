@@ -73,6 +73,21 @@ pub fun sqlite_exec(d: Db, sql: string) {
   }
 }
 
+// Execute multiple semicolon-separated SQL statements as a batch.
+// Statements are compiled and run individually via sqlite3_prepare_v2.
+// Stops at the first error; no parameter binding (use sqlite_exec_p for user input).
+// Ideal for schema migrations and multi-statement setup scripts.
+pub fun sqlite_exec_batch(d: Db, sql: string) {
+  let rc = sqlite_exec_batch_raw(d.h, sql)
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
+}
+
 // Execute a parameterised SQL statement.
 // ALWAYS use this instead of string concatenation when SQL contains user input.
 // params bind to ? placeholders in order — prevents SQL injection at the C layer.
