@@ -235,6 +235,22 @@ pub fun row_int(r: Row, idx: int) : maybe<int> =>
     Some(s) => parse_int(s)
   }
 
+// Get a column value by name using the QueryResult's column list.
+// Returns None if the column name is not found or the cell is SQL NULL.
+pub fun row_str_by(r: Row, columns: list<string>, name: string) : maybe<string> =>
+  match find(enumerate(columns), (pair) => pair.1 == name) {
+    None       => None,
+    Some(pair) => row_str(r, pair.0)
+  }
+
+// Get a column value by name, parsed as int.
+// Returns None if the column is not found, is SQL NULL, or is not numeric.
+pub fun row_int_by(r: Row, columns: list<string>, name: string) : maybe<int> =>
+  match row_str_by(r, columns, name) {
+    None    => None,
+    Some(s) => parse_int(s)
+  }
+
 // ---------------------------------------------------------------------------
 // Resource management
 // ---------------------------------------------------------------------------

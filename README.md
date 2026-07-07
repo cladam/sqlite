@@ -93,19 +93,20 @@ Always use the `_p` variants for any SQL that contains user input.
 | Function | Description |
 |----------|-------------|
 | `sqlite_exec(db, sql)` | Execute a plain SQL statement (DDL, trusted SQL only) |
+| `sqlite_exec_batch(db, sql)` | Execute multiple `;`-separated statements (schema migrations, setup scripts) |
 | `sqlite_exec_p(db, sql, params)` | Execute with `?` placeholders bound to `params` in order |
 | `sqlite_exec_named(db, sql, params)` | Execute with named placeholders (`:name`, `@name`, `$name`) bound to `params: list<(string, string)>` |
 
-Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on failure.
+All return `result<bool, SqliteError>` — `Ok(true)` on success, `Err(e)` on failure (`e.code`, `e.message`).
 
 ### Query (rows returned)
 
 | Function | Description |
 |----------|-------------|
-| `sqlite_query(db, sql)` | Plain SELECT; returns `result<QueryResult, string>` |
-| `sqlite_query_p(db, sql, params)` | Parameterised SELECT; returns `result<QueryResult, string>` |
-| `sqlite_query_named(db, sql, params)` | Named-parameter SELECT; `params: list<(string, string)>`; returns `result<QueryResult, string>` |
-| `sqlite_query_one(db, sql, params)` | At most one row; returns `result<maybe<Row>, string>` |
+| `sqlite_query(db, sql)` | Plain SELECT; returns `result<QueryResult, SqliteError>` |
+| `sqlite_query_p(db, sql, params)` | Parameterised SELECT; returns `result<QueryResult, SqliteError>` |
+| `sqlite_query_named(db, sql, params)` | Named-parameter SELECT; `params: list<(string, string)>`; returns `result<QueryResult, SqliteError>` |
+| `sqlite_query_one(db, sql, params)` | At most one row; returns `result<maybe<Row>, SqliteError>` |
 
 ### Metadata
 
@@ -113,7 +114,7 @@ Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on 
 |----------|-------------|
 | `sqlite_last_insert_id(db)` | Rowid of the last INSERT, or `-1` |
 | `sqlite_changes(db)` | Rows affected by the last INSERT / UPDATE / DELETE |
-| `sqlite_table_exists(db, name)` | Returns `result<bool, string>` |
+| `sqlite_table_exists(db, name)` | Returns `result<bool, SqliteError>` |
 
 ### Row accessors
 
@@ -121,12 +122,23 @@ Both return `result<bool, string>` — `Ok(true)` on success, `Err(message)` on 
 |----------|-------------|
 | `row_str(row, idx)` | Column value as `maybe<string>` (0-indexed); `None` for SQL NULL or out of range |
 | `row_int(row, idx)` | Column value parsed as `maybe<int>`; `None` if out of range or non-numeric |
+| `row_str_by(row, columns, name)` | Column value by name using `QueryResult.columns`; `None` if name not found or SQL NULL |
+| `row_int_by(row, columns, name)` | Column value by name, parsed as `maybe<int>` |
+
+### Transactions
+
+| Function | Description |
+|----------|-------------|
+| `sqlite_begin(db)` | Begin a transaction (DEFERRED) |
+| `sqlite_commit(db)` | Commit the active transaction |
+| `sqlite_rollback(db)` | Roll back the active transaction |
+| `with_transaction(db, f)` | Begin → `f(db)` → commit on `Ok`, rollback on `Err` |
 
 ### Resource management
 
 | Function | Description |
 |----------|-------------|
-| `with_sqlite(path, f)` | Open → `f(db)` → close, always. Returns `result<bool, string>` |
+| `with_sqlite(path, f)` | Open → `f(db)` → close, always. Returns `result<bool, SqliteError>` |
 
 ### Display
 

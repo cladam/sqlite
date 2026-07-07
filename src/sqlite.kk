@@ -394,7 +394,23 @@ pub fun hc_row_int(r : row, idx : int) : maybe<int>
     Just(s) ->
       s.parse-int
 
-// .hc:240
+// .hc:238
+pub fun hc_row_str_by(r : row, columns : list<string>, name : string) : maybe<string>
+  match find(columns.map-indexed(fn(hc__i, hc__x) (hc__i, hc__x)), fn(pair) (pair.snd == name))
+    Nothing ->
+      Nothing
+    Just(pair) ->
+      hc_row_str(r, pair.fst)
+
+// .hc:243
+pub fun hc_row_int_by(r : row, columns : list<string>, name : string) : maybe<int>
+  match hc_row_str_by(r, columns, name)
+    Nothing ->
+      Nothing
+    Just(s) ->
+      s.parse-int
+
+// .hc:256
 pub fun hc_with_sqlite(hc_path : string, f)
   match hc_sqlite_open(hc_path)
     Left(e) ->
@@ -404,7 +420,7 @@ pub fun hc_with_sqlite(hc_path : string, f)
       hc_sqlite_close(d)
       Right(True)
 
-// .hc:255
+// .hc:271
 pub fun hc_sqlite_begin(d : db)
   val rc : int = sqlite_exec_raw(d.h, "BEGIN")
   if (rc == 0) then
@@ -414,7 +430,7 @@ pub fun hc_sqlite_begin(d : db)
     val msg : string = sqlite_errmsg_raw(d.h)
     Left(SqliteError(code, msg))
 
-// .hc:265
+// .hc:281
 pub fun hc_sqlite_commit(d : db)
   val rc : int = sqlite_exec_raw(d.h, "COMMIT")
   if (rc == 0) then
@@ -424,7 +440,7 @@ pub fun hc_sqlite_commit(d : db)
     val msg : string = sqlite_errmsg_raw(d.h)
     Left(SqliteError(code, msg))
 
-// .hc:277
+// .hc:293
 pub fun hc_sqlite_rollback(d : db)
   val rc : int = sqlite_exec_raw(d.h, "ROLLBACK")
   if (rc == 0) then
@@ -434,7 +450,7 @@ pub fun hc_sqlite_rollback(d : db)
     val msg : string = sqlite_errmsg_raw(d.h)
     Left(SqliteError(code, msg))
 
-// .hc:291
+// .hc:306
 pub fun hc_with_transaction(d : db, f)
   match hc_sqlite_begin(d)
     Left(e) ->
@@ -453,7 +469,7 @@ pub fun hc_with_transaction(d : db, f)
             Right(_) ->
               Right(v)
 
-// .hc:322
+// .hc:338
 pub fun hc_print_rows(r : queryresult)
   println(r.columns.join(" | "))
   foreach(r.rows) fn(row)

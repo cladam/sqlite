@@ -560,3 +560,50 @@ test "exec_batch: stops and returns Err on first bad statement" {
     }
   })
 }
+
+// ── Column access by name ──────────────────────────────────────────────────
+
+test "row_str_by: returns value for existing column" {
+  let cols = ["id", "name", "score"]
+  let row  = Row { values: [Some("1"), Some("alice"), Some("90")] }
+  assert_eq(row_str_by(row, cols, "id"),    Some("1"))
+  assert_eq(row_str_by(row, cols, "name"),  Some("alice"))
+  assert_eq(row_str_by(row, cols, "score"), Some("90"))
+}
+
+test "row_str_by: returns None for unknown column name" {
+  let cols = ["a", "b"]
+  let row  = Row { values: [Some("1"), Some("2")] }
+  assert_eq(row_str_by(row, cols, "missing"), None)
+}
+
+test "row_str_by: returns None for SQL NULL column" {
+  let cols = ["x", "y"]
+  let row  = Row { values: [Some("hello"), None] }
+  assert_eq(row_str_by(row, cols, "y"), None)
+}
+
+test "row_int_by: parses column value as int" {
+  let cols = ["n", "label"]
+  let row  = Row { values: [Some("42"), Some("hello")] }
+  assert_eq(row_int_by(row, cols, "n"), Some(42))
+  assert_eq(row_int_by(row, cols, "label"), None)
+}
+
+test "row_str_by: works with actual query result" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (name TEXT, age INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["alice", "30"])
+    match sqlite_query(db, "SELECT name, age FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => match head(r.rows) {
+        None      => assert(false),
+        Some(row) => {
+          assert_eq(row_str_by(row, r.columns, "name"), Some("alice"))
+          assert_eq(row_int_by(row, r.columns, "age"),  Some(30))
+          assert_eq(row_str_by(row, r.columns, "nope"), None)
+        }
+      }
+    }
+  })
+}
