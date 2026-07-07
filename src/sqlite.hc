@@ -238,6 +238,72 @@ pub fun with_sqlite(path: string, f: (Db) -> ()) {
 }
 
 // ---------------------------------------------------------------------------
+// Transactions
+// ---------------------------------------------------------------------------
+
+// Begin a transaction (DEFERRED by default).
+pub fun sqlite_begin(d: Db) {
+  let rc = sqlite_exec_raw(d.h, "BEGIN")
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
+}
+
+// Commit the active transaction.
+pub fun sqlite_commit(d: Db) {
+  let rc = sqlite_exec_raw(d.h, "COMMIT")
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
+}
+
+// Rollback the active transaction.
+pub fun sqlite_rollback(d: Db) {
+  let rc = sqlite_exec_raw(d.h, "ROLLBACK")
+  if rc == 0 {
+    Ok(true)
+  } else {
+    let code = sqlite_errcode_raw(d.h)
+    let msg  = sqlite_errmsg_raw(d.h)
+    Err(SqliteError { code: code, message: msg })
+  }
+}
+
+// Run f(db) inside a transaction.
+// Commits on Ok, rolls back on Err (discarding the rollback result).
+pub fun with_transaction(d: Db, f) {
+  match sqlite_begin(d) {
+    Err(e) => Err(e),
+    Ok(_)  => {
+      let r = f(d)
+      match r {
+        Err(e) => {
+          let _ = sqlite_rollback(d)
+          Err(e)
+        },
+        Ok(v)  => {
+          match sqlite_commit(d) {
+            Err(e) => {
+              let _ = sqlite_rollback(d)
+              Err(e)
+            },
+            Ok(_) => Ok(v)
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Display helpers
 // ---------------------------------------------------------------------------
 

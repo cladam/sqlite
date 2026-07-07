@@ -445,3 +445,73 @@ test "error: message is accessible as string" {
     }
   })
 }
+
+// ── Transactions ───────────────────────────────────────────────────────────
+
+test "transaction: committed changes are visible" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = sqlite_begin(db)
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["42"])
+    let _ = sqlite_commit(db)
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 1)
+    }
+  })
+}
+
+test "transaction: rolled back changes are not visible" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = sqlite_begin(db)
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["42"])
+    let _ = sqlite_rollback(db)
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 0)
+    }
+  })
+}
+
+test "with_transaction: commits on Ok" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = with_transaction(db, (db) => {
+      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+    })
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 1)
+    }
+  })
+}
+
+test "with_transaction: rolls back on Err" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = with_transaction(db, (db) => {
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+      sqlite_exec(db, "NOT VALID SQL")
+    })
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 0)
+    }
+  })
+}
+
+test "with_transaction: multiple inserts are atomic" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = with_transaction(db, (db) => {
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["2"])
+      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["3"])
+    })
+    match sqlite_query(db, "SELECT x FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(length(r.rows), 3)
+    }
+  })
+}

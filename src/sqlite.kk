@@ -394,7 +394,56 @@ pub fun hc_with_sqlite(hc_path : string, f)
       hc_sqlite_close(d)
       Right(True)
 
-// .hc:242
+// .hc:241
+pub fun hc_sqlite_begin(d : db)
+  val rc : int = sqlite_exec_raw(d.h, "BEGIN")
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
+
+// .hc:250
+pub fun hc_sqlite_commit(d : db)
+  val rc : int = sqlite_exec_raw(d.h, "COMMIT")
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
+
+// .hc:262
+pub fun hc_sqlite_rollback(d : db)
+  val rc : int = sqlite_exec_raw(d.h, "ROLLBACK")
+  if (rc == 0) then
+    Right(True)
+  else
+    val code : int = sqlite_errcode_raw(d.h)
+    val msg : string = sqlite_errmsg_raw(d.h)
+    Left(SqliteError(code, msg))
+
+// .hc:276
+pub fun hc_with_transaction(d : db, f)
+  match hc_sqlite_begin(d)
+    Left(e) ->
+      Left(e)
+    Right(_) ->
+      val r = f(d)
+      match r
+        Left(e) ->
+          val _ = hc_sqlite_rollback(d)
+          Left(e)
+        Right(v) ->
+          match hc_sqlite_commit(d)
+            Left(e) ->
+              val _ = hc_sqlite_rollback(d)
+              Left(e)
+            Right(_) ->
+              Right(v)
+
+// .hc:308
 pub fun hc_print_rows(r : queryresult)
   println(r.columns.join(" | "))
   foreach(r.rows) fn(row)
