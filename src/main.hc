@@ -8,7 +8,7 @@ fun print_all_rows(db, sql) {
 }
 
 fun print_filtered(db) {
-  match sqlite_query_p(db, "SELECT * FROM notes WHERE body LIKE ?", ["%hica%"]) {
+  match sqlite_query_p(db, "SELECT * FROM notes WHERE body LIKE ?", [param("%hica%")]) {
     Err(e) => println("filtered query failed: " + e.message),
     Ok(r)  => print_rows(r)
   }
@@ -23,8 +23,8 @@ fun print_table_check(db, name) {
 
 fun run_demo(db) {
   let _ = sqlite_exec(db, "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)")
-  let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Hello from hica"])
-  let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Moonbun stores all the things!"])
+  let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", [param("Hello from hica")])
+  let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", [param("Moonbun stores all the things!")])
   println("Inserted " + show(sqlite_changes(db)) + " row(s)")
   println("")
   println("All rows:")

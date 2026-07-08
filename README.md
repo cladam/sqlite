@@ -49,8 +49,8 @@ import "sqlite"
 fun main() {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE notes (id INTEGER PRIMARY KEY, body TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Hello from hica"])
-    let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", ["Moonbun stores all the things!"])
+    let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", [param("Hello from hica")])
+    let _ = sqlite_exec_p(db, "INSERT INTO notes (body) VALUES (?)", [param("Moonbun stores all the things!")])
 
     match sqlite_query(db, "SELECT * FROM notes") {
       Err(e) => println("query failed: " + e.message),
@@ -78,6 +78,7 @@ id | body
 | `Row` | `values: list<maybe<string>>` | A single result row; SQL NULL → `None`, empty string → `Some("")` |
 | `QueryResult` | `columns: list<string>`, `rows: list<Row>` | Full SELECT result |
 | `SqliteError` | `code: int`, `message: string` | Error from any sqlite operation; `code` is the SQLite extended error code |
+| `SqlParam` | opaque | A bound parameter value. Create with `param(s)`. The private constructor prevents raw strings from reaching the query engine |
 
 ### Open / Close
 
@@ -94,19 +95,19 @@ Always use the `_p` variants for any SQL that contains user input.
 |----------|-------------|
 | `sqlite_exec(db, sql)` | Execute a plain SQL statement (DDL, trusted SQL only) |
 | `sqlite_exec_batch(db, sql)` | Execute multiple `;`-separated statements (schema migrations, setup scripts) |
-| `sqlite_exec_p(db, sql, params)` | Execute with `?` placeholders bound to `params` in order |
-| `sqlite_exec_named(db, sql, params)` | Execute with named placeholders (`:name`, `@name`, `$name`) bound to `params: list<(string, string)>` |
+| `sqlite_exec_p(db, sql, params)` | Execute with `?` placeholders; `params: list<SqlParam>` |
+| `sqlite_exec_named(db, sql, params)` | Execute with named placeholders; `params: list<(string, SqlParam)>` |
 
-All return `result<bool, SqliteError>` — `Ok(true)` on success, `Err(e)` on failure (`e.code`, `e.message`).
+All return `result<bool, SqliteError>`. Use `param(value)` to create each `SqlParam`.
 
 ### Query (rows returned)
 
 | Function | Description |
 |----------|-------------|
 | `sqlite_query(db, sql)` | Plain SELECT; returns `result<QueryResult, SqliteError>` |
-| `sqlite_query_p(db, sql, params)` | Parameterised SELECT; returns `result<QueryResult, SqliteError>` |
-| `sqlite_query_named(db, sql, params)` | Named-parameter SELECT; `params: list<(string, string)>`; returns `result<QueryResult, SqliteError>` |
-| `sqlite_query_one(db, sql, params)` | At most one row; returns `result<maybe<Row>, SqliteError>` |
+| `sqlite_query_p(db, sql, params)` | Parameterised SELECT; `params: list<SqlParam>`; returns `result<QueryResult, SqliteError>` |
+| `sqlite_query_named(db, sql, params)` | Named-parameter SELECT; `params: list<(string, SqlParam)>`; returns `result<QueryResult, SqliteError>` |
+| `sqlite_query_one(db, sql, params)` | At most one row; `params: list<SqlParam>`; returns `result<maybe<Row>, SqliteError>` |
 
 ### Metadata
 
@@ -124,6 +125,8 @@ All return `result<bool, SqliteError>` — `Ok(true)` on success, `Err(e)` on fa
 | `row_int(row, idx)` | Column value parsed as `maybe<int>`; `None` if out of range or non-numeric |
 | `row_str_by(row, columns, name)` | Column value by name using `QueryResult.columns`; `None` if name not found or SQL NULL |
 | `row_int_by(row, columns, name)` | Column value by name, parsed as `maybe<int>` |
+| `param(s)` | Wrap a string as a `SqlParam` — the only way to create a bound parameter value |
+| `param_value(p)` | Extract the underlying string from a `SqlParam` |
 
 ### Transactions
 
@@ -154,7 +157,7 @@ All return `result<bool, SqliteError>` — `Ok(true)` on success, `Err(e)` on fa
 import "sqlite"
 
 fun find_users(db, min_age: int) {
-  match sqlite_query_p(db, "SELECT name FROM users WHERE age >= ?", [show(min_age)]) {
+  match sqlite_query_p(db, "SELECT name FROM users WHERE age >= ?", [param(show(min_age))]) {
     Err(e) => println("error: " + e.message),
     Ok(r)  => foreach(r.rows, (row) => {
       match row_str(row, 0) {
@@ -172,7 +175,7 @@ fun find_users(db, min_age: int) {
 import "sqlite"
 
 fun get_setting(db, key: string) {
-  match sqlite_query_one(db, "SELECT value FROM settings WHERE key = ?", [key]) {
+  match sqlite_query_one(db, "SELECT value FROM settings WHERE key = ?", [param(key)]) {
     Err(e)        => println("db error: " + e.message),
     Ok(None)      => println("key not found"),
     Ok(Some(row)) => match row_str(row, 0) {
@@ -185,7 +188,19 @@ fun get_setting(db, key: string) {
 
 ## Security
 
-`sqlite_exec_p`, `sqlite_exec_named`, `sqlite_query_p`, and `sqlite_query_named` bind values at the C layer via `sqlite3_bind_text`, SQL injection is prevented at the source. Never build SQL strings by concatenating user input; always use `?` or named placeholders and the `_p` / `_named` variants.
+`sqlite_exec_p`, `sqlite_exec_named`, `sqlite_query_p`, `sqlite_query_named`, and `sqlite_query_one` require `SqlParam` values, not plain strings. `SqlParam` has a private constructor — the only way to create one is via `param(s)`. This makes it **structurally impossible** at the type level to pass a raw string where a bound parameter is required:
+
+```hica
+// This does NOT compile:
+sqlite_exec_p(db, "SELECT * FROM t WHERE id = ?", [user_id])
+//                                                 ^^^^^^^
+// error: expected SqlParam, got string
+
+// This is the required form:
+sqlite_exec_p(db, "SELECT * FROM t WHERE id = ?", [param(user_id)])
+```
+
+All four parameterised functions bind values at the C layer via `sqlite3_bind_text`. Never build SQL strings by concatenating user input; always use `?` or named placeholders and the `_p` / `_named` variants.
 
 ## License
 

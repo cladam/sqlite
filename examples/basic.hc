@@ -27,8 +27,8 @@ fun show_kv(db) {
 
 fun run_kv_demo(db) {
   let _ = sqlite_exec(db, "CREATE TABLE kv (key TEXT, value TEXT)")
-  let _ = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", ["language", "hica"])
-  let _ = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", ["db", "sqlite"])
+  let _ = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", [param("language"), param("hica")])
+  let _ = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", [param("db"), param("sqlite")])
   show_kv(db)
   sqlite_close(db)
   println("closed")
@@ -42,7 +42,7 @@ fun print_hit_value(row) {
 }
 
 fun check_hits(db) {
-  match sqlite_query_one(db, "SELECT n FROM counters WHERE name = ?", ["hits"]) {
+  match sqlite_query_one(db, "SELECT n FROM counters WHERE name = ?", [param("hits")]) {
     Err(e)        => println("query_one failed: " + e.message),
     Ok(None)      => println("no row found"),
     Ok(Some(row)) => print_hit_value(row)
@@ -58,8 +58,8 @@ fun print_table_exists(db, name) {
 
 fun run_counters(db) {
   let _ = sqlite_exec(db, "CREATE TABLE counters (name TEXT, n INT)")
-  let _ = sqlite_exec_p(db, "INSERT INTO counters VALUES (?, ?)", ["hits", "42"])
-  let _ = sqlite_exec_p(db, "INSERT INTO counters VALUES (?, ?)", ["misses", "7"])
+  let _ = sqlite_exec_p(db, "INSERT INTO counters VALUES (?, ?)", [param("hits"), param("42")])
+  let _ = sqlite_exec_p(db, "INSERT INTO counters VALUES (?, ?)", [param("misses"), param("7")])
   check_hits(db)
   print_table_exists(db, "counters")
   println("changes so far: " + show(sqlite_changes(db)))

@@ -34,6 +34,19 @@ pub struct QueryResult { columns: list<string>, rows: list<Row> }
 // message: human-readable description from sqlite3_errmsg.
 pub struct SqliteError { code: int, message: string }
 
+// Opaque wrapper for a SQL parameter value.
+// The private constructor ensures values can only be created via param(),
+// making it structurally impossible to pass a raw string where a bound
+// parameter is required. This prevents SQL injection at the type level.
+pub struct SqlParam priv { data: string }
+
+// Wrap a value as a SQL parameter. This is the only way to create a SqlParam.
+// Use this for every value that comes from user input or external sources.
+pub fun param(s: string) : SqlParam => SqlParam { data: s }
+
+// Extract the underlying string from a SqlParam (for debugging or display).
+pub fun param_value(p: SqlParam) : string => p.data
+
 // ---------------------------------------------------------------------------
 // Open / Close
 // ---------------------------------------------------------------------------
@@ -91,8 +104,9 @@ pub fun sqlite_exec_batch(d: Db, sql: string) {
 // Execute a parameterised SQL statement.
 // ALWAYS use this instead of string concatenation when SQL contains user input.
 // params bind to ? placeholders in order — prevents SQL injection at the C layer.
-pub fun sqlite_exec_p(d: Db, sql: string, params: list<string>) {
-  let params_str = if is_empty(params) { "" } else { join(params, "\x1F") + "\x1F" }
+// Each value must be wrapped with param() to cross the trust boundary.
+pub fun sqlite_exec_p(d: Db, sql: string, params: list<SqlParam>) {
+  let params_str = if is_empty(params) { "" } else { join(map(params, (p) => p.data), "\x1F") + "\x1F" }
   let rc = sqlite_exec_p_raw(d.h, sql, params_str)
   if rc == 0 {
     Ok(true)
@@ -105,9 +119,9 @@ pub fun sqlite_exec_p(d: Db, sql: string, params: list<string>) {
 
 // Execute a named-parameter SQL statement.
 // params is a list of (name, value) pairs; names include the leading sigil
-// (e.g. ":id", "@name", "$val").
-pub fun sqlite_exec_named(d: Db, sql: string, params: list<(string, string)>) {
-  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1), "\x1F") + "\x1F"
+// (e.g. ":id", "@name", "$val"). Values must be wrapped with param().
+pub fun sqlite_exec_named(d: Db, sql: string, params: list<(string, SqlParam)>) {
+  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1.data), "\x1F") + "\x1F"
   let params_str = if is_empty(params) { "" } else { pairs_str }
   let rc = sqlite_exec_named_raw(d.h, sql, params_str)
   if rc == 0 {
@@ -130,8 +144,8 @@ pub fun parse_row(raw_row: string) : Row {
   Row { values: maybe_cells }
 }
 
-pub fun sqlite_query_p(d: Db, sql: string, params: list<string>) {
-  let params_str = if is_empty(params) { "" } else { join(params, "\x1F") + "\x1F" }
+pub fun sqlite_query_p(d: Db, sql: string, params: list<SqlParam>) {
+  let params_str = if is_empty(params) { "" } else { join(map(params, (p) => p.data), "\x1F") + "\x1F" }
   let raw = sqlite_query_p_raw(d.h, sql, params_str)
   if is_empty(raw) {
     let code = sqlite_errcode_raw(d.h)
@@ -155,8 +169,9 @@ pub fun sqlite_query_p(d: Db, sql: string, params: list<string>) {
 
 // Run a named-parameter SELECT.
 // params is a list of (name, value) pairs; names include the leading sigil.
-pub fun sqlite_query_named(d: Db, sql: string, params: list<(string, string)>) {
-  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1), "\x1F") + "\x1F"
+// Values must be wrapped with param().
+pub fun sqlite_query_named(d: Db, sql: string, params: list<(string, SqlParam)>) {
+  let pairs_str = join(map(params, (p) => p.0 + "\x1E" + p.1.data), "\x1F") + "\x1F"
   let params_str = if is_empty(params) { "" } else { pairs_str }
   let raw = sqlite_query_named_raw(d.h, sql, params_str)
   if is_empty(raw) {
@@ -185,7 +200,7 @@ pub fun sqlite_query(d: Db, sql: string) {
 }
 
 // Return at most one row. Useful for aggregate queries or SELECT ... LIMIT 1.
-pub fun sqlite_query_one(d: Db, sql: string, params: list<string>) {
+pub fun sqlite_query_one(d: Db, sql: string, params: list<SqlParam>) {
   match sqlite_query_p(d, sql, params) {
     Err(e) => Err(e),
     Ok(r) => Ok(head(r.rows))
@@ -208,7 +223,7 @@ pub fun sqlite_changes(d: Db) {
 
 // Return true if a table with the given name exists in the main schema.
 pub fun sqlite_table_exists(d: Db, name: string) {
-  match sqlite_query_p(d, "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", [name]) {
+  match sqlite_query_p(d, "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", [param(name)]) {
     Err(e) => Err(e),
     Ok(r) => Ok(length(r.rows) > 0)
   }

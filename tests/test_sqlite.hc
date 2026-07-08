@@ -92,7 +92,7 @@ test "exec: invalid sql returns Err" {
 test "exec_p: insert with params succeeds" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE kv (k TEXT, v TEXT)")
-    let r = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", ["lang", "hica"])
+    let r = sqlite_exec_p(db, "INSERT INTO kv VALUES (?, ?)", [param("lang"), param("hica")])
     assert(is_ok(r))
   })
 }
@@ -100,9 +100,9 @@ test "exec_p: insert with params succeeds" {
 test "exec_p: multiple inserts succeed" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let r1 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
-    let r2 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["2"])
-    let r3 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["3"])
+    let r1 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let r2 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let r3 = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
     assert(is_ok(r1))
     assert(is_ok(r2))
     assert(is_ok(r3))
@@ -138,7 +138,7 @@ test "query: correct column names" {
 test "query: inserted row is returned" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["moonbun"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("moonbun")])
     match sqlite_query(db, "SELECT * FROM t") {
       Err(_) => assert(false),
       Ok(r)  => {
@@ -155,9 +155,9 @@ test "query: inserted row is returned" {
 test "query: multiple rows returned in order" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["10"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["20"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["30"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("10")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("20")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("30")])
     match sqlite_query(db, "SELECT * FROM t ORDER BY n") {
       Err(_) => assert(false),
       Ok(r)  => assert_eq(length(r.rows), 3)
@@ -168,10 +168,10 @@ test "query: multiple rows returned in order" {
 test "query_p: filters rows by parameter" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["2"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["3"])
-    match sqlite_query_p(db, "SELECT * FROM t WHERE n > ?", ["1"]) {
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
+    match sqlite_query_p(db, "SELECT * FROM t WHERE n > ?", [param("1")]) {
       Err(_) => assert(false),
       Ok(r)  => assert_eq(length(r.rows), 2)
     }
@@ -181,7 +181,7 @@ test "query_p: filters rows by parameter" {
 test "query_one: returns Some for existing row" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["hello"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("hello")])
     match sqlite_query_one(db, "SELECT x FROM t LIMIT 1", []) {
       Err(_)    => assert(false),
       Ok(mrow)  => match mrow {
@@ -210,7 +210,7 @@ test "query_one: returns None for empty table" {
 test "last_insert_id: positive after insert" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (id INTEGER PRIMARY KEY, x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", ["a"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", [param("a")])
     assert(sqlite_last_insert_id(db) > 0)
   })
 }
@@ -218,9 +218,9 @@ test "last_insert_id: positive after insert" {
 test "last_insert_id: increments on each insert" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (id INTEGER PRIMARY KEY, x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", ["a"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", [param("a")])
     let id1 = sqlite_last_insert_id(db)
-    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", ["b"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t (x) VALUES (?)", [param("b")])
     let id2 = sqlite_last_insert_id(db)
     assert(id2 > id1)
   })
@@ -229,7 +229,7 @@ test "last_insert_id: increments on each insert" {
 test "changes: 1 after single insert" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["a"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("a")])
     assert_eq(sqlite_changes(db), 1)
   })
 }
@@ -237,9 +237,9 @@ test "changes: 1 after single insert" {
 test "changes: matches affected rows after update" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["2"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["3"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
     let _ = sqlite_exec(db, "UPDATE t SET n = 0")
     assert_eq(sqlite_changes(db), 3)
   })
@@ -294,7 +294,7 @@ test "with_sqlite: executes callback and closes db" {
 test "query: SQL NULL column returns None from row_str" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT, y TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, NULL)", ["hello"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, NULL)", [param("hello")])
     match sqlite_query(db, "SELECT x, y FROM t") {
       Err(_) => assert(false),
       Ok(r)  => match head(r.rows) {
@@ -311,7 +311,7 @@ test "query: SQL NULL column returns None from row_str" {
 test "query: empty-string column is Some, not None" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x TEXT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [""])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("")])
     match sqlite_query(db, "SELECT x FROM t") {
       Err(_) => assert(false),
       Ok(r)  => match head(r.rows) {
@@ -345,7 +345,7 @@ test "exec_named: insert with colon params" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (k TEXT, v TEXT)")
     let r = sqlite_exec_named(db, "INSERT INTO t VALUES (:key, :val)",
-              [(":key", "lang"), (":val", "hica")])
+              [(":key", param("lang")), (":val", param("hica"))])
     assert(is_ok(r))
     match sqlite_query(db, "SELECT k, v FROM t") {
       Err(_) => assert(false),
@@ -366,7 +366,7 @@ test "exec_named: insert with colon params" {
 test "exec_named: at-sign params" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let r = sqlite_exec_named(db, "INSERT INTO t VALUES (@num)", [("@num", "42")])
+    let r = sqlite_exec_named(db, "INSERT INTO t VALUES (@num)", [("@num", param("42"))])
     assert(is_ok(r))
   })
 }
@@ -376,7 +376,7 @@ test "exec_named: reuse param in multiple places" {
     let _ = sqlite_exec(db, "CREATE TABLE t (a TEXT, b TEXT)")
     let r = sqlite_exec_named(db,
               "INSERT INTO t VALUES (:x, :x)",
-              [(":x", "same")])
+              [(":x", param("same"))])
     assert(is_ok(r))
     match sqlite_query(db, "SELECT a, b FROM t") {
       Err(_) => assert(false),
@@ -394,10 +394,10 @@ test "exec_named: reuse param in multiple places" {
 test "query_named: filters by named param" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["5"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["10"])
-    match sqlite_query_named(db, "SELECT n FROM t WHERE n > :min", [(":min", "3")]) {
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("5")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("10")])
+    match sqlite_query_named(db, "SELECT n FROM t WHERE n > :min", [(":min", param("3"))]) {
       Err(_) => assert(false),
       Ok(r)  => assert_eq(length(r.rows), 2)
     }
@@ -407,10 +407,10 @@ test "query_named: filters by named param" {
 test "query_named: returns correct values" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (name TEXT, score INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["alice", "90"])
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["bob", "70"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", [param("alice"), param("90")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", [param("bob"), param("70")])
     match sqlite_query_named(db, "SELECT name FROM t WHERE score >= :min",
-            [(":min", "80")]) {
+            [(":min", param("80"))]) {
       Err(_) => assert(false),
       Ok(r)  => {
         assert_eq(length(r.rows), 1)
@@ -452,7 +452,7 @@ test "transaction: committed changes are visible" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
     let _ = sqlite_begin(db)
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["42"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("42")])
     let _ = sqlite_commit(db)
     match sqlite_query(db, "SELECT x FROM t") {
       Err(_) => assert(false),
@@ -465,7 +465,7 @@ test "transaction: rolled back changes are not visible" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
     let _ = sqlite_begin(db)
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["42"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("42")])
     let _ = sqlite_rollback(db)
     match sqlite_query(db, "SELECT x FROM t") {
       Err(_) => assert(false),
@@ -478,7 +478,7 @@ test "with_transaction: commits on Ok" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
     let _ = with_transaction(db, (db) => {
-      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
     })
     match sqlite_query(db, "SELECT x FROM t") {
       Err(_) => assert(false),
@@ -491,7 +491,7 @@ test "with_transaction: rolls back on Err" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
     let _ = with_transaction(db, (db) => {
-      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
       sqlite_exec(db, "NOT VALID SQL")
     })
     match sqlite_query(db, "SELECT x FROM t") {
@@ -505,9 +505,9 @@ test "with_transaction: multiple inserts are atomic" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
     let _ = with_transaction(db, (db) => {
-      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["1"])
-      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["2"])
-      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", ["3"])
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+      let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+      sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
     })
     match sqlite_query(db, "SELECT x FROM t") {
       Err(_) => assert(false),
@@ -593,7 +593,7 @@ test "row_int_by: parses column value as int" {
 test "row_str_by: works with actual query result" {
   let _ = with_sqlite(":memory:", (db) => {
     let _ = sqlite_exec(db, "CREATE TABLE t (name TEXT, age INT)")
-    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", ["alice", "30"])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?, ?)", [param("alice"), param("30")])
     match sqlite_query(db, "SELECT name, age FROM t") {
       Err(_) => assert(false),
       Ok(r)  => match head(r.rows) {
