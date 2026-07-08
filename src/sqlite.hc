@@ -26,8 +26,8 @@ pub struct Db { h: int }
 // SQL NULL is represented as None; an empty string column is Some("").
 pub struct Row { values: list<maybe<string>> }
 
-// Full result of a SELECT query.
-pub struct QueryResult { columns: list<string>, rows: list<Row> }
+// Full result of a SELECT query. row_count mirrors length(rows) — avoids a length() call.
+pub struct QueryResult { columns: list<string>, rows: list<Row>, row_count: int }
 
 // Structured error returned by all sqlite operations.
 // code: SQLite extended error code (e.g. 1 = SQLITE_ERROR, 14 = SQLITE_CANTOPEN).
@@ -188,10 +188,11 @@ pub fun sqlite_query_p(d: Db, sql: string, params: list<SqlParam>) {
       Some(s) => if is_empty(s) { take(all_strs, length(all_strs) - 1) } else { all_strs }
     }
     match row_strs {
-      [] => Ok(QueryResult { columns: [], rows: [] }),
+      [] => Ok(QueryResult { columns: [], rows: [], row_count: 0 }),
       [header, ..data_rows] => Ok(QueryResult {
         columns: split(header, "\x1F"),
-        rows: map(data_rows, parse_row)
+        rows: map(data_rows, parse_row),
+        row_count: length(data_rows)
       })
     }
   }
@@ -215,10 +216,11 @@ pub fun sqlite_query_named(d: Db, sql: string, params: list<(string, SqlParam)>)
       Some(s) => if is_empty(s) { take(all_strs, length(all_strs) - 1) } else { all_strs }
     }
     match row_strs {
-      [] => Ok(QueryResult { columns: [], rows: [] }),
+      [] => Ok(QueryResult { columns: [], rows: [], row_count: 0 }),
       [header, ..data_rows] => Ok(QueryResult {
         columns: split(header, "\x1F"),
-        rows: map(data_rows, parse_row)
+        rows: map(data_rows, parse_row),
+        row_count: length(data_rows)
       })
     }
   }

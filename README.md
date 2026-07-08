@@ -76,9 +76,10 @@ id | body
 |------|--------|-------------|
 | `Db` | opaque | Database connection handle |
 | `Row` | `values: list<maybe<string>>` | A single result row; SQL NULL → `None`, empty string → `Some("")` |
-| `QueryResult` | `columns: list<string>`, `rows: list<Row>` | Full SELECT result |
+| `QueryResult` | `columns: list<string>`, `rows: list<Row>`, `row_count: int` | Full SELECT result; `row_count` equals `length(rows)` |
 | `SqliteError` | `code: int`, `message: string` | Error from any sqlite operation; `code` is the SQLite extended error code |
 | `SqlParam` | opaque | A bound parameter value. Create with `param(s)`. The private constructor prevents raw strings from reaching the query engine |
+| `ColumnInfo` | `cid: int`, `name: string`, `col_type: string`, `notnull: bool`, `pk: int` | Column metadata returned by `sqlite_schema_columns` |
 
 ### Open / Close
 
@@ -115,7 +116,9 @@ All return `result<bool, SqliteError>`. Use `param(value)` to create each `SqlPa
 |----------|-------------|
 | `sqlite_last_insert_id(db)` | Rowid of the last INSERT, or `-1` |
 | `sqlite_changes(db)` | Rows affected by the last INSERT / UPDATE / DELETE |
+| `sqlite_changes_total(db)` | Total rows changed since the connection was opened |
 | `sqlite_table_exists(db, name)` | Returns `result<bool, SqliteError>` |
+| `sqlite_schema_columns(db, table)` | Column metadata via `PRAGMA table_info`; returns `result<list<ColumnInfo>, SqliteError>` |
 
 ### Row accessors
 

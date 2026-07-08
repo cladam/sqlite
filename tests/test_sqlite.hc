@@ -776,3 +776,44 @@ test "schema_columns: empty list for non-existent table" {
     }
   })
 }
+
+// ── QueryResult.row_count ──────────────────────────────────────────────────
+
+test "row_count: zero for empty table" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    match sqlite_query(db, "SELECT * FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(r.row_count, 0)
+    }
+  })
+}
+
+test "row_count: matches actual row count" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
+    match sqlite_query(db, "SELECT * FROM t") {
+      Err(_) => assert(false),
+      Ok(r)  => {
+        assert_eq(r.row_count, 3)
+        assert_eq(r.row_count, length(r.rows))
+      }
+    }
+  })
+}
+
+test "row_count: consistent after filter" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (n INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
+    match sqlite_query_p(db, "SELECT * FROM t WHERE n > ?", [param("1")]) {
+      Err(_) => assert(false),
+      Ok(r)  => assert_eq(r.row_count, 2)
+    }
+  })
+}
