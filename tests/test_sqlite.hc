@@ -607,3 +607,55 @@ test "row_str_by: works with actual query result" {
     }
   })
 }
+
+// ── row_float / row_float_by (T2-1) ───────────────────────────────────────
+
+test "row_float: parses valid float" {
+  let row = Row { values: [Some("3.14")] }
+  match row_float(row, 0) {
+    None    => assert(false),
+    Some(f) => assert(f > 3.0 && f < 3.2)
+  }
+}
+
+test "row_float: returns None for non-numeric" {
+  let row = Row { values: [Some("hello")] }
+  assert_eq(row_float(row, 0), None)
+}
+
+test "row_float: returns None for SQL NULL" {
+  let row = Row { values: [None] }
+  assert_eq(row_float(row, 0), None)
+}
+
+test "row_float_by: returns parsed float by column name" {
+  let cols = ["price", "label"]
+  let row  = Row { values: [Some("9.99"), Some("item")] }
+  match row_float_by(row, cols, "price") {
+    None    => assert(false),
+    Some(f) => assert(f > 9.0 && f < 10.0)
+  }
+}
+
+// ── sqlite_changes_total (T2-3) ────────────────────────────────────────────
+
+test "changes_total: accumulates across multiple statements" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("3")])
+    assert_eq(sqlite_changes_total(db), 3)
+  })
+}
+
+test "changes_total: includes rows from before the last statement" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INT)")
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("1")])
+    let _ = sqlite_exec_p(db, "INSERT INTO t VALUES (?)", [param("2")])
+    let _ = sqlite_exec(db, "DELETE FROM t WHERE x = 1")
+    assert_eq(sqlite_changes(db), 1)
+    assert_eq(sqlite_changes_total(db), 3)
+  })
+}

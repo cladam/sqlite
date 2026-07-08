@@ -38,6 +38,9 @@ pub extern sqlite_last_insert_id_raw( h : int ) : io int
 pub extern sqlite_changes_raw( h : int ) : io int
   c "kk_hica_sqlite_changes"
 
+pub extern sqlite_changes_total_raw( h : int ) : io int
+  c "kk_hica_sqlite_changes_total"
+
 // ---------------------------------------------------------------------------
 // Execute (no rows returned)
 // ---------------------------------------------------------------------------

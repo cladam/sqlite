@@ -170,6 +170,17 @@ static kk_integer_t kk_hica_sqlite_changes(kk_integer_t h_kk, kk_context_t* ctx)
 }
 
 // ---------------------------------------------------------------------------
+// kk_hica_sqlite_changes_total — total rows changed since connection opened
+// ---------------------------------------------------------------------------
+
+static kk_integer_t kk_hica_sqlite_changes_total(kk_integer_t h_kk, kk_context_t* ctx) {
+  int64_t handle = kk_integer_clamp64(h_kk, ctx);
+  sqlite3* db = handle_to_db(handle);
+  (void)ctx;
+  return kk_integer_from_int(db ? sqlite3_total_changes(db) : 0, ctx);
+}
+
+// ---------------------------------------------------------------------------
 // kk_hica_sqlite_exec — run a plain SQL statement (no result rows)
 //
 // Returns 0 on success, non-zero on failure.

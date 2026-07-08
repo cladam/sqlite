@@ -221,6 +221,11 @@ pub fun sqlite_changes(d: Db) {
   sqlite_changes_raw(d.h)
 }
 
+// Total number of rows inserted, updated, or deleted since the connection was opened.
+pub fun sqlite_changes_total(d: Db) {
+  sqlite_changes_total_raw(d.h)
+}
+
 // Return true if a table with the given name exists in the main schema.
 pub fun sqlite_table_exists(d: Db, name: string) {
   match sqlite_query_p(d, "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", [param(name)]) {
@@ -250,6 +255,13 @@ pub fun row_int(r: Row, idx: int) : maybe<int> =>
     Some(s) => parse_int(s)
   }
 
+// Get a column value parsed as float. Returns None if out of range or not parseable.
+pub fun row_float(r: Row, idx: int) : maybe<float> =>
+  match row_str(r, idx) {
+    None => None,
+    Some(s) => parse_float(s)
+  }
+
 // Get a column value by name using the QueryResult's column list.
 // Returns None if the column name is not found or the cell is SQL NULL.
 pub fun row_str_by(r: Row, columns: list<string>, name: string) : maybe<string> =>
@@ -264,6 +276,14 @@ pub fun row_int_by(r: Row, columns: list<string>, name: string) : maybe<int> =>
   match row_str_by(r, columns, name) {
     None    => None,
     Some(s) => parse_int(s)
+  }
+
+// Get a column value by name, parsed as float.
+// Returns None if the column is not found, is SQL NULL, or is not numeric.
+pub fun row_float_by(r: Row, columns: list<string>, name: string) : maybe<float> =>
+  match row_str_by(r, columns, name) {
+    None    => None,
+    Some(s) => parse_float(s)
   }
 
 // ---------------------------------------------------------------------------
