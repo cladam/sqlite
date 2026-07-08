@@ -659,3 +659,55 @@ test "changes_total: includes rows from before the last statement" {
     assert_eq(sqlite_changes_total(db), 3)
   })
 }
+
+// ── Open flags ─────────────────────────────────────────────────────────────
+
+test "open_flags: readwrite+create works like sqlite_open" {
+  let flags = sqlite_flag_readwrite() + sqlite_flag_create()
+  match sqlite_open_flags(":memory:", flags) {
+    Err(_) => assert(false),
+    Ok(db) => {
+      let r = sqlite_exec(db, "CREATE TABLE t (x INT)")
+      assert(is_ok(r))
+      sqlite_close(db)
+    }
+  }
+}
+
+test "open_flags: uri flag enables memory URI" {
+  let flags = sqlite_flag_readwrite() + sqlite_flag_create() + sqlite_flag_uri()
+  match sqlite_open_flags(":memory:", flags) {
+    Err(_) => assert(false),
+    Ok(db) => sqlite_close(db)
+  }
+}
+
+test "open_readonly: fails on non-existent path" {
+  match sqlite_open_readonly("/nonexistent/path/that/cannot/exist.db") {
+    Err(_) => assert(true),
+    Ok(db) => { sqlite_close(db); assert(false) }
+  }
+}
+
+test "open_readonly: memory db opens but rejects writes" {
+  match sqlite_open_readonly(":memory:") {
+    Err(_) => assert(true),
+    Ok(db) => {
+      let r = sqlite_exec(db, "CREATE TABLE t (x INT)")
+      assert(is_err(r))
+      sqlite_close(db)
+    }
+  }
+}
+
+test "sqlite_flag_readonly: value is 1" {
+  assert_eq(sqlite_flag_readonly(), 1)
+}
+
+test "sqlite_flag_readwrite: value is 2" {
+  assert_eq(sqlite_flag_readwrite(), 2)
+}
+
+test "sqlite_flag_create: value is 4" {
+  assert_eq(sqlite_flag_create(), 4)
+}

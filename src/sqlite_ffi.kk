@@ -19,6 +19,9 @@ extern import
 pub extern sqlite_open_raw( path : string ) : io int
   c "kk_hica_sqlite_open"
 
+pub extern sqlite_open_flags_raw( path : string, flags : int ) : io int
+  c "kk_hica_sqlite_open_flags"
+
 pub extern sqlite_close_raw( h : int ) : io ()
   c "kk_hica_sqlite_close"
 

@@ -113,6 +113,28 @@ static kk_integer_t kk_hica_sqlite_open(kk_string_t path_str, kk_context_t* ctx)
 }
 
 // ---------------------------------------------------------------------------
+// kk_hica_sqlite_open_flags — open with explicit sqlite3_open_v2 flags
+//
+// flags: bitwise-OR of SQLITE_OPEN_* constants (1=READONLY, 2=READWRITE,
+//        4=CREATE, 64=URI, 128=MEMORY).
+// WAL mode is NOT enabled automatically (inappropriate for read-only opens).
+// Returns the handle cast to int64_t, or 0 on failure.
+// ---------------------------------------------------------------------------
+
+static kk_integer_t kk_hica_sqlite_open_flags(kk_string_t path_str, kk_integer_t flags_kk, kk_context_t* ctx) {
+  const char* path  = kk_string_cbuf_borrow(path_str, NULL, ctx);
+  int flags = (int)kk_integer_clamp64(flags_kk, ctx);
+  sqlite3* db = NULL;
+  if (sqlite3_open_v2(path, &db, flags, NULL) != SQLITE_OK) {
+    if (db) sqlite3_close(db);
+    kk_string_drop(path_str, ctx);
+    return kk_integer_from_int(0, ctx);
+  }
+  kk_string_drop(path_str, ctx);
+  return kk_integer_from_int64(db_to_handle(db), ctx);
+}
+
+// ---------------------------------------------------------------------------
 // kk_hica_sqlite_close — close a database handle
 // ---------------------------------------------------------------------------
 

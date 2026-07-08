@@ -70,6 +70,36 @@ pub fun sqlite_close(d: Db) {
 }
 
 // ---------------------------------------------------------------------------
+// Open flags (for sqlite_open_flags)
+// ---------------------------------------------------------------------------
+// Combine with bit_or: bit_or(sqlite_flag_readwrite(), sqlite_flag_create())
+
+pub fun sqlite_flag_readonly()  : int => 1    // SQLITE_OPEN_READONLY
+pub fun sqlite_flag_readwrite() : int => 2    // SQLITE_OPEN_READWRITE
+pub fun sqlite_flag_create()    : int => 4    // SQLITE_OPEN_CREATE
+pub fun sqlite_flag_uri()       : int => 64   // SQLITE_OPEN_URI — enables URI filenames
+pub fun sqlite_flag_memory()    : int => 128  // SQLITE_OPEN_MEMORY
+
+// Open a database with explicit flags (wraps sqlite3_open_v2).
+// WAL mode is NOT enabled automatically; set it yourself if needed.
+// Example (read-write, create if missing):
+//   sqlite_open_flags(path, bit_or(sqlite_flag_readwrite(), sqlite_flag_create()))
+pub fun sqlite_open_flags(path: string, flags: int) {
+  let h = sqlite_open_flags_raw(path, flags)
+  if h == 0 {
+    Err(SqliteError { code: -1, message: "sqlite open failed: " + path })
+  } else {
+    Ok(Db { h: h })
+  }
+}
+
+// Open an existing database file in read-only mode.
+// Returns Err if the file does not exist or cannot be opened.
+pub fun sqlite_open_readonly(path: string) {
+  sqlite_open_flags(path, sqlite_flag_readonly())
+}
+
+// ---------------------------------------------------------------------------
 // Execute (no rows returned)
 // ---------------------------------------------------------------------------
 
