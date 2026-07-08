@@ -711,3 +711,68 @@ test "sqlite_flag_readwrite: value is 2" {
 test "sqlite_flag_create: value is 4" {
   assert_eq(sqlite_flag_create(), 4)
 }
+
+// ── Schema columns ─────────────────────────────────────────────────────────
+
+test "schema_columns: returns correct column count" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT, score REAL)")
+    match sqlite_schema_columns(db, "t") {
+      Err(_) => assert(false),
+      Ok(cs) => assert_eq(length(cs), 3)
+    }
+  })
+}
+
+test "schema_columns: column names are correct" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (id INTEGER, name TEXT)")
+    match sqlite_schema_columns(db, "t") {
+      Err(_) => assert(false),
+      Ok(cs) => {
+        assert_eq(length(cs), 2)
+        match head(cs) {
+          None    => assert(false),
+          Some(c) => assert_eq(c.name, "id")
+        }
+      }
+    }
+  })
+}
+
+test "schema_columns: declared types are returned" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (x INTEGER, y TEXT, z REAL)")
+    match sqlite_schema_columns(db, "t") {
+      Err(_) => assert(false),
+      Ok(cs) => {
+        let types = map(cs, (c) => c.col_type)
+        assert_eq(types[0], "INTEGER")
+        assert_eq(types[1], "TEXT")
+        assert_eq(types[2], "REAL")
+      }
+    }
+  })
+}
+
+test "schema_columns: primary key detected" {
+  let _ = with_sqlite(":memory:", (db) => {
+    let _ = sqlite_exec(db, "CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT)")
+    match sqlite_schema_columns(db, "t") {
+      Err(_) => assert(false),
+      Ok(cs) => match head(cs) {
+        None    => assert(false),
+        Some(c) => assert(c.pk > 0)
+      }
+    }
+  })
+}
+
+test "schema_columns: empty list for non-existent table" {
+  let _ = with_sqlite(":memory:", (db) => {
+    match sqlite_schema_columns(db, "ghost") {
+      Err(_) => assert(false),
+      Ok(cs) => assert_eq(length(cs), 0)
+    }
+  })
+}

@@ -264,6 +264,37 @@ pub fun sqlite_table_exists(d: Db, name: string) {
   }
 }
 
+// Schema reflection — column metadata from PRAGMA table_info.
+// cid: column index (0-based), col_type: declared type e.g. "INTEGER"/"TEXT",
+// notnull: true if NOT NULL constraint, pk: primary-key sequence (0 = not PK).
+pub struct ColumnInfo {
+  cid: int,
+  name: string,
+  col_type: string,
+  notnull: bool,
+  pk: int
+}
+
+// Return column metadata for a table using PRAGMA table_info.
+// Returns Err if the table does not exist or the query fails.
+// Columns are ordered by their declaration order (cid).
+pub fun sqlite_schema_columns(d: Db, table: string) {
+  match sqlite_query_p(d, "PRAGMA table_info(" + table + ")", []) {
+    Err(e) => Err(e),
+    Ok(r)  => {
+      let cols = map(r.rows, (row) => {
+        let cid     = match row_int(row, 0) { None => 0, Some(n) => n }
+        let name    = match row_str(row, 1) { None => "", Some(s) => s }
+        let tp      = match row_str(row, 2) { None => "", Some(s) => s }
+        let notnull = match row_int(row, 3) { None => 0, Some(n) => n }
+        let pk      = match row_int(row, 5) { None => 0, Some(n) => n }
+        ColumnInfo { cid: cid, name: name, col_type: tp, notnull: notnull != 0, pk: pk }
+      })
+      Ok(cols)
+    }
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Row accessors
 // ---------------------------------------------------------------------------
